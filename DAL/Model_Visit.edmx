@@ -1,0 +1,1305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Project_VisitModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="BRANCH_COMPANY">
+          <Key>
+            <PropertyRef Name="BRA_BUIS_ID" />
+          </Key>
+          <Property Name="BRA_BUIS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CIT_ID" Type="int" />
+          <Property Name="BUS_ID" Type="int" />
+          <Property Name="BRA_BUIS_NAME" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="BRA_BUIS_PHONE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="BRA_BUIS_MAIL" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="BRA_BUIS_MAIL2" Type="varchar" MaxLength="255" />
+          <Property Name="BRA_BUIS_ADDRESS" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="BRA_BUIS_STATE" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BRANCH_OFFICE">
+          <Key>
+            <PropertyRef Name="BRA_OFF_ID" />
+          </Key>
+          <Property Name="BRA_OFF_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CLI_BUS_ID" Type="int" Nullable="false" />
+          <Property Name="CIT_ID" Type="int" Nullable="false" />
+          <Property Name="EMP_ID" Type="int" />
+          <Property Name="BRA_OFF_NAME" Type="varchar" MaxLength="255" />
+          <Property Name="BRA_OFF_PHONE" Type="varchar" MaxLength="255" />
+          <Property Name="BRA_OFF_ADDRESS" Type="varchar" MaxLength="255" />
+          <Property Name="BRA_COM_NAME" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="BRA_COM_PHONE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="BRA_COM_MAIL" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="BRA_COM_MAIL2" Type="varchar" MaxLength="255" />
+          <Property Name="BRA_COM_ADDRESS" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="BRA_OFF_STATE" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BUSINESS">
+          <Key>
+            <PropertyRef Name="BUS_ID" />
+          </Key>
+          <Property Name="BUS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BUS_NAME" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="BUS_DOCUMENT" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="BUS_IMAGE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="BUS_COLORS" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BUSINESS_RULE_TYPE">
+          <Key>
+            <PropertyRef Name="RULE_TYPE_BUS_ID" />
+          </Key>
+          <Property Name="RULE_TYPE_BUS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BUS_RULES_ID" Type="int" />
+          <Property Name="RULE_TYPE_BUS_NAME" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="RULE_TYPE_BUS_DESCRIPTION" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="RULE_TYPE_CHECK" Type="bit" />
+        </EntityType>
+        <EntityType Name="BUSINESS_RULES">
+          <Key>
+            <PropertyRef Name="BUS_RULES_ID" />
+          </Key>
+          <Property Name="BUS_RULES_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BRA_BUIS_ID" Type="int" />
+          <Property Name="BUS_RULES_CODE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="BUS_RULES_DESCRIPTION" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="CITIES">
+          <Key>
+            <PropertyRef Name="CIT_ID" />
+          </Key>
+          <Property Name="CIT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CONT_ID" Type="int" />
+          <Property Name="CIT_NAME" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CLIENT_BUSINESS">
+          <Key>
+            <PropertyRef Name="CLI_BUS_ID" />
+          </Key>
+          <Property Name="CLI_BUS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CLI_BUS_NAME" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="CLI_BUS_DOCUMENT" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="CLI_BUS_TYPE" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="COUNTRY">
+          <Key>
+            <PropertyRef Name="CONT_ID" />
+          </Key>
+          <Property Name="CONT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CONT_NAME" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DETAIL_VISITS">
+          <Key>
+            <PropertyRef Name="DE_VIS_ID" />
+          </Key>
+          <Property Name="DE_VIS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DE_VIS_NAME" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="DE_VIS_DESCRIPTION" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EMPLOYEE">
+          <Key>
+            <PropertyRef Name="EMP_ID" />
+          </Key>
+          <Property Name="EMP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ROL_ID" Type="int" />
+          <Property Name="BRA_BUIS_ID" Type="int" />
+          <Property Name="EMP_DOCUMENT" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="EMP_NAME" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="EMP_SURNAME" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="EMP_PHONE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="EMP_PHONE2" Type="varchar" MaxLength="255" />
+          <Property Name="EMP_CELL_PHONE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="EMP_CELL_PHONE2" Type="varchar" MaxLength="255" />
+          <Property Name="EMP_ADDRES" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="EMP_MAIL" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="EMP_MAIL2" Type="varchar" MaxLength="255" />
+          <Property Name="EMP_PASSWORD" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="EMP_STATE" Type="bit" Nullable="false" />
+          <Property Name="EMP_PHOTO" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="IT_HAS_ACTIVITIES">
+          <Key>
+            <PropertyRef Name="IT_HAS_ACTIVITIES" />
+            <PropertyRef Name="DE_VIS_ID" />
+            <PropertyRef Name="VIS_ID" />
+          </Key>
+          <Property Name="IT_HAS_ACTIVITIES" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DE_VIS_ID" Type="int" Nullable="false" />
+          <Property Name="VIS_ID" Type="int" Nullable="false" />
+          <Property Name="VIS_ATTE_MAIL" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="VIS_ATTE_PHONE" Type="varchar" MaxLength="255" />
+          <Property Name="VIS_ATTE_CELPHONE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="VIS_ATTE_NAME" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="VIS_ATTE_COMPETITION" Type="varchar" MaxLength="255" />
+          <Property Name="VIS_ATTE_POSITION" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="VIS_OBSERVATION" Type="varchar" MaxLength="255" />
+          <Property Name="VIS_COM_" Type="varchar" MaxLength="255" />
+          <Property Name="VIS_COM_DATE" Type="varchar" MaxLength="255" />
+          <Property Name="VIS_PROY_NAME" Type="varchar" MaxLength="255" />
+          <Property Name="VIS_ACTIVITY_DESCRIPTION" Type="xml" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OPTIONS_LIST_RULES">
+          <Key>
+            <PropertyRef Name="OPC_LIS_RULES_ID" />
+          </Key>
+          <Property Name="OPC_LIS_RULES_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RULE_TYPE_BUS_ID" Type="int" />
+          <Property Name="OPC_LIS_RULES_NAME" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="PERMISSIONS">
+          <Key>
+            <PropertyRef Name="PER_ID" />
+          </Key>
+          <Property Name="PER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PER_NAME" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="PER_DESCRIPTION" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="QUOTATION">
+          <Key>
+            <PropertyRef Name="QUO_ID" />
+          </Key>
+          <Property Name="QUO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BRA_OFF_ID" Type="int" />
+          <Property Name="QUO_STA_ID" Type="int" />
+          <Property Name="QUO_CODE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="QUO_DATE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="QUO_VRBASE" Type="int" />
+          <Property Name="QUO_OBSERVATION" Type="varchar" MaxLength="255" />
+          <Property Name="QUO_INVOICE" Type="varchar" MaxLength="255" />
+          <Property Name="QUO_INVOICE_VR" Type="int" />
+          <Property Name="QUO_PROBAL_CLOSE_DATE" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="QUOTATION_STATE">
+          <Key>
+            <PropertyRef Name="QUO_STA_ID" />
+          </Key>
+          <Property Name="QUO_STA_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QUO_STA_DESCRIPTION" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="ROLE">
+          <Key>
+            <PropertyRef Name="ROL_ID" />
+          </Key>
+          <Property Name="ROL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ROL_NAME" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ROL_DESCRIPTION" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USES">
+          <Key>
+            <PropertyRef Name="USE_ID" />
+            <PropertyRef Name="PER_ID" />
+            <PropertyRef Name="EMP_ID" />
+          </Key>
+          <Property Name="USE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PER_ID" Type="int" Nullable="false" />
+          <Property Name="EMP_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VISITS">
+          <Key>
+            <PropertyRef Name="VIS_ID" />
+          </Key>
+          <Property Name="VIS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BRA_OFF_ID" Type="int" Nullable="false" />
+          <Property Name="VIS_ADDRESS" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_BRANCH_C_ARE_LOCAT_CITIES">
+          <End Role="CITIES" Type="Self.CITIES" Multiplicity="0..1" />
+          <End Role="BRANCH_COMPANY" Type="Self.BRANCH_COMPANY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CITIES">
+              <PropertyRef Name="CIT_ID" />
+            </Principal>
+            <Dependent Role="BRANCH_COMPANY">
+              <PropertyRef Name="CIT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BRANCH_C_IT_S_IN_BUSINESS">
+          <End Role="BUSINESS" Type="Self.BUSINESS" Multiplicity="0..1" />
+          <End Role="BRANCH_COMPANY" Type="Self.BRANCH_COMPANY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BUSINESS">
+              <PropertyRef Name="BUS_ID" />
+            </Principal>
+            <Dependent Role="BRANCH_COMPANY">
+              <PropertyRef Name="BUS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BRANCH_O_HAS_EMPLOYEE">
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="0..1" />
+          <End Role="BRANCH_OFFICE" Type="Self.BRANCH_OFFICE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="EMP_ID" />
+            </Principal>
+            <Dependent Role="BRANCH_OFFICE">
+              <PropertyRef Name="EMP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BRANCH_O_IS_LOCATE_CITIES">
+          <End Role="CITIES" Type="Self.CITIES" Multiplicity="1" />
+          <End Role="BRANCH_OFFICE" Type="Self.BRANCH_OFFICE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CITIES">
+              <PropertyRef Name="CIT_ID" />
+            </Principal>
+            <Dependent Role="BRANCH_OFFICE">
+              <PropertyRef Name="CIT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BRANCH_O_IT_IS_PAR_CLIENT_B">
+          <End Role="CLIENT_BUSINESS" Type="Self.CLIENT_BUSINESS" Multiplicity="1" />
+          <End Role="BRANCH_OFFICE" Type="Self.BRANCH_OFFICE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENT_BUSINESS">
+              <PropertyRef Name="CLI_BUS_ID" />
+            </Principal>
+            <Dependent Role="BRANCH_OFFICE">
+              <PropertyRef Name="CLI_BUS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BUSINESS_CREATE_BRANCH_C">
+          <End Role="BRANCH_COMPANY" Type="Self.BRANCH_COMPANY" Multiplicity="0..1" />
+          <End Role="BUSINESS_RULES" Type="Self.BUSINESS_RULES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRANCH_COMPANY">
+              <PropertyRef Name="BRA_BUIS_ID" />
+            </Principal>
+            <Dependent Role="BUSINESS_RULES">
+              <PropertyRef Name="BRA_BUIS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BUSINESS_IT_CONTAI_BUSINESS">
+          <End Role="BUSINESS_RULES" Type="Self.BUSINESS_RULES" Multiplicity="0..1" />
+          <End Role="BUSINESS_RULE_TYPE" Type="Self.BUSINESS_RULE_TYPE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BUSINESS_RULES">
+              <PropertyRef Name="BUS_RULES_ID" />
+            </Principal>
+            <Dependent Role="BUSINESS_RULE_TYPE">
+              <PropertyRef Name="BUS_RULES_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CITIES_PERTENECE_COUNTRY">
+          <End Role="COUNTRY" Type="Self.COUNTRY" Multiplicity="0..1" />
+          <End Role="CITIES" Type="Self.CITIES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COUNTRY">
+              <PropertyRef Name="CONT_ID" />
+            </Principal>
+            <Dependent Role="CITIES">
+              <PropertyRef Name="CONT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLOYEE_IT_BELONG_BRANCH_C">
+          <End Role="BRANCH_COMPANY" Type="Self.BRANCH_COMPANY" Multiplicity="0..1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRANCH_COMPANY">
+              <PropertyRef Name="BRA_BUIS_ID" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="BRA_BUIS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLOYEE_USE_ROLE">
+          <End Role="ROLE" Type="Self.ROLE" Multiplicity="0..1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLE">
+              <PropertyRef Name="ROL_ID" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="ROL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IT_HAS_A_IT_HAS_AC_DETAIL_V">
+          <End Role="DETAIL_VISITS" Type="Self.DETAIL_VISITS" Multiplicity="1" />
+          <End Role="IT_HAS_ACTIVITIES" Type="Self.IT_HAS_ACTIVITIES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DETAIL_VISITS">
+              <PropertyRef Name="DE_VIS_ID" />
+            </Principal>
+            <Dependent Role="IT_HAS_ACTIVITIES">
+              <PropertyRef Name="DE_VIS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IT_HAS_A_IT_HAS_AC_VISITS">
+          <End Role="VISITS" Type="Self.VISITS" Multiplicity="1" />
+          <End Role="IT_HAS_ACTIVITIES" Type="Self.IT_HAS_ACTIVITIES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VISITS">
+              <PropertyRef Name="VIS_ID" />
+            </Principal>
+            <Dependent Role="IT_HAS_ACTIVITIES">
+              <PropertyRef Name="VIS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OPTIONS__IS_CONTAI_BUSINESS">
+          <End Role="BUSINESS_RULE_TYPE" Type="Self.BUSINESS_RULE_TYPE" Multiplicity="0..1" />
+          <End Role="OPTIONS_LIST_RULES" Type="Self.OPTIONS_LIST_RULES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BUSINESS_RULE_TYPE">
+              <PropertyRef Name="RULE_TYPE_BUS_ID" />
+            </Principal>
+            <Dependent Role="OPTIONS_LIST_RULES">
+              <PropertyRef Name="RULE_TYPE_BUS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QUOTATIO_GENERATE_BRANCH_O">
+          <End Role="BRANCH_OFFICE" Type="Self.BRANCH_OFFICE" Multiplicity="0..1" />
+          <End Role="QUOTATION" Type="Self.QUOTATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRANCH_OFFICE">
+              <PropertyRef Name="BRA_OFF_ID" />
+            </Principal>
+            <Dependent Role="QUOTATION">
+              <PropertyRef Name="BRA_OFF_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QUOTATIO_PERTAIN_QUOTATIO">
+          <End Role="QUOTATION_STATE" Type="Self.QUOTATION_STATE" Multiplicity="0..1" />
+          <End Role="QUOTATION" Type="Self.QUOTATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUOTATION_STATE">
+              <PropertyRef Name="QUO_STA_ID" />
+            </Principal>
+            <Dependent Role="QUOTATION">
+              <PropertyRef Name="QUO_STA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USES_USES_PERMISSI">
+          <End Role="PERMISSIONS" Type="Self.PERMISSIONS" Multiplicity="1" />
+          <End Role="USES" Type="Self.USES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERMISSIONS">
+              <PropertyRef Name="PER_ID" />
+            </Principal>
+            <Dependent Role="USES">
+              <PropertyRef Name="PER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USES_USES2_EMPLOYEE">
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+          <End Role="USES" Type="Self.USES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="EMP_ID" />
+            </Principal>
+            <Dependent Role="USES">
+              <PropertyRef Name="EMP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VISITS_PROGRAM_BRANCH_O">
+          <End Role="BRANCH_OFFICE" Type="Self.BRANCH_OFFICE" Multiplicity="1" />
+          <End Role="VISITS" Type="Self.VISITS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRANCH_OFFICE">
+              <PropertyRef Name="BRA_OFF_ID" />
+            </Principal>
+            <Dependent Role="VISITS">
+              <PropertyRef Name="BRA_OFF_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Project_VisitModelStoreContainer">
+          <EntitySet Name="BRANCH_COMPANY" EntityType="Self.BRANCH_COMPANY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BRANCH_OFFICE" EntityType="Self.BRANCH_OFFICE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BUSINESS" EntityType="Self.BUSINESS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BUSINESS_RULE_TYPE" EntityType="Self.BUSINESS_RULE_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BUSINESS_RULES" EntityType="Self.BUSINESS_RULES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CITIES" EntityType="Self.CITIES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CLIENT_BUSINESS" EntityType="Self.CLIENT_BUSINESS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COUNTRY" EntityType="Self.COUNTRY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DETAIL_VISITS" EntityType="Self.DETAIL_VISITS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPLOYEE" EntityType="Self.EMPLOYEE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IT_HAS_ACTIVITIES" EntityType="Self.IT_HAS_ACTIVITIES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OPTIONS_LIST_RULES" EntityType="Self.OPTIONS_LIST_RULES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERMISSIONS" EntityType="Self.PERMISSIONS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QUOTATION" EntityType="Self.QUOTATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QUOTATION_STATE" EntityType="Self.QUOTATION_STATE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ROLE" EntityType="Self.ROLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USES" EntityType="Self.USES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VISITS" EntityType="Self.VISITS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BRANCH_C_ARE_LOCAT_CITIES" Association="Self.FK_BRANCH_C_ARE_LOCAT_CITIES">
+            <End Role="CITIES" EntitySet="CITIES" />
+            <End Role="BRANCH_COMPANY" EntitySet="BRANCH_COMPANY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BRANCH_C_IT_S_IN_BUSINESS" Association="Self.FK_BRANCH_C_IT_S_IN_BUSINESS">
+            <End Role="BUSINESS" EntitySet="BUSINESS" />
+            <End Role="BRANCH_COMPANY" EntitySet="BRANCH_COMPANY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BRANCH_O_HAS_EMPLOYEE" Association="Self.FK_BRANCH_O_HAS_EMPLOYEE">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+            <End Role="BRANCH_OFFICE" EntitySet="BRANCH_OFFICE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BRANCH_O_IS_LOCATE_CITIES" Association="Self.FK_BRANCH_O_IS_LOCATE_CITIES">
+            <End Role="CITIES" EntitySet="CITIES" />
+            <End Role="BRANCH_OFFICE" EntitySet="BRANCH_OFFICE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BRANCH_O_IT_IS_PAR_CLIENT_B" Association="Self.FK_BRANCH_O_IT_IS_PAR_CLIENT_B">
+            <End Role="CLIENT_BUSINESS" EntitySet="CLIENT_BUSINESS" />
+            <End Role="BRANCH_OFFICE" EntitySet="BRANCH_OFFICE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BUSINESS_CREATE_BRANCH_C" Association="Self.FK_BUSINESS_CREATE_BRANCH_C">
+            <End Role="BRANCH_COMPANY" EntitySet="BRANCH_COMPANY" />
+            <End Role="BUSINESS_RULES" EntitySet="BUSINESS_RULES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BUSINESS_IT_CONTAI_BUSINESS" Association="Self.FK_BUSINESS_IT_CONTAI_BUSINESS">
+            <End Role="BUSINESS_RULES" EntitySet="BUSINESS_RULES" />
+            <End Role="BUSINESS_RULE_TYPE" EntitySet="BUSINESS_RULE_TYPE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CITIES_PERTENECE_COUNTRY" Association="Self.FK_CITIES_PERTENECE_COUNTRY">
+            <End Role="COUNTRY" EntitySet="COUNTRY" />
+            <End Role="CITIES" EntitySet="CITIES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLOYEE_IT_BELONG_BRANCH_C" Association="Self.FK_EMPLOYEE_IT_BELONG_BRANCH_C">
+            <End Role="BRANCH_COMPANY" EntitySet="BRANCH_COMPANY" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLOYEE_USE_ROLE" Association="Self.FK_EMPLOYEE_USE_ROLE">
+            <End Role="ROLE" EntitySet="ROLE" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IT_HAS_A_IT_HAS_AC_DETAIL_V" Association="Self.FK_IT_HAS_A_IT_HAS_AC_DETAIL_V">
+            <End Role="DETAIL_VISITS" EntitySet="DETAIL_VISITS" />
+            <End Role="IT_HAS_ACTIVITIES" EntitySet="IT_HAS_ACTIVITIES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IT_HAS_A_IT_HAS_AC_VISITS" Association="Self.FK_IT_HAS_A_IT_HAS_AC_VISITS">
+            <End Role="VISITS" EntitySet="VISITS" />
+            <End Role="IT_HAS_ACTIVITIES" EntitySet="IT_HAS_ACTIVITIES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OPTIONS__IS_CONTAI_BUSINESS" Association="Self.FK_OPTIONS__IS_CONTAI_BUSINESS">
+            <End Role="BUSINESS_RULE_TYPE" EntitySet="BUSINESS_RULE_TYPE" />
+            <End Role="OPTIONS_LIST_RULES" EntitySet="OPTIONS_LIST_RULES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QUOTATIO_GENERATE_BRANCH_O" Association="Self.FK_QUOTATIO_GENERATE_BRANCH_O">
+            <End Role="BRANCH_OFFICE" EntitySet="BRANCH_OFFICE" />
+            <End Role="QUOTATION" EntitySet="QUOTATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QUOTATIO_PERTAIN_QUOTATIO" Association="Self.FK_QUOTATIO_PERTAIN_QUOTATIO">
+            <End Role="QUOTATION_STATE" EntitySet="QUOTATION_STATE" />
+            <End Role="QUOTATION" EntitySet="QUOTATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USES_USES_PERMISSI" Association="Self.FK_USES_USES_PERMISSI">
+            <End Role="PERMISSIONS" EntitySet="PERMISSIONS" />
+            <End Role="USES" EntitySet="USES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USES_USES2_EMPLOYEE" Association="Self.FK_USES_USES2_EMPLOYEE">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+            <End Role="USES" EntitySet="USES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VISITS_PROGRAM_BRANCH_O" Association="Self.FK_VISITS_PROGRAM_BRANCH_O">
+            <End Role="BRANCH_OFFICE" EntitySet="BRANCH_OFFICE" />
+            <End Role="VISITS" EntitySet="VISITS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Project_VisitModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="BRANCH_COMPANY">
+          <Key>
+            <PropertyRef Name="BRA_BUIS_ID" />
+          </Key>
+          <Property Name="BRA_BUIS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CIT_ID" Type="Int32" />
+          <Property Name="BUS_ID" Type="Int32" />
+          <Property Name="BRA_BUIS_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRA_BUIS_PHONE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRA_BUIS_MAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRA_BUIS_MAIL2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="BRA_BUIS_ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRA_BUIS_STATE" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CITIES" Relationship="Self.FK_BRANCH_C_ARE_LOCAT_CITIES" FromRole="BRANCH_COMPANY" ToRole="CITIES" />
+          <NavigationProperty Name="BUSINESS" Relationship="Self.FK_BRANCH_C_IT_S_IN_BUSINESS" FromRole="BRANCH_COMPANY" ToRole="BUSINESS" />
+          <NavigationProperty Name="BUSINESS_RULES" Relationship="Self.FK_BUSINESS_CREATE_BRANCH_C" FromRole="BRANCH_COMPANY" ToRole="BUSINESS_RULES" />
+          <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_EMPLOYEE_IT_BELONG_BRANCH_C" FromRole="BRANCH_COMPANY" ToRole="EMPLOYEE" />
+        </EntityType>
+        <EntityType Name="BRANCH_OFFICE">
+          <Key>
+            <PropertyRef Name="BRA_OFF_ID" />
+          </Key>
+          <Property Name="BRA_OFF_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CLI_BUS_ID" Type="Int32" Nullable="false" />
+          <Property Name="CIT_ID" Type="Int32" Nullable="false" />
+          <Property Name="EMP_ID" Type="Int32" />
+          <Property Name="BRA_OFF_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="BRA_OFF_PHONE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="BRA_OFF_ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="BRA_COM_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRA_COM_PHONE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRA_COM_MAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRA_COM_MAIL2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="BRA_COM_ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRA_OFF_STATE" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_BRANCH_O_HAS_EMPLOYEE" FromRole="BRANCH_OFFICE" ToRole="EMPLOYEE" />
+          <NavigationProperty Name="CITIES" Relationship="Self.FK_BRANCH_O_IS_LOCATE_CITIES" FromRole="BRANCH_OFFICE" ToRole="CITIES" />
+          <NavigationProperty Name="CLIENT_BUSINESS" Relationship="Self.FK_BRANCH_O_IT_IS_PAR_CLIENT_B" FromRole="BRANCH_OFFICE" ToRole="CLIENT_BUSINESS" />
+          <NavigationProperty Name="QUOTATION" Relationship="Self.FK_QUOTATIO_GENERATE_BRANCH_O" FromRole="BRANCH_OFFICE" ToRole="QUOTATION" />
+          <NavigationProperty Name="VISITS" Relationship="Self.FK_VISITS_PROGRAM_BRANCH_O" FromRole="BRANCH_OFFICE" ToRole="VISITS" />
+        </EntityType>
+        <EntityType Name="BUSINESS">
+          <Key>
+            <PropertyRef Name="BUS_ID" />
+          </Key>
+          <Property Name="BUS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BUS_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BUS_DOCUMENT" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BUS_IMAGE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BUS_COLORS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="BRANCH_COMPANY" Relationship="Self.FK_BRANCH_C_IT_S_IN_BUSINESS" FromRole="BUSINESS" ToRole="BRANCH_COMPANY" />
+        </EntityType>
+        <EntityType Name="BUSINESS_RULE_TYPE">
+          <Key>
+            <PropertyRef Name="RULE_TYPE_BUS_ID" />
+          </Key>
+          <Property Name="RULE_TYPE_BUS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BUS_RULES_ID" Type="Int32" />
+          <Property Name="RULE_TYPE_BUS_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RULE_TYPE_BUS_DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RULE_TYPE_CHECK" Type="Boolean" />
+          <NavigationProperty Name="BUSINESS_RULES" Relationship="Self.FK_BUSINESS_IT_CONTAI_BUSINESS" FromRole="BUSINESS_RULE_TYPE" ToRole="BUSINESS_RULES" />
+          <NavigationProperty Name="OPTIONS_LIST_RULES" Relationship="Self.FK_OPTIONS__IS_CONTAI_BUSINESS" FromRole="BUSINESS_RULE_TYPE" ToRole="OPTIONS_LIST_RULES" />
+        </EntityType>
+        <EntityType Name="BUSINESS_RULES">
+          <Key>
+            <PropertyRef Name="BUS_RULES_ID" />
+          </Key>
+          <Property Name="BUS_RULES_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BRA_BUIS_ID" Type="Int32" />
+          <Property Name="BUS_RULES_CODE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BUS_RULES_DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BRANCH_COMPANY" Relationship="Self.FK_BUSINESS_CREATE_BRANCH_C" FromRole="BUSINESS_RULES" ToRole="BRANCH_COMPANY" />
+          <NavigationProperty Name="BUSINESS_RULE_TYPE" Relationship="Self.FK_BUSINESS_IT_CONTAI_BUSINESS" FromRole="BUSINESS_RULES" ToRole="BUSINESS_RULE_TYPE" />
+        </EntityType>
+        <EntityType Name="CITIES">
+          <Key>
+            <PropertyRef Name="CIT_ID" />
+          </Key>
+          <Property Name="CIT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CONT_ID" Type="Int32" />
+          <Property Name="CIT_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="BRANCH_COMPANY" Relationship="Self.FK_BRANCH_C_ARE_LOCAT_CITIES" FromRole="CITIES" ToRole="BRANCH_COMPANY" />
+          <NavigationProperty Name="BRANCH_OFFICE" Relationship="Self.FK_BRANCH_O_IS_LOCATE_CITIES" FromRole="CITIES" ToRole="BRANCH_OFFICE" />
+          <NavigationProperty Name="COUNTRY" Relationship="Self.FK_CITIES_PERTENECE_COUNTRY" FromRole="CITIES" ToRole="COUNTRY" />
+        </EntityType>
+        <EntityType Name="CLIENT_BUSINESS">
+          <Key>
+            <PropertyRef Name="CLI_BUS_ID" />
+          </Key>
+          <Property Name="CLI_BUS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CLI_BUS_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CLI_BUS_DOCUMENT" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CLI_BUS_TYPE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BRANCH_OFFICE" Relationship="Self.FK_BRANCH_O_IT_IS_PAR_CLIENT_B" FromRole="CLIENT_BUSINESS" ToRole="BRANCH_OFFICE" />
+        </EntityType>
+        <EntityType Name="COUNTRY">
+          <Key>
+            <PropertyRef Name="CONT_ID" />
+          </Key>
+          <Property Name="CONT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CONT_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CITIES" Relationship="Self.FK_CITIES_PERTENECE_COUNTRY" FromRole="COUNTRY" ToRole="CITIES" />
+        </EntityType>
+        <EntityType Name="DETAIL_VISITS">
+          <Key>
+            <PropertyRef Name="DE_VIS_ID" />
+          </Key>
+          <Property Name="DE_VIS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DE_VIS_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DE_VIS_DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="IT_HAS_ACTIVITIES" Relationship="Self.FK_IT_HAS_A_IT_HAS_AC_DETAIL_V" FromRole="DETAIL_VISITS" ToRole="IT_HAS_ACTIVITIES" />
+        </EntityType>
+        <EntityType Name="EMPLOYEE">
+          <Key>
+            <PropertyRef Name="EMP_ID" />
+          </Key>
+          <Property Name="EMP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ROL_ID" Type="Int32" />
+          <Property Name="BRA_BUIS_ID" Type="Int32" />
+          <Property Name="EMP_DOCUMENT" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMP_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMP_SURNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMP_PHONE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMP_PHONE2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EMP_CELL_PHONE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMP_CELL_PHONE2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EMP_ADDRES" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMP_MAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMP_MAIL2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EMP_PASSWORD" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMP_STATE" Type="Boolean" Nullable="false" />
+          <Property Name="EMP_PHOTO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BRANCH_COMPANY" Relationship="Self.FK_EMPLOYEE_IT_BELONG_BRANCH_C" FromRole="EMPLOYEE" ToRole="BRANCH_COMPANY" />
+          <NavigationProperty Name="BRANCH_OFFICE" Relationship="Self.FK_BRANCH_O_HAS_EMPLOYEE" FromRole="EMPLOYEE" ToRole="BRANCH_OFFICE" />
+          <NavigationProperty Name="ROLE" Relationship="Self.FK_EMPLOYEE_USE_ROLE" FromRole="EMPLOYEE" ToRole="ROLE" />
+          <NavigationProperty Name="USES" Relationship="Self.FK_USES_USES2_EMPLOYEE" FromRole="EMPLOYEE" ToRole="USES" />
+        </EntityType>
+        <EntityType Name="IT_HAS_ACTIVITIES">
+          <Key>
+            <PropertyRef Name="IT_HAS_ACTIVITIES1" />
+            <PropertyRef Name="DE_VIS_ID" />
+            <PropertyRef Name="VIS_ID" />
+          </Key>
+          <Property Name="IT_HAS_ACTIVITIES1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DE_VIS_ID" Type="Int32" Nullable="false" />
+          <Property Name="VIS_ID" Type="Int32" Nullable="false" />
+          <Property Name="VIS_ATTE_MAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VIS_ATTE_PHONE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="VIS_ATTE_CELPHONE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VIS_ATTE_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VIS_ATTE_COMPETITION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="VIS_ATTE_POSITION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VIS_OBSERVATION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="VIS_COM_" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="VIS_COM_DATE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="VIS_PROY_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="VIS_ACTIVITY_DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DETAIL_VISITS" Relationship="Self.FK_IT_HAS_A_IT_HAS_AC_DETAIL_V" FromRole="IT_HAS_ACTIVITIES" ToRole="DETAIL_VISITS" />
+          <NavigationProperty Name="VISITS" Relationship="Self.FK_IT_HAS_A_IT_HAS_AC_VISITS" FromRole="IT_HAS_ACTIVITIES" ToRole="VISITS" />
+        </EntityType>
+        <EntityType Name="OPTIONS_LIST_RULES">
+          <Key>
+            <PropertyRef Name="OPC_LIS_RULES_ID" />
+          </Key>
+          <Property Name="OPC_LIS_RULES_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RULE_TYPE_BUS_ID" Type="Int32" />
+          <Property Name="OPC_LIS_RULES_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BUSINESS_RULE_TYPE" Relationship="Self.FK_OPTIONS__IS_CONTAI_BUSINESS" FromRole="OPTIONS_LIST_RULES" ToRole="BUSINESS_RULE_TYPE" />
+        </EntityType>
+        <EntityType Name="PERMISSIONS">
+          <Key>
+            <PropertyRef Name="PER_ID" />
+          </Key>
+          <Property Name="PER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PER_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PER_DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="USES" Relationship="Self.FK_USES_USES_PERMISSI" FromRole="PERMISSIONS" ToRole="USES" />
+        </EntityType>
+        <EntityType Name="QUOTATION">
+          <Key>
+            <PropertyRef Name="QUO_ID" />
+          </Key>
+          <Property Name="QUO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BRA_OFF_ID" Type="Int32" />
+          <Property Name="QUO_STA_ID" Type="Int32" />
+          <Property Name="QUO_CODE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="QUO_DATE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="QUO_VRBASE" Type="Int32" />
+          <Property Name="QUO_OBSERVATION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="QUO_INVOICE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="QUO_INVOICE_VR" Type="Int32" />
+          <Property Name="QUO_PROBAL_CLOSE_DATE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BRANCH_OFFICE" Relationship="Self.FK_QUOTATIO_GENERATE_BRANCH_O" FromRole="QUOTATION" ToRole="BRANCH_OFFICE" />
+          <NavigationProperty Name="QUOTATION_STATE" Relationship="Self.FK_QUOTATIO_PERTAIN_QUOTATIO" FromRole="QUOTATION" ToRole="QUOTATION_STATE" />
+        </EntityType>
+        <EntityType Name="QUOTATION_STATE">
+          <Key>
+            <PropertyRef Name="QUO_STA_ID" />
+          </Key>
+          <Property Name="QUO_STA_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QUO_STA_DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="QUOTATION" Relationship="Self.FK_QUOTATIO_PERTAIN_QUOTATIO" FromRole="QUOTATION_STATE" ToRole="QUOTATION" />
+        </EntityType>
+        <EntityType Name="ROLE">
+          <Key>
+            <PropertyRef Name="ROL_ID" />
+          </Key>
+          <Property Name="ROL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ROL_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ROL_DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_EMPLOYEE_USE_ROLE" FromRole="ROLE" ToRole="EMPLOYEE" />
+        </EntityType>
+        <EntityType Name="USES">
+          <Key>
+            <PropertyRef Name="USE_ID" />
+            <PropertyRef Name="PER_ID" />
+            <PropertyRef Name="EMP_ID" />
+          </Key>
+          <Property Name="USE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PER_ID" Type="Int32" Nullable="false" />
+          <Property Name="EMP_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_USES_USES2_EMPLOYEE" FromRole="USES" ToRole="EMPLOYEE" />
+          <NavigationProperty Name="PERMISSIONS" Relationship="Self.FK_USES_USES_PERMISSI" FromRole="USES" ToRole="PERMISSIONS" />
+        </EntityType>
+        <EntityType Name="VISITS">
+          <Key>
+            <PropertyRef Name="VIS_ID" />
+          </Key>
+          <Property Name="VIS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BRA_OFF_ID" Type="Int32" Nullable="false" />
+          <Property Name="VIS_ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="BRANCH_OFFICE" Relationship="Self.FK_VISITS_PROGRAM_BRANCH_O" FromRole="VISITS" ToRole="BRANCH_OFFICE" />
+          <NavigationProperty Name="IT_HAS_ACTIVITIES" Relationship="Self.FK_IT_HAS_A_IT_HAS_AC_VISITS" FromRole="VISITS" ToRole="IT_HAS_ACTIVITIES" />
+        </EntityType>
+        <Association Name="FK_BRANCH_C_ARE_LOCAT_CITIES">
+          <End Role="CITIES" Type="Self.CITIES" Multiplicity="0..1" />
+          <End Role="BRANCH_COMPANY" Type="Self.BRANCH_COMPANY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CITIES">
+              <PropertyRef Name="CIT_ID" />
+            </Principal>
+            <Dependent Role="BRANCH_COMPANY">
+              <PropertyRef Name="CIT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BRANCH_C_IT_S_IN_BUSINESS">
+          <End Role="BUSINESS" Type="Self.BUSINESS" Multiplicity="0..1" />
+          <End Role="BRANCH_COMPANY" Type="Self.BRANCH_COMPANY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BUSINESS">
+              <PropertyRef Name="BUS_ID" />
+            </Principal>
+            <Dependent Role="BRANCH_COMPANY">
+              <PropertyRef Name="BUS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BUSINESS_CREATE_BRANCH_C">
+          <End Role="BRANCH_COMPANY" Type="Self.BRANCH_COMPANY" Multiplicity="0..1" />
+          <End Role="BUSINESS_RULES" Type="Self.BUSINESS_RULES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRANCH_COMPANY">
+              <PropertyRef Name="BRA_BUIS_ID" />
+            </Principal>
+            <Dependent Role="BUSINESS_RULES">
+              <PropertyRef Name="BRA_BUIS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLOYEE_IT_BELONG_BRANCH_C">
+          <End Role="BRANCH_COMPANY" Type="Self.BRANCH_COMPANY" Multiplicity="0..1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRANCH_COMPANY">
+              <PropertyRef Name="BRA_BUIS_ID" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="BRA_BUIS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BRANCH_O_HAS_EMPLOYEE">
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="0..1" />
+          <End Role="BRANCH_OFFICE" Type="Self.BRANCH_OFFICE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="EMP_ID" />
+            </Principal>
+            <Dependent Role="BRANCH_OFFICE">
+              <PropertyRef Name="EMP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BRANCH_O_IS_LOCATE_CITIES">
+          <End Role="CITIES" Type="Self.CITIES" Multiplicity="1" />
+          <End Role="BRANCH_OFFICE" Type="Self.BRANCH_OFFICE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CITIES">
+              <PropertyRef Name="CIT_ID" />
+            </Principal>
+            <Dependent Role="BRANCH_OFFICE">
+              <PropertyRef Name="CIT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BRANCH_O_IT_IS_PAR_CLIENT_B">
+          <End Role="CLIENT_BUSINESS" Type="Self.CLIENT_BUSINESS" Multiplicity="1" />
+          <End Role="BRANCH_OFFICE" Type="Self.BRANCH_OFFICE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENT_BUSINESS">
+              <PropertyRef Name="CLI_BUS_ID" />
+            </Principal>
+            <Dependent Role="BRANCH_OFFICE">
+              <PropertyRef Name="CLI_BUS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QUOTATIO_GENERATE_BRANCH_O">
+          <End Role="BRANCH_OFFICE" Type="Self.BRANCH_OFFICE" Multiplicity="0..1" />
+          <End Role="QUOTATION" Type="Self.QUOTATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRANCH_OFFICE">
+              <PropertyRef Name="BRA_OFF_ID" />
+            </Principal>
+            <Dependent Role="QUOTATION">
+              <PropertyRef Name="BRA_OFF_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VISITS_PROGRAM_BRANCH_O">
+          <End Role="BRANCH_OFFICE" Type="Self.BRANCH_OFFICE" Multiplicity="1" />
+          <End Role="VISITS" Type="Self.VISITS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BRANCH_OFFICE">
+              <PropertyRef Name="BRA_OFF_ID" />
+            </Principal>
+            <Dependent Role="VISITS">
+              <PropertyRef Name="BRA_OFF_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BUSINESS_IT_CONTAI_BUSINESS">
+          <End Role="BUSINESS_RULES" Type="Self.BUSINESS_RULES" Multiplicity="0..1" />
+          <End Role="BUSINESS_RULE_TYPE" Type="Self.BUSINESS_RULE_TYPE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BUSINESS_RULES">
+              <PropertyRef Name="BUS_RULES_ID" />
+            </Principal>
+            <Dependent Role="BUSINESS_RULE_TYPE">
+              <PropertyRef Name="BUS_RULES_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OPTIONS__IS_CONTAI_BUSINESS">
+          <End Role="BUSINESS_RULE_TYPE" Type="Self.BUSINESS_RULE_TYPE" Multiplicity="0..1" />
+          <End Role="OPTIONS_LIST_RULES" Type="Self.OPTIONS_LIST_RULES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BUSINESS_RULE_TYPE">
+              <PropertyRef Name="RULE_TYPE_BUS_ID" />
+            </Principal>
+            <Dependent Role="OPTIONS_LIST_RULES">
+              <PropertyRef Name="RULE_TYPE_BUS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CITIES_PERTENECE_COUNTRY">
+          <End Role="COUNTRY" Type="Self.COUNTRY" Multiplicity="0..1" />
+          <End Role="CITIES" Type="Self.CITIES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COUNTRY">
+              <PropertyRef Name="CONT_ID" />
+            </Principal>
+            <Dependent Role="CITIES">
+              <PropertyRef Name="CONT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IT_HAS_A_IT_HAS_AC_DETAIL_V">
+          <End Role="DETAIL_VISITS" Type="Self.DETAIL_VISITS" Multiplicity="1" />
+          <End Role="IT_HAS_ACTIVITIES" Type="Self.IT_HAS_ACTIVITIES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DETAIL_VISITS">
+              <PropertyRef Name="DE_VIS_ID" />
+            </Principal>
+            <Dependent Role="IT_HAS_ACTIVITIES">
+              <PropertyRef Name="DE_VIS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLOYEE_USE_ROLE">
+          <End Role="ROLE" Type="Self.ROLE" Multiplicity="0..1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLE">
+              <PropertyRef Name="ROL_ID" />
+            </Principal>
+            <Dependent Role="EMPLOYEE">
+              <PropertyRef Name="ROL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USES_USES2_EMPLOYEE">
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+          <End Role="USES" Type="Self.USES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLOYEE">
+              <PropertyRef Name="EMP_ID" />
+            </Principal>
+            <Dependent Role="USES">
+              <PropertyRef Name="EMP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IT_HAS_A_IT_HAS_AC_VISITS">
+          <End Role="VISITS" Type="Self.VISITS" Multiplicity="1" />
+          <End Role="IT_HAS_ACTIVITIES" Type="Self.IT_HAS_ACTIVITIES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VISITS">
+              <PropertyRef Name="VIS_ID" />
+            </Principal>
+            <Dependent Role="IT_HAS_ACTIVITIES">
+              <PropertyRef Name="VIS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USES_USES_PERMISSI">
+          <End Role="PERMISSIONS" Type="Self.PERMISSIONS" Multiplicity="1" />
+          <End Role="USES" Type="Self.USES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERMISSIONS">
+              <PropertyRef Name="PER_ID" />
+            </Principal>
+            <Dependent Role="USES">
+              <PropertyRef Name="PER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QUOTATIO_PERTAIN_QUOTATIO">
+          <End Role="QUOTATION_STATE" Type="Self.QUOTATION_STATE" Multiplicity="0..1" />
+          <End Role="QUOTATION" Type="Self.QUOTATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUOTATION_STATE">
+              <PropertyRef Name="QUO_STA_ID" />
+            </Principal>
+            <Dependent Role="QUOTATION">
+              <PropertyRef Name="QUO_STA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities_Visit" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BRANCH_COMPANY" EntityType="Self.BRANCH_COMPANY" />
+          <EntitySet Name="BRANCH_OFFICE" EntityType="Self.BRANCH_OFFICE" />
+          <EntitySet Name="BUSINESS" EntityType="Self.BUSINESS" />
+          <EntitySet Name="BUSINESS_RULE_TYPE" EntityType="Self.BUSINESS_RULE_TYPE" />
+          <EntitySet Name="BUSINESS_RULES" EntityType="Self.BUSINESS_RULES" />
+          <EntitySet Name="CITIES" EntityType="Self.CITIES" />
+          <EntitySet Name="CLIENT_BUSINESS" EntityType="Self.CLIENT_BUSINESS" />
+          <EntitySet Name="COUNTRY" EntityType="Self.COUNTRY" />
+          <EntitySet Name="DETAIL_VISITS" EntityType="Self.DETAIL_VISITS" />
+          <EntitySet Name="EMPLOYEE" EntityType="Self.EMPLOYEE" />
+          <EntitySet Name="IT_HAS_ACTIVITIES" EntityType="Self.IT_HAS_ACTIVITIES" />
+          <EntitySet Name="OPTIONS_LIST_RULES" EntityType="Self.OPTIONS_LIST_RULES" />
+          <EntitySet Name="PERMISSIONS" EntityType="Self.PERMISSIONS" />
+          <EntitySet Name="QUOTATION" EntityType="Self.QUOTATION" />
+          <EntitySet Name="QUOTATION_STATE" EntityType="Self.QUOTATION_STATE" />
+          <EntitySet Name="ROLE" EntityType="Self.ROLE" />
+          <EntitySet Name="USES" EntityType="Self.USES" />
+          <EntitySet Name="VISITS" EntityType="Self.VISITS" />
+          <AssociationSet Name="FK_BRANCH_C_ARE_LOCAT_CITIES" Association="Self.FK_BRANCH_C_ARE_LOCAT_CITIES">
+            <End Role="CITIES" EntitySet="CITIES" />
+            <End Role="BRANCH_COMPANY" EntitySet="BRANCH_COMPANY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BRANCH_C_IT_S_IN_BUSINESS" Association="Self.FK_BRANCH_C_IT_S_IN_BUSINESS">
+            <End Role="BUSINESS" EntitySet="BUSINESS" />
+            <End Role="BRANCH_COMPANY" EntitySet="BRANCH_COMPANY" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BUSINESS_CREATE_BRANCH_C" Association="Self.FK_BUSINESS_CREATE_BRANCH_C">
+            <End Role="BRANCH_COMPANY" EntitySet="BRANCH_COMPANY" />
+            <End Role="BUSINESS_RULES" EntitySet="BUSINESS_RULES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLOYEE_IT_BELONG_BRANCH_C" Association="Self.FK_EMPLOYEE_IT_BELONG_BRANCH_C">
+            <End Role="BRANCH_COMPANY" EntitySet="BRANCH_COMPANY" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BRANCH_O_HAS_EMPLOYEE" Association="Self.FK_BRANCH_O_HAS_EMPLOYEE">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+            <End Role="BRANCH_OFFICE" EntitySet="BRANCH_OFFICE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BRANCH_O_IS_LOCATE_CITIES" Association="Self.FK_BRANCH_O_IS_LOCATE_CITIES">
+            <End Role="CITIES" EntitySet="CITIES" />
+            <End Role="BRANCH_OFFICE" EntitySet="BRANCH_OFFICE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BRANCH_O_IT_IS_PAR_CLIENT_B" Association="Self.FK_BRANCH_O_IT_IS_PAR_CLIENT_B">
+            <End Role="CLIENT_BUSINESS" EntitySet="CLIENT_BUSINESS" />
+            <End Role="BRANCH_OFFICE" EntitySet="BRANCH_OFFICE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QUOTATIO_GENERATE_BRANCH_O" Association="Self.FK_QUOTATIO_GENERATE_BRANCH_O">
+            <End Role="BRANCH_OFFICE" EntitySet="BRANCH_OFFICE" />
+            <End Role="QUOTATION" EntitySet="QUOTATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VISITS_PROGRAM_BRANCH_O" Association="Self.FK_VISITS_PROGRAM_BRANCH_O">
+            <End Role="BRANCH_OFFICE" EntitySet="BRANCH_OFFICE" />
+            <End Role="VISITS" EntitySet="VISITS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BUSINESS_IT_CONTAI_BUSINESS" Association="Self.FK_BUSINESS_IT_CONTAI_BUSINESS">
+            <End Role="BUSINESS_RULES" EntitySet="BUSINESS_RULES" />
+            <End Role="BUSINESS_RULE_TYPE" EntitySet="BUSINESS_RULE_TYPE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OPTIONS__IS_CONTAI_BUSINESS" Association="Self.FK_OPTIONS__IS_CONTAI_BUSINESS">
+            <End Role="BUSINESS_RULE_TYPE" EntitySet="BUSINESS_RULE_TYPE" />
+            <End Role="OPTIONS_LIST_RULES" EntitySet="OPTIONS_LIST_RULES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CITIES_PERTENECE_COUNTRY" Association="Self.FK_CITIES_PERTENECE_COUNTRY">
+            <End Role="COUNTRY" EntitySet="COUNTRY" />
+            <End Role="CITIES" EntitySet="CITIES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IT_HAS_A_IT_HAS_AC_DETAIL_V" Association="Self.FK_IT_HAS_A_IT_HAS_AC_DETAIL_V">
+            <End Role="DETAIL_VISITS" EntitySet="DETAIL_VISITS" />
+            <End Role="IT_HAS_ACTIVITIES" EntitySet="IT_HAS_ACTIVITIES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLOYEE_USE_ROLE" Association="Self.FK_EMPLOYEE_USE_ROLE">
+            <End Role="ROLE" EntitySet="ROLE" />
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USES_USES2_EMPLOYEE" Association="Self.FK_USES_USES2_EMPLOYEE">
+            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+            <End Role="USES" EntitySet="USES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IT_HAS_A_IT_HAS_AC_VISITS" Association="Self.FK_IT_HAS_A_IT_HAS_AC_VISITS">
+            <End Role="VISITS" EntitySet="VISITS" />
+            <End Role="IT_HAS_ACTIVITIES" EntitySet="IT_HAS_ACTIVITIES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USES_USES_PERMISSI" Association="Self.FK_USES_USES_PERMISSI">
+            <End Role="PERMISSIONS" EntitySet="PERMISSIONS" />
+            <End Role="USES" EntitySet="USES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QUOTATIO_PERTAIN_QUOTATIO" Association="Self.FK_QUOTATIO_PERTAIN_QUOTATIO">
+            <End Role="QUOTATION_STATE" EntitySet="QUOTATION_STATE" />
+            <End Role="QUOTATION" EntitySet="QUOTATION" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Project_VisitModelStoreContainer" CdmEntityContainer="Entities_Visit">
+          <EntitySetMapping Name="BRANCH_COMPANY">
+            <EntityTypeMapping TypeName="Project_VisitModel.BRANCH_COMPANY">
+              <MappingFragment StoreEntitySet="BRANCH_COMPANY">
+                <ScalarProperty Name="BRA_BUIS_ID" ColumnName="BRA_BUIS_ID" />
+                <ScalarProperty Name="CIT_ID" ColumnName="CIT_ID" />
+                <ScalarProperty Name="BUS_ID" ColumnName="BUS_ID" />
+                <ScalarProperty Name="BRA_BUIS_NAME" ColumnName="BRA_BUIS_NAME" />
+                <ScalarProperty Name="BRA_BUIS_PHONE" ColumnName="BRA_BUIS_PHONE" />
+                <ScalarProperty Name="BRA_BUIS_MAIL" ColumnName="BRA_BUIS_MAIL" />
+                <ScalarProperty Name="BRA_BUIS_MAIL2" ColumnName="BRA_BUIS_MAIL2" />
+                <ScalarProperty Name="BRA_BUIS_ADDRESS" ColumnName="BRA_BUIS_ADDRESS" />
+                <ScalarProperty Name="BRA_BUIS_STATE" ColumnName="BRA_BUIS_STATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BRANCH_OFFICE">
+            <EntityTypeMapping TypeName="Project_VisitModel.BRANCH_OFFICE">
+              <MappingFragment StoreEntitySet="BRANCH_OFFICE">
+                <ScalarProperty Name="BRA_OFF_ID" ColumnName="BRA_OFF_ID" />
+                <ScalarProperty Name="CLI_BUS_ID" ColumnName="CLI_BUS_ID" />
+                <ScalarProperty Name="CIT_ID" ColumnName="CIT_ID" />
+                <ScalarProperty Name="EMP_ID" ColumnName="EMP_ID" />
+                <ScalarProperty Name="BRA_OFF_NAME" ColumnName="BRA_OFF_NAME" />
+                <ScalarProperty Name="BRA_OFF_PHONE" ColumnName="BRA_OFF_PHONE" />
+                <ScalarProperty Name="BRA_OFF_ADDRESS" ColumnName="BRA_OFF_ADDRESS" />
+                <ScalarProperty Name="BRA_COM_NAME" ColumnName="BRA_COM_NAME" />
+                <ScalarProperty Name="BRA_COM_PHONE" ColumnName="BRA_COM_PHONE" />
+                <ScalarProperty Name="BRA_COM_MAIL" ColumnName="BRA_COM_MAIL" />
+                <ScalarProperty Name="BRA_COM_MAIL2" ColumnName="BRA_COM_MAIL2" />
+                <ScalarProperty Name="BRA_COM_ADDRESS" ColumnName="BRA_COM_ADDRESS" />
+                <ScalarProperty Name="BRA_OFF_STATE" ColumnName="BRA_OFF_STATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BUSINESS">
+            <EntityTypeMapping TypeName="Project_VisitModel.BUSINESS">
+              <MappingFragment StoreEntitySet="BUSINESS">
+                <ScalarProperty Name="BUS_ID" ColumnName="BUS_ID" />
+                <ScalarProperty Name="BUS_NAME" ColumnName="BUS_NAME" />
+                <ScalarProperty Name="BUS_DOCUMENT" ColumnName="BUS_DOCUMENT" />
+                <ScalarProperty Name="BUS_IMAGE" ColumnName="BUS_IMAGE" />
+                <ScalarProperty Name="BUS_COLORS" ColumnName="BUS_COLORS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BUSINESS_RULE_TYPE">
+            <EntityTypeMapping TypeName="Project_VisitModel.BUSINESS_RULE_TYPE">
+              <MappingFragment StoreEntitySet="BUSINESS_RULE_TYPE">
+                <ScalarProperty Name="RULE_TYPE_BUS_ID" ColumnName="RULE_TYPE_BUS_ID" />
+                <ScalarProperty Name="BUS_RULES_ID" ColumnName="BUS_RULES_ID" />
+                <ScalarProperty Name="RULE_TYPE_BUS_NAME" ColumnName="RULE_TYPE_BUS_NAME" />
+                <ScalarProperty Name="RULE_TYPE_BUS_DESCRIPTION" ColumnName="RULE_TYPE_BUS_DESCRIPTION" />
+                <ScalarProperty Name="RULE_TYPE_CHECK" ColumnName="RULE_TYPE_CHECK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BUSINESS_RULES">
+            <EntityTypeMapping TypeName="Project_VisitModel.BUSINESS_RULES">
+              <MappingFragment StoreEntitySet="BUSINESS_RULES">
+                <ScalarProperty Name="BUS_RULES_ID" ColumnName="BUS_RULES_ID" />
+                <ScalarProperty Name="BRA_BUIS_ID" ColumnName="BRA_BUIS_ID" />
+                <ScalarProperty Name="BUS_RULES_CODE" ColumnName="BUS_RULES_CODE" />
+                <ScalarProperty Name="BUS_RULES_DESCRIPTION" ColumnName="BUS_RULES_DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CITIES">
+            <EntityTypeMapping TypeName="Project_VisitModel.CITIES">
+              <MappingFragment StoreEntitySet="CITIES">
+                <ScalarProperty Name="CIT_ID" ColumnName="CIT_ID" />
+                <ScalarProperty Name="CONT_ID" ColumnName="CONT_ID" />
+                <ScalarProperty Name="CIT_NAME" ColumnName="CIT_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLIENT_BUSINESS">
+            <EntityTypeMapping TypeName="Project_VisitModel.CLIENT_BUSINESS">
+              <MappingFragment StoreEntitySet="CLIENT_BUSINESS">
+                <ScalarProperty Name="CLI_BUS_ID" ColumnName="CLI_BUS_ID" />
+                <ScalarProperty Name="CLI_BUS_NAME" ColumnName="CLI_BUS_NAME" />
+                <ScalarProperty Name="CLI_BUS_DOCUMENT" ColumnName="CLI_BUS_DOCUMENT" />
+                <ScalarProperty Name="CLI_BUS_TYPE" ColumnName="CLI_BUS_TYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COUNTRY">
+            <EntityTypeMapping TypeName="Project_VisitModel.COUNTRY">
+              <MappingFragment StoreEntitySet="COUNTRY">
+                <ScalarProperty Name="CONT_ID" ColumnName="CONT_ID" />
+                <ScalarProperty Name="CONT_NAME" ColumnName="CONT_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DETAIL_VISITS">
+            <EntityTypeMapping TypeName="Project_VisitModel.DETAIL_VISITS">
+              <MappingFragment StoreEntitySet="DETAIL_VISITS">
+                <ScalarProperty Name="DE_VIS_ID" ColumnName="DE_VIS_ID" />
+                <ScalarProperty Name="DE_VIS_NAME" ColumnName="DE_VIS_NAME" />
+                <ScalarProperty Name="DE_VIS_DESCRIPTION" ColumnName="DE_VIS_DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLOYEE">
+            <EntityTypeMapping TypeName="Project_VisitModel.EMPLOYEE">
+              <MappingFragment StoreEntitySet="EMPLOYEE">
+                <ScalarProperty Name="EMP_ID" ColumnName="EMP_ID" />
+                <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
+                <ScalarProperty Name="BRA_BUIS_ID" ColumnName="BRA_BUIS_ID" />
+                <ScalarProperty Name="EMP_DOCUMENT" ColumnName="EMP_DOCUMENT" />
+                <ScalarProperty Name="EMP_NAME" ColumnName="EMP_NAME" />
+                <ScalarProperty Name="EMP_SURNAME" ColumnName="EMP_SURNAME" />
+                <ScalarProperty Name="EMP_PHONE" ColumnName="EMP_PHONE" />
+                <ScalarProperty Name="EMP_PHONE2" ColumnName="EMP_PHONE2" />
+                <ScalarProperty Name="EMP_CELL_PHONE" ColumnName="EMP_CELL_PHONE" />
+                <ScalarProperty Name="EMP_CELL_PHONE2" ColumnName="EMP_CELL_PHONE2" />
+                <ScalarProperty Name="EMP_ADDRES" ColumnName="EMP_ADDRES" />
+                <ScalarProperty Name="EMP_MAIL" ColumnName="EMP_MAIL" />
+                <ScalarProperty Name="EMP_MAIL2" ColumnName="EMP_MAIL2" />
+                <ScalarProperty Name="EMP_PASSWORD" ColumnName="EMP_PASSWORD" />
+                <ScalarProperty Name="EMP_STATE" ColumnName="EMP_STATE" />
+                <ScalarProperty Name="EMP_PHOTO" ColumnName="EMP_PHOTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IT_HAS_ACTIVITIES">
+            <EntityTypeMapping TypeName="Project_VisitModel.IT_HAS_ACTIVITIES">
+              <MappingFragment StoreEntitySet="IT_HAS_ACTIVITIES">
+                <ScalarProperty Name="IT_HAS_ACTIVITIES1" ColumnName="IT_HAS_ACTIVITIES" />
+                <ScalarProperty Name="DE_VIS_ID" ColumnName="DE_VIS_ID" />
+                <ScalarProperty Name="VIS_ID" ColumnName="VIS_ID" />
+                <ScalarProperty Name="VIS_ATTE_MAIL" ColumnName="VIS_ATTE_MAIL" />
+                <ScalarProperty Name="VIS_ATTE_PHONE" ColumnName="VIS_ATTE_PHONE" />
+                <ScalarProperty Name="VIS_ATTE_CELPHONE" ColumnName="VIS_ATTE_CELPHONE" />
+                <ScalarProperty Name="VIS_ATTE_NAME" ColumnName="VIS_ATTE_NAME" />
+                <ScalarProperty Name="VIS_ATTE_COMPETITION" ColumnName="VIS_ATTE_COMPETITION" />
+                <ScalarProperty Name="VIS_ATTE_POSITION" ColumnName="VIS_ATTE_POSITION" />
+                <ScalarProperty Name="VIS_OBSERVATION" ColumnName="VIS_OBSERVATION" />
+                <ScalarProperty Name="VIS_COM_" ColumnName="VIS_COM_" />
+                <ScalarProperty Name="VIS_COM_DATE" ColumnName="VIS_COM_DATE" />
+                <ScalarProperty Name="VIS_PROY_NAME" ColumnName="VIS_PROY_NAME" />
+                <ScalarProperty Name="VIS_ACTIVITY_DESCRIPTION" ColumnName="VIS_ACTIVITY_DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OPTIONS_LIST_RULES">
+            <EntityTypeMapping TypeName="Project_VisitModel.OPTIONS_LIST_RULES">
+              <MappingFragment StoreEntitySet="OPTIONS_LIST_RULES">
+                <ScalarProperty Name="OPC_LIS_RULES_ID" ColumnName="OPC_LIS_RULES_ID" />
+                <ScalarProperty Name="RULE_TYPE_BUS_ID" ColumnName="RULE_TYPE_BUS_ID" />
+                <ScalarProperty Name="OPC_LIS_RULES_NAME" ColumnName="OPC_LIS_RULES_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERMISSIONS">
+            <EntityTypeMapping TypeName="Project_VisitModel.PERMISSIONS">
+              <MappingFragment StoreEntitySet="PERMISSIONS">
+                <ScalarProperty Name="PER_ID" ColumnName="PER_ID" />
+                <ScalarProperty Name="PER_NAME" ColumnName="PER_NAME" />
+                <ScalarProperty Name="PER_DESCRIPTION" ColumnName="PER_DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QUOTATION">
+            <EntityTypeMapping TypeName="Project_VisitModel.QUOTATION">
+              <MappingFragment StoreEntitySet="QUOTATION">
+                <ScalarProperty Name="QUO_ID" ColumnName="QUO_ID" />
+                <ScalarProperty Name="BRA_OFF_ID" ColumnName="BRA_OFF_ID" />
+                <ScalarProperty Name="QUO_STA_ID" ColumnName="QUO_STA_ID" />
+                <ScalarProperty Name="QUO_CODE" ColumnName="QUO_CODE" />
+                <ScalarProperty Name="QUO_DATE" ColumnName="QUO_DATE" />
+                <ScalarProperty Name="QUO_VRBASE" ColumnName="QUO_VRBASE" />
+                <ScalarProperty Name="QUO_OBSERVATION" ColumnName="QUO_OBSERVATION" />
+                <ScalarProperty Name="QUO_INVOICE" ColumnName="QUO_INVOICE" />
+                <ScalarProperty Name="QUO_INVOICE_VR" ColumnName="QUO_INVOICE_VR" />
+                <ScalarProperty Name="QUO_PROBAL_CLOSE_DATE" ColumnName="QUO_PROBAL_CLOSE_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QUOTATION_STATE">
+            <EntityTypeMapping TypeName="Project_VisitModel.QUOTATION_STATE">
+              <MappingFragment StoreEntitySet="QUOTATION_STATE">
+                <ScalarProperty Name="QUO_STA_ID" ColumnName="QUO_STA_ID" />
+                <ScalarProperty Name="QUO_STA_DESCRIPTION" ColumnName="QUO_STA_DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROLE">
+            <EntityTypeMapping TypeName="Project_VisitModel.ROLE">
+              <MappingFragment StoreEntitySet="ROLE">
+                <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
+                <ScalarProperty Name="ROL_NAME" ColumnName="ROL_NAME" />
+                <ScalarProperty Name="ROL_DESCRIPTION" ColumnName="ROL_DESCRIPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USES">
+            <EntityTypeMapping TypeName="Project_VisitModel.USES">
+              <MappingFragment StoreEntitySet="USES">
+                <ScalarProperty Name="USE_ID" ColumnName="USE_ID" />
+                <ScalarProperty Name="PER_ID" ColumnName="PER_ID" />
+                <ScalarProperty Name="EMP_ID" ColumnName="EMP_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VISITS">
+            <EntityTypeMapping TypeName="Project_VisitModel.VISITS">
+              <MappingFragment StoreEntitySet="VISITS">
+                <ScalarProperty Name="VIS_ID" ColumnName="VIS_ID" />
+                <ScalarProperty Name="BRA_OFF_ID" ColumnName="BRA_OFF_ID" />
+                <ScalarProperty Name="VIS_ADDRESS" ColumnName="VIS_ADDRESS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

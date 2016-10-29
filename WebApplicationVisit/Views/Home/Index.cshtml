@@ -1,0 +1,393 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset-UTF-8">
+    <meta name="viewport" content="width-device-width , initial-scale=1,maximum-scale=1.0" />
+    <title>Businness</title>
+    <!--Import Google Icon Font-->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="~/Content/materialize-v0.97.5/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
+    <style>
+        .bg-danger {
+            background-color: #f2dede;
+            margin: 0 0 10px;
+            display: block;
+            -webkit-margin-before: 1em;
+            -webkit-margin-after: 1em;
+            -webkit-margin-start: 0px;
+            -webkit-margin-end: 0px;
+        }
+
+        #myInput {
+            background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+            background-position: 10px 12px; /* Position the search icon */
+            background-repeat: no-repeat; /* Do not repeat the icon image */
+            width: 100%; /* Full-width */
+            font-size: 16px; /* Increase font-size */
+            padding: 12px 20px 12px 40px; /* Add some padding */
+            border: 1px solid #ddd; /* Add a grey border */
+            margin-bottom: 12px; /* Add some space below the input */
+        }
+    </style>
+
+</head>
+<body>
+
+    <nav class="light-blue lighten-1" role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo-container" href="#" class="brand-logo">Logo</a>
+            <ul class="right hide-on-med-and-down">
+                <li> <a data-activates="slide-out" class="button-collapse2" href="#"><i class="material-icons">language</i></a></li>
+                <li> <a href="#"><i class="material-icons">live_help</i></a></li>
+            </ul>
+            <!--aquiiii-->
+            <!--<ul id="slide-out" class="side-nav">
+                <li>
+                    <div class="userView ">
+                        <img class="background" src="~/Img/mar.jpg">
+                        <a href="#!user"><img class="circle" src="~/Img/14063739_10208842255405957_5796210327642464632_n.jpg"></a>
+                        <a href="#!name"><span class="white-text name">John Doe</span></a>
+                        <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+                    </div>
+                </li>
+                <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+                <li><a href="#!">Second Link</a></li>
+                <li><div class="divider"></div></li>
+                <li><a class="subheader">Subheader</a></li>
+                <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+            </ul>
+            <!-- <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>-->
+            <!--aquiiii-->
+
+            <ul id="nav-mobile" class="side-nav">
+                <li><img class="responsive-img" src="~/Img/logoSinapsis.png" /></li>
+                <li> <a href="#">Home</a></li>
+                <li> <a href="#">live_help</a></li>
+                <li><div class="divider"></div></li>
+                <li> <a href="#">Home</a></li>
+                <li> <a href="#">live_help</a></li>
+                <li> <a href="#">Home</a></li>
+                <li> <a href="#">live_help</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"> <i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+
+    <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+            <div class="row">
+
+                <div class="col s12 m4 l3 hide-on-small-only hide-on-med-only">
+
+                    <ul class="collection with-header">
+                        <li class="collection-header"><img class="responsive-img" src="~/Img/logoSinapsis.png" /></li>
+                        @*<li class="collection-item"><div onclick="validateSelectionForm('formCrear')" class="barra">Crear<a class="secondary-content"><i class="material-icons prefix">done</i></a></div></li>
+                            <li class="collection-item"><div onclick="validateSelectionForm('formCrear')" class="barra">Actualizar<a class="secondary-content"><i class="material-icons prefix">replay</i></a></div></li>
+                            <li class="collection-item"><div onclick="validateSelectionForm('formBuscar')" class="barra">Buscar<a class="secondary-content"><i class="material-icons prefix">search</i></a></div></li>
+                            <li class="collection-item"><div onclick="validateSelectionForm('formBorrar')" class="barra">Eliminar<a class="secondary-content"><i class="material-icons prefix">delete</i></a></div></li>*@
+                        <li class="no-padding">
+                            <ul class="collapsible collapsible-accordion">
+                                <li class="bold">
+                                    <a class="collapsible-header  active waves-effect waves-teal">Empresa</a>
+                                    <div class="collapsible-body" style="">
+                                        <ul>
+
+                                            <li class="collection-item"><div onclick="validateSelectionForm('formCrear')" class="barra">Crear<a class="secondary-content"><i class="material-icons prefix">done</i></a></div></li>
+                                            <li class="collection-item"><div onclick="validateSelectionForm('formCrear')" class="barra">Actualizar<a class="secondary-content"><i class="material-icons prefix">replay</i></a></div></li>
+                                            <li class="collection-item"><div onclick="validateSelectionForm('formBuscar')" class="barra">Buscar<a class="secondary-content"><i class="material-icons prefix">search</i></a></div></li>
+                                            <li class="collection-item"><div onclick="validateSelectionForm('formBorrar')" class="barra">Eliminar<a class="secondary-content"><i class="material-icons prefix">delete</i></a></div></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="no-padding">
+                                    <ul class="collapsible collapsible-accordion">
+                                        <li class="bold">
+                                            <a class="collapsible-header  waves-effect waves-teal">Sucursal</a>
+                                            <div class="collapsible-body" style="">
+                                                <ul>
+
+                                                    <li class="collection-item"><div onclick="validateSelectionForm('formCrear')" class="barra">Crear<a class="secondary-content"><i class="material-icons prefix">done</i></a></div></li>
+                                                    <li class="collection-item"><div onclick="validateSelectionForm('formCrear')" class="barra">Actualizar<a class="secondary-content"><i class="material-icons prefix">replay</i></a></div></li>
+                                                    <li class="collection-item"><div onclick="validateSelectionForm('formBuscar')" class="barra">Buscar<a class="secondary-content"><i class="material-icons prefix">search</i></a></div></li>
+                                                    <li class="collection-item"><div onclick="validateSelectionForm('formBorrar')" class="barra">Eliminar<a class="secondary-content"><i class="material-icons prefix">delete</i></a></div></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                </div>
+                <div class="col s12 m8 l9">
+                    <div id="formCrear">
+                        <form method="post" onsubmit="validateText(event)">
+                            <div class="form-horizontal">
+                                <h4>Empresa</h4>
+                                <hr>
+
+                                <div class="form-group">
+                                    <!---<label class="control-label col-md-2" for="Nit">Nombre</label-->
+                                    <div class="input-field col s12 m6 l6">
+                                        <i class="material-icons prefix">account_circle</i>
+                                        <input class="form-control text-box single-line" id="nombre" name="nombre" data-validatefor="cadena" data-msgerror="Verifique el nombre" data-msgvalidate="msgname" type="text" required>
+                                        <p id="msgname" class="bg-danger text-danger"></p>
+                                        <label for="nombre">First Name</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <!--<label class="control-label col-md-2" for="Nit">Nit</label>-->
+                                    <div class="input-field col s12 m6 l6">
+                                        <i class="material-icons prefix">phone</i>
+                                        <input class="form-control text-box single-line" data-validatefor="numero" data-msgvalidate="msgnit" id="nit" name="Nit" type="number" required>
+                                        <p id="msgnit" class="bg-danger text-danger"></p>
+                                        <label for="nit">Nit</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <!--  <label class="control-label col-md-2" for="Pais">Pais</label>-->
+                                    <div class="input-field col s12 m6 l6">
+                                        <i class="material-icons prefix">language</i>
+                                        <input class="form-control text-box single-line" data-validatefor="cadena" data-msgvalidate="msgpais" data-mserror="" id="pais" name="Pais" type="text" required>
+                                        <p id="msgpais" class="bg-danger text-danger"></p>
+                                        <label for="pais">Pais</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <!--<label class="control-label col-md-2" for="Ciudad">Ciudad</label>-->
+                                    <div class="input-field col s12 m6 l6">
+                                        <i class="material-icons prefix">language</i>
+                                        <input class="form-control text-box single-line" data-validatefor="cadena" data-msgvalidate="msgciudad" data-msgerror="Verifique la ciudad" id="ciudad" name="Ciudad" type="text" required>
+                                        <p id="msgciudad" class="bg-danger text-danger"></p>
+                                        <label for="ciudad">Ciudad</label>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <!--  <label class="control-label col-md-2"  for="icon_telephone">E-mail</label>-->
+                                    <div class="input-field col s12 m6 l6">
+                                        <i class="material-icons prefix">phone</i>
+                                        <input class="form-control text-box single-line" data-validatefor="cadena" data-msgvalidate="msgtelefono" id="telefono" name="Telefono" type="tel" required>
+                                        <p id="msgtelefono" class="bg-danger text-danger"></p>
+                                        <label for="telefono">Teléfono</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="Direccion"></label>
+                                    <div class="input-field col s12 m6 l6">
+                                        <i class="material-icons prefix">business</i>
+                                        <input class="form-control text-box single-line" data-validatefor="cadena" data-msgvalidate="msgdireccion" id="direccion" name="Direccion" type="text" required>
+                                        <p id="msgdireccion" class="bg-danger text-danger"></p>
+                                        <label for="direccion">Direccion</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <!-- <label class="control-label col-md-2" for="Email1">Email1</label>-->
+                                    <div class="input-field col s12 m6 l6">
+                                        <i class="material-icons prefix">email</i>
+                                        <input class="form-control text-box single-line" data-validatefor="email" data-msgvalidate="msgemail1" data-msgerror="digite un email valido" id="email1" name="Email1" type="email" required>
+                                        <p id="msgemail1" class="bg-danger text-danger"></p>
+                                        <label for="email1">E-mail1</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <!-- <label class="control-label col-md-2" for="Email2">Email2</label>-->
+                                    <div class="input-field col s12 m6 l6">
+                                        <i class="material-icons prefix">email</i>
+                                        <input class="form-control text-box single-line" data-validatefor="email" data-msgvalidate="msgemail2" id="email2" name="Email2" type="email">
+                                        <p id="msgemail2" class="bg-danger text-danger"></p>
+                                        <label for="email2">E-mail2</label>
+                                    </div>
+                                </div>
+
+                                <div class="file-field input-field col s12 m6 l6">
+
+                                    <div class="btn">
+                                        <span>File</span>
+                                        <input type="file" multiple>
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                                    </div>
+
+                                </div>
+
+                                <!--- <div class="form-group">
+                                    <label class="control-label col-md-2" for="Imagen">Imagen</label>
+                                    <div class="col-md-10">
+
+                                        <p id="msgimagen" class="bg-danger text-danger"></p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="Colores">Colores</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control text-box single-line" data-validatefor="colores" data-msgvalidate="msgcolores" id="Colores" name="colores" type="text" required>
+                                        <p id="msgcolores" class="bg-danger text-danger"></p>
+                                    </div>
+                                </div>-->
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Guardar" class="btn btn-default">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                <div id="formBorrar" hidden>
+                    <form method="post" onsubmit="validateText(event)">
+                        <div class="form-horizontal">
+                            <h4>Empresa</h4>
+                            <hr>
+
+                            <div class="form-group">
+                                <!-- <label class="control-label col-md-2" for="Nit">Nombre</label>-->
+                                <div class="input-field col s12 m6 l6">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <input class="form-control text-box single-line" id="bnombre" name="nombre" data-validatefor="cadena" data-msgerror="Verifique el nombre" data-msgvalidate="msgname" type="text" readonly>
+                                    <p id="msgname" class="bg-danger text-danger"></p>
+                                    <label for="bnombre">First Name</label>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <!-- <label class="control-label col-md-2" for="Nit">Nit</label>-->
+                                <div class="input-field col s12 m6 l6">
+                                    <i class="material-icons prefix">phone</i>
+                                    <input class="form-control text-box single-line" data-validatefor="numero" data-msgvalidate="msgnit" id="nit" name="Nit" type="number" readonly>
+                                    <p id="msgnit" class="bg-danger text-danger"></p>
+                                    <label for="nit">Nit</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-2" for="Pais">Pais</label>
+                                <div class="input-field col s12 m6 l6">
+                                    <input class="form-control text-box single-line" data-validatefor="cadena" data-msgvalidate="msgpais" data-mserror="" id="Pais" name="Pais" type="text" readonly>
+                                    <p id="msgpais" class="bg-danger text-danger"></p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-2" for="Ciudad">Ciudad</label>
+                                <div class="input-field col s12 m6 l6">
+                                    <input class="form-control text-box single-line" data-validatefor="cadena" data-msgvalidate="msgciudad" data-msgerror="Verifique la ciudad" id="Ciudad" name="Ciudad" type="text" readonly>
+                                    <p id="msgciudad" class="bg-danger text-danger"></p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-2" for="Imagen">Imagen</label>
+                                <div class="input-field col s12 m6 l6">
+
+                                    <p id="msgimagen" class="bg-danger text-danger"></p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Eliminar" class="btn btn-default">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="formBuscar" hidden>
+                    <div class="row">
+                        <input type="text" id="buscar" onkeyup="busqueda('tablaEmpresa')" placeholder="Busqueda empresas..">
+                    </div>
+                    <div class="row">
+
+                        <table class="highlight" id="tablaEmpresa">
+                            <thead>
+                                <tr>
+                                    <th data-field="nombre">Nombre</th>
+                                    <th data-field="nit">Nit</th>
+                                    <th data-field="pais">Pais</th>
+                                    <th data-field="ciudad">Ciudad</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>Empresa1</td>
+                                    <td>123456 </td>
+                                    <td>Colombia</td>
+                                    <td>Bogota</td>
+                                    <td><a href="#">Editar</a></td>
+                                    <td><a href="#">Eliminar</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Alpina</td>
+                                    <td>123456 </td>
+                                    <td>Colombia</td>
+                                    <td>Bogota</td>
+                                    <td><a href="#">Editar</a></td>
+                                    <td><a href="#">Eliminar</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Lenovo</td>
+                                    <td>123456 </td>
+                                    <td>Colombia</td>
+                                    <td>Bogota</td>
+                                    <td><a href="#">Editar</a></td>
+                                    <td><a href="#">Eliminar</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Samsung</td>
+                                    <td>123456 </td>
+                                    <td>Colombia</td>
+                                    <td>Bogota</td>
+                                    <td><a href="#">Editar</a></td>
+                                    <td><a href="#">Eliminar</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Asus</td>
+                                    <td>123456 </td>
+                                    <td>Colombia</td>
+                                    <td>Bogota</td>
+                                    <td><a href="#">Editar</a></td>
+                                    <td><a href="#">Eliminar</a></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--Import jQuery before materialize.js-->
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="~/Content/materialize-v0.97.5/js/materialize.js"></script>
+    <script type="text/javascript" src="~/Scripts/jsProject/Validaciones.js"></script>
+    <script type="text/javascript" src="~/Scripts/jsProject/CtrBusinness.js"></script>
+
+
+</body>
+
+</html>
