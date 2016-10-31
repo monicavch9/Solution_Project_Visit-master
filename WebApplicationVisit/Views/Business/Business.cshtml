@@ -132,6 +132,42 @@
                             <!--End Body Info List Selection Items-->
                         </li>
                         <!--End Block menu -->
+                        <!--Start Block menu -->
+                        <li>
+                            <!--Header Info List-->
+                            <div class="collapsible-header" onclick="selectionItem(2)" id="item_1"><i class="material-icons">settings_applications</i>Reglas Negocio</div>
+                            <!--Start Body Info List Selection Items-->
+                            <div class="collapsible-body">
+                                <!--Start  Items-->
+                                <div class="collection">
+                                    <a href="#!" class="collection-item active" onclick="selectionSubItems('2_0',' ',0)" id="subItem_2_0">Buscar</a>
+                                    <a href="#!" class="collection-item" onclick="selectionSubItems('2_1', ' ',0)" id="subItem_2_1">Crear</a>
+                                    <a href="#!" class="collection-item" onclick="selectionSubItems('2_2','2_1',1)" id="subItem_2_2">Modificar</a>
+                                    <a href="#!" class="collection-item" onclick="selectionSubItems('2_3',' ',0)" id="subItem_2_3">Eliminar</a>
+                                </div>
+                                <!--End  Items-->
+                            </div>
+                            <!--End Body Info List Selection Items-->
+                        </li>
+                        <!--End Block menu -->
+                        <!--Start Block menu -->
+                        <li>
+                            <!--Header Info List-->
+                            <div class="collapsible-header" onclick="selectionItem(3)" id="item_1"><i class="material-icons">settings_applications</i>Tipo de reglas</div>
+                            <!--Start Body Info List Selection Items-->
+                            <div class="collapsible-body">
+                                <!--Start  Items-->
+                                <div class="collection">
+                                    <a href="#!" class="collection-item active" onclick="selectionSubItems('3_0',' ',0)" id="subItem_3_0">Buscar</a>
+                                    <a href="#!" class="collection-item" onclick="selectionSubItems('3_1', ' ',0)" id="subItem_3_1">Crear</a>
+                                    <a href="#!" class="collection-item" onclick="selectionSubItems('3_2','3_1',1)" id="subItem_3_2">Modificar</a>
+                                    <a href="#!" class="collection-item" onclick="selectionSubItems('3_3',' ',0)" id="subItem_3_3">Eliminar</a>
+                                </div>
+                                <!--End  Items-->
+                            </div>
+                            <!--End Body Info List Selection Items-->
+                        </li>
+                        <!--End Block menu -->
                     </ul>
                     <!--End Conten Menu Collapsible-->
                 </li>
@@ -320,11 +356,11 @@
                         <div class="input-field col s12 m6 l4">
                             <div class="file-field input-field">
                                 <div class="btn">
-                                    <span>Foto</span>
+                                    <span>Logo</span>
                                     <input type="file">
                                 </div>
                                 <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text" placeholder="Seleccione una Foto">
+                                    <input class="file-path validate" type="text" placeholder="Seleccione logo">
                                 </div>
                             </div>
                         </div>
@@ -446,7 +482,6 @@
         <!--End  Container Form -->
         <!--Start Container Form -->
         <div class="col s12 m12 l10">
-
             <!--Start Container Form 0-->
             <div id="form1_0" class="form_select">
                 <h4 id="titleForm">Sucursal</h4><!--Dinamic Title-->
@@ -523,7 +558,7 @@
             <!--Start Container Form 1-->
             <div id="form1_1" class="form_select">
                 <!--Start cont search-->
-                <div class="row cont_search" id="cont_search_0_1">
+                <div class="row cont_search" id="cont_search_1_1">
                     <!--Start Elements -->
                     <div class="input-field col s12 m3 l3">
                         <select>
@@ -587,7 +622,7 @@
                         <!--End Elements -->   
                         <!--Start Elements -->
                         <div class="input-field col s12 m6 l4">
-                            <i class="material-icons prefix">contact_phone</i>
+                            <i class="material-icons prefix">room</i>
                             <input id="bus_direccion" type="tel" class="validate" required>
                             <label for="bus_direccion">Dirección</label>
                         </div>
@@ -634,6 +669,536 @@
             <!--End Form 1-->
             <!--Start Container Form 3-->
             <div id="form1_3" class="form_select">
+                <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
+                <!--Form search-->
+                <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
+                    <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
+                    <div class="row">
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m3 l3">
+                            <select>
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                            <label>Materialize Select</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s10 m7 l7">
+                            <input id="emp_search" type="text" class="validate" required>
+                            <label for="emp_search">Digite el valor a buscar</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s2 m2 l2">
+                            <div class="card-action center">
+                                <button id="btn_emp_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
+                                    <i class="material-icons right">search</i>
+                                </button>
+                            </div>
+                        </div>
+                        <!--End Elements -->
+
+                    </div>
+                    <!-- End Elements input-->
+                </form>
+                <!--Start Table result search-->
+                <div class="row">
+                    <!--Start Table-->
+                    <div class="col s12 m12 l12">
+                        <table class="responsive-table highlight">
+                            <thead>
+                                <tr>
+                                    <th data-field="id">Name</th>
+                                    <th data-field="name">Item Name</th>
+                                    <th data-field="price">Item Price</th>
+                                    <th data-field="price">Selection</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Alvin</td>
+                                    <td>Eclair</td>
+                                    <td>$0.87</td>
+                                    <td>
+                                        <div class="card-action center">
+                                            <button id="btn_emp_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
+                                                <i class="material-icons right">verified_user</i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Alan</td>
+                                    <td>Jellybean</td>
+                                    <td>$3.76</td>
+                                    <td>
+                                        <div class="card-action center">
+                                            <button id="btn_emp_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
+                                                <i class="material-icons right">verified_user</i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jonathan</td>
+                                    <td>Lollipop</td>
+                                    <td>$7.00</td>
+                                    <td>
+                                        <div class="card-action center">
+                                            <button id="btn_emp_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
+                                                <i class="material-icons right">verified_user</i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <!--End Table-->
+                    </div>
+                </div>
+                <!--End Table result search-->
+            </div>
+            <!--End Form 3-->
+        </div>
+        <!--End  Container Form -->
+        <!--Start Container Form -->
+        <div class="col s12 m12 l10">
+            <!--Start Container Form 0-->
+            <div id="form2_0" class="form_select">
+                <h4 id="titleForm">Reglas de Negocio</h4><!--Dinamic Title-->
+                <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
+                <!--Form search-->
+                <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
+                    <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
+                    <div class="row">
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m3 l3">
+                            <select>
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                            <label>Materialize Select</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s10 m7 l7">
+                            <input id="emp_search" type="text" class="validate" required>
+                            <label for="emp_search">Digite el valor a buscar</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s2 m2 l2">
+                            <div class="card-action center">
+                                <button id="btn_emp_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
+                                    <i class="material-icons right">search</i>
+                                </button>
+                            </div>
+                        </div>
+                        <!--End Elements -->
+                    </div>
+                    <!-- End Elements input-->
+                </form>
+                <!--Start Table result search-->
+                <div class="row">
+                    <!--Start Table-->
+                    <div class="col s12 m12 l12">
+                        <table class="responsive-table highlight">
+                            <thead>
+                                <tr>
+                                    <th data-field="id">Name</th>
+                                    <th data-field="name">Item Name</th>
+                                    <th data-field="price">Item Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Alvin</td>
+                                    <td>Eclair</td>
+                                    <td>$0.87</td>
+                                </tr>
+                                <tr>
+                                    <td>Alan</td>
+                                    <td>Jellybean</td>
+                                    <td>$3.76</td>
+                                </tr>
+                                <tr>
+                                    <td>Jonathan</td>
+                                    <td>Lollipop</td>
+                                    <td>$7.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!--End Table-->
+                    </div>
+                </div>
+                <!--End Table result search-->
+            </div>
+            <!--End Form 0-->
+            <!--Start Container Form 1-->
+            <div id="form2_1" class="form_select">
+                <!--Start cont search-->
+                <div class="row cont_search" id="cont_search_2_1">
+                    <!--Start Elements -->
+                    <div class="input-field col s12 m3 l3">
+                        <select>
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                        <label>Materialize Select</label>
+                    </div>
+                    <!--End Elements -->
+                    <!--Start Elements -->
+                    <div class="input-field col s10 m7 l7">
+                        <input id="emp_search" type="text" class="validate" required>
+                        <label for="emp_search">Digite el valor a buscar</label>
+                    </div>
+                    <!--End Elements -->
+                    <!--Start Elements -->
+                    <div class="input-field col s2 m2 l2">
+                        <div class="card-action center">
+                            <button id="btn_emp_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
+                                <i class="material-icons right">search</i>
+                            </button>
+                        </div>
+                    </div>
+                    <!--End Elements -->
+                </div>
+                <!--End cont search-->
+                <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
+                <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
+                    <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
+                    <div class="row">
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <select>
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">Sucursal 1</option>
+                                <option value="2">Sucursal 2</option>
+                                <option value="3">Sucursal 3</option>
+                            </select>
+                            <label>Sucursal</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">visibility</i>
+                            <input id="bus_rules_code" type="text" class="validate" required>
+                            <label for="bus_rules_code">Código</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">forum</i>
+                            <input id="bus_rules_description" type="text" class="validate" required>
+                            <label for="bus_rules_description">Descripción</label>
+                        </div>
+                        <!--End Elements -->                       
+                    </div>
+                    <!-- End Elements input-->
+                    <!--Start Elements Button-->
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div class="card-action center">
+                                <button id="login" class="btn waves-effect waves-light" type="submit" name="action">
+                                    Enviar
+                                    <i class="material-icons right">done</i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End Elements Button-->
+                </form>
+            </div>
+            <!--End Form 1-->
+            <!--Start Container Form 3-->
+            <div id="form2_3" class="form_select">
+                <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
+                <!--Form search-->
+                <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
+                    <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
+                    <div class="row">
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m3 l3">
+                            <select>
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                            <label>Materialize Select</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s10 m7 l7">
+                            <input id="emp_search" type="text" class="validate" required>
+                            <label for="emp_search">Digite el valor a buscar</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s2 m2 l2">
+                            <div class="card-action center">
+                                <button id="btn_emp_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
+                                    <i class="material-icons right">search</i>
+                                </button>
+                            </div>
+                        </div>
+                        <!--End Elements -->
+
+                    </div>
+                    <!-- End Elements input-->
+                </form>
+                <!--Start Table result search-->
+                <div class="row">
+                    <!--Start Table-->
+                    <div class="col s12 m12 l12">
+                        <table class="responsive-table highlight">
+                            <thead>
+                                <tr>
+                                    <th data-field="id">Name</th>
+                                    <th data-field="name">Item Name</th>
+                                    <th data-field="price">Item Price</th>
+                                    <th data-field="price">Selection</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Alvin</td>
+                                    <td>Eclair</td>
+                                    <td>$0.87</td>
+                                    <td>
+                                        <div class="card-action center">
+                                            <button id="btn_emp_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
+                                                <i class="material-icons right">verified_user</i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Alan</td>
+                                    <td>Jellybean</td>
+                                    <td>$3.76</td>
+                                    <td>
+                                        <div class="card-action center">
+                                            <button id="btn_emp_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
+                                                <i class="material-icons right">verified_user</i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jonathan</td>
+                                    <td>Lollipop</td>
+                                    <td>$7.00</td>
+                                    <td>
+                                        <div class="card-action center">
+                                            <button id="btn_emp_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
+                                                <i class="material-icons right">verified_user</i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <!--End Table-->
+                    </div>
+                </div>
+                <!--End Table result search-->
+            </div>
+            <!--End Form 3-->
+        </div>
+        <!--End  Container Form -->
+        <!--Start Container Form -->
+        <div class="col s12 m12 l10">
+            <!--Start Container Form 0-->
+            <div id="form3_0" class="form_select">
+                <h4 id="titleForm">Reglas de Negocio</h4><!--Dinamic Title-->
+                <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
+                <!--Form search-->
+                <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
+                    <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
+                    <div class="row">
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m3 l3">
+                            <select>
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                            <label>Materialize Select</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s10 m7 l7">
+                            <input id="emp_search" type="text" class="validate" required>
+                            <label for="emp_search">Digite el valor a buscar</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s2 m2 l2">
+                            <div class="card-action center">
+                                <button id="btn_emp_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
+                                    <i class="material-icons right">search</i>
+                                </button>
+                            </div>
+                        </div>
+                        <!--End Elements -->
+                    </div>
+                    <!-- End Elements input-->
+                </form>
+                <!--Start Table result search-->
+                <div class="row">
+                    <!--Start Table-->
+                    <div class="col s12 m12 l12">
+                        <table class="responsive-table highlight">
+                            <thead>
+                                <tr>
+                                    <th data-field="id">Name</th>
+                                    <th data-field="name">Item Name</th>
+                                    <th data-field="price">Item Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Alvin</td>
+                                    <td>Eclair</td>
+                                    <td>$0.87</td>
+                                </tr>
+                                <tr>
+                                    <td>Alan</td>
+                                    <td>Jellybean</td>
+                                    <td>$3.76</td>
+                                </tr>
+                                <tr>
+                                    <td>Jonathan</td>
+                                    <td>Lollipop</td>
+                                    <td>$7.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!--End Table-->
+                    </div>
+                </div>
+                <!--End Table result search-->
+            </div>
+            <!--End Form 0-->
+            <!--Start Container Form 1-->
+            <div id="form3_1" class="form_select">
+                <!--Start cont search-->
+                <div class="row cont_search" id="cont_search_3_1">
+                    <!--Start Elements -->
+                    <div class="input-field col s12 m3 l3">
+                        <select>
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                        <label>Materialize Select</label>
+                    </div>
+                    <!--End Elements -->
+                    <!--Start Elements -->
+                    <div class="input-field col s10 m7 l7">
+                        <input id="emp_search" type="text" class="validate" required>
+                        <label for="emp_search">Digite el valor a buscar</label>
+                    </div>
+                    <!--End Elements -->
+                    <!--Start Elements -->
+                    <div class="input-field col s2 m2 l2">
+                        <div class="card-action center">
+                            <button id="btn_emp_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
+                                <i class="material-icons right">search</i>
+                            </button>
+                        </div>
+                    </div>
+                    <!--End Elements -->
+                </div>
+                <!--End cont search-->
+                <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
+                <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
+                    <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
+                    <div class="row">
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <select>
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">Regla 1</option>
+                                <option value="2">Regla 2</option>
+                                <option value="3">Regla 3</option>
+                            </select>
+                            <label>Regla de negocio</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">perm_identity</i>
+                            <input id="rule_type_bus_name" type="text" class="validate" required>
+                            <label for="rule_type_bus_name">Nombre</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">perm_identity</i>
+                            <input id="rule_type_bus_description" type="text" class="validate">
+                            <label for="rule_type_bus_description">Descripción</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <select>
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">Option Única</option>
+                                <option value="2">Option Múltiple</option>
+                            </select>
+                            <label>Tipo selección</label>
+                        </div>
+                        <!--End Elements -->                        
+                        <!--Start Elements Button-->
+                        <div class="col s12 m6 l4">
+                            <div class="card-action left">
+                                <button id="login" class="btn waves-effect waves-light" type="submit" name="action">
+                                    Crear
+                                    <i class="material-icons right">done</i>
+                                </button>
+                            </div>
+                        </div>
+                        <!--End Elements Button-->
+                    </div>
+                    <!-- End Elements input-->
+                    
+                    <div class="=row">
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">perm_identity</i>
+                            <input id="opc_lis_rules_name" type="text" class="validate" required>
+                            <label for="opc_lis_rules_name">Nombre</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements Button-->
+                            <div class="col s12 m6 l4">
+                                <div class="card-action left">
+                                    <button id="add" class="btn waves-effect waves-light" type="submit" name="action">
+                                        Agregar
+                                        <i class="material-icons right">done</i>
+                                    </button>
+                                </div>
+                            </div>
+                        <!--End Elements Button-->
+                    </div>
+                </form>
+            </div>
+            <!--End Form 1-->
+            <!--Start Container Form 3-->
+            <div id="form3_3" class="form_select">
                 <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
                 <!--Form search-->
                 <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
