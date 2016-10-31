@@ -2,9 +2,7 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -15,35 +13,40 @@
     <link href="~/Content/materialize-v0.97.5/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <style type="text/css">
         .activeItem {
-        color:#29b6f6;
+            color: #29b6f6;
         }
-        .form_select{
-            display:none;
+
+        .form_select {
+            display: none;
         }
-     
+
+        .cont_search {
+            display: none;
+        }
     </style>
 </head>
-
-
 <body onload="nobackbutton()">
-
     <!--Start Nav bar -->
     <nav class="light-blue lighten-1" role="navigation">
+        <!--Start Container nav bar-->
         <div class="nav-wrapper container">
             <a href="#!" class="brand-logo hide-on-large-only">  <i class="material-icons">cloud</i> </a>
+            <!--Start Nav Icons-->
             <ul class="right hide-on-med-and-down">
-                <li><a href="/Home/Home" ><i class="material-icons">store</i></a></li>
+                <li><a title="Home" href="/Home/Home"><i class="material-icons">store</i></a></li>
                 <li><a class="modal-trigger waves-effect waves-light" href="#modalInformation"><i class="material-icons">info_outline</i></a></li>
                 <li><a href="#" onclick="closeSession()"><i class="material-icons">lock</i></a></li>
             </ul>
+            <!--End  Nav Icons-->
             <!--Start Menu Mobile-->
             <ul id="nav-mobile" class="side-nav">
                 <li>
                     <ul>
-                        <li class="collection-header z-depth-1"><img class="responsive-img" src="~/Img/logoSinapsis.png" /></li>
+                        <li class="collection-header z-depth-1"><img class="responsive-img" src="~/Img/logoSinapsis.png" /></li><!--Header Image menu mobile-->
                         <li class="row">
                             <!--Start Conten Menu Slide Collapsible-->
                             <ul class="collapsible" data-collapsible="accordion">
+                                <!--Start items menu mobile-->
                                 <li class="z-depth-1">
                                     <!--Header Info List-->
                                     <div class="collapsible-header activeItem" onclick="selectionMitem(0)" id="mItem_0"><h6 class="right-align">Empresa</h6></div>
@@ -51,45 +54,29 @@
                                     <div class="collapsible-body">
                                         <!--Start  Items-->
                                         <div class="collection">
-                                            <a href="#!" class="collection-item active" onclick="selectionMsubItems('0_0')" id="mSubItem_0_0">Consultar Empresa</a>
-                                            <a href="#!" class="collection-item" onclick="selectionMsubItems('0_1')" id="mSubItem_0_1">Crear Empresa</a>
-                                            <a href="#!" class="collection-item" onclick="selectionMsubItems('0_2')" id="mSubItem_0_2">Actualizar Empresa</a>
-                                            <a href="#!" class="collection-item" onclick="selectionMsubItems('0_3')" id="mSubItem_0_3">Eliminar Empresa</a>
+                                            <a href="#!" class="collection-item active per_user_3" onclick="selectionMsubItems('0_0')" id="mSubItem_0_0">Buscar</a>
+                                            <a href="#!" class="collection-item per_user_0" onclick="selectionMsubItems('0_1')" id="mSubItem_0_1">Crear</a>
+                                            <a href="#!" class="collection-item per_user_1" onclick="selectionMsubItems('0_2')" id="mSubItem_0_2">Modificar</a>
+                                            <a href="#!" class="collection-item per_user_2" onclick="selectionMsubItems('0_3')" id="mSubItem_0_3">Eliminar</a>
                                         </div>
                                         <!--End  Items-->
                                     </div>
                                     <!--End Body Info List Selection Items-->
                                 </li>
-                                <li class="z-depth-1">
-                                    <!--Header Info List-->
-                                    <div class="collapsible-header activeItem" onclick="selectionMitem(1)" id="mItem_1"><h6 class="right-align">Sucursal</h6></div>
-                                    <!--Start Body Info List Selection Items-->
-                                    <div class="collapsible-body">
-                                        <!--Start  Items-->
-                                        <div class="collection">
-                                            <a href="#!" class="collection-item active" onclick="selectionMsubItems('1_0')" id="mSubItem_1_0">Consultar</a>
-                                            <a href="#!" class="collection-item" onclick="selectionMsubItems('1_1')" id="mSubItem_1_1">Crear</a>
-                                            <a href="#!" class="collection-item" onclick="selectionMsubItems('1_2')" id="mSubItem_1_2">Actualizar</a>
-                                            <a href="#!" class="collection-item" onclick="selectionMsubItems('1_3')" id="mSubItem_1_3">Eliminar</a>
-                                        </div>
-                                        <!--End  Items-->
-                                    </div>
-                                    <!--End Body Info List Selection Items-->
-                                </li>
-
+                                <!--End items menu mobile-->
                             </ul>
                             <!--End Conten Menu Collapsible-->
                         </li>
                     </ul>
-                </li> 
+                </li>
             </ul>
             <!--End Menu Mobile-->
-            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a><!--Buton menu nav mobile-->
         </div>
+        <!--End Container nav bar-->
     </nav>
     <!--End Nav bar-->
     <!-- Start Modal Information -->
-    <!-- Modal Structure -->
     <div id="modalInformation" class="modal modal-fixed-footer">
         <div class="modal-content">
             <h4>Modal Header</h4>
@@ -101,134 +88,661 @@
     </div>
     <!-- End Modal Information -->
     <!--Start Container-->
-        <div>
-    
-            <div class="row">
-                <!--Start Menu Side-->
-                <div class="col l2 hide-on-small-only hide-on-med-only">
-                    <ul>
-                        <li class="collection-header z-depth-2"><img class="responsive-img" src="~/Img/logoSinapsis.png" /></li>
-                            <li  class="row">
-                                    <!--Start Conten Menu Slide Collapsible-->
-                                    <ul class="collapsible popout" data-collapsible="accordion">
-                                        <li>
-                                            <!--Header Info List-->
-                                            <div  class="collapsible-header active activeItem" onclick="selectionItem(0)" id="item_0"><i class="material-icons">settings_applications</i>Empresa</div>
-                                            <!--Start Body Info List Selection Items-->
-                                            <div class="collapsible-body">
-                                                <!--Start  Items-->
-                                                <div class="collection">
-                                                    <a href="#!" class="collection-item active" onclick="selectionSubItems('0_0')" id="subItem_0_0">Consultar</a>
-                                                    <a href="#!" class="collection-item" onclick="selectionSubItems('0_1')" id="subItem_0_1">Crear</a>
-                                                    <a href="#!" class="collection-item" onclick="selectionSubItems('0_2')" id="subItem_0_2">Actualizar</a>
-                                                    <a href="#!" class="collection-item" onclick="selectionSubItems('0_3')" id="subItem_0_3">Eliminar</a>
-                                                </div>
-                                                <!--End  Items-->
-                                            </div>
-                                            <!--End Body Info List Selection Items-->
-                                        </li>
-                                        <li>
-                                            <!--Header Info List-->
-                                            <div class="collapsible-header" onclick="selectionItem(1)" id="item_1"><i class="material-icons">settings_applications</i>Sucursal</div>
-                                            <!--Start Body Info List Selection Items-->
-                                            <div class="collapsible-body">
-                                                <!--Start  Items-->
-                                                <div class="collection">
-                                                    <a href="#!" class="collection-item active" onclick="selectionSubItems('1_0')" id="subItem_1_0">Consultar</a>
-                                                    <a href="#!" class="collection-item" onclick="selectionSubItems('1_1')" id="subItem_1_1">Crear</a>
-                                                    <a href="#!" class="collection-item" onclick="selectionSubItems('1_2')" id="subItem_1_2">Actualizar</a>
-                                                    <a href="#!" class="collection-item" onclick="selectionSubItems('1_3')" id="subItem_1_3">Eliminar</a>
-                                                </div>
-                                                <!--End  Items-->
-                                            </div>
-                                            <!--End Body Info List Selection Items-->
-                                        </li>
-                                      
-                                    </ul>
-                                    <!--End Conten Menu Collapsible-->
-                            </li>   
-                    </ul>
-                </div>
-                <!--End Menu Side-->
-                <div class="col s12 m12 l10">
-                    <h4 id="titleForm">Item 0</h4>
-                    <!--Start Container Form 0-->
-                    <div id="form0_0" class="form_select">
-                        <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
-                        <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
-                            <!-- Start Elements input
-                                to remember: Elements unique with id of Button and input
-                                -->
-
-                            <div class="row">
-                                <!--Start Elements -->
-                                <div class="input-field col s12 m6 l4">
-                                    <select>
-                                        <option value="" disabled selected>Choose your option</option>
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
-                                        <option value="3">Option 3</option>
-                                    </select>
-                                    <label>Materialize Select</label>
+    <div class="row">
+        <!--Start Menu Side-->
+        <div class="col l2 hide-on-small-only hide-on-med-only">
+            <ul>
+                <li class="collection-header z-depth-2"><img class="responsive-img" src="~/Img/logoSinapsis.png" /></li>
+                <li class="row">
+                    <!--Start Conten Menu Slide Collapsible-->
+                    <ul class="collapsible popout" data-collapsible="accordion">
+                        <!--Start Block menu -->
+                        <li>
+                            <!--Header Info List-->
+                            <div class="collapsible-header active activeItem" onclick="selectionItem(0)" id="item_0"><i class="material-icons">settings_applications</i>Empresa</div>
+                            <!--Start Body Info List Selection Items-->
+                            <div class="collapsible-body">
+                                <!--Start  Items-->
+                                <div class="collection">
+                                    <a href="#!" class="collection-item active per_user_3" onclick="selectionSubItems('0_0',' ',0)" id="subItem_0_0">Buscar</a>
+                                    <a href="#!" class="collection-item per_user_0" onclick="selectionSubItems('0_1',' ', 0)" id="subItem_0_1">Crear </a>
+                                    <a href="#!" class="collection-item per_user_1" onclick="selectionSubItems('0_2','0_1',1)" id="subItem_0_2">Modificar</a>
+                                    <a href="#!" class="collection-item per_user_2" onclick="selectionSubItems('0_3',' ',0)" id="subItem_0_3">Eliminar </a>
                                 </div>
-                                <!--End Elements -->
-                                <!--Start Elements -->
-                                <div class="input-field col s12 m6 l4">
-                                    <i class="material-icons prefix">search</i>
-                                    <input id="emp_search" type="text" class="validate" required>
-                                    <label for="emp_search"></label>
-                                </div>
-                                <!--End Elements -->
-                                <!--Start Elements -->
-                                <div class="input-field col s12 m6 l4">
-                                    <div class="card-action center">
-                                        <button id="btn_search_bus" class="btn waves-effect waves-light" type="button" name="action">
-                                            Buscar
-                                            <i class="material-icons right">done</i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <!--End Elements -->
-                               
-                         
+                                <!--End  Items-->
                             </div>
-                            <!-- End Elements input-->
-                            <!--Start Elements Button-->
-                    <!--        <div class="row">
-                                <div class="col s12 m12 l12">
-                                    <div class="card-action center">
-                                        <button id="login" class="btn waves-effect waves-light" type="submit" name="action">
-                                            Enviar
-                                            <i class="material-icons right">done</i>
-                                        </button>
-                                    </div>
+                            <!--End Body Info List Selection Items-->
+                        </li>
+                        <!--End Block menu -->
+                        <!--Start Block menu -->
+                        <li>
+                            <!--Header Info List-->
+                            <div class="collapsible-header" onclick="selectionItem(1)" id="item_1"><i class="material-icons">settings_applications</i>Sucursal</div>
+                            <!--Start Body Info List Selection Items-->
+                            <div class="collapsible-body">
+                                <!--Start  Items-->
+                                <div class="collection">
+                                    <a href="#!" class="collection-item active" onclick="selectionSubItems('1_0',' ',0)" id="subItem_1_0">Buscar</a>
+                                    <a href="#!" class="collection-item" onclick="selectionSubItems('1_1', ' ',0)" id="subItem_1_1">Crear</a>
+                                    <a href="#!" class="collection-item" onclick="selectionSubItems('1_2','1_1',1)" id="subItem_1_2">Modificar</a>
+                                    <a href="#!" class="collection-item" onclick="selectionSubItems('1_3',' ',0)" id="subItem_1_3">Eliminar</a>
                                 </div>
-                            </div>-->
-                            <!--End Elements Button-->
-                        </form>
-                    </div>
-                    <!--End Form 0-->
-
-
-                </div>
-               
-            </div>
-            <!--Start Button floating-->
-            <div class="fixed-action-btn hide-on-large-only" style="bottom: 45px; right: 24px;">
-                <a class="btn-floating btn-large btn-default">
-                    <i class="material-icons">menu</i>
-                </a>
-                <ul>
-                    <li><a class="btn-floating red" style="transform: scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0px); opacity: 0;"href="/Home/Home"><i class="material-icons">store</i></a></li>
-                    <li><a class="btn-floating yellow darken-1 modal-trigger waves-effect waves-light"href="#modalInformation" style="transform: scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0px); opacity: 0;"><i class="material-icons">info_outline</i></a></li>
-                    <li><a class="btn-floating blue" style="transform: scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0px); opacity: 0;" href="#" onclick="closeSession()"><i class="material-icons">lock</i></a></li>
-                </ul>
-           
-            </div>
-           <!--End Button floating-->
-
-          
+                                <!--End  Items-->
+                            </div>
+                            <!--End Body Info List Selection Items-->
+                        </li>
+                        <!--End Block menu -->
+                    </ul>
+                    <!--End Conten Menu Collapsible-->
+                </li>
+            </ul>
         </div>
+        <!--End Menu Side-->
+        <!--Start Container Form 0 -->
+        <div class="col s12 m12 l10">
+            <h4 id="titleForm">Cliente</h4><!--Dinamic Title-->
+            <!--Start Container Form 0-->
+            <div id="form0_0" class="form_select">
+                <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
+                <!--Form search-->
+                <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
+                    <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
+                    <div class="row">
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m3 l3">
+                            <select>
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                            <label>Materialize Select</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s10 m7 l7">
+                            <input id="emp_search" type="text" class="validate" required>
+                            <label for="emp_search">Digite el valor a buscar</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s2 m2 l2">
+                            <div class="card-action center">
+                                <button id="btn_emp_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
+                                    <i class="material-icons right">search</i>
+                                </button>
+                            </div>
+                        </div>
+                        <!--End Elements -->
+                    </div>
+                    <!-- End Elements input-->
+                </form>
+                <!--Start Table result search-->
+                <div class="row">
+                    <!--Start Table-->
+                    <div class="col s12 m12 l12">
+                        <table class="responsive-table highlight">
+                            <thead>
+                                <tr>
+                                    <th data-field="id">Name</th>
+                                    <th data-field="name">Item Name</th>
+                                    <th data-field="price">Item Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Alvin</td>
+                                    <td>Eclair</td>
+                                    <td>$0.87</td>
+                                </tr>
+                                <tr>
+                                    <td>Alan</td>
+                                    <td>Jellybean</td>
+                                    <td>$3.76</td>
+                                </tr>
+                                <tr>
+                                    <td>Jonathan</td>
+                                    <td>Lollipop</td>
+                                    <td>$7.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!--End Table-->
+                    </div>
+                </div>
+                <!--End Table result search-->
+            </div>
+            <!--End Form 0-->
+            <!--Start Container Form 1-->
+            <div id="form0_1" class="form_select">
+                <!--Start cont search-->
+                <div class="row cont_search" id="cont_search_0_1">
+                    <!--Start Elements -->
+                    <div class="input-field col s12 m3 l3">
+                        <select>
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                        <label>Materialize Select</label>
+                    </div>
+                    <!--End Elements -->
+                    <!--Start Elements -->
+                    <div class="input-field col s10 m7 l7">
+                        <input id="emp_search" type="text" class="validate" required>
+                        <label for="emp_search">Digite el valor a buscar</label>
+                    </div>
+                    <!--End Elements -->
+                    <!--Start Elements -->
+                    <div class="input-field col s2 m2 l2">
+                        <div class="card-action center">
+                            <button id="btn_emp_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
+                                <i class="material-icons right">search</i>
+                            </button>
+                        </div>
+                    </div>
+                    <!--End Elements -->
+                </div>
+                <!--End cont search-->
+                <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
+                <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
+                    <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
+                    <div class="row">
+                      
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">perm_identity</i>
+                            <input id="bus_name" type="text" class="validate" required>
+                            <label for="bus_name">Nombre </label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">perm_identity</i>
+                            <input id="bus_nit" type="text" class="validate" required>
+                            <label for="bus_nit">Nit</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <select>
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                            <label>Pais</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <select>
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                            <label>Ciudad</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">room</i>
+                            <input id="bus_direccion" type="text" class="validate" required>
+                            <label for="bus_direccion">Dirección</label>
+                        </div>
+                        <!--End Elements -->
+
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">contact_phone</i>
+                            <input id="bus_phone" type="tel" class="validate" required>
+                            <label for="bus_phone">Teléfono</label>
+                        </div>
+                        <!--End Elements -->
+        
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">email</i>
+                            <input id="bus_mail" type="email" class="validate" required>
+                            <label for="bus_mail">Email</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">email</i>
+                            <input id="bus_mail2" type="email" class="validate">
+                            <label for="bus_mail2">Email 2</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <div class="file-field input-field">
+                                <div class="btn">
+                                    <span>Foto</span>
+                                    <input type="file">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text" placeholder="Seleccione una Foto">
+                                </div>
+                            </div>
+                        </div>
+                        <!--End Elements -->
+                    </div>
+                    <!-- End Elements input-->
+                    <!--Start Elements Button-->
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div class="card-action center">
+                                <button id="login" class="btn waves-effect waves-light" type="submit" name="action">
+                                    Enviar
+                                    <i class="material-icons right">done</i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End Elements Button-->
+                </form>
+            </div>
+            <!--End Form 1-->
+            <!--Start Container Form 3-->
+            <div id="form0_3" class="form_select">
+                <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
+                <!--Form search-->
+                <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
+                    <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
+                    <div class="row">
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m3 l3">
+                            <select>
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                            <label>Materialize Select</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s10 m7 l7">
+                            <input id="emp_search" type="text" class="validate" required>
+                            <label for="emp_search">Digite el valor a buscar</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s2 m2 l2">
+                            <div class="card-action center">
+                                <button id="btn_emp_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
+                                    <i class="material-icons right">search</i>
+                                </button>
+                            </div>
+                        </div>
+                        <!--End Elements -->
+
+                    </div>
+                    <!-- End Elements input-->
+                </form>
+                <!--Start Table result search-->
+                <div class="row">
+                    <!--Start Table-->
+                    <div class="col s12 m12 l12">
+                        <table class="responsive-table highlight">
+                            <thead>
+                                <tr>
+                                    <th data-field="id">Name</th>
+                                    <th data-field="name">Item Name</th>
+                                    <th data-field="price">Item Price</th>
+                                    <th data-field="price">Selection</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Alvin</td>
+                                    <td>Eclair</td>
+                                    <td>$0.87</td>
+                                    <td>
+                                        <div class="card-action center">
+                                            <button id="btn_emp_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
+                                                <i class="material-icons right">verified_user</i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Alan</td>
+                                    <td>Jellybean</td>
+                                    <td>$3.76</td>
+                                    <td>
+                                        <div class="card-action center">
+                                            <button id="btn_emp_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
+                                                <i class="material-icons right">verified_user</i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jonathan</td>
+                                    <td>Lollipop</td>
+                                    <td>$7.00</td>
+                                    <td>
+                                        <div class="card-action center">
+                                            <button id="btn_emp_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
+                                                <i class="material-icons right">verified_user</i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <!--End Table-->
+                    </div>
+                </div>
+                <!--End Table result search-->
+            </div>
+            <!--End Form 3-->
+        </div>
+        <!--End  Container Form -->
+        <!--Start Container Form -->
+        <div class="col s12 m12 l10">
+
+            <!--Start Container Form 0-->
+            <div id="form1_0" class="form_select">
+                <h4 id="titleForm">Sucursal</h4><!--Dinamic Title-->
+                <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
+                <!--Form search-->
+                <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
+                    <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
+                    <div class="row">
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m3 l3">
+                            <select>
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                            <label>Materialize Select</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s10 m7 l7">
+                            <input id="emp_search" type="text" class="validate" required>
+                            <label for="emp_search">Digite el valor a buscar</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s2 m2 l2">
+                            <div class="card-action center">
+                                <button id="btn_emp_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
+                                    <i class="material-icons right">search</i>
+                                </button>
+                            </div>
+                        </div>
+                        <!--End Elements -->
+                    </div>
+                    <!-- End Elements input-->
+                </form>
+                <!--Start Table result search-->
+                <div class="row">
+                    <!--Start Table-->
+                    <div class="col s12 m12 l12">
+                        <table class="responsive-table highlight">
+                            <thead>
+                                <tr>
+                                    <th data-field="id">Name</th>
+                                    <th data-field="name">Item Name</th>
+                                    <th data-field="price">Item Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Alvin</td>
+                                    <td>Eclair</td>
+                                    <td>$0.87</td>
+                                </tr>
+                                <tr>
+                                    <td>Alan</td>
+                                    <td>Jellybean</td>
+                                    <td>$3.76</td>
+                                </tr>
+                                <tr>
+                                    <td>Jonathan</td>
+                                    <td>Lollipop</td>
+                                    <td>$7.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!--End Table-->
+                    </div>
+                </div>
+                <!--End Table result search-->
+            </div>
+            <!--End Form 0-->
+            <!--Start Container Form 1-->
+            <div id="form1_1" class="form_select">
+                <!--Start cont search-->
+                <div class="row cont_search" id="cont_search_0_1">
+                    <!--Start Elements -->
+                    <div class="input-field col s12 m3 l3">
+                        <select>
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                        <label>Materialize Select</label>
+                    </div>
+                    <!--End Elements -->
+                    <!--Start Elements -->
+                    <div class="input-field col s10 m7 l7">
+                        <input id="emp_search" type="text" class="validate" required>
+                        <label for="emp_search">Digite el valor a buscar</label>
+                    </div>
+                    <!--End Elements -->
+                    <!--Start Elements -->
+                    <div class="input-field col s2 m2 l2">
+                        <div class="card-action center">
+                            <button id="btn_emp_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
+                                <i class="material-icons right">search</i>
+                            </button>
+                        </div>
+                    </div>
+                    <!--End Elements -->
+                </div>
+                <!--End cont search-->
+                <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
+                <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
+                    <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
+                    <div class="row">
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">perm_identity</i>
+                            <input id="bus_name" type="text" class="validate" required>
+                            <label for="bus_name">Nombre</label>
+                        </div>
+                        <!--End Elements -->    
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <select>
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                            <label>Pais</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <select>
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                            <label>Ciudad</label>
+                        </div>
+                        <!--End Elements -->   
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">contact_phone</i>
+                            <input id="bus_direccion" type="tel" class="validate" required>
+                            <label for="bus_direccion">Dirección</label>
+                        </div>
+                        <!--End Elements -->               
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">contact_phone</i>
+                            <input id="bus_phone" type="tel" class="validate" required>
+                            <label for="bus_phone">Teléfono</label>
+                        </div>
+                        <!--End Elements -->
+
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">email</i>
+                            <input id="bus_mail" type="email" class="validate" required>
+                            <label for="bus_mail">Email</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">email</i>
+                            <input id="bus_mail2" type="email" class="validate">
+                            <label for="bus_mail2">Email 2</label>
+                        </div>
+                        <!--End Elements -->
+                    
+                    </div>
+                    <!-- End Elements input-->
+                    <!--Start Elements Button-->
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div class="card-action center">
+                                <button id="login" class="btn waves-effect waves-light" type="submit" name="action">
+                                    Enviar
+                                    <i class="material-icons right">done</i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End Elements Button-->
+                </form>
+            </div>
+            <!--End Form 1-->
+            <!--Start Container Form 3-->
+            <div id="form1_3" class="form_select">
+                <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
+                <!--Form search-->
+                <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
+                    <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
+                    <div class="row">
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m3 l3">
+                            <select>
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                            <label>Materialize Select</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s10 m7 l7">
+                            <input id="emp_search" type="text" class="validate" required>
+                            <label for="emp_search">Digite el valor a buscar</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s2 m2 l2">
+                            <div class="card-action center">
+                                <button id="btn_emp_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
+                                    <i class="material-icons right">search</i>
+                                </button>
+                            </div>
+                        </div>
+                        <!--End Elements -->
+
+                    </div>
+                    <!-- End Elements input-->
+                </form>
+                <!--Start Table result search-->
+                <div class="row">
+                    <!--Start Table-->
+                    <div class="col s12 m12 l12">
+                        <table class="responsive-table highlight">
+                            <thead>
+                                <tr>
+                                    <th data-field="id">Name</th>
+                                    <th data-field="name">Item Name</th>
+                                    <th data-field="price">Item Price</th>
+                                    <th data-field="price">Selection</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Alvin</td>
+                                    <td>Eclair</td>
+                                    <td>$0.87</td>
+                                    <td>
+                                        <div class="card-action center">
+                                            <button id="btn_emp_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
+                                                <i class="material-icons right">verified_user</i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Alan</td>
+                                    <td>Jellybean</td>
+                                    <td>$3.76</td>
+                                    <td>
+                                        <div class="card-action center">
+                                            <button id="btn_emp_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
+                                                <i class="material-icons right">verified_user</i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jonathan</td>
+                                    <td>Lollipop</td>
+                                    <td>$7.00</td>
+                                    <td>
+                                        <div class="card-action center">
+                                            <button id="btn_emp_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
+                                                <i class="material-icons right">verified_user</i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <!--End Table-->
+                    </div>
+                </div>
+                <!--End Table result search-->
+            </div>
+            <!--End Form 3-->
+        </div>
+        <!--End  Container Form -->
+        <!--Start Button floating-->
+        <div class="fixed-action-btn hide-on-large-only" style="bottom: 45px; right: 24px;">
+            <a class="btn-floating btn-large btn-default">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul>
+                <li><a class="btn-floating red" style="transform: scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0px); opacity: 0;" href="/Home/Home"><i class="material-icons">store</i></a></li>
+                <li><a class="btn-floating yellow darken-1 modal-trigger waves-effect waves-light" href="#modalInformation" style="transform: scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0px); opacity: 0;"><i class="material-icons">info_outline</i></a></li>
+                <li><a class="btn-floating blue" style="transform: scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0px); opacity: 0;" href="#" onclick="closeSession()"><i class="material-icons">lock</i></a></li>
+            </ul>
+        </div>
+        <!--End Button floating-->
+    </div>
     <!--End Start Container-->
     <!--Scripts
       Order Script
@@ -240,7 +754,8 @@
     <script src="~/Scripts/jquery-3.1.1.min.js"></script>
     <script src="~/Content/materialize-v0.97.5/js/materialize.js"></script>
     <script src="~/Scripts/jsProject/Functions.js"></script>
-    <script src="~/Scripts/jsProject/CtrBusinness.js"></script>
+    <script src="~/Scripts/jsProject/CtrEmployee.js"></script>
+
 
 
 </body>
