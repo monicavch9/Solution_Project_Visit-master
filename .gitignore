@@ -240,3 +240,4 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+WebApplicationVisit/Views/Employee/Employee.cshtml
