@@ -20,11 +20,14 @@
         .form_select {
             display: none;
         }
+
         .cont_search {
-            display:none;
+            display: none;
         }
-      
- 
+
+        .id_list {
+            display: none;
+        }
     </style>
 </head>
 <body onload="nobackbutton()">
@@ -51,21 +54,42 @@
                                 <!--Start items menu mobile-->
                                 <li class="z-depth-1">
                                     <!--Header Info List-->
-                                    <div class="collapsible-header activeItem" onclick="selectionMitem(0)" id="mItem_0"><h6 class="right-align">Empleado</h6></div>
+                                    <div class="collapsible-header activeItem" onclick="selectionMitem(this.id)" id="mItem_0"><h6 class="right-align">Empleado</h6></div>
                                     <!--Start Body Info List Selection Items-->
                                     <div class="collapsible-body">
                                         <!--Start  Items-->
                                         <div class="collection">
-                                            <a href="#!" class="collection-item active per_user_3" onclick="selectionMsubItems('0_0')" id="mSubItem_0_0">Buscar</a>
-                                            <a href="#!" class="collection-item per_user_0" onclick="selectionMsubItems('0_1')" id="mSubItem_0_1">Crear</a>
-                                            <a href="#!" class="collection-item per_user_1" onclick="selectionMsubItems('0_2')" id="mSubItem_0_2">Modificar</a>
-                                            <a href="#!" class="collection-item per_user_2" onclick="selectionMsubItems('0_3')" id="mSubItem_0_3">Eliminar</a>
+
+                                            <a href="#!" class="collection-item active per_user_3" onclick="selectionMsubItems(this.id, '0_0', false, true)" id="mSubItem_0_0">Buscar</a>
+                                            <a href="#!" class="collection-item per_user_0" onclick="selectionMsubItems(this.id, '0_1', false, true)" id="mSubItem_0_1">Crear</a>
+                                            <a href="#!" class="collection-item per_user_1" onclick="selectionMsubItems(this.id, '0_1', true, true)" id="mSubItem_0_2">Modificar</a>
+                                            <a href="#!" class="collection-item per_user_2" onclick="selectionMsubItems(this.id, '0_3', false, true)" id="mSubItem_0_3">Eliminar</a>
                                         </div>
                                         <!--End  Items-->
                                     </div>
                                     <!--End Body Info List Selection Items-->
                                 </li>
                                 <!--End items menu mobile-->
+                                <!--Start items menu mobile-->
+                                <li class="z-depth-1">
+                                    <!--Header Info List-->
+                                    <div class="collapsible-header activeItem" onclick="selectionMitem(this.id)" id="mItem_1"><h6 class="right-align">Empleado</h6></div>
+                                    <!--Start Body Info List Selection Items-->
+                                    <div class="collapsible-body">
+                                        <!--Start  Items-->
+                                        <div class="collection">
+
+                                            <a href="#!" class="collection-item active per_user_3" onclick="selectionMsubItems('0_0','',false,false)" id="mSubItem_0_0">Buscar</a>
+                                            <a href="#!" class="collection-item per_user_0" onclick="selectionMsubItems('0_1', '', false, false)" id="mSubItem_0_1">Crear</a>
+                                            <a href="#!" class="collection-item per_user_1" onclick="selectionMsubItems('0_2', '0_1', true, false)" id="mSubItem_0_2">Modificar</a>
+                                            <a href="#!" class="collection-item per_user_2" onclick="selectionMsubItems('0_3', '', false, false)" id="mSubItem_0_3">Eliminar</a>
+                                        </div>
+                                        <!--End  Items-->
+                                    </div>
+                                    <!--End Body Info List Selection Items-->
+                                </li>
+                                <!--End items menu mobile-->
+
                             </ul>
                             <!--End Conten Menu Collapsible-->
                         </li>
@@ -78,208 +102,97 @@
         <!--End Container nav bar-->
     </nav>
     <!--End Nav bar-->
-
     <!-- Start Modal Information -->
     <div id="modalInformation" class="modal modal-fixed-footer">
         <div class="modal-content">
-            <h4>Ayuda</h4>
-            <p>Esta sección le brindará información ...... </p>
+            <h4>Modal Header</h4>
+            <p>A bunch of text</p>
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Aceptar</a>
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
         </div>
     </div>
     <!-- End Modal Information -->
-
     <!--Start Container-->
-        <div class="row">
-            <!--Start Menu Side-->
-            <div class="col l2 hide-on-small-only hide-on-med-only">
-                <ul>
-                    <li class="collection-header z-depth-2"><img class="responsive-img" src="~/Img/logoSinapsis.png" /></li>
-                    <li class="row">
-                        <!--Start Conten Menu Slide Collapsible-->
-                        <ul class="collapsible popout" data-collapsible="accordion">
-                            <!--Start Block menu -->
-                            <li>
-                                <!--Header Info List-->
-                                <div class="collapsible-header active activeItem" onclick="selectionItem(0)" id="item_0"><i class="material-icons">settings_applications</i>Empleado</div>
-                                <!--Start Body Info List Selection Items-->
-                                <div class="collapsible-body">
-                                    <!--Start  Items-->
-                                    <div class="collection">
-                                        <a href="#!" class="collection-item active per_user_3" onclick="selectionSubItems('0_0',' ',0)" id="subItem_0_0">Buscar</a>
-<<<<<<< HEAD
-                                        <a href="#!" class="collection-item per_user_1" onclick="selectionSubItems('0_1',' ', 0)" id="subItem_0_1">Crear </a>
-                                        <a href="#!" class="collection-item per_user_2" onclick="selectionSubItems('0_2','0_1',1)" id="subItem_0_2">Modificar</a>
-                                        <a href="#!" class="collection-item per_user_3" onclick="selectionSubItems('0_3',' ',0)" id="subItem_0_3">Eliminar </a>
-                                        
-=======
-                                        <a href="#!" class="collection-item per_user_0" onclick="selectionSubItems('0_1',' ', 0)" id="subItem_0_1">Crear </a>
-                                        <a href="#!" class="collection-item per_user_1" onclick="selectionSubItems('0_2','0_1',1)" id="subItem_0_2">Modificar</a>
-                                        <a href="#!" class="collection-item per_user_2" onclick="selectionSubItems('0_3',' ',0)" id="subItem_0_3">Eliminar </a>
->>>>>>> origin/master
+    <div class="row">
+        <!--Start Menu Side-->
+        <div class="col l2 hide-on-small-only hide-on-med-only">
+            <ul>
+                <li class="collection-header z-depth-2"><img class="responsive-img" src="~/Img/logoSinapsis.png" /></li>
+                <li class="row">
+                    <!--Start Conten Menu Slide Collapsible-->
+                    <ul class="collapsible popout" data-collapsible="accordion">
+                        <!--Start Block menu -->
+                        <li>
+                            <!--Header Info List-->
+                            <div class="collapsible-header active activeItem" onclick="selectionItem(this.id)" id="item_0"><i class="material-icons">settings_applications</i>Empleado</div>
+                            <!--Start Body Info List Selection Items-->
+                            <div class="collapsible-body">
+                                <!--Start  Items-->
+                                <div class="collection">
+                                    <a href="#!" class="collection-item active per_user_3" onclick="selectionSubItems(this.id, '0_0', false)" id="subItem_0_0">Buscar</a>
+                                    <a href="#!" class="collection-item per_user_1" onclick="selectionSubItems(this.id, '0_1', false)" id="subItem_0_1">Crear </a>
+                                    <a href="#!" class="collection-item per_user_2" onclick="selectionSubItems(this.id, '0_1', true)" id="subItem_0_2">Modificar</a>
+                                    <a href="#!" class="collection-item per_user_3" onclick="selectionSubItems(this.id, '0_3', false)" id="subItem_0_3">Eliminar </a>
 
-                                    </div>
-                                    <!--End  Items-->
                                 </div>
-                                <!--End Body Info List Selection Items-->
-                            </li>
-                            <!--End Block menu -->
-                            <!--Start Block menu -->
-                            <li>
-                                <!--Header Info List-->
-                                <div class="collapsible-header active activeItem" onclick="selectionItem(1)" id="item_1"><i class="material-icons">settings_applications</i>Rol</div>
-                                <!--Start Body Info List Selection Items-->
-                                <div class="collapsible-body">
-                                    <!--Start  Items-->
-                                    <div class="collection">
-                                        <a href="#!" class="collection-item active per_user_3" onclick="selectionSubItems('0_4',' ',0)" id="subItem_0_4">Buscar</a>
-                                        <a href="#!" class="collection-item per_user_1" onclick="selectionSubItems('0_5',' ', 0)" id="subItem_0_5">Crear </a>
-                                        <a href="#!" class="collection-item per_user_2" onclick="selectionSubItems('0_6','0_5',1)" id="subItem_0_6">Modificar</a>
-                                        <a href="#!" class="collection-item per_user_3" onclick="selectionSubItems('0_7',' ',0)" id="subItem_0_7">Eliminar </a>
-
-
-                                    </div>
-                                    <!--End  Items-->
-                                </div>
-                                <!--End Body Info List Selection Items-->
-                            </li>
-                            <!--End Block menu -->
-
-                            <!--Start Block menu -->
-                            <li>
-                                <!--Header Info List-->
-                                <div class="collapsible-header active activeItem" onclick="selectionItem(1)" id="item_2"><i class="material-icons">settings_applications</i>Permisos</div>
-                                <!--Start Body Info List Selection Items-->
-                                <div class="collapsible-body">
-                                    <!--Start  Items-->
-                                    <div class="collection">
-                                        <a href="#!" class="collection-item active per_user_3" onclick="selectionSubItems('0_8',' ',0)" id="subItem_0_8">Buscar</a>
-                                        <a href="#!" class="collection-item per_user_1" onclick="selectionSubItems('0_9',' ', 0)" id="subItem_0_9">Crear </a>
-                                        <a href="#!" class="collection-item per_user_2" onclick="selectionSubItems('0_10','0_9',1)" id="subItem_0_10">Modificar</a>
-                                        <a href="#!" class="collection-item per_user_3" onclick="selectionSubItems('0_11',' ',0)" id="subItem_0_11">Eliminar </a>
-
-
-                                    </div>
-                                    <!--End  Items-->
-                                </div>
-                                <!--End Body Info List Selection Items-->
-                            </li>
-                            <!--End Block menu -->
-
-                        </ul>
-                        <!--End Conten Menu Collapsible-->
-                    </li>
-                </ul>
-            </div>
-            <!--End Menu Side-->
-            
-            <!--Start Container Form -->
-            <div class="col s12 m12 l10">
-                <h4 id="titleForm">Empleado</h4><!--Dinamic Title-->
-
-                <!--Start Container Form 0-->
-                <div id="form0_0" class="form_select">
-                    <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
-                    <!--Form search-->
-                    <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
-                        <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
-                        <div class="row">
-                            <!--Start Elements -->
-                            <div class="input-field col s12 m3 l3">
-                                <select>
-                                    <option value="" disabled selected>Seleccione el tipo de búsqueda</option>
-                                    <option value="1">Nit</option>
-                                    <option value="2">Nombre</option>
-                                    <option value="3">Apellido</option>
-                                    <option value="4">Ciudad</option>
-                                    <option value="5">País</option>
-                                    <option value="6">Estado</option>
-                                </select>
-                                <label>Seleccione el tipo de búsqueda</label>
+                                <!--End  Items-->
                             </div>
-                            <!--End Elements -->
-                            <!--Start Elements -->
-                            <div class="input-field col s10 m7 l7">
-                                <input id="emp_search" type="text" class="validate" required>
-                                <label for="emp_search">Digite el valor a buscar</label>
-                            </div>
-                            <!--End Elements -->
-                            <!--Start Elements -->
-                            <div class="input-field col s2 m2 l2">
-                                <div class="card-action center">
-                                    <button id="btn_emp_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
-                                        <i class="material-icons right">search</i>
-                                    </button>
+                            <!--End Body Info List Selection Items-->
+                        </li>
+                        <!--End Block menu -->
+                        <!--Start Block menu -->
+                        <li>
+                            <!--Header Info List-->
+                            <div class="collapsible-header" onclick="selectionItem(this.id)" id="item_1"><i class="material-icons">settings_applications</i>Item 1</div>
+                            <!--Start Body Info List Selection Items-->
+                            <div class="collapsible-body">
+                                <!--Start  Items-->
+                                <div class="collection">
+                                    <a href="#!" class="collection-item active" onclick="selectionSubItems(this.id, '1_0', false)" id="subItem_1_0">Sub Item 0</a>
+                                    <a href="#!" class="collection-item" onclick="selectionSubItems(this.id, '1_1', false)" id="subItem_1_1">Sub Item 1</a>
+                                    <a href="#!" class="collection-item" onclick="selectionSubItems(this.id, '1_1', false)" id="subItem_1_2">Sub Item 2</a>
+                                    <a href="#!" class="collection-item" onclick="selectionSubItems(this.id, '1_3', false)" id="subItem_1_3">Sub Item 3</a>
                                 </div>
+                                <!--End  Items-->
                             </div>
-                            <!--End Elements -->
+                            <!--End Body Info List Selection Items-->
+                        </li>
+                        <!--End Block menu -->
 
-                        </div>
-                        <!-- End Elements input-->
-                    </form>
-                    <!--Start Table result search-->
+                    </ul>
+                    <!--End Conten Menu Collapsible-->
+                </li>
+            </ul>
+        </div>
+        <!--End Menu Side-->
+        <!--Start Container Form -->
+        <div class="col s12 m12 l10">
+            <h4 id="titleForm">Empleado</h4><!--Dinamic Title-->
+            <!--Start Container Form 0-->
+            <div id="form0_0" class="form_select">
+                <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
+                <!--Form search-->
+                <form class="col s12  m12 l12" onsubmit="searchEmployee(event)">
+                    <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
                     <div class="row">
-                        <!--Start Table-->
-                        <div class="col s12 m12 l12">
-                            <table class="responsive-table highlight">
-                                <thead>
-                                    <tr>
-                                        <th data-field="id">Nit</th>
-                                        <th data-field="name">Nombre</th>
-                                        <th data-field="address">Dirección</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr>
-                                        <td>88.444.555</td>
-                                        <td>Diego Casallas</td>
-                                        <td>Calle 55 # ....</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1000.444.666</td>
-                                        <td>Nancy Chavez</td>
-                                        <td>Carrera 44 # ....</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1010.555.333</td>
-                                        <td>Yair Parada</td>
-                                        <td>Calle 88 # ....</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <!--End Table-->
-                        </div>
-                    </div>
-                    <!--End Table result search-->
-                </div>
-                <!--End Form 0-->
-
-                <!--Start Container Form 1-->
-                <div id="form0_1" class="form_select">
-                    <!--Start cont search-->
-                    <div class="row cont_search" id="cont_search_0_1">
                         <!--Start Elements -->
                         <div class="input-field col s12 m3 l3">
-                            <select>
-                                <option value="" disabled selected> Seleccione el tipo de búsqueda </option>
-                                <option value="1">Nit</option>
-                                <option value="2">Nombre</option>
-                                <option value="3">Apellido</option>
-                                <option value="4">Ciudad</option>
-                                <option value="5">País</option>
-                                <option value="6">Estado</option>
+                            <select id="listSearchEmployee">
+                                <option value="" disabled selected>Elija su opción</option>
+                                <option value="sEmp_name">Nombre</option>
+                                <option value="sEmp_surname">Apellido</option>
+                                <option value="sEmp_document">Documento</option>
+                                <option value="sEmp_mail">Email</option>
+                                <option value="sRol_name">Rol</option>
                             </select>
-                            <label>Seleccione el tipo de búsqueda</label>
+                            <label>Seleccine Búsqueda</label>
                         </div>
                         <!--End Elements -->
-
                         <!--Start Elements -->
                         <div class="input-field col s10 m7 l7">
-                            <input id="emp_search" type="text" class="validate" required>
-                            <label for="emp_search">Digite el valor a buscar</label>
+                            <input id="emp_search" type="text" class="validate">
+                            <label for="emp_search">Digite el dato a buscar</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
@@ -291,767 +204,267 @@
                             </div>
                         </div>
                         <!--End Elements -->
+
                     </div>
-                    <!--End cont search-->
+                    <!-- End Elements input-->
+                </form>
+                <!--Start Table result search-->
+                <div class="row">
+                    <!--Start Table-->
+                    <div class="col s12 m12 l12" id="listEmployee">
+                        <table class="responsive-table highlight">
+                            <thead>
+                                <tr>
+                                    <th data-field="role">Cargo</th>
+                                    <th data-field="name">Nombre</th>
+                                    <th data-field="surname">Apellido</th>
+                                    <th data-field="document">Documento</th>
+                                    <th data-field="phone">Telefono</th>
+                                    <th data-field="phone2">Telefono 2</th>
+                                    <th data-field="cel_phone">Celular</th>
+                                    <th data-field="cel_phone2">Celular 2</th>
+                                    <th data-field="email">Email</th>
+                                    <th data-field="email2">Email 2</th>
+                                    <th data-field="addres">Direccion </th>
+                                </tr>
+                            </thead>
 
-                    <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
-                    <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
-                        <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
-                        <div class="row">
-                            <!--Start Elements -->
-                            <div class="input-field col s12 m6 l4">
-                                <i class="material-icons prefix">perm_identity</i>
-                                <input id="emp_name" type="text" class="validate" required>
-                                <label for="emp_name">Nombre</label>
-                            </div>
-                            <!--End Elements -->
-
-                            <!--Start Elements -->
-                            <div class="input-field col s12 m6 l4">
-                                <i class="material-icons prefix">perm_identity</i>
-                                <input id="emp_surname" type="text" class="validate" required>
-                                <label for="emp_surname">Apellido</label>
-                            </div>
-                            <!--End Elements -->
-
-                            <!--Start Elements -->
-                            <div class="input-field col s12 m6 l4">
-                                <i class="material-icons prefix">picture_in_picture</i>
-                                <input id="emp_document" type="text" class="validate" required>
-                                <label for="emp_document">Documento</label>
-                            </div>
-                            <!--End Elements -->
-
-                            <!--Start Elements -->
-                            <div class="input-field col s12 m6 l4">
-                                <i class="material-icons prefix">phone</i>
-                                <input id="emp_phone" type="tel" class="validate" required>
-                                <label for="emp_phone">Telefono</label>
-                            </div>
-                            <!--End Elements -->
-
-                            <!--Start Elements -->
-                            <div class="input-field col s12 m6 l4">
-                                <i class="material-icons prefix">phone</i>
-                                <input id="emp_phone2" type="tel" class="validate">
-                                <label for="emp_phone2">Telefono 2</label>
-                            </div>
-                            <!--End Elements -->
-
-                            <!--Start Elements -->
-                            <div class="input-field col s12 m6 l4">
-                                <i class="material-icons prefix">phonelink_ring</i>
-                                <input id="emp_cel_phone" type="tel" class="validate" required>
-                                <label for="emp_cel_phone">Celular</label>
-                            </div>
-                            <!--End Elements -->
-
-                            <!--Start Elements -->
-                            <div class="input-field col s12 m6 l4">
-                                <i class="material-icons prefix">phonelink_ring</i>
-                                <input id="emp_cel_phone2" type="tel" class="validate">
-                                <label for="emp_cel_phone2">Celular 2</label>
-                            </div>
-                            <!--End Elements -->
-
-                            <!--Start Elements -->
-                            <div class="input-field col s12 m6 l4">
-                                <i class="material-icons prefix">email</i>
-                                <input id="emp_mail" type="email" class="validate" required>
-                                <label for="emp_mail">Email</label>
-                            </div>
-                            <!--End Elements -->
-
-                            <!--Start Elements -->
-                            <div class="input-field col s12 m6 l4">
-                                <i class="material-icons prefix">email</i>
-                                <input id="emp_mail2" type="email" class="validate">
-                                <label for="emp_mail2">Email 2</label>
-                            </div>
-                            <!--End Elements -->
-
-                            <!--Start Elements -->
-                            <div class="input-field col s12 m6 l4">
-                                <i class="material-icons prefix">location_on</i>
-                                <input id="emp_direccion" type="text" class="validate" required>
-                                <label for="emp_direccion">Direccion</label>
-                            </div>
-                            <!--End Elements -->
-
-                            <!--Start Elements -->
-                            <div class="input-field col s12 m6 l4">
-                                <i class="material-icons prefix">vpn_key</i>
-                                <input id="emp_password" type="password" class="validate" required>
-                                <label for="emp_password">Contraseña </label>
-                            </div>
-                            <!--End Elements -->
-
-                            <!--Start Elements -->
-                            <div class="input-field col s12 m6 l4">
-                                <i class="material-icons prefix">vpn_key</i>
-                                <input id="emp_password_confirm" type="password" class="validate" required>
-                                <label for="emp_password_confirm">Confirmar contraseña</label>
-                            </div>
-                            <!--End Elements -->
-
-                            <!--Start Elements -->
-                            <div class="input-field col s12 m6 l4">
-                                <select>
-                                    <option value="" disabled selected> Sucursal </option>
-                                    <option value="1">Sucursal 1</option>
-                                    <option value="2">Sucursal 2</option>
-                                    <option value="3">Sucursal 3</option>
-                                </select>
-                                 <label>Seleccione sucursal</label> 
-                            </div>
-                            <!--End Elements -->
-
-                            <!--Start Elements -->
-                            <div class="input-field col s12 m6 l4">
-                                <select>
-                                    <option value="" disabled selected> Rol </option>
-                                    <option value="1">Administrador</option>
-                                    <option value="2">Gerente</option>
-                                    <option value="3">Empleado</option>
-                                    <option value="3">Coordinador</option>
-                                </select>
-                                <label>Seleccione rol</label>  
-                            </div>
-                            <!--End Elements -->
-
-                            <!--Start Elements -->
-                            <div class="input-field col s12 m6 l4">
-                                <div class="file-field input-field">
-                                    <div class="btn">
-                                        <span>Foto</span>
-                                        <input type="file">
-                                    </div>
-                                    <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text" placeholder="Seleccione Foto de Perfil">
-                                    </div>
-                                </div>
-                            </div>
-                            <!--End Elements -->
-
-                        </div>
-                        <!-- End Elements input-->
-                        <!--Start Elements Button-->
-                        <div class="row">
-                            <div class="col s12 m12 l12">
-                                <div class="card-action center">
-                                    <button id="create-emp" class="btn waves-effect waves-light" type="submit" name="action">
-                                        Aceptar
-                                        <i class="material-icons right">done</i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <!--End Elements Button-->
-                    </form>
+                            <tbody></tbody>
+                        </table>
+                        <!--End Table-->
+                    </div>
                 </div>
-                <!--End Form 1-->
-
-                <!--Start Container Form 3-->
-                <div id="form0_3" class="form_select">
-                    <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
-                    <!--Form search-->
-                    <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
-                        <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
-                        <div class="row">
-                            <!--Start Elements -->
-                            <div class="input-field col s12 m3 l3">
-                                <select>
-                                    <option value="" disabled selected>Seleccione el tipo de búsqueda</option>
-                                    <option value="1">Nit</option>
-                                    <option value="2">Nombre</option>
-                                    <option value="3">Apellido</option>
-                                    <option value="4">Ciudad</option>
-                                    <option value="5">País</option>
-                                    <option value="6">Estado</option>
-                                </select>
-                                <label>Seleccione el tipo de búsqueda</label>
-                            </div>
-                            <!--End Elements -->
-                            <!--Start Elements -->
-                            <div class="input-field col s10 m7 l7">
-                                <input id="emp_search" type="text" class="validate" required>
-                                <label for="emp_search">Digite el valor a buscar</label>
-                            </div>
-                            <!--End Elements -->
-                            <!--Start Elements -->
-                            <div class="input-field col s2 m2 l2">
-                                <div class="card-action center">
-                                    <button id="btn_emp_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
-                                        <i class="material-icons right">search</i>
-                                    </button>
-                                </div>
-                            </div>
-                            <!--End Elements -->
-
-
+                <!--End Table result search-->
+            </div>
+            <!--End Form 0-->
+            <!--Start Container Form 1-->
+            <div id="form0_1" class="form_select">
+                <!--Start cont search-->
+                <div class="row cont_search" id="cont_search_0_1">
+                    <!--Start Elements -->
+                    <div class="input-field col s12 m3 l3">
+                        <select></select>
+                        <label>Materialize Select</label>
+                    </div>
+                    <!--End Elements -->
+                    <!--Start Elements -->
+                    <div class="input-field col s10 m7 l7">
+                        <input id="emp_search" type="text" class="validate" required>
+                        <label for="emp_search">Digite el valor a buscar</label>
+                    </div>
+                    <!--End Elements -->
+                    <!--Start Elements -->
+                    <div class="input-field col s2 m2 l2">
+                        <div class="card-action center">
+                            <button id="btn_emp_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
+                                <i class="material-icons right">search</i>
+                            </button>
                         </div>
-                        <!-- End Elements input-->
-                    </form>
-                    <!--Start Table result search-->
+                    </div>
+                    <!--End Elements -->
+                </div>
+                <!--End cont search-->
+                <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
+                <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
+                    <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
                     <div class="row">
-                        <!--Start Table-->
-                        <div class="col s12 m12 l12">
-                            <table class="responsive-table highlight">
-                                <thead>
-                                    <tr>
-                                        <th data-field="id">Name</th>
-                                        <th data-field="name">Item Name</th>
-                                        <th data-field="price">Item Price</th>
-                                        <th data-field="select">Selection</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr>
-                                        <td>Alvin</td>
-                                        <td>Eclair</td>
-                                        <td>$0.87</td>
-                                        <td>
-                                            <div class="card-action center">
-                                                <button id="btn_emp_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
-                                                    <i class="material-icons right">verified_user</i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Alan</td>
-                                        <td>Jellybean</td>
-                                        <td>$3.76</td>
-                                        <td>
-                                            <div class="card-action center">
-                                                <button id="btn_emp_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
-                                                    <i class="material-icons right">verified_user</i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jonathan</td>
-                                        <td>Lollipop</td>
-                                        <td>$7.00</td>
-                                        <td>
-                                            <div class="card-action center">
-                                                <button id="btn_emp_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
-                                                    <i class="material-icons right">verified_user</i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                           
-                                </tbody>
-                            </table>
-                            <!--End Table-->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">perm_identity</i>
+                            <input id="emp_name" type="text" class="validate" required>
+                            <label for="emp_name">Nombre</label>
                         </div>
-                    </div>
-                    <!--End Table result search-->
-                </div>
-                <!--End Form 3-->
-
-                <!--Start Container Form 4-->
-                <div id="form0_4" class="form_select">
-                    <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
-                    <!--Form search-->
-                    <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
-                        <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
-                        <div class="row">
-                            <!--Start Elements -->
-                            <div class="input-field col s12 m3 l3">
-                                <select>
-                                    <option value="" disabled selected>Seleccione el tipo de búsqueda</option>
-                                    <option value="1">Id rol</option>
-                                    <option value="2">Nombre</option>
-                                    
-                                </select>
-                                <label>Tipo de Búsqueda</label>
-                            </div>
-                            <!--End Elements -->
-                           
-                             <!--Start Elements -->
-                            <div class="input-field col s10 m7 l7">
-                                <input id="emp_search" type="text" class="validate" required>
-                                <label for="emp_search">Digite el valor a buscar</label>
-                            </div>
-                            <!--End Elements -->
-                            
-                            <!--Start Elements -->
-                            <div class="input-field col s2 m2 l2">
-                                <div class="card-action center">
-                                    <button id="btn_emp_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
-                                        <i class="material-icons right">search</i>
-                                    </button>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">perm_identity</i>
+                            <input id="emp_surname" type="text" class="validate" required>
+                            <label for="emp_surname">Apellido</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">perm_identity</i>
+                            <input id="emp_document" type="text" class="validate" required>
+                            <label for="emp_document">Documento</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">contact_phone</i>
+                            <input id="emp_phone" type="tel" class="validate" required>
+                            <label for="emp_phone">Telefono</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">contact_phone</i>
+                            <input id="emp_phone2" type="tel" class="validate">
+                            <label for="emp_phone2">Telefono 2</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">perm_phone_msg</i>
+                            <input id="emp_cel_phone" type="tel" class="validate" required>
+                            <label for="emp_cel_phone">Celular</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">perm_phone_msg</i>
+                            <input id="emp_cel_phone2" type="tel" class="validate">
+                            <label for="emp_cel_phone2">Celular 2</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">email</i>
+                            <input id="emp_mail" type="email" class="validate" required>
+                            <label for="emp_mail">Email</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">email</i>
+                            <input id="emp_mail2" type="email" class="validate">
+                            <label for="emp_mail2">Email 2</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">room</i>
+                            <input id="emp_direccion" type="text" class="validate" required>
+                            <label for="emp_direccion">Direccion</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">lock</i>
+                            <input id="emp_password" type="password" class="validate" required>
+                            <label for="emp_password">Contraseña </label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">lock</i>
+                            <input id="emp_password_confirm" type="password" class="validate" required>
+                            <label for="emp_password_confirm">Confirmar contraseña</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <select id="listRole"></select>
+                            <label>Seleccionar Rol</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <select id="listPermission" multiple></select>
+                            <label>Seleccionar Permiso</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <div class="file-field input-field">
+                                <div class="btn">
+                                    <span>Foto</span>
+                                    <input type="file">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text" placeholder="Seleccione una Foto">
                                 </div>
                             </div>
-                            <!--End Elements -->
-
                         </div>
-                        <!-- End Elements input-->
-                    </form>
-                    <!--Start Table result search-->
-                    <div class="row">
-                        <!--Start Table-->
-                        <div class="col s12 m12 l12">
-                            <table class="responsive-table highlight">
-                                <thead>
-                                    <tr>
-                                        <th data-field="id">Id</th>
-                                        <th data-field="name">Nombre</th>
-                                        <th data-field="name">Descripción</th>
-                                        
-                                    </tr>
-                                </thead>
+                        <!--End Elements -->
 
-                                <tbody>
-                                    <tr>
-                                        <td>001</td>
-                                        <td>Coordinador</td>
-                                        <td>Es el encargado de ....</td>
-                                        
-                                    </tr>
-                                    <tr>
-                                        <td>002</td>
-                                        <td>Asesor</td>
-                                        <td>Es el encargado de ....</td>
-                                        
-                                    </tr>
-                                    <tr>
-                                        <td>003</td>
-                                        <td>Vendedor</td>
-                                        <td>Es el encargado de ....</td>
-                                        
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <!--End Table-->
+                    </div>
+                    <!-- End Elements input-->
+                    <!--Start Elements Button-->
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div class="card-action center">
+                                <button id="login" class="btn waves-effect waves-light" type="submit" name="action">
+                                    Enviar
+                                    <i class="material-icons right">done</i>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    <!--End Table result search-->
-                </div>
-                <!--End Form 4-->
-
-                <!--Start Container Form 5-->
-                <div id="form0_5" class="form_select">
-                    <!--Start cont search-->
-                    <div class="row cont_search" id="cont_search_0_1">
+                    <!--End Elements Button-->
+                </form>
+            </div>
+            <!--End Form 1-->
+            <!--Start Container Form 3-->
+            <div id="form0_3" class="form_select">
+                <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
+                <!--Form search-->
+                <form class="col s12  m12 l12" onsubmit="searchEmployeeDelete(event)">
+                    <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
+                    <div class="row">
                         <!--Start Elements -->
                         <div class="input-field col s12 m3 l3">
-                            <select>
-                                <option value="" disabled selected>Seleccione el tipo de búsqueda</option>
-                                <option value="1">Id rol</option>
-                                <option value="2">Nombre</option>
-
+                            <select id="listSearchEmployeeDelete">
+                                <option value="" disabled selected>Elija su opción</option>
+                                <option value="sEmp_name">Nombre</option>
+                                <option value="sEmp_surname">Apellido</option>
+                                <option value="sEmp_document">Documento</option>
+                                <option value="sEmp_mail">Email</option>
+                                <option value="sRol_name">Rol</option>
                             </select>
-                            <label>Tipo de Búsqueda</label>
+                            <label>Seleccine Búsqueda</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s10 m7 l7">
-                            <input id="rol_search" type="text" class="validate" required>
-                            <label for="rol_search">Digite el valor a buscar</label>
+                            <input id="emp_search_delete" type="text" class="validate">
+                            <label for="emp_search_delete">Digite el dato a buscar</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s2 m2 l2">
                             <div class="card-action center">
-                                <button id="btn_rol_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
+                                <button id="btn_emp_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
                                     <i class="material-icons right">search</i>
                                 </button>
                             </div>
                         </div>
                         <!--End Elements -->
+
                     </div>
-                    <!--End cont search-->
-                    <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
-                    <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
-                        <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
-                        <div class="row">
-                            <!--Start Elements -->
-                            <div class="input-field col s12 m6 l4">
-                                <i class="material-icons prefix">perm_identity</i>
-                                <input id="rol_name" type="text" class="validate" required>
-                                <label for="rol_name">Nombre</label>
-                            </div>
-                            <!--End Elements -->
-                            <!--Start Elements -->
-                            <div class="input-field col s12 m6 l4">
-                                <i class="material-icons prefix">perm_identity</i>
-                                <input id="rol_description" type="text" class="validate" required>
-                                <label for="rol_description">Descripción</label>
-                            </div>
-                            <!--End Elements -->
-                         </div>
-                        <!-- End Elements input-->
-                        <!--Start Elements Button-->
-                        <div class="row">
-                            <div class="col s12 m12 l12">
-                                <div class="card-action center">
-                                    <button id="create_rol" class="btn waves-effect waves-light" type="submit" name="action">
-                                        Aceptar
-                                        <i class="material-icons right">done</i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <!--End Elements Button-->
-                    </form>
-                </div>
-                <!--End Form 5-->
+                    <!-- End Elements input-->
+                </form>
+                <!--Start Table result search-->
+                <div class="row">
+                    <!--Start Table-->
+                    <div class="col s12 m12 l12" id="listEmployeeDelete">
+                        <table class="responsive-table highlight">
+                            <thead>
+                                <tr>
+                                    <th data-field="role">Cargo</th>
+                                    <th data-field="name">Nombre</th>
+                                    <th data-field="surname">Apellido</th>
+                                    <th data-field="document">Documento</th>
+                                    <th data-field="phone">Telefono</th>
+                                    <th data-field="cel_phone">Celular</th>
+                                    <th data-field="email">Email</th>
+                                    <th data-field="btn_deleteUser">Accion</th>
+                                </tr>
+                            </thead>
 
-                <!--Start Container Form 7-->
-                <div id="form0_7" class="form_select">
-                    <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
-                    <!--Form search-->
-                    <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
-                        <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
-                        <div class="row">
-                            <!--Start Elements -->
-                            <div class="input-field col s12 m3 l3">
-                                <select>
-                                    <option value="" disabled selected>Seleccione el tipo de búsqueda</option>
-                                    <option value="1">Id rol</option>
-                                    <option value="2">Nombre</option>
-
-                                </select>
-                                <label>Tipo de Búsqueda</label>
-                            </div>
-                            <!--End Elements -->
-                            <!--Start Elements -->
-                            <div class="input-field col s10 m7 l7">
-                                <input id="rol_search" type="text" class="validate" required>
-                                <label for="rol_search">Digite el valor a buscar</label>
-                            </div>
-                            <!--End Elements -->
-                            <!--Start Elements -->
-                            <div class="input-field col s2 m2 l2">
-                                <div class="card-action center">
-                                    <button id="btn_rol_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
-                                        <i class="material-icons right">search</i>
-                                    </button>
-                                </div>
-                            </div>
-                            <!--End Elements -->
-
-
-                        </div>
-                        <!-- End Elements input-->
-                    </form>
-                    <!--Start Table result search-->
-                    <div class="row">
-                        <!--Start Table-->
-                        <div class="col s12 m12 l12">
-                            <table class="responsive-table highlight">
-                                <thead>
-                                    <tr>
-                                        <th data-field="id">Id</th>
-                                        <th data-field="name">Nombre</th>
-                                        <th data-field="description">Descripción</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr>
-                                        <td>001</td>
-                                        <td>Coordinador</td>
-                                        <td>Es el encargado ....</td>
-                                        <td>
-                                            <div class="card-action center">
-                                                <button id="btn_rol_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
-                                                    <i class="material-icons right">verified_user</i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>002</td>
-                                        <td>Asesor</td>
-                                        <td>Es el encargado ....</td>
-                                        <td>
-                                            <div class="card-action center">
-                                                <button id="btn_rol_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
-                                                    <i class="material-icons right">verified_user</i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>003</td>
-                                        <td>Vendedor</td>
-                                        <td>Es el encargado ....</td>
-                                        <td>
-                                            <div class="card-action center">
-                                                <button id="btn_rol_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
-                                                    <i class="material-icons right">verified_user</i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-                            <!--End Table-->
-                        </div>
+                            <tbody></tbody>
+                        </table>
+                        <!--End Table-->
                     </div>
-                    <!--End Table result search-->
                 </div>
-                <!--End Form 7-->
-
-                <!--Start Container Form 8-->
-                <div id="form0_8" class="form_select">
-                    <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
-                    <!--Form search-->
-                    <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
-                        <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
-                        <div class="row">
-                            <!--Start Elements -->
-                            <div class="input-field col s12 m3 l3">
-                                <select>
-                                    <option value="" disabled selected>Seleccione el tipo de búsqueda</option>
-                                    <option value="1">Id permiso</option>
-                                    <option value="2">Nombre</option>
-
-                                </select>
-                                <label>Tipo de Búsqueda</label>
-                            </div>
-                            <!--End Elements -->
-                            <!--Start Elements -->
-                            <div class="input-field col s10 m7 l7">
-                                <input id="per_search" type="text" class="validate" required>
-                                <label for="per_search">Digite el valor a buscar</label>
-                            </div>
-                            <!--End Elements -->
-                            <!--Start Elements -->
-                            <div class="input-field col s2 m2 l2">
-                                <div class="card-action center">
-                                    <button id="btn_per_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
-                                        <i class="material-icons right">search</i>
-                                    </button>
-                                </div>
-                            </div>
-                            <!--End Elements -->
-
-                        </div>
-                        <!-- End Elements input-->
-                    </form>
-                    <!--Start Table result search-->
-                    <div class="row">
-                        <!--Start Table-->
-                        <div class="col s12 m12 l12">
-                            <table class="responsive-table highlight">
-                                <thead>
-                                    <tr>
-                                        <th data-field="id">Id</th>
-                                        <th data-field="name">Nombre</th>
-                                        <th data-field="name">Descripción</th>
-
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr>
-                                        <td>0001</td>
-                                        <td>Crear</td>
-                                        <td>Gestión de ....</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>0002</td>
-                                        <td>Consultar</td>
-                                        <td>Gestión de ....</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>0003</td>
-                                        <td>Modificar</td>
-                                        <td>Gestión de ....</td>
-
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <!--End Table-->
-                        </div>
-                    </div>
-                    <!--End Table result search-->
-                </div>
-                <!--End Form 8-->
-
-                <!--Start Container Form 9-->
-                <div id="form0_9" class="form_select">
-                    <!--Start cont search-->
-                    <div class="row cont_search" id="cont_search_0_1">
-                        <!--Start Elements -->
-                        <div class="input-field col s12 m3 l3">
-                            <select>
-                                <option value="" disabled selected>Seleccione el tipo de búsqueda</option>
-                                <option value="1">Id permiso</option>
-                                <option value="2">Nombre</option>
-
-                            </select>
-                            <label>Tipo de Búsqueda</label>
-                        </div>
-                        <!--End Elements -->
-                        <!--Start Elements -->
-                        <div class="input-field col s10 m7 l7">
-                            <input id="rol_search" type="text" class="validate" required>
-                            <label for="rol_search">Digite el valor a buscar</label>
-                        </div>
-                        <!--End Elements -->
-                        <!--Start Elements -->
-                        <div class="input-field col s2 m2 l2">
-                            <div class="card-action center">
-                                <button id="btn_rol_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
-                                    <i class="material-icons right">search</i>
-                                </button>
-                            </div>
-                        </div>
-                        <!--End Elements -->
-                    </div>
-                    <!--End cont search-->
-                    <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
-                    <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
-                        <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
-                        <div class="row">
-                            <!--Start Elements -->
-                            <div class="input-field col s12 m6 l4">
-                                <i class="material-icons prefix">perm_identity</i>
-                                <input id="per_name" type="text" class="validate" required>
-                                <label for="per_name">Nombre</label>
-                            </div>
-                            <!--End Elements -->
-                            <!--Start Elements -->
-                            <div class="input-field col s12 m6 l4">
-                                <i class="material-icons prefix">perm_identity</i>
-                                <input id="per_description" type="text" class="validate" required>
-                                <label for="per_description">Descripción</label>
-                            </div>
-                            <!--End Elements -->
+                <!--End Table result search-->
+            </div>
+            <!--End Form 3-->
 
 
-
-
-
-                        </div>
-                        <!-- End Elements input-->
-                        <!--Start Elements Button-->
-                        <div class="row">
-                            <div class="col s12 m12 l12">
-                                <div class="card-action center">
-                                    <button id="create_per" class="btn waves-effect waves-light" type="submit" name="action">
-                                        Aceptar
-                                        <i class="material-icons right">done</i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <!--End Elements Button-->
-                    </form>
-                </div>
-                <!--End Form 9-->
-
-                <!--Start Container Form 11-->
-                <div id="form0_11" class="form_select">
-                    <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
-                    <!--Form search-->
-                    <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
-                        <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
-                        <div class="row">
-                            <!--Start Elements -->
-                            <div class="input-field col s12 m3 l3">
-                                <select>
-                                    <option value="" disabled selected>Seleccione el tipo de búsqueda</option>
-                                    <option value="1">Id permiso</option>
-                                    <option value="2">Nombre</option>
-
-                                </select>
-                                <label>Tipo de Búsqueda</label>
-                            </div>
-                            <!--End Elements -->
-                            <!--Start Elements -->
-                            <div class="input-field col s10 m7 l7">
-                                <input id="per_search" type="text" class="validate" required>
-                                <label for="per_search">Digite el valor a buscar</label>
-                            </div>
-                            <!--End Elements -->
-                            <!--Start Elements -->
-                            <div class="input-field col s2 m2 l2">
-                                <div class="card-action center">
-                                    <button id="btn_per_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
-                                        <i class="material-icons right">search</i>
-                                    </button>
-                                </div>
-                            </div>
-                            <!--End Elements -->
-
-
-                        </div>
-                        <!-- End Elements input-->
-                    </form>
-                    <!--Start Table result search-->
-                    <div class="row">
-                        <!--Start Table-->
-                        <div class="col s12 m12 l12">
-                            <table class="responsive-table highlight">
-                                <thead>
-                                    <tr>
-                                        <th data-field="id">Id</th>
-                                        <th data-field="name">Nombre</th>
-                                        <th data-field="description">Descripción</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr>
-                                        <td>0001</td>
-                                        <td>Crear</td>
-                                        <td>Gestión de ....</td>
-                                        <td>
-                                            <div class="card-action center">
-                                                <button id="btn_per_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
-                                                    <i class="material-icons right">verified_user</i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>0002</td>
-                                        <td>Consultar</td>
-                                        <td>Gestión de ....</td>
-                                        <td>
-                                            <div class="card-action center">
-                                                <button id="btn_per_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
-                                                    <i class="material-icons right">verified_user</i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>0003</td>
-                                        <td>Modificar</td>
-                                        <td>Gestión de ....</td>
-                                        <td>
-                                            <div class="card-action center">
-                                                <button id="btn_per_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
-                                                    <i class="material-icons right">verified_user</i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-                            <!--End Table-->
-                        </div>
-                    </div>
-                    <!--End Table result search-->
-                </div>
-                <!--End Form 11-->
 
         </div>
-            <!--End  Container Form -->
+        <!--End  Container Form -->
         <!--Start Button floating-->
         <div class="fixed-action-btn hide-on-large-only" style="bottom: 45px; right: 24px;">
             <a class="btn-floating btn-large btn-default">
@@ -1068,7 +481,6 @@
 
     </div>
     <!--End Start Container-->
-
     <!--Scripts
       Order Script
         1. Jquery
