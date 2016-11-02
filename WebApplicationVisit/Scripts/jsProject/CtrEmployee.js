@@ -5,7 +5,7 @@ Date :26/10/2016
 
 */
 //Declarate Variable 
-var sNameTitle="Empleado"
+var sNameTitle="Visita"
 //Start DOM html jQuery
 $(document).ready(function () {
 

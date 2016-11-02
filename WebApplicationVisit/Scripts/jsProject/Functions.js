@@ -133,12 +133,17 @@ function clearInput(get_from) {
     let fromPassword = $(get_from + ' form :input[type=password]');
     fromPassword.val("");
     fromPassword.removeClass('valid');
+    //Type date
+    let fromDate = $(get_from + ' form :input[type=date]');
+    fromDate.val("");
+    fromDate.removeClass('valid');
     //Type label
     let fromLabel = $(get_from + ' form label');
     fromLabel.removeClass('active');
     //Type i
     let fromI = $(get_from + ' form i');
     fromI.removeClass('active');
+
 
 
   
@@ -176,6 +181,11 @@ function disableEnableInput(dataForm, type) {
     //Type password
     let fromPassword = $(get_from + ' form :input[type=password]');
     fromPassword.prop('disabled', selectValidate);
+
+    //Type date
+    let fromDate = $(get_from + ' form :input[type=date]');
+    fromDate.prop('disabled', selectValidate);
+    
     
 
 }
