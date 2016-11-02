@@ -5,7 +5,7 @@ Date :26/10/2016
 
 */
 //Declarate Variable 
-var sNameTitle = "Empleado"
+var sNameTitle = "";
 var oObjectUser;
 var dataJson = new Object();
 var typeTatble = 0;
@@ -23,28 +23,21 @@ $(document).ready(function () {
     dataJson.iBra_buis_id = 1;
     dataJson.bEmp_type_select = true;
     typeTatble = 0;
-    _getList(0);
-    _getListRol();
-    _getListPermission();
+    // _getList(0);
+    //_getListRol();
+    //_getListPermission();
 
 });
 
 //Function select Item 
 function selectionItem(item) {
-    let items = "#item_";
-    for (var i = 0; i < 2; i++) {
-        $(items + i).css('color', 'black');
-    }
-    $(items + item).css('color', '#29b6f6');
-    selectionSubItems(item + "_0", " ", 0);
-
-}
-function selectionItem(item) {
+    let titleSelection = $('#' + item + '').attr("title");
+    sNameTitle = titleSelection;
     let items = item.replace("item", "subItem") + "_0";
     $('.collapsible - header').css('color', 'black');
-    $('.collapsible - header').css('color', 'black');
     $("#" + item + "").css('color', '#29b6f6');
-    selectionSubItems(items, "0_0", false, false)
+    selectionSubItems(items, "0_0", false, false);
+
 }
 //Function select sub Items
 function selectionSubItems(subItem, Form, cont_search) {
@@ -53,11 +46,10 @@ function selectionSubItems(subItem, Form, cont_search) {
 
     $('.collection-item').css("background-color", "#fff");
     $('.collection-item').css("color", "#26a69a");
-
     $(items).css("background-color", "#26a69a");
     $(items).css("color", "#eafaf9");
-    let text = $(items).text();
-    $('#titleForm ' + sNameTitle).text(text);
+    let text = sNameTitle + " " + $(items).text();
+    $('#titleForm ').text(text);
 
 
     if (cont_search) {
@@ -73,8 +65,9 @@ function selectionSubItems(subItem, Form, cont_search) {
 }
 //Function select Item mobile
 function selectionMitem(item) {
+    let titleSelection = $('#' + item + '').attr("title");
+    sNameTitle = titleSelection;
     let items = item.replace("mItem", "mSubItem") + "_0";
-    $('.collapsible - header').css('color', 'black');
     $('.collapsible - header').css('color', 'black');
     $("#" + item + "").css('color', '#29b6f6');
     selectionMsubItems(items, "0_0", false, false)
@@ -92,8 +85,8 @@ function selectionMsubItems(subItem, Form, cont_search, nav_mobile) {
 
     $(items).css("background-color", "#26a69a");
     $(items).css("color", "#eafaf9");
-    let text = $(items).text();
-    $('#titleForm ' + sNameTitle).text(text);
+    let text = sNameTitle + " " + $(items).text();
+    $('#titleForm ').text(text);
 
     if (nav_mobile) {
         if ($('.button-collapse').is(":visible")) {
@@ -147,6 +140,71 @@ function validateSearch(e) {
 
     e.preventDefault();//not reload page
 }
+//Function  validate text box
+function validateTextBox(e, form) {
+
+    let bValidate = true;
+    let sMail = $('#emp_mail');
+    let sMail2 = $('#emp_mail2');
+    let sName = $('#emp_name');
+    let sSurname = $('#emp_surname');
+    let sAddress = $('#emp_address');
+    let sPassword = $('#emp_password');
+    let sPassword2 = $('#emp_password_confirm');
+
+
+    if ((!validateBoxText(sName)) || (!validateBoxText(sSurname)) || (!validateBoxText(sAddress)) || (!validateBoxEmail(sMail))) {
+        bValidate = false;
+    }
+
+    if ((!validateBoxPassword(sPassword))) {
+        alert("Verifique las condiciones de la contraseña");
+        bValidate = false;
+    }
+    if (sMail2.val() == sMail.val()) {
+        alert("Los email deben ser diferentes ");
+        sMail2.addClass('invalid');
+        sMail.addClass('invalid');
+    } else {
+        if (!validateBoxEmail(sMail2)) {
+            bValidate = false;
+        }
+
+    }
+
+    if (bValidate) {
+        if (validateBoxPasswordConfirm(sPassword, sPassword2)) {
+            dataJson.iRol_id = 1;
+            dataJson.sEmp_permission = "1,2,3,";
+            dataJson.sEmp_name = sName.val().toLowerCase();
+            dataJson.sEmp_document = $('#emp_document').val().toLowerCase();
+            dataJson.sEmp_surname = sSurname.val().toLowerCase();
+            dataJson.sEmp_phone = $('#emp_phone').val();
+            dataJson.sEmp_phone2 = $('#emp_phone2').val();
+            dataJson.sEmp_cell_phone = $('#emp_cel_phone').val();
+            dataJson.sEmp_cell_phone2 = $('#emp_cel_phone2').val();
+            dataJson.sEmp_addres = sAddress.val().toLowerCase();
+            dataJson.sEmp_mail = sMail.val().toLowerCase();
+            dataJson.sEmp_mail2 = sMail2.val().toLowerCase();
+            dataJson.sEmp_password = sPassword.val();
+            dataJson.sEmp_photo = $('#emp_photo').val().toLowerCase();
+            console.log(dataJson);
+        }
+        else {
+            alert("Las contraseñas no coinciden");
+        }
+    }
+    else {
+        alert("Valida la información");
+    }
+
+
+
+    e.preventDefault();
+    return false;
+}
+
+
 
 //Function database 
 //Function get list user  
@@ -340,45 +398,6 @@ function deleteEmployeed(id) {
     }*/
 
 }
-//Function create table list
-function createTable(data) {
 
-    var html = '';
-    if (typeTatble == 0) {
-        $.each(data, function (key, item) {
-            html += '<tr>';
-            html += '<td>' + item.sRol_name + '</td>';
-            html += '<td>' + item.sEmp_name + '</td>';
-            html += '<td>' + item.sEmp_surname + '</td>';
-            html += '<td>' + item.sEmp_document + '</td>';
-            html += '<td>' + item.sEmp_phone + '</td>';
-            html += '<td>' + item.sEmp_phone2 + '</td>';
-            html += '<td>' + item.sEmp_cell_phone + '</td>';
-            html += '<td>' + item.sEmp_cell_phone2 + '</td>';
-            html += '<td>' + item.sEmp_mail + '</td>';
-            html += '<td>' + item.sEmp_mail2 + '</td>';
-            html += '<td>' + item.sEmp_addres + '</td>';
-            html += '</tr>';
-        });
-        $('#listEmployee  tbody').html(html);
-
-    }
-    else if (typeTatble == 1) {
-        $.each(data, function (key, item) {
-            html += '<tr>';
-            html += '<td>' + item.sRol_name + '</td>';
-            html += '<td>' + item.sEmp_name + '</td>';
-            html += '<td>' + item.sEmp_surname + '</td>';
-            html += '<td>' + item.sEmp_document + '</td>';
-            html += '<td>' + item.sEmp_phone + '</td>';
-            html += '<td>' + item.sEmp_cell_phone + '</td>';
-            html += '<td>' + item.sEmp_mail + '</td>';
-            html += '<td><button class="btn-floating waves-effect waves-light red" type="button" name="action" onclick="deleteEmployeed(' + item.iEmp_id + ')"><i class="material-icons right">verified_user</i></button></td>';
-            html += '</tr>';
-        });
-        $('#listEmployeeDelete  tbody').html(html);
-
-    }
-}
 
 
