@@ -151,7 +151,9 @@ function validateTextBox(e, form) {
     let sAddress = $('#emp_address');
     let sPassword = $('#emp_password');
     let sPassword2 = $('#emp_password_confirm');
-
+    let selectionPremission = $('#listPermission').val();
+    let selectionBraBusiness = $('#listBraBusiness').val();
+    let selectionRole = $('#listRole').val();
 
     if ((!validateBoxText(sName)) || (!validateBoxText(sSurname)) || (!validateBoxText(sAddress)) || (!validateBoxEmail(sMail))) {
         bValidate = false;
@@ -171,11 +173,14 @@ function validateTextBox(e, form) {
         }
 
     }
+    if ((!validateSelectList(selectionPremission)) || (!validateSelectList(selectionBraBusiness)) || (!validateSelectList(selectionRole))) {
+        bValidate = false;
+        alert("Verifique las listas");
+    }
 
     if (bValidate) {
         if (validateBoxPasswordConfirm(sPassword, sPassword2)) {
-            dataJson.iRol_id = 1;
-            dataJson.sEmp_permission = "1,2,3,";
+            dataJson.iRol_id = parseInt(selectionRole);
             dataJson.sEmp_name = sName.val().toLowerCase();
             dataJson.sEmp_document = $('#emp_document').val().toLowerCase();
             dataJson.sEmp_surname = sSurname.val().toLowerCase();
@@ -188,6 +193,8 @@ function validateTextBox(e, form) {
             dataJson.sEmp_mail2 = sMail2.val().toLowerCase();
             dataJson.sEmp_password = sPassword.val();
             dataJson.sEmp_photo = $('#emp_photo').val().toLowerCase();
+            dataJson.sEmp_permission = selectionPremission;
+            dataJson.iBra_buis_id =  parseInt(selectionBraBusiness);
             console.log(dataJson);
         }
         else {
@@ -197,8 +204,6 @@ function validateTextBox(e, form) {
     else {
         alert("Valida la información");
     }
-
-
 
     e.preventDefault();
     return false;

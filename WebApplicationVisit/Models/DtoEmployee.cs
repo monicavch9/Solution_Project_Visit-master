@@ -8,8 +8,11 @@ namespace Aplication_Visit.Controllers
     public class DtoEmployee
     {
         public int iRol_id { get; set; }
+        public int iPermission_id { get; set; }
+        public string sEmp_permission { get; set; }
         public int iEmp_id { get; set; }
         public string sRol_name { get; set; }
+        public string sPermission_name { get; set; }
         public int iBra_buis_id { get; set; }
         public string sEmp_document { get; set; }
         public string sEmp_name { get; set; }
@@ -23,7 +26,7 @@ namespace Aplication_Visit.Controllers
         public string sEmp_mail2 { get; set; }
         public string sEmp_password { get; set; }
         public Boolean bemp_state { get; set; }
-
-
+        public String sEmp_photo { get; set; }
+        public Boolean bEmp_type_select { get; set; }
     }
 }

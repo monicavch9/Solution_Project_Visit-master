@@ -70,9 +70,6 @@ function sendResetPassword(model) {
             $('#textAnswerResetPassword').text(result);
             setTimeout(function () { redirection(); }, 5000);
             clearTextBox();
-
-                
-
         },
         error: function (response) {
             debugger;
@@ -125,16 +122,12 @@ function validateResetLogin(e) {
         bValidate = false;
     }
   
- 
-
     if (bValidate) {
 
         let dataJson = {
             sEmp_mail: userReset,
-
         }
         console.log(dataJson);
-
 
         sendResetPassword(JSON.stringify(dataJson));
     }
