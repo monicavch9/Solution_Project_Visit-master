@@ -17,6 +17,7 @@ namespace DAL
         public int IT_HAS_ACTIVITIES1 { get; set; }
         public int DE_VIS_ID { get; set; }
         public int VIS_ID { get; set; }
+        public string VIS_DATE { get; set; }
         public string VIS_ATTE_MAIL { get; set; }
         public string VIS_ATTE_PHONE { get; set; }
         public string VIS_ATTE_CELPHONE { get; set; }

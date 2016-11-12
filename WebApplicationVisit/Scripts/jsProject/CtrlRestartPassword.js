@@ -35,8 +35,8 @@ function validatePassword(e) {
    
 
     if (expressionPassword.test(password)) {
-        console.log(password);
-        console.log(passwordV);
+        //console.log(password);
+        //console.log(passwordV);
         if (password != passwordV) {
             $('#informationPassword').text('Verifique: Las contraseñas no coinciden ');
         } else {

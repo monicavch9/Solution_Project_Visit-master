@@ -20,11 +20,11 @@ namespace Aplication_Visit.Controllers
             return View();
         }
         // GET: List Employee
-        public JsonResult ListEmployee()
+        /*public JsonResult ListEmployee()
         {
 
-            return Json(contEmployee.listEmployee(), JsonRequestBehavior.AllowGet);
+           // return Json(contEmployee.listEmployee(), JsonRequestBehavior.AllowGet);
         }
-        
+        */
     }
 }

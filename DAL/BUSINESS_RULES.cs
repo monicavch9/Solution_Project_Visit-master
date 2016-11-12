@@ -20,7 +20,7 @@ namespace DAL
         }
     
         public int BUS_RULES_ID { get; set; }
-        public Nullable<int> BRA_BUIS_ID { get; set; }
+        public int BRA_BUIS_ID { get; set; }
         public string BUS_RULES_CODE { get; set; }
         public string BUS_RULES_DESCRIPTION { get; set; }
     

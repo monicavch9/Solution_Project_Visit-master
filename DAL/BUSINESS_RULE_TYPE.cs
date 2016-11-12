@@ -20,10 +20,10 @@ namespace DAL
         }
     
         public int RULE_TYPE_BUS_ID { get; set; }
-        public Nullable<int> BUS_RULES_ID { get; set; }
+        public int BUS_RULES_ID { get; set; }
         public string RULE_TYPE_BUS_NAME { get; set; }
         public string RULE_TYPE_BUS_DESCRIPTION { get; set; }
-        public Nullable<bool> RULE_TYPE_CHECK { get; set; }
+        public bool RULE_TYPE_CHECK { get; set; }
     
         public virtual BUSINESS_RULES BUSINESS_RULES { get; set; }
         public virtual ICollection<OPTIONS_LIST_RULES> OPTIONS_LIST_RULES { get; set; }

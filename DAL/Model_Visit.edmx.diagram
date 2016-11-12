@@ -4,43 +4,39 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a4235a19b1c04330afa947d1672794c7" Name="Diagram1">
-        <EntityTypeShape EntityType="Project_VisitModel.BRANCH_COMPANY" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="Project_VisitModel.BRANCH_OFFICE" Width="1.5" PointX="9.75" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Project_VisitModel.BUSINESS" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Project_VisitModel.BUSINESS_RULE_TYPE" Width="1.5" PointX="9.75" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Project_VisitModel.BUSINESS_RULES" Width="1.5" PointX="7.5" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Project_VisitModel.CITIES" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Project_VisitModel.CLIENT_BUSINESS" Width="1.5" PointX="7.5" PointY="12.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Project_VisitModel.COUNTRY" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Project_VisitModel.DETAIL_VISITS" Width="1.5" PointX="12" PointY="17.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Project_VisitModel.EMPLOYEE" Width="1.5" PointX="7.5" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Project_VisitModel.IT_HAS_ACTIVITIES" Width="1.5" PointX="14.25" PointY="10.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Project_VisitModel.OPTIONS_LIST_RULES" Width="1.5" PointX="12" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Project_VisitModel.PERMISSIONS" Width="1.5" PointX="10.5" PointY="14.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Project_VisitModel.QUOTATION" Width="1.5" PointX="15" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Project_VisitModel.QUOTATION_STATE" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Project_VisitModel.ROLE" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Project_VisitModel.USES" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Project_VisitModel.VISITS" Width="1.5" PointX="12" PointY="11.625" IsExpanded="true" />
-        <AssociationConnector Association="Project_VisitModel.FK_BRANCH_C_ARE_LOCAT_CITIES" ManuallyRouted="false" />
-        <AssociationConnector Association="Project_VisitModel.FK_BRANCH_C_IT_S_IN_BUSINESS" ManuallyRouted="false" />
-        <AssociationConnector Association="Project_VisitModel.FK_BUSINESS_CREATE_BRANCH_C" ManuallyRouted="false" />
-        <AssociationConnector Association="Project_VisitModel.FK_EMPLOYEE_IT_BELONG_BRANCH_C" ManuallyRouted="false" />
-        <AssociationConnector Association="Project_VisitModel.FK_BRANCH_O_HAS_EMPLOYEE" ManuallyRouted="false" />
-        <AssociationConnector Association="Project_VisitModel.FK_BRANCH_O_IS_LOCATE_CITIES" ManuallyRouted="false" />
-        <AssociationConnector Association="Project_VisitModel.FK_BRANCH_O_IT_IS_PAR_CLIENT_B" ManuallyRouted="false" />
-        <AssociationConnector Association="Project_VisitModel.FK_QUOTATIO_GENERATE_BRANCH_O" ManuallyRouted="false" />
-        <AssociationConnector Association="Project_VisitModel.FK_VISITS_PROGRAM_BRANCH_O" ManuallyRouted="false" />
-        <AssociationConnector Association="Project_VisitModel.FK_BUSINESS_IT_CONTAI_BUSINESS" ManuallyRouted="false" />
-        <AssociationConnector Association="Project_VisitModel.FK_OPTIONS__IS_CONTAI_BUSINESS" ManuallyRouted="false" />
-        <AssociationConnector Association="Project_VisitModel.FK_CITIES_PERTENECE_COUNTRY" ManuallyRouted="false" />
-        <AssociationConnector Association="Project_VisitModel.FK_IT_HAS_A_IT_HAS_AC_DETAIL_V" ManuallyRouted="false" />
-        <AssociationConnector Association="Project_VisitModel.FK_EMPLOYEE_USE_ROLE" ManuallyRouted="false" />
-        <AssociationConnector Association="Project_VisitModel.FK_USES_USES2_EMPLOYEE" ManuallyRouted="false" />
-        <AssociationConnector Association="Project_VisitModel.FK_IT_HAS_A_IT_HAS_AC_VISITS" ManuallyRouted="false" />
-        <AssociationConnector Association="Project_VisitModel.FK_USES_USES_PERMISSI" ManuallyRouted="false" />
-        <AssociationConnector Association="Project_VisitModel.FK_QUOTATIO_PERTAIN_QUOTATIO" ManuallyRouted="false" />
+      <Diagram DiagramId="29151c66ff5c460e818dc7d22a1207df" Name="Diagram1">
+        <EntityTypeShape EntityType="Project_Visit_Model.BRANCH_COMPANY" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_Visit_Model.BRANCH_OFFICE" Width="1.5" PointX="9.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_Visit_Model.BUSINESS" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_Visit_Model.BUSINESS_RULE_TYPE" Width="1.5" PointX="9.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_Visit_Model.BUSINESS_RULES" Width="1.5" PointX="7.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_Visit_Model.CITIES" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_Visit_Model.CLIENT_BUSINESS" Width="1.5" PointX="7.5" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_Visit_Model.COUNTRY" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_Visit_Model.DETAIL_VISITS" Width="1.5" PointX="12" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_Visit_Model.EMPLOYEE" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_Visit_Model.IT_HAS_ACTIVITIES" Width="1.5" PointX="14.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_Visit_Model.OPTIONS_LIST_RULES" Width="1.5" PointX="12" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_Visit_Model.QUOTATION" Width="1.5" PointX="12" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_Visit_Model.QUOTATION_STATE" Width="1.5" PointX="9.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_Visit_Model.ROLE" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_Visit_Model.VISITS" Width="1.5" PointX="12" PointY="10.125" IsExpanded="true" />
+        <AssociationConnector Association="Project_Visit_Model.FK_BRANCH_C_ARE_LOCAT_CITIES" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_Visit_Model.FK_BRANCH_C_IT_S_IN_BUSINESS" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_Visit_Model.FK_BUSINESS_CREATE_BRANCH_C" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_Visit_Model.FK_EMPLOYEE_IT_BELONG_BRANCH_C" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_Visit_Model.FK_BRANCH_O_HAS_EMPLOYEE" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_Visit_Model.FK_BRANCH_O_IS_LOCATE_CITIES" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_Visit_Model.FK_BRANCH_O_IT_IS_PAR_CLIENT_B" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_Visit_Model.FK_QUOTATIO_GENERATE_BRANCH_O" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_Visit_Model.FK_VISITS_PROGRAM_BRANCH_O" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_Visit_Model.FK_BUSINESS_IT_CONTAI_BUSINESS" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_Visit_Model.FK_OPTIONS__IS_CONTAI_BUSINESS" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_Visit_Model.FK_CITIES_PERTENECE_COUNTRY" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_Visit_Model.FK_IT_HAS_A_IT_HAS_AC_DETAIL_V" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_Visit_Model.FK_EMPLOYEE_USE_ROLE" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_Visit_Model.FK_IT_HAS_A_IT_HAS_AC_VISITS" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_Visit_Model.FK_QUOTATIO_PERTAIN_QUOTATIO" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

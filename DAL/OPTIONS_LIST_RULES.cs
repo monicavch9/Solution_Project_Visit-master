@@ -15,7 +15,7 @@ namespace DAL
     public partial class OPTIONS_LIST_RULES
     {
         public int OPC_LIS_RULES_ID { get; set; }
-        public Nullable<int> RULE_TYPE_BUS_ID { get; set; }
+        public int RULE_TYPE_BUS_ID { get; set; }
         public string OPC_LIS_RULES_NAME { get; set; }
     
         public virtual BUSINESS_RULE_TYPE BUSINESS_RULE_TYPE { get; set; }

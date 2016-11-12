@@ -9,15 +9,17 @@ namespace Aplication_Visit.Models
 {
     interface IntEmployee
     {
-        //Method for  list employee
-        List<DtoEmployee> listEmployee();
-        List<DtoEmployee> listEmployeeSelect(string selection);
+
         //Method for  insert employee
-        Boolean insertEmployee(DtoEmployee emp);
-        //Method for  update employee
-        Boolean updateEmployee(DtoEmployee emp);
+        Boolean InsertUpdateEmployee(DtoEmployee emp);
+
         //Method for  delete employee
-        Boolean deleteEmployee(DtoEmployee emp);
+        Boolean DeleteEmployee(DtoEmployee emp);
+        //Method for  list employee
+        List<DtoEmployee> ListEmployee(DtoEmployee emp);
+        List<DtoEmployee> ListEmployeeSelect(DtoEmployee emp);
+
+
         //Method for login employee
         List<DtoEmployee> loginEmployee(DtoEmployee emp);
         List<DtoEmployee> ResetPasswordEmployee(DtoEmployee emp);

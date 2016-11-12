@@ -21,7 +21,7 @@ namespace DAL
         }
     
         public int CIT_ID { get; set; }
-        public Nullable<int> CONT_ID { get; set; }
+        public int CONT_ID { get; set; }
         public string CIT_NAME { get; set; }
     
         public virtual ICollection<BRANCH_COMPANY> BRANCH_COMPANY { get; set; }

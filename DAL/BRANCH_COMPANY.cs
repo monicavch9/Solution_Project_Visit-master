@@ -21,8 +21,8 @@ namespace DAL
         }
     
         public int BRA_BUIS_ID { get; set; }
-        public Nullable<int> CIT_ID { get; set; }
-        public Nullable<int> BUS_ID { get; set; }
+        public int CIT_ID { get; set; }
+        public int BUS_ID { get; set; }
         public string BRA_BUIS_NAME { get; set; }
         public string BRA_BUIS_PHONE { get; set; }
         public string BRA_BUIS_MAIL { get; set; }

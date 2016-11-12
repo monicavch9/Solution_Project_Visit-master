@@ -4,16 +4,16 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Project_VisitModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="Project_Visit_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityType Name="BRANCH_COMPANY">
           <Key>
             <PropertyRef Name="BRA_BUIS_ID" />
           </Key>
           <Property Name="BRA_BUIS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CIT_ID" Type="int" />
-          <Property Name="BUS_ID" Type="int" />
+          <Property Name="CIT_ID" Type="int" Nullable="false" />
+          <Property Name="BUS_ID" Type="int" Nullable="false" />
           <Property Name="BRA_BUIS_NAME" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="BRA_BUIS_PHONE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="BRA_BUIS_PHONE" Type="varchar" MaxLength="255" />
           <Property Name="BRA_BUIS_MAIL" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="BRA_BUIS_MAIL2" Type="varchar" MaxLength="255" />
           <Property Name="BRA_BUIS_ADDRESS" Type="varchar" MaxLength="255" Nullable="false" />
@@ -26,12 +26,12 @@
           <Property Name="BRA_OFF_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CLI_BUS_ID" Type="int" Nullable="false" />
           <Property Name="CIT_ID" Type="int" Nullable="false" />
-          <Property Name="EMP_ID" Type="int" />
-          <Property Name="BRA_OFF_NAME" Type="varchar" MaxLength="255" />
-          <Property Name="BRA_OFF_PHONE" Type="varchar" MaxLength="255" />
-          <Property Name="BRA_OFF_ADDRESS" Type="varchar" MaxLength="255" />
+          <Property Name="EMP_ID" Type="int" Nullable="false" />
+          <Property Name="BRA_OFF_NAME" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="BRA_OFF_PHONE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="BRA_OFF_ADDRESS" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="BRA_COM_NAME" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="BRA_COM_PHONE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="BRA_COM_PHONE" Type="varchar" MaxLength="255" />
           <Property Name="BRA_COM_MAIL" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="BRA_COM_MAIL2" Type="varchar" MaxLength="255" />
           <Property Name="BRA_COM_ADDRESS" Type="varchar" MaxLength="255" Nullable="false" />
@@ -52,26 +52,26 @@
             <PropertyRef Name="RULE_TYPE_BUS_ID" />
           </Key>
           <Property Name="RULE_TYPE_BUS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="BUS_RULES_ID" Type="int" />
+          <Property Name="BUS_RULES_ID" Type="int" Nullable="false" />
           <Property Name="RULE_TYPE_BUS_NAME" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="RULE_TYPE_BUS_DESCRIPTION" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="RULE_TYPE_CHECK" Type="bit" />
+          <Property Name="RULE_TYPE_CHECK" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="BUSINESS_RULES">
           <Key>
             <PropertyRef Name="BUS_RULES_ID" />
           </Key>
           <Property Name="BUS_RULES_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="BRA_BUIS_ID" Type="int" />
+          <Property Name="BRA_BUIS_ID" Type="int" Nullable="false" />
           <Property Name="BUS_RULES_CODE" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="BUS_RULES_DESCRIPTION" Type="varchar" MaxLength="255" />
+          <Property Name="BUS_RULES_DESCRIPTION" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <EntityType Name="CITIES">
           <Key>
             <PropertyRef Name="CIT_ID" />
           </Key>
           <Property Name="CIT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CONT_ID" Type="int" />
+          <Property Name="CONT_ID" Type="int" Nullable="false" />
           <Property Name="CIT_NAME" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <EntityType Name="CLIENT_BUSINESS">
@@ -103,8 +103,8 @@
             <PropertyRef Name="EMP_ID" />
           </Key>
           <Property Name="EMP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ROL_ID" Type="int" />
-          <Property Name="BRA_BUIS_ID" Type="int" />
+          <Property Name="ROL_ID" Type="int" Nullable="false" />
+          <Property Name="BRA_BUIS_ID" Type="int" Nullable="false" />
           <Property Name="EMP_DOCUMENT" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="EMP_NAME" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="EMP_SURNAME" Type="varchar" MaxLength="255" Nullable="false" />
@@ -117,6 +117,7 @@
           <Property Name="EMP_MAIL2" Type="varchar" MaxLength="255" />
           <Property Name="EMP_PASSWORD" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="EMP_STATE" Type="bit" Nullable="false" />
+          <Property Name="EMP_PER" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="EMP_PHOTO" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="IT_HAS_ACTIVITIES">
@@ -128,9 +129,10 @@
           <Property Name="IT_HAS_ACTIVITIES" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DE_VIS_ID" Type="int" Nullable="false" />
           <Property Name="VIS_ID" Type="int" Nullable="false" />
+          <Property Name="VIS_DATE" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="VIS_ATTE_MAIL" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="VIS_ATTE_PHONE" Type="varchar" MaxLength="255" />
-          <Property Name="VIS_ATTE_CELPHONE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="VIS_ATTE_CELPHONE" Type="varchar" MaxLength="255" />
           <Property Name="VIS_ATTE_NAME" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="VIS_ATTE_COMPETITION" Type="varchar" MaxLength="255" />
           <Property Name="VIS_ATTE_POSITION" Type="varchar" MaxLength="255" Nullable="false" />
@@ -145,24 +147,16 @@
             <PropertyRef Name="OPC_LIS_RULES_ID" />
           </Key>
           <Property Name="OPC_LIS_RULES_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="RULE_TYPE_BUS_ID" Type="int" />
-          <Property Name="OPC_LIS_RULES_NAME" Type="varchar" MaxLength="255" />
-        </EntityType>
-        <EntityType Name="PERMISSIONS">
-          <Key>
-            <PropertyRef Name="PER_ID" />
-          </Key>
-          <Property Name="PER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PER_NAME" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="PER_DESCRIPTION" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="RULE_TYPE_BUS_ID" Type="int" Nullable="false" />
+          <Property Name="OPC_LIS_RULES_NAME" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <EntityType Name="QUOTATION">
           <Key>
             <PropertyRef Name="QUO_ID" />
           </Key>
           <Property Name="QUO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="BRA_OFF_ID" Type="int" />
-          <Property Name="QUO_STA_ID" Type="int" />
+          <Property Name="BRA_OFF_ID" Type="int" Nullable="false" />
+          <Property Name="QUO_STA_ID" Type="int" Nullable="false" />
           <Property Name="QUO_CODE" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="QUO_DATE" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="QUO_VRBASE" Type="int" />
@@ -176,7 +170,7 @@
             <PropertyRef Name="QUO_STA_ID" />
           </Key>
           <Property Name="QUO_STA_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="QUO_STA_DESCRIPTION" Type="varchar" MaxLength="255" />
+          <Property Name="QUO_STA_DESCRIPTION" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <EntityType Name="ROLE">
           <Key>
@@ -185,16 +179,6 @@
           <Property Name="ROL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ROL_NAME" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="ROL_DESCRIPTION" Type="varchar" MaxLength="255" Nullable="false" />
-        </EntityType>
-        <EntityType Name="USES">
-          <Key>
-            <PropertyRef Name="USE_ID" />
-            <PropertyRef Name="PER_ID" />
-            <PropertyRef Name="EMP_ID" />
-          </Key>
-          <Property Name="USE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PER_ID" Type="int" Nullable="false" />
-          <Property Name="EMP_ID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="VISITS">
           <Key>
@@ -205,7 +189,7 @@
           <Property Name="VIS_ADDRESS" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <Association Name="FK_BRANCH_C_ARE_LOCAT_CITIES">
-          <End Role="CITIES" Type="Self.CITIES" Multiplicity="0..1" />
+          <End Role="CITIES" Type="Self.CITIES" Multiplicity="1" />
           <End Role="BRANCH_COMPANY" Type="Self.BRANCH_COMPANY" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CITIES">
@@ -217,7 +201,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BRANCH_C_IT_S_IN_BUSINESS">
-          <End Role="BUSINESS" Type="Self.BUSINESS" Multiplicity="0..1" />
+          <End Role="BUSINESS" Type="Self.BUSINESS" Multiplicity="1" />
           <End Role="BRANCH_COMPANY" Type="Self.BRANCH_COMPANY" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BUSINESS">
@@ -229,7 +213,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BRANCH_O_HAS_EMPLOYEE">
-          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="0..1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
           <End Role="BRANCH_OFFICE" Type="Self.BRANCH_OFFICE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EMPLOYEE">
@@ -265,7 +249,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BUSINESS_CREATE_BRANCH_C">
-          <End Role="BRANCH_COMPANY" Type="Self.BRANCH_COMPANY" Multiplicity="0..1" />
+          <End Role="BRANCH_COMPANY" Type="Self.BRANCH_COMPANY" Multiplicity="1" />
           <End Role="BUSINESS_RULES" Type="Self.BUSINESS_RULES" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BRANCH_COMPANY">
@@ -277,7 +261,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BUSINESS_IT_CONTAI_BUSINESS">
-          <End Role="BUSINESS_RULES" Type="Self.BUSINESS_RULES" Multiplicity="0..1" />
+          <End Role="BUSINESS_RULES" Type="Self.BUSINESS_RULES" Multiplicity="1" />
           <End Role="BUSINESS_RULE_TYPE" Type="Self.BUSINESS_RULE_TYPE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BUSINESS_RULES">
@@ -289,7 +273,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CITIES_PERTENECE_COUNTRY">
-          <End Role="COUNTRY" Type="Self.COUNTRY" Multiplicity="0..1" />
+          <End Role="COUNTRY" Type="Self.COUNTRY" Multiplicity="1" />
           <End Role="CITIES" Type="Self.CITIES" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="COUNTRY">
@@ -301,7 +285,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EMPLOYEE_IT_BELONG_BRANCH_C">
-          <End Role="BRANCH_COMPANY" Type="Self.BRANCH_COMPANY" Multiplicity="0..1" />
+          <End Role="BRANCH_COMPANY" Type="Self.BRANCH_COMPANY" Multiplicity="1" />
           <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BRANCH_COMPANY">
@@ -313,7 +297,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EMPLOYEE_USE_ROLE">
-          <End Role="ROLE" Type="Self.ROLE" Multiplicity="0..1" />
+          <End Role="ROLE" Type="Self.ROLE" Multiplicity="1" />
           <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ROLE">
@@ -349,7 +333,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OPTIONS__IS_CONTAI_BUSINESS">
-          <End Role="BUSINESS_RULE_TYPE" Type="Self.BUSINESS_RULE_TYPE" Multiplicity="0..1" />
+          <End Role="BUSINESS_RULE_TYPE" Type="Self.BUSINESS_RULE_TYPE" Multiplicity="1" />
           <End Role="OPTIONS_LIST_RULES" Type="Self.OPTIONS_LIST_RULES" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BUSINESS_RULE_TYPE">
@@ -361,7 +345,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_QUOTATIO_GENERATE_BRANCH_O">
-          <End Role="BRANCH_OFFICE" Type="Self.BRANCH_OFFICE" Multiplicity="0..1" />
+          <End Role="BRANCH_OFFICE" Type="Self.BRANCH_OFFICE" Multiplicity="1" />
           <End Role="QUOTATION" Type="Self.QUOTATION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BRANCH_OFFICE">
@@ -373,7 +357,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_QUOTATIO_PERTAIN_QUOTATIO">
-          <End Role="QUOTATION_STATE" Type="Self.QUOTATION_STATE" Multiplicity="0..1" />
+          <End Role="QUOTATION_STATE" Type="Self.QUOTATION_STATE" Multiplicity="1" />
           <End Role="QUOTATION" Type="Self.QUOTATION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="QUOTATION_STATE">
@@ -381,30 +365,6 @@
             </Principal>
             <Dependent Role="QUOTATION">
               <PropertyRef Name="QUO_STA_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_USES_USES_PERMISSI">
-          <End Role="PERMISSIONS" Type="Self.PERMISSIONS" Multiplicity="1" />
-          <End Role="USES" Type="Self.USES" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PERMISSIONS">
-              <PropertyRef Name="PER_ID" />
-            </Principal>
-            <Dependent Role="USES">
-              <PropertyRef Name="PER_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_USES_USES2_EMPLOYEE">
-          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
-          <End Role="USES" Type="Self.USES" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EMPLOYEE">
-              <PropertyRef Name="EMP_ID" />
-            </Principal>
-            <Dependent Role="USES">
-              <PropertyRef Name="EMP_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -420,7 +380,46 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Project_VisitModelStoreContainer">
+        <Function Name="PR_DELETE_EMPLOYEE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="iEmp_id" Type="int" Mode="In" />
+          <Parameter Name="sEmp_document" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PR_INSET_UPDATE_EMPLOYEE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="iRol_id" Type="int" Mode="In" />
+          <Parameter Name="iBra_buis_id" Type="int" Mode="In" />
+          <Parameter Name="sEmp_document" Type="varchar" Mode="In" />
+          <Parameter Name="sEmp_name" Type="varchar" Mode="In" />
+          <Parameter Name="sEmp_surname" Type="varchar" Mode="In" />
+          <Parameter Name="sEmp_phone" Type="varchar" Mode="In" />
+          <Parameter Name="sEmp_phone2" Type="varchar" Mode="In" />
+          <Parameter Name="sEmp_cel_phone" Type="varchar" Mode="In" />
+          <Parameter Name="sEmp_cel_phone2" Type="varchar" Mode="In" />
+          <Parameter Name="sEmp_addres" Type="varchar" Mode="In" />
+          <Parameter Name="sEmp_mail" Type="varchar" Mode="In" />
+          <Parameter Name="sEmp_mail2" Type="varchar" Mode="In" />
+          <Parameter Name="sEmp_password" Type="varchar" Mode="In" />
+          <Parameter Name="bEmp_state" Type="bit" Mode="In" />
+          <Parameter Name="sEmp_per" Type="varchar" Mode="In" />
+          <Parameter Name="sEmp_photo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PR_SEARCH_EMPLOYEE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="State" Type="bit" Mode="In" />
+          <Parameter Name="IdBusiness" Type="int" Mode="In" />
+        </Function>
+        <Function Name="PR_SEARCH_EMPLOYEE_SELECTION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="State" Type="bit" Mode="In" />
+          <Parameter Name="IdBusiness" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Surname" Type="varchar" Mode="In" />
+          <Parameter Name="Document" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="Role" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PR_UPADTE_STATE_EMPLOYEE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="iEmp_id" Type="int" Mode="In" />
+          <Parameter Name="sEmp_document" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="Project_Visit_ModelStoreContainer">
           <EntitySet Name="BRANCH_COMPANY" EntityType="Self.BRANCH_COMPANY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BRANCH_OFFICE" EntityType="Self.BRANCH_OFFICE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BUSINESS" EntityType="Self.BUSINESS" Schema="dbo" store:Type="Tables" />
@@ -433,11 +432,9 @@
           <EntitySet Name="EMPLOYEE" EntityType="Self.EMPLOYEE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="IT_HAS_ACTIVITIES" EntityType="Self.IT_HAS_ACTIVITIES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OPTIONS_LIST_RULES" EntityType="Self.OPTIONS_LIST_RULES" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PERMISSIONS" EntityType="Self.PERMISSIONS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QUOTATION" EntityType="Self.QUOTATION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="QUOTATION_STATE" EntityType="Self.QUOTATION_STATE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ROLE" EntityType="Self.ROLE" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="USES" EntityType="Self.USES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VISITS" EntityType="Self.VISITS" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_BRANCH_C_ARE_LOCAT_CITIES" Association="Self.FK_BRANCH_C_ARE_LOCAT_CITIES">
             <End Role="CITIES" EntitySet="CITIES" />
@@ -499,33 +496,24 @@
             <End Role="QUOTATION_STATE" EntitySet="QUOTATION_STATE" />
             <End Role="QUOTATION" EntitySet="QUOTATION" />
           </AssociationSet>
-          <AssociationSet Name="FK_USES_USES_PERMISSI" Association="Self.FK_USES_USES_PERMISSI">
-            <End Role="PERMISSIONS" EntitySet="PERMISSIONS" />
-            <End Role="USES" EntitySet="USES" />
-          </AssociationSet>
-          <AssociationSet Name="FK_USES_USES2_EMPLOYEE" Association="Self.FK_USES_USES2_EMPLOYEE">
-            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
-            <End Role="USES" EntitySet="USES" />
-          </AssociationSet>
           <AssociationSet Name="FK_VISITS_PROGRAM_BRANCH_O" Association="Self.FK_VISITS_PROGRAM_BRANCH_O">
             <End Role="BRANCH_OFFICE" EntitySet="BRANCH_OFFICE" />
             <End Role="VISITS" EntitySet="VISITS" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Project_VisitModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <Schema Namespace="Project_Visit_Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityType Name="BRANCH_COMPANY">
           <Key>
             <PropertyRef Name="BRA_BUIS_ID" />
           </Key>
           <Property Name="BRA_BUIS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CIT_ID" Type="Int32" />
-          <Property Name="BUS_ID" Type="Int32" />
+          <Property Name="CIT_ID" Type="Int32" Nullable="false" />
+          <Property Name="BUS_ID" Type="Int32" Nullable="false" />
           <Property Name="BRA_BUIS_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="BRA_BUIS_PHONE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRA_BUIS_PHONE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="BRA_BUIS_MAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="BRA_BUIS_MAIL2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="BRA_BUIS_ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
@@ -542,12 +530,12 @@
           <Property Name="BRA_OFF_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CLI_BUS_ID" Type="Int32" Nullable="false" />
           <Property Name="CIT_ID" Type="Int32" Nullable="false" />
-          <Property Name="EMP_ID" Type="Int32" />
-          <Property Name="BRA_OFF_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="BRA_OFF_PHONE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="BRA_OFF_ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EMP_ID" Type="Int32" Nullable="false" />
+          <Property Name="BRA_OFF_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRA_OFF_PHONE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRA_OFF_ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="BRA_COM_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="BRA_COM_PHONE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRA_COM_PHONE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="BRA_COM_MAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="BRA_COM_MAIL2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="BRA_COM_ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
@@ -574,10 +562,10 @@
             <PropertyRef Name="RULE_TYPE_BUS_ID" />
           </Key>
           <Property Name="RULE_TYPE_BUS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="BUS_RULES_ID" Type="Int32" />
+          <Property Name="BUS_RULES_ID" Type="Int32" Nullable="false" />
           <Property Name="RULE_TYPE_BUS_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="RULE_TYPE_BUS_DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="RULE_TYPE_CHECK" Type="Boolean" />
+          <Property Name="RULE_TYPE_CHECK" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="BUSINESS_RULES" Relationship="Self.FK_BUSINESS_IT_CONTAI_BUSINESS" FromRole="BUSINESS_RULE_TYPE" ToRole="BUSINESS_RULES" />
           <NavigationProperty Name="OPTIONS_LIST_RULES" Relationship="Self.FK_OPTIONS__IS_CONTAI_BUSINESS" FromRole="BUSINESS_RULE_TYPE" ToRole="OPTIONS_LIST_RULES" />
         </EntityType>
@@ -586,9 +574,9 @@
             <PropertyRef Name="BUS_RULES_ID" />
           </Key>
           <Property Name="BUS_RULES_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="BRA_BUIS_ID" Type="Int32" />
+          <Property Name="BRA_BUIS_ID" Type="Int32" Nullable="false" />
           <Property Name="BUS_RULES_CODE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="BUS_RULES_DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="BUS_RULES_DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="BRANCH_COMPANY" Relationship="Self.FK_BUSINESS_CREATE_BRANCH_C" FromRole="BUSINESS_RULES" ToRole="BRANCH_COMPANY" />
           <NavigationProperty Name="BUSINESS_RULE_TYPE" Relationship="Self.FK_BUSINESS_IT_CONTAI_BUSINESS" FromRole="BUSINESS_RULES" ToRole="BUSINESS_RULE_TYPE" />
         </EntityType>
@@ -597,7 +585,7 @@
             <PropertyRef Name="CIT_ID" />
           </Key>
           <Property Name="CIT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CONT_ID" Type="Int32" />
+          <Property Name="CONT_ID" Type="Int32" Nullable="false" />
           <Property Name="CIT_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="BRANCH_COMPANY" Relationship="Self.FK_BRANCH_C_ARE_LOCAT_CITIES" FromRole="CITIES" ToRole="BRANCH_COMPANY" />
           <NavigationProperty Name="BRANCH_OFFICE" Relationship="Self.FK_BRANCH_O_IS_LOCATE_CITIES" FromRole="CITIES" ToRole="BRANCH_OFFICE" />
@@ -635,8 +623,8 @@
             <PropertyRef Name="EMP_ID" />
           </Key>
           <Property Name="EMP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ROL_ID" Type="Int32" />
-          <Property Name="BRA_BUIS_ID" Type="Int32" />
+          <Property Name="ROL_ID" Type="Int32" Nullable="false" />
+          <Property Name="BRA_BUIS_ID" Type="Int32" Nullable="false" />
           <Property Name="EMP_DOCUMENT" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="EMP_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="EMP_SURNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
@@ -649,11 +637,11 @@
           <Property Name="EMP_MAIL2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="EMP_PASSWORD" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="EMP_STATE" Type="Boolean" Nullable="false" />
+          <Property Name="EMP_PER" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="EMP_PHOTO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="BRANCH_COMPANY" Relationship="Self.FK_EMPLOYEE_IT_BELONG_BRANCH_C" FromRole="EMPLOYEE" ToRole="BRANCH_COMPANY" />
           <NavigationProperty Name="BRANCH_OFFICE" Relationship="Self.FK_BRANCH_O_HAS_EMPLOYEE" FromRole="EMPLOYEE" ToRole="BRANCH_OFFICE" />
           <NavigationProperty Name="ROLE" Relationship="Self.FK_EMPLOYEE_USE_ROLE" FromRole="EMPLOYEE" ToRole="ROLE" />
-          <NavigationProperty Name="USES" Relationship="Self.FK_USES_USES2_EMPLOYEE" FromRole="EMPLOYEE" ToRole="USES" />
         </EntityType>
         <EntityType Name="IT_HAS_ACTIVITIES">
           <Key>
@@ -664,9 +652,10 @@
           <Property Name="IT_HAS_ACTIVITIES1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DE_VIS_ID" Type="Int32" Nullable="false" />
           <Property Name="VIS_ID" Type="Int32" Nullable="false" />
+          <Property Name="VIS_DATE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="VIS_ATTE_MAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="VIS_ATTE_PHONE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="VIS_ATTE_CELPHONE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VIS_ATTE_CELPHONE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="VIS_ATTE_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="VIS_ATTE_COMPETITION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="VIS_ATTE_POSITION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
@@ -683,26 +672,17 @@
             <PropertyRef Name="OPC_LIS_RULES_ID" />
           </Key>
           <Property Name="OPC_LIS_RULES_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="RULE_TYPE_BUS_ID" Type="Int32" />
-          <Property Name="OPC_LIS_RULES_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="RULE_TYPE_BUS_ID" Type="Int32" Nullable="false" />
+          <Property Name="OPC_LIS_RULES_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="BUSINESS_RULE_TYPE" Relationship="Self.FK_OPTIONS__IS_CONTAI_BUSINESS" FromRole="OPTIONS_LIST_RULES" ToRole="BUSINESS_RULE_TYPE" />
-        </EntityType>
-        <EntityType Name="PERMISSIONS">
-          <Key>
-            <PropertyRef Name="PER_ID" />
-          </Key>
-          <Property Name="PER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PER_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PER_DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="USES" Relationship="Self.FK_USES_USES_PERMISSI" FromRole="PERMISSIONS" ToRole="USES" />
         </EntityType>
         <EntityType Name="QUOTATION">
           <Key>
             <PropertyRef Name="QUO_ID" />
           </Key>
           <Property Name="QUO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="BRA_OFF_ID" Type="Int32" />
-          <Property Name="QUO_STA_ID" Type="Int32" />
+          <Property Name="BRA_OFF_ID" Type="Int32" Nullable="false" />
+          <Property Name="QUO_STA_ID" Type="Int32" Nullable="false" />
           <Property Name="QUO_CODE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="QUO_DATE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="QUO_VRBASE" Type="Int32" />
@@ -718,7 +698,7 @@
             <PropertyRef Name="QUO_STA_ID" />
           </Key>
           <Property Name="QUO_STA_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="QUO_STA_DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="QUO_STA_DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="QUOTATION" Relationship="Self.FK_QUOTATIO_PERTAIN_QUOTATIO" FromRole="QUOTATION_STATE" ToRole="QUOTATION" />
         </EntityType>
         <EntityType Name="ROLE">
@@ -729,18 +709,6 @@
           <Property Name="ROL_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ROL_DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_EMPLOYEE_USE_ROLE" FromRole="ROLE" ToRole="EMPLOYEE" />
-        </EntityType>
-        <EntityType Name="USES">
-          <Key>
-            <PropertyRef Name="USE_ID" />
-            <PropertyRef Name="PER_ID" />
-            <PropertyRef Name="EMP_ID" />
-          </Key>
-          <Property Name="USE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PER_ID" Type="Int32" Nullable="false" />
-          <Property Name="EMP_ID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_USES_USES2_EMPLOYEE" FromRole="USES" ToRole="EMPLOYEE" />
-          <NavigationProperty Name="PERMISSIONS" Relationship="Self.FK_USES_USES_PERMISSI" FromRole="USES" ToRole="PERMISSIONS" />
         </EntityType>
         <EntityType Name="VISITS">
           <Key>
@@ -753,7 +721,7 @@
           <NavigationProperty Name="IT_HAS_ACTIVITIES" Relationship="Self.FK_IT_HAS_A_IT_HAS_AC_VISITS" FromRole="VISITS" ToRole="IT_HAS_ACTIVITIES" />
         </EntityType>
         <Association Name="FK_BRANCH_C_ARE_LOCAT_CITIES">
-          <End Role="CITIES" Type="Self.CITIES" Multiplicity="0..1" />
+          <End Role="CITIES" Type="Self.CITIES" Multiplicity="1" />
           <End Role="BRANCH_COMPANY" Type="Self.BRANCH_COMPANY" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CITIES">
@@ -765,7 +733,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BRANCH_C_IT_S_IN_BUSINESS">
-          <End Role="BUSINESS" Type="Self.BUSINESS" Multiplicity="0..1" />
+          <End Role="BUSINESS" Type="Self.BUSINESS" Multiplicity="1" />
           <End Role="BRANCH_COMPANY" Type="Self.BRANCH_COMPANY" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BUSINESS">
@@ -777,7 +745,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BUSINESS_CREATE_BRANCH_C">
-          <End Role="BRANCH_COMPANY" Type="Self.BRANCH_COMPANY" Multiplicity="0..1" />
+          <End Role="BRANCH_COMPANY" Type="Self.BRANCH_COMPANY" Multiplicity="1" />
           <End Role="BUSINESS_RULES" Type="Self.BUSINESS_RULES" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BRANCH_COMPANY">
@@ -789,7 +757,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EMPLOYEE_IT_BELONG_BRANCH_C">
-          <End Role="BRANCH_COMPANY" Type="Self.BRANCH_COMPANY" Multiplicity="0..1" />
+          <End Role="BRANCH_COMPANY" Type="Self.BRANCH_COMPANY" Multiplicity="1" />
           <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BRANCH_COMPANY">
@@ -801,7 +769,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BRANCH_O_HAS_EMPLOYEE">
-          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="0..1" />
+          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
           <End Role="BRANCH_OFFICE" Type="Self.BRANCH_OFFICE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EMPLOYEE">
@@ -837,7 +805,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_QUOTATIO_GENERATE_BRANCH_O">
-          <End Role="BRANCH_OFFICE" Type="Self.BRANCH_OFFICE" Multiplicity="0..1" />
+          <End Role="BRANCH_OFFICE" Type="Self.BRANCH_OFFICE" Multiplicity="1" />
           <End Role="QUOTATION" Type="Self.QUOTATION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BRANCH_OFFICE">
@@ -861,7 +829,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BUSINESS_IT_CONTAI_BUSINESS">
-          <End Role="BUSINESS_RULES" Type="Self.BUSINESS_RULES" Multiplicity="0..1" />
+          <End Role="BUSINESS_RULES" Type="Self.BUSINESS_RULES" Multiplicity="1" />
           <End Role="BUSINESS_RULE_TYPE" Type="Self.BUSINESS_RULE_TYPE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BUSINESS_RULES">
@@ -873,7 +841,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OPTIONS__IS_CONTAI_BUSINESS">
-          <End Role="BUSINESS_RULE_TYPE" Type="Self.BUSINESS_RULE_TYPE" Multiplicity="0..1" />
+          <End Role="BUSINESS_RULE_TYPE" Type="Self.BUSINESS_RULE_TYPE" Multiplicity="1" />
           <End Role="OPTIONS_LIST_RULES" Type="Self.OPTIONS_LIST_RULES" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BUSINESS_RULE_TYPE">
@@ -885,7 +853,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CITIES_PERTENECE_COUNTRY">
-          <End Role="COUNTRY" Type="Self.COUNTRY" Multiplicity="0..1" />
+          <End Role="COUNTRY" Type="Self.COUNTRY" Multiplicity="1" />
           <End Role="CITIES" Type="Self.CITIES" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="COUNTRY">
@@ -909,7 +877,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EMPLOYEE_USE_ROLE">
-          <End Role="ROLE" Type="Self.ROLE" Multiplicity="0..1" />
+          <End Role="ROLE" Type="Self.ROLE" Multiplicity="1" />
           <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ROLE">
@@ -917,18 +885,6 @@
             </Principal>
             <Dependent Role="EMPLOYEE">
               <PropertyRef Name="ROL_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_USES_USES2_EMPLOYEE">
-          <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
-          <End Role="USES" Type="Self.USES" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EMPLOYEE">
-              <PropertyRef Name="EMP_ID" />
-            </Principal>
-            <Dependent Role="USES">
-              <PropertyRef Name="EMP_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -944,20 +900,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_USES_USES_PERMISSI">
-          <End Role="PERMISSIONS" Type="Self.PERMISSIONS" Multiplicity="1" />
-          <End Role="USES" Type="Self.USES" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PERMISSIONS">
-              <PropertyRef Name="PER_ID" />
-            </Principal>
-            <Dependent Role="USES">
-              <PropertyRef Name="PER_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_QUOTATIO_PERTAIN_QUOTATIO">
-          <End Role="QUOTATION_STATE" Type="Self.QUOTATION_STATE" Multiplicity="0..1" />
+          <End Role="QUOTATION_STATE" Type="Self.QUOTATION_STATE" Multiplicity="1" />
           <End Role="QUOTATION" Type="Self.QUOTATION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="QUOTATION_STATE">
@@ -981,11 +925,9 @@
           <EntitySet Name="EMPLOYEE" EntityType="Self.EMPLOYEE" />
           <EntitySet Name="IT_HAS_ACTIVITIES" EntityType="Self.IT_HAS_ACTIVITIES" />
           <EntitySet Name="OPTIONS_LIST_RULES" EntityType="Self.OPTIONS_LIST_RULES" />
-          <EntitySet Name="PERMISSIONS" EntityType="Self.PERMISSIONS" />
           <EntitySet Name="QUOTATION" EntityType="Self.QUOTATION" />
           <EntitySet Name="QUOTATION_STATE" EntityType="Self.QUOTATION_STATE" />
           <EntitySet Name="ROLE" EntityType="Self.ROLE" />
-          <EntitySet Name="USES" EntityType="Self.USES" />
           <EntitySet Name="VISITS" EntityType="Self.VISITS" />
           <AssociationSet Name="FK_BRANCH_C_ARE_LOCAT_CITIES" Association="Self.FK_BRANCH_C_ARE_LOCAT_CITIES">
             <End Role="CITIES" EntitySet="CITIES" />
@@ -1043,31 +985,98 @@
             <End Role="ROLE" EntitySet="ROLE" />
             <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
           </AssociationSet>
-          <AssociationSet Name="FK_USES_USES2_EMPLOYEE" Association="Self.FK_USES_USES2_EMPLOYEE">
-            <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
-            <End Role="USES" EntitySet="USES" />
-          </AssociationSet>
           <AssociationSet Name="FK_IT_HAS_A_IT_HAS_AC_VISITS" Association="Self.FK_IT_HAS_A_IT_HAS_AC_VISITS">
             <End Role="VISITS" EntitySet="VISITS" />
             <End Role="IT_HAS_ACTIVITIES" EntitySet="IT_HAS_ACTIVITIES" />
-          </AssociationSet>
-          <AssociationSet Name="FK_USES_USES_PERMISSI" Association="Self.FK_USES_USES_PERMISSI">
-            <End Role="PERMISSIONS" EntitySet="PERMISSIONS" />
-            <End Role="USES" EntitySet="USES" />
           </AssociationSet>
           <AssociationSet Name="FK_QUOTATIO_PERTAIN_QUOTATIO" Association="Self.FK_QUOTATIO_PERTAIN_QUOTATIO">
             <End Role="QUOTATION_STATE" EntitySet="QUOTATION_STATE" />
             <End Role="QUOTATION" EntitySet="QUOTATION" />
           </AssociationSet>
+          <FunctionImport Name="PR_DELETE_EMPLOYEE" ReturnType="Collection(Int32)">
+            <Parameter Name="iEmp_id" Mode="In" Type="Int32" />
+            <Parameter Name="sEmp_document" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PR_INSET_UPDATE_EMPLOYEE" ReturnType="Collection(String)">
+            <Parameter Name="iRol_id" Mode="In" Type="Int32" />
+            <Parameter Name="iBra_buis_id" Mode="In" Type="Int32" />
+            <Parameter Name="sEmp_document" Mode="In" Type="String" />
+            <Parameter Name="sEmp_name" Mode="In" Type="String" />
+            <Parameter Name="sEmp_surname" Mode="In" Type="String" />
+            <Parameter Name="sEmp_phone" Mode="In" Type="String" />
+            <Parameter Name="sEmp_phone2" Mode="In" Type="String" />
+            <Parameter Name="sEmp_cel_phone" Mode="In" Type="String" />
+            <Parameter Name="sEmp_cel_phone2" Mode="In" Type="String" />
+            <Parameter Name="sEmp_addres" Mode="In" Type="String" />
+            <Parameter Name="sEmp_mail" Mode="In" Type="String" />
+            <Parameter Name="sEmp_mail2" Mode="In" Type="String" />
+            <Parameter Name="sEmp_password" Mode="In" Type="String" />
+            <Parameter Name="bEmp_state" Mode="In" Type="Boolean" />
+            <Parameter Name="sEmp_per" Mode="In" Type="String" />
+            <Parameter Name="sEmp_photo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PR_SEARCH_EMPLOYEE" ReturnType="Collection(Project_Visit_Model.PR_SEARCH_EMPLOYEE_Result)">
+            <Parameter Name="State" Mode="In" Type="Boolean" />
+            <Parameter Name="IdBusiness" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PR_SEARCH_EMPLOYEE_SELECTION" ReturnType="Collection(Project_Visit_Model.PR_SEARCH_EMPLOYEE_SELECTION_Result)">
+            <Parameter Name="State" Mode="In" Type="Boolean" />
+            <Parameter Name="IdBusiness" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Surname" Mode="In" Type="String" />
+            <Parameter Name="Document" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Role" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PR_UPADTE_STATE_EMPLOYEE" ReturnType="Collection(String)">
+            <Parameter Name="iEmp_id" Mode="In" Type="Int32" />
+            <Parameter Name="sEmp_document" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="PR_SEARCH_EMPLOYEE_Result">
+          <Property Type="Int32" Name="EMP_ID" Nullable="false" />
+          <Property Type="String" Name="EMP_NAME" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="EMP_SURNAME" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="EMP_DOCUMENT" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="EMP_PHONE" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="EMP_PHONE2" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="EMP_CELL_PHONE" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="EMP_CELL_PHONE2" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="EMP_MAIL" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="EMP_MAIL2" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="EMP_ADDRES" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="EMP_PHOTO" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="EMP_PASSWORD" Nullable="false" MaxLength="255" />
+          <Property Type="Int32" Name="ROL_ID" Nullable="false" />
+          <Property Type="String" Name="ROL_NAME" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="EMP_PER" Nullable="false" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="PR_SEARCH_EMPLOYEE_SELECTION_Result">
+          <Property Type="Int32" Name="EMP_ID" Nullable="false" />
+          <Property Type="String" Name="EMP_NAME" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="EMP_SURNAME" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="EMP_DOCUMENT" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="EMP_PHONE" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="EMP_PHONE2" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="EMP_CELL_PHONE" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="EMP_CELL_PHONE2" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="EMP_MAIL" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="EMP_MAIL2" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="EMP_ADDRES" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="EMP_PHOTO" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="EMP_PASSWORD" Nullable="false" MaxLength="255" />
+          <Property Type="Int32" Name="ROL_ID" Nullable="false" />
+          <Property Type="String" Name="ROL_NAME" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="EMP_PER" Nullable="false" MaxLength="255" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Project_VisitModelStoreContainer" CdmEntityContainer="Entities_Visit">
+        <EntityContainerMapping StorageEntityContainer="Project_Visit_ModelStoreContainer" CdmEntityContainer="Entities_Visit">
           <EntitySetMapping Name="BRANCH_COMPANY">
-            <EntityTypeMapping TypeName="Project_VisitModel.BRANCH_COMPANY">
+            <EntityTypeMapping TypeName="Project_Visit_Model.BRANCH_COMPANY">
               <MappingFragment StoreEntitySet="BRANCH_COMPANY">
                 <ScalarProperty Name="BRA_BUIS_ID" ColumnName="BRA_BUIS_ID" />
                 <ScalarProperty Name="CIT_ID" ColumnName="CIT_ID" />
@@ -1082,7 +1091,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BRANCH_OFFICE">
-            <EntityTypeMapping TypeName="Project_VisitModel.BRANCH_OFFICE">
+            <EntityTypeMapping TypeName="Project_Visit_Model.BRANCH_OFFICE">
               <MappingFragment StoreEntitySet="BRANCH_OFFICE">
                 <ScalarProperty Name="BRA_OFF_ID" ColumnName="BRA_OFF_ID" />
                 <ScalarProperty Name="CLI_BUS_ID" ColumnName="CLI_BUS_ID" />
@@ -1101,7 +1110,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BUSINESS">
-            <EntityTypeMapping TypeName="Project_VisitModel.BUSINESS">
+            <EntityTypeMapping TypeName="Project_Visit_Model.BUSINESS">
               <MappingFragment StoreEntitySet="BUSINESS">
                 <ScalarProperty Name="BUS_ID" ColumnName="BUS_ID" />
                 <ScalarProperty Name="BUS_NAME" ColumnName="BUS_NAME" />
@@ -1112,7 +1121,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BUSINESS_RULE_TYPE">
-            <EntityTypeMapping TypeName="Project_VisitModel.BUSINESS_RULE_TYPE">
+            <EntityTypeMapping TypeName="Project_Visit_Model.BUSINESS_RULE_TYPE">
               <MappingFragment StoreEntitySet="BUSINESS_RULE_TYPE">
                 <ScalarProperty Name="RULE_TYPE_BUS_ID" ColumnName="RULE_TYPE_BUS_ID" />
                 <ScalarProperty Name="BUS_RULES_ID" ColumnName="BUS_RULES_ID" />
@@ -1123,7 +1132,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BUSINESS_RULES">
-            <EntityTypeMapping TypeName="Project_VisitModel.BUSINESS_RULES">
+            <EntityTypeMapping TypeName="Project_Visit_Model.BUSINESS_RULES">
               <MappingFragment StoreEntitySet="BUSINESS_RULES">
                 <ScalarProperty Name="BUS_RULES_ID" ColumnName="BUS_RULES_ID" />
                 <ScalarProperty Name="BRA_BUIS_ID" ColumnName="BRA_BUIS_ID" />
@@ -1133,7 +1142,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CITIES">
-            <EntityTypeMapping TypeName="Project_VisitModel.CITIES">
+            <EntityTypeMapping TypeName="Project_Visit_Model.CITIES">
               <MappingFragment StoreEntitySet="CITIES">
                 <ScalarProperty Name="CIT_ID" ColumnName="CIT_ID" />
                 <ScalarProperty Name="CONT_ID" ColumnName="CONT_ID" />
@@ -1142,7 +1151,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CLIENT_BUSINESS">
-            <EntityTypeMapping TypeName="Project_VisitModel.CLIENT_BUSINESS">
+            <EntityTypeMapping TypeName="Project_Visit_Model.CLIENT_BUSINESS">
               <MappingFragment StoreEntitySet="CLIENT_BUSINESS">
                 <ScalarProperty Name="CLI_BUS_ID" ColumnName="CLI_BUS_ID" />
                 <ScalarProperty Name="CLI_BUS_NAME" ColumnName="CLI_BUS_NAME" />
@@ -1152,7 +1161,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="COUNTRY">
-            <EntityTypeMapping TypeName="Project_VisitModel.COUNTRY">
+            <EntityTypeMapping TypeName="Project_Visit_Model.COUNTRY">
               <MappingFragment StoreEntitySet="COUNTRY">
                 <ScalarProperty Name="CONT_ID" ColumnName="CONT_ID" />
                 <ScalarProperty Name="CONT_NAME" ColumnName="CONT_NAME" />
@@ -1160,7 +1169,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DETAIL_VISITS">
-            <EntityTypeMapping TypeName="Project_VisitModel.DETAIL_VISITS">
+            <EntityTypeMapping TypeName="Project_Visit_Model.DETAIL_VISITS">
               <MappingFragment StoreEntitySet="DETAIL_VISITS">
                 <ScalarProperty Name="DE_VIS_ID" ColumnName="DE_VIS_ID" />
                 <ScalarProperty Name="DE_VIS_NAME" ColumnName="DE_VIS_NAME" />
@@ -1169,7 +1178,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EMPLOYEE">
-            <EntityTypeMapping TypeName="Project_VisitModel.EMPLOYEE">
+            <EntityTypeMapping TypeName="Project_Visit_Model.EMPLOYEE">
               <MappingFragment StoreEntitySet="EMPLOYEE">
                 <ScalarProperty Name="EMP_ID" ColumnName="EMP_ID" />
                 <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
@@ -1186,16 +1195,18 @@
                 <ScalarProperty Name="EMP_MAIL2" ColumnName="EMP_MAIL2" />
                 <ScalarProperty Name="EMP_PASSWORD" ColumnName="EMP_PASSWORD" />
                 <ScalarProperty Name="EMP_STATE" ColumnName="EMP_STATE" />
+                <ScalarProperty Name="EMP_PER" ColumnName="EMP_PER" />
                 <ScalarProperty Name="EMP_PHOTO" ColumnName="EMP_PHOTO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="IT_HAS_ACTIVITIES">
-            <EntityTypeMapping TypeName="Project_VisitModel.IT_HAS_ACTIVITIES">
+            <EntityTypeMapping TypeName="Project_Visit_Model.IT_HAS_ACTIVITIES">
               <MappingFragment StoreEntitySet="IT_HAS_ACTIVITIES">
                 <ScalarProperty Name="IT_HAS_ACTIVITIES1" ColumnName="IT_HAS_ACTIVITIES" />
                 <ScalarProperty Name="DE_VIS_ID" ColumnName="DE_VIS_ID" />
                 <ScalarProperty Name="VIS_ID" ColumnName="VIS_ID" />
+                <ScalarProperty Name="VIS_DATE" ColumnName="VIS_DATE" />
                 <ScalarProperty Name="VIS_ATTE_MAIL" ColumnName="VIS_ATTE_MAIL" />
                 <ScalarProperty Name="VIS_ATTE_PHONE" ColumnName="VIS_ATTE_PHONE" />
                 <ScalarProperty Name="VIS_ATTE_CELPHONE" ColumnName="VIS_ATTE_CELPHONE" />
@@ -1211,7 +1222,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OPTIONS_LIST_RULES">
-            <EntityTypeMapping TypeName="Project_VisitModel.OPTIONS_LIST_RULES">
+            <EntityTypeMapping TypeName="Project_Visit_Model.OPTIONS_LIST_RULES">
               <MappingFragment StoreEntitySet="OPTIONS_LIST_RULES">
                 <ScalarProperty Name="OPC_LIS_RULES_ID" ColumnName="OPC_LIS_RULES_ID" />
                 <ScalarProperty Name="RULE_TYPE_BUS_ID" ColumnName="RULE_TYPE_BUS_ID" />
@@ -1219,17 +1230,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PERMISSIONS">
-            <EntityTypeMapping TypeName="Project_VisitModel.PERMISSIONS">
-              <MappingFragment StoreEntitySet="PERMISSIONS">
-                <ScalarProperty Name="PER_ID" ColumnName="PER_ID" />
-                <ScalarProperty Name="PER_NAME" ColumnName="PER_NAME" />
-                <ScalarProperty Name="PER_DESCRIPTION" ColumnName="PER_DESCRIPTION" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="QUOTATION">
-            <EntityTypeMapping TypeName="Project_VisitModel.QUOTATION">
+            <EntityTypeMapping TypeName="Project_Visit_Model.QUOTATION">
               <MappingFragment StoreEntitySet="QUOTATION">
                 <ScalarProperty Name="QUO_ID" ColumnName="QUO_ID" />
                 <ScalarProperty Name="BRA_OFF_ID" ColumnName="BRA_OFF_ID" />
@@ -1245,7 +1247,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="QUOTATION_STATE">
-            <EntityTypeMapping TypeName="Project_VisitModel.QUOTATION_STATE">
+            <EntityTypeMapping TypeName="Project_Visit_Model.QUOTATION_STATE">
               <MappingFragment StoreEntitySet="QUOTATION_STATE">
                 <ScalarProperty Name="QUO_STA_ID" ColumnName="QUO_STA_ID" />
                 <ScalarProperty Name="QUO_STA_DESCRIPTION" ColumnName="QUO_STA_DESCRIPTION" />
@@ -1253,7 +1255,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ROLE">
-            <EntityTypeMapping TypeName="Project_VisitModel.ROLE">
+            <EntityTypeMapping TypeName="Project_Visit_Model.ROLE">
               <MappingFragment StoreEntitySet="ROLE">
                 <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
                 <ScalarProperty Name="ROL_NAME" ColumnName="ROL_NAME" />
@@ -1261,17 +1263,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="USES">
-            <EntityTypeMapping TypeName="Project_VisitModel.USES">
-              <MappingFragment StoreEntitySet="USES">
-                <ScalarProperty Name="USE_ID" ColumnName="USE_ID" />
-                <ScalarProperty Name="PER_ID" ColumnName="PER_ID" />
-                <ScalarProperty Name="EMP_ID" ColumnName="EMP_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="VISITS">
-            <EntityTypeMapping TypeName="Project_VisitModel.VISITS">
+            <EntityTypeMapping TypeName="Project_Visit_Model.VISITS">
               <MappingFragment StoreEntitySet="VISITS">
                 <ScalarProperty Name="VIS_ID" ColumnName="VIS_ID" />
                 <ScalarProperty Name="BRA_OFF_ID" ColumnName="BRA_OFF_ID" />
@@ -1279,6 +1272,53 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PR_DELETE_EMPLOYEE" FunctionName="Project_Visit_Model.Store.PR_DELETE_EMPLOYEE" />
+          <FunctionImportMapping FunctionImportName="PR_INSET_UPDATE_EMPLOYEE" FunctionName="Project_Visit_Model.Store.PR_INSET_UPDATE_EMPLOYEE" />
+          <FunctionImportMapping FunctionImportName="PR_SEARCH_EMPLOYEE" FunctionName="Project_Visit_Model.Store.PR_SEARCH_EMPLOYEE">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Project_Visit_Model.PR_SEARCH_EMPLOYEE_Result">
+                <ScalarProperty Name="EMP_ID" ColumnName="EMP_ID" />
+                <ScalarProperty Name="EMP_NAME" ColumnName="EMP_NAME" />
+                <ScalarProperty Name="EMP_SURNAME" ColumnName="EMP_SURNAME" />
+                <ScalarProperty Name="EMP_DOCUMENT" ColumnName="EMP_DOCUMENT" />
+                <ScalarProperty Name="EMP_PHONE" ColumnName="EMP_PHONE" />
+                <ScalarProperty Name="EMP_PHONE2" ColumnName="EMP_PHONE2" />
+                <ScalarProperty Name="EMP_CELL_PHONE" ColumnName="EMP_CELL_PHONE" />
+                <ScalarProperty Name="EMP_CELL_PHONE2" ColumnName="EMP_CELL_PHONE2" />
+                <ScalarProperty Name="EMP_MAIL" ColumnName="EMP_MAIL" />
+                <ScalarProperty Name="EMP_MAIL2" ColumnName="EMP_MAIL2" />
+                <ScalarProperty Name="EMP_ADDRES" ColumnName="EMP_ADDRES" />
+                <ScalarProperty Name="EMP_PHOTO" ColumnName="EMP_PHOTO" />
+                <ScalarProperty Name="EMP_PASSWORD" ColumnName="EMP_PASSWORD" />
+                <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
+                <ScalarProperty Name="ROL_NAME" ColumnName="ROL_NAME" />
+                <ScalarProperty Name="EMP_PER" ColumnName="EMP_PER" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PR_SEARCH_EMPLOYEE_SELECTION" FunctionName="Project_Visit_Model.Store.PR_SEARCH_EMPLOYEE_SELECTION">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Project_Visit_Model.PR_SEARCH_EMPLOYEE_SELECTION_Result">
+                <ScalarProperty Name="EMP_ID" ColumnName="EMP_ID" />
+                <ScalarProperty Name="EMP_NAME" ColumnName="EMP_NAME" />
+                <ScalarProperty Name="EMP_SURNAME" ColumnName="EMP_SURNAME" />
+                <ScalarProperty Name="EMP_DOCUMENT" ColumnName="EMP_DOCUMENT" />
+                <ScalarProperty Name="EMP_PHONE" ColumnName="EMP_PHONE" />
+                <ScalarProperty Name="EMP_PHONE2" ColumnName="EMP_PHONE2" />
+                <ScalarProperty Name="EMP_CELL_PHONE" ColumnName="EMP_CELL_PHONE" />
+                <ScalarProperty Name="EMP_CELL_PHONE2" ColumnName="EMP_CELL_PHONE2" />
+                <ScalarProperty Name="EMP_MAIL" ColumnName="EMP_MAIL" />
+                <ScalarProperty Name="EMP_MAIL2" ColumnName="EMP_MAIL2" />
+                <ScalarProperty Name="EMP_ADDRES" ColumnName="EMP_ADDRES" />
+                <ScalarProperty Name="EMP_PHOTO" ColumnName="EMP_PHOTO" />
+                <ScalarProperty Name="EMP_PASSWORD" ColumnName="EMP_PASSWORD" />
+                <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
+                <ScalarProperty Name="ROL_NAME" ColumnName="ROL_NAME" />
+                <ScalarProperty Name="EMP_PER" ColumnName="EMP_PER" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PR_UPADTE_STATE_EMPLOYEE" FunctionName="Project_Visit_Model.Store.PR_UPADTE_STATE_EMPLOYEE" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

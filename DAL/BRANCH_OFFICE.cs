@@ -23,7 +23,7 @@ namespace DAL
         public int BRA_OFF_ID { get; set; }
         public int CLI_BUS_ID { get; set; }
         public int CIT_ID { get; set; }
-        public Nullable<int> EMP_ID { get; set; }
+        public int EMP_ID { get; set; }
         public string BRA_OFF_NAME { get; set; }
         public string BRA_OFF_PHONE { get; set; }
         public string BRA_OFF_ADDRESS { get; set; }

@@ -15,8 +15,8 @@ namespace DAL
     public partial class QUOTATION
     {
         public int QUO_ID { get; set; }
-        public Nullable<int> BRA_OFF_ID { get; set; }
-        public Nullable<int> QUO_STA_ID { get; set; }
+        public int BRA_OFF_ID { get; set; }
+        public int QUO_STA_ID { get; set; }
         public string QUO_CODE { get; set; }
         public string QUO_DATE { get; set; }
         public Nullable<int> QUO_VRBASE { get; set; }
