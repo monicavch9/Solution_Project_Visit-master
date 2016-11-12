@@ -50,15 +50,33 @@
                                 <!--Start items menu mobile-->
                                 <li class="z-depth-1">
                                     <!--Header Info List-->
-                                    <div class="collapsible-header activeItem" onclick="selectionMitem(0)" id="mItem_0"><h6 class="right-align">Cotización</h6></div>
+                                    <div class="collapsible-header activeItem" onclick="selectionMitem(this.id)" id="mItem_0" title="Cotización"><h6 class="right-align">Cotización</h6></div>
                                     <!--Start Body Info List Selection Items-->
                                     <div class="collapsible-body">
                                         <!--Start  Items-->
                                         <div class="collection">
-                                            <a href="#!" class="collection-item active per_user_3" onclick="selectionMsubItems('0_0')" id="mSubItem_0_0">Buscar</a>
-                                            <a href="#!" class="collection-item per_user_0" onclick="selectionMsubItems('0_1')" id="mSubItem_0_1">Crear</a>
-                                            <a href="#!" class="collection-item per_user_1" onclick="selectionMsubItems('0_2')" id="mSubItem_0_2">Modificar</a>
-                                            <a href="#!" class="collection-item per_user_2" onclick="selectionMsubItems('0_3')" id="mSubItem_0_3">Eliminar</a>
+                                            <a href="#!" class="collection-item active per_user_3" onclick="selectionMsubItems(this.id, '0_0', false, true)" id="mSubItem_0_0">Buscar</a>
+                                            <a href="#!" class="collection-item per_user_0" onclick="selectionMsubItems(this.id, '0_1', false, true)" id="mSubItem_0_1">Cargar</a>
+                                            <a href="#!" class="collection-item per_user_1" onclick="selectionMsubItems(this.id, '0_1', true, true)" id="mSubItem_0_2">Modificar</a>
+                                            <a href="#!" class="collection-item per_user_2" onclick="selectionMsubItems(this.id, '0_3', false, true)" id="mSubItem_0_3">Eliminar</a>
+                                        </div>
+                                        <!--End  Items-->
+                                    </div>
+                                    <!--End Body Info List Selection Items-->
+                                </li>
+                                <!--End items menu mobile-->
+                                <!--Start items menu mobile-->
+                                <li class="z-depth-1">
+                                    <!--Header Info List-->
+                                    <div class="collapsible-header activeItem" onclick="selectionMitem(this.id)" id="mItem_1" title="Estados"><h6 class="right-align">Estados</h6></div>
+                                    <!--Start Body Info List Selection Items-->
+                                    <div class="collapsible-body">
+                                        <!--Start  Items-->
+                                        <div class="collection">
+                                            <a href="#!" class="collection-item active per_user_3" onclick="selectionMsubItems(this.id, '1_0', false, true)" id="mSubItem_1_0">Buscar</a>
+                                            <a href="#!" class="collection-item per_user_0" onclick="selectionMsubItems(this.id, '1_1', false, true)" id="mSubItem_1_1">Crear</a>
+                                            <a href="#!" class="collection-item per_user_1" onclick="selectionMsubItems(this.id, '1_1', true, true)" id="mSubItem_1_2">Modificar</a>
+                                            <a href="#!" class="collection-item per_user_2" onclick="selectionMsubItems(this.id, '1_3', false, true)" id="mSubItem_1_3">Eliminar</a>
                                         </div>
                                         <!--End  Items-->
                                     </div>
@@ -100,15 +118,15 @@
                         <!--Start Block menu -->
                         <li>
                             <!--Header Info List-->
-                            <div class="collapsible-header active activeItem" onclick="selectionItem(0)" id="item_0"><i class="material-icons">settings_applications</i>Cotización</div>
+                            <div class="collapsible-header active activeItem" onclick="selectionItem(this.id)" id="item_0" title="Cotización"><i class="material-icons">settings_applications</i>Cotización</div>
                             <!--Start Body Info List Selection Items-->
                             <div class="collapsible-body">
                                 <!--Start  Items-->
                                 <div class="collection">
-                                    <a href="#!" class="collection-item active per_user_3" onclick="selectionSubItems('0_0',' ',0)" id="subItem_0_0">Buscar</a>
-                                    <a href="#!" class="collection-item per_user_0" onclick="selectionSubItems('0_1',' ', 0)" id="subItem_0_1">Cargar</a>
-                                    <a href="#!" class="collection-item per_user_1" onclick="selectionSubItems('0_2','0_1',1)" id="subItem_0_2">Modificar</a>
-                                    <a href="#!" class="collection-item per_user_2" onclick="selectionSubItems('0_3',' ',0)" id="subItem_0_3">Eliminar</a>
+                                    <a href="#!" class="collection-item active per_user_3" onclick="selectionSubItems(this.id, '0_0', false)" id="subItem_0_0">Buscar</a>
+                                    <a href="#!" class="collection-item per_user_0" onclick="selectionSubItems(this.id, '0_1', false)" id="subItem_0_1">Cargar </a>
+                                    <a href="#!" class="collection-item per_user_1" onclick="selectionSubItems(this.id, '0_1', true)" id="subItem_0_2">Modificar</a>
+                                    <a href="#!" class="collection-item per_user_2" onclick="selectionSubItems(this.id, '0_3', false)" id="subItem_0_3">Eliminar </a>
 
                                 </div>
                                 <!--End  Items-->
@@ -119,15 +137,15 @@
                         <!--Start Block menu -->
                         <li>
                             <!--Header Info List-->
-                            <div class="collapsible-header" onclick="selectionItem(1)" id="item_1"><i class="material-icons">settings_applications</i>Estado</div>
+                            <div class="collapsible-header" onclick="selectionItem(this.id)" id="item_1" title="Estado"><i class="material-icons">settings_applications</i>Estado</div>
                             <!--Start Body Info List Selection Items-->
                             <div class="collapsible-body">
                                 <!--Start  Items-->
                                 <div class="collection">
-                                    <a href="#!" class="collection-item active per_user_3" onclick="selectionSubItems('1_0',' ',0)" id="subItem_1_0">Buscar</a>
-                                    <a href="#!" class="collection-item per_user_0" onclick="selectionSubItems('1_1',' ', 0)" id="subItem_1_1">Crear</a>
-                                    <a href="#!" class="collection-item per_user_1" onclick="selectionSubItems('1_2','1_1',1)" id="subItem_1_2">Modificar</a>
-                                    <a href="#!" class="collection-item per_user_2" onclick="selectionSubItems('1_3',' ',0)" id="subItem_1_3">Eliminar</a>
+                                    <a href="#!" class="collection-item active per_user_3" onclick="selectionSubItems(this.id, '1_0', false)" id="subItem_1_0">Buscar</a>
+                                    <a href="#!" class="collection-item per_user_0" onclick="selectionSubItems(this.id, '1_1', false)" id="subItem_1_1">Cargar </a>
+                                    <a href="#!" class="collection-item per_user_1" onclick="selectionSubItems(this.id, '1_1', true)" id="subItem_1_2">Modificar</a>
+                                    <a href="#!" class="collection-item per_user_2" onclick="selectionSubItems(this.id, '1_3', false)" id="subItem_1_3">Eliminar </a>
                                 </div>
                                 <!--End  Items-->
                             </div>
@@ -153,25 +171,25 @@
                     <div class="row">
                         <!--Start Elements -->
                         <div class="input-field col s12 m3 l3">
-                            <select>
-                                <option value="" disabled selected>Choose your option</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
+                            <select id="listSearchQuotes">
+                                <option value="" disabled selected>Elija su opción</option>
+                                <option value="1">Número</option>
+                                <option value="2">Fecha</option>
                                 <option value="3">Option 3</option>
                             </select>
-                            <label>Materialize Select</label>
+                            <label>Seleccine Búsqueda</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s10 m7 l7">
-                            <input id="emp_search" type="text" class="validate" required>
-                            <label for="emp_search">Digite el valor a buscar</label>
+                            <input id="quo_search" type="text" class="validate" required>
+                            <label for="quo_search">Digite el valor a buscar</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s2 m2 l2">
                             <div class="card-action center">
-                                <button id="btn_emp_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
+                                <button id="btn_quo_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
                                     <i class="material-icons right">search</i>
                                 </button>
                             </div>
@@ -184,7 +202,7 @@
                 <!--Start Table result search-->
                 <div class="row">
                     <!--Start Table-->
-                    <div class="col s12 m12 l12">
+                    <div class="col s12 m12 l12" id="listQuotes">
                         <table class="responsive-table highlight">
                             <thead>
                                 <tr>
@@ -403,12 +421,12 @@
             <div id="form0_3" class="form_select">
                 <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
                 <!--Form search-->
-                <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
+                <form class="col s12  m12 l12" onsubmit="searchQuoteDelete(event)">
                     <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
                     <div class="row">
                         <!--Start Elements -->
                         <div class="input-field col s12 m3 l3">
-                            <select>
+                            <select id="listSearchQuoteDelete">
                                 <option value="" disabled selected>Choose your option</option>
                                 <option value="1">Option 1</option>
                                 <option value="2">Option 2</option>
@@ -420,28 +438,26 @@
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s10 m7 l7">
-                            <input id="emp_search" type="text" class="validate" required>
-                            <label for="emp_search">Digite el valor a buscar</label>
+                            <input id="quo_search" type="text" class="validate" required>
+                            <label for="quo_search">Digite el valor a buscar</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s2 m2 l2">
                             <div class="card-action center">
-                                <button id="btn_emp_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
+                                <button id="btn_quo_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
                                     <i class="material-icons right">search</i>
                                 </button>
                             </div>
                         </div>
                         <!--End Elements -->
-
-
                     </div>
                     <!-- End Elements input-->
                 </form>
                 <!--Start Table result search-->
                 <div class="row">
                     <!--Start Table-->
-                    <div class="col s12 m12 l12">
+                    <div class="col s12 m12 l12" id="listQuoteDelete">
                         <table class="responsive-table highlight">
                             <thead>
                                 <tr>
@@ -459,7 +475,7 @@
                                     <td>$0.87</td>
                                     <td>
                                         <div class="card-action center">
-                                            <button id="btn_emp_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
+                                            <button id="btn_quo_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
                                                 <i class="material-icons right">verified_user</i>
                                             </button>
                                         </div>
@@ -471,7 +487,7 @@
                                     <td>$3.76</td>
                                     <td>
                                         <div class="card-action center">
-                                            <button id="btn_emp_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
+                                            <button id="btn_quo_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
                                                 <i class="material-icons right">verified_user</i>
                                             </button>
                                         </div>
@@ -483,7 +499,7 @@
                                     <td>$7.00</td>
                                     <td>
                                         <div class="card-action center">
-                                            <button id="btn_emp_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
+                                            <button id="btn_quo_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
                                                 <i class="material-icons right">verified_user</i>
                                             </button>
                                         </div>
@@ -509,25 +525,25 @@
                     <div class="row">
                         <!--Start Elements -->
                         <div class="input-field col s12 m3 l3">
-                            <select>
-                                <option value="" disabled selected>Choose your option</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
+                            <select id="listSearchQuotesState">
+                                <option value="" disabled selected>Elija su opción</option>
+                                <option value="1">Número</option>
+                                <option value="2">Fecha</option>
                                 <option value="3">Option 3</option>
                             </select>
-                            <label>Materialize Select</label>
+                            <label>Seleccine Búsqueda</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s10 m7 l7">
-                            <input id="emp_search" type="text" class="validate" required>
-                            <label for="emp_search">Digite el valor a buscar</label>
+                            <input id="quo_state_search" type="text" class="validate" required>
+                            <label for="quo_state_search">Digite el valor a buscar</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s2 m2 l2">
                             <div class="card-action center">
-                                <button id="btn_emp_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
+                                <button id="btn_quo_state_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
                                     <i class="material-icons right">search</i>
                                 </button>
                             </div>
@@ -540,7 +556,7 @@
                 <!--Start Table result search-->
                 <div class="row">
                     <!--Start Table-->
-                    <div class="col s12 m12 l12">
+                    <div class="col s12 m12 l12" id="listQuotesStates">
                         <table class="responsive-table highlight">
                             <thead>
                                 <tr>
@@ -591,14 +607,14 @@
                     <!--End Elements -->
                     <!--Start Elements -->
                     <div class="input-field col s10 m7 l7">
-                        <input id="emp_search" type="text" class="validate" required>
-                        <label for="emp_search">Digite el valor a buscar</label>
+                        <input id="quo_state_search" type="text" class="validate" required>
+                        <label for="quo_state_search">Digite el valor a buscar</label>
                     </div>
                     <!--End Elements -->
                     <!--Start Elements -->
                     <div class="input-field col s2 m2 l2">
                         <div class="card-action center">
-                            <button id="btn_emp_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
+                            <button id="btn_quo_sta_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
                                 <i class="material-icons right">search</i>
                             </button>
                         </div>
@@ -616,14 +632,14 @@
                             <input id="quo_sta_description" type="text" class="validate" required>
                             <label for="quo_sta_description">Nombre</label>
                         </div>
-                        <!--End Elements -->                       
+                        <!--End Elements --> 
                     </div>
                     <!-- End Elements input-->
                     <!--Start Elements Button-->
                     <div class="row">
                         <div class="col s12 m12 l12">
                             <div class="card-action center">
-                                <button id="login" class="btn waves-effect waves-light" type="submit" name="action">
+                                <button id="login_quo_state" class="btn waves-effect waves-light" type="submit" name="action">
                                     Enviar
                                     <i class="material-icons right">done</i>
                                 </button>
@@ -638,12 +654,12 @@
             <div id="form1_3" class="form_select">
                 <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
                 <!--Form search-->
-                <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
+                <form class="col s12  m12 l12" onsubmit="searchQuoteStateDelete(event)">
                     <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
                     <div class="row">
                         <!--Start Elements -->
                         <div class="input-field col s12 m3 l3">
-                            <select>
+                            <select id="listSearchQuoteStateDelete">
                                 <option value="" disabled selected>Choose your option</option>
                                 <option value="1">Option 1</option>
                                 <option value="2">Option 2</option>
@@ -655,28 +671,26 @@
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s10 m7 l7">
-                            <input id="emp_search" type="text" class="validate" required>
-                            <label for="emp_search">Digite el valor a buscar</label>
+                            <input id="quo_state_search" type="text" class="validate" required>
+                            <label for="quo_state_search">Digite el valor a buscar</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s2 m2 l2">
                             <div class="card-action center">
-                                <button id="btn_emp_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
+                                <button id="btn_quo_sta_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
                                     <i class="material-icons right">search</i>
                                 </button>
                             </div>
                         </div>
                         <!--End Elements -->
-
-
                     </div>
                     <!-- End Elements input-->
                 </form>
                 <!--Start Table result search-->
                 <div class="row">
                     <!--Start Table-->
-                    <div class="col s12 m12 l12">
+                    <div class="col s12 m12 l12" id="listQuoteStateDelete">
                         <table class="responsive-table highlight">
                             <thead>
                                 <tr>
@@ -694,7 +708,7 @@
                                     <td>$0.87</td>
                                     <td>
                                         <div class="card-action center">
-                                            <button id="btn_emp_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
+                                            <button id="btn_quo_sta_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
                                                 <i class="material-icons right">verified_user</i>
                                             </button>
                                         </div>
@@ -706,7 +720,7 @@
                                     <td>$3.76</td>
                                     <td>
                                         <div class="card-action center">
-                                            <button id="btn_emp_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
+                                            <button id="btn_quo_sta_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
                                                 <i class="material-icons right">verified_user</i>
                                             </button>
                                         </div>
@@ -718,7 +732,7 @@
                                     <td>$7.00</td>
                                     <td>
                                         <div class="card-action center">
-                                            <button id="btn_emp_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
+                                            <button id="btn_quo_sta_search" class="btn-floating waves-effect waves-light red" type="submit" name="action">
                                                 <i class="material-icons right">verified_user</i>
                                             </button>
                                         </div>
