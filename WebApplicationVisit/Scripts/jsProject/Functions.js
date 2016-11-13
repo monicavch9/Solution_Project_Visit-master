@@ -16,6 +16,102 @@ $(document).ready(function () {
 
 })
 
+//Function select Item 
+function selectionItem(item) {
+    let titleSelection = $('#' + item + '').attr("title");
+    sNameTitle = titleSelection;
+    let items = item.replace("item", "subItem") + "_0";
+    let dataForm = items.substring(items.indexOf('_', items.length)).replace("subItem_", "");
+    $('.collapsible - header').css('color', 'black');
+    $("#" + item + "").css('color', '#29b6f6');
+    selectionSubItems(items, dataForm, false, false);
+
+}
+//Function select sub Items
+function selectionSubItems(subItem, Form, cont_search) {
+
+    let items = "#" + subItem + "";
+    fromUpdateSearch = "#form_search_" + Form;
+    $('.collection-item').css("background-color", "#fff");
+    $('.collection-item').css("color", "#26a69a");
+    $(items).css("background-color", "#26a69a");
+    $(items).css("color", "#eafaf9");
+    let text = sNameTitle + " " + $(items).text();
+    $('#titleForm ').text(text);
+
+
+    if (cont_search) {
+        $('#cont_search_' + Form).css("display", "block");
+        disableEnableInput(Form, 0);
+        disableEnableElementInput(fromUpdateSearch, 1);
+
+    } else {
+        $('#cont_search_' + Form).css("display", "none");
+        disableEnableInput(Form, 1);
+        disableEnableElementInput(fromUpdateSearch, 0);
+    }
+    selectForm(Form);
+
+    typeSelectionUpdateCreate = subItem.substring(subItem.indexOf("_") + 1, subItem.length);
+
+}
+//Function select Item mobile
+function selectionMitem(item) {
+    let titleSelection = $('#' + item + '').attr("title");
+    sNameTitle = titleSelection;
+    let items = item.replace("mItem", "mSubItem") + "_0";
+    let dataForm = items.substring(items.indexOf('_', items.length)).replace("mSubItem_", "");
+    $('.collapsible - header').css('color', 'black');
+    $("#" + item + "").css('color', '#29b6f6');
+    selectionMsubItems(items, dataForm, false, false);
+
+}
+//Function select sub Items Mobile
+function selectionMsubItems(subItem, Form, cont_search, nav_mobile) {
+
+    let items = "#" + subItem + "";
+    fromUpdateSearch = "#form_search_" + Form;
+    $('.collection-item').css("background-color", "#fff");
+    $('.collection-item').css("color", "#26a69a");
+
+    $(items).css("background-color", "#26a69a");
+    $(items).css("color", "#eafaf9");
+    let text = sNameTitle + " " + $(items).text();
+    $('#titleForm ').text(text);
+
+    if (nav_mobile) {
+        if ($('.button-collapse').is(":visible")) {
+            $('.button-collapse').sideNav('hide');
+        }
+    }
+
+    if (cont_search) {
+        $('#cont_search_' + Form).css("display", "block");
+
+        disableEnableInput(Form, 0);
+        disableEnableElementInput(fromUpdateSearch, 1);
+
+    } else {
+        $('#cont_search_' + Form).css("display", "none");
+        disableEnableInput(Form, 1);
+        disableEnableElementInput(fromUpdateSearch, 0);
+    }
+
+    selectForm(Form);
+    typeSelectionUpdateCreate = subItem.substring(subItem.indexOf("_") + 1, subItem.length);
+
+
+}
+//Function select form  
+function selectForm(dataForm) {
+    $(".form_select").css("display", "none");
+    let form = '#form' + dataForm;
+    $(form).fadeIn("slow");
+    clearInput(form);
+    textInfoForm.text("");
+    // fromUpdateInsert = form;
+
+}
 
 function ini() {
 
@@ -278,7 +374,6 @@ function createTable(data) {
         let fromI = $("i");
         fromI.addClass('active');
 
-
         let id = data[0];
         for (key in id) {
             let data = id[key];
@@ -296,12 +391,11 @@ function createTable(data) {
                 $("#emp_password_confirm").prop('disabled', false);
             }
             if (key != "iRol_id" || key != "sEmp_permission" || key != "iBra_buis_id") {
+
                 inputs.val(id[key]);
             }
         }
-        
-        
-       
+         
     }
 }
 
@@ -374,9 +468,6 @@ function validateSelectList(lists) {
 
     return validate;
 }
-
-
-
 
 
 
@@ -499,4 +590,27 @@ function formInputSelect(form) {
     });
 
     return validate;
+}
+function createSelctHtml(selectData,idSelect,nameSelect,value) { 
+
+    let select = $('#' + id);
+    select.append('<option value="" disabled selected>Elija su opción</option>');
+    for (let i = 0; i < selectData.length; i++) {
+        let id = selectData[i];
+        for (key in id) {
+            let idOption;
+            if (idSelect == key) {
+              
+                idOption = id[key];
+            }
+            if (nameSelect == key) {
+                select.append('<option value="' + id + '">' + id[key] + '</option>');
+            }
+            
+        }
+        
+    }
+    select.material_select();
+    
+        
 }

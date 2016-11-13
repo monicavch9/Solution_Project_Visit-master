@@ -1,5 +1,4 @@
-﻿var objectVisitJson = new Object();
-
+﻿/*
 objectVisitJson.iVis_id;
 objectVisitJson.iBra_off_id;
 objectVisitJson.iVis_address;
@@ -22,5 +21,10 @@ objectVisitJson.sVis_com_date;
 objectVisitJson.sVis_proy_name;
 objectVisitJson.sVis_activity_description;
 //
-objectVisitJson.sDe_vis_name { get; set; }
-objectVisitJson.sDe_vis_description { get; set; }
+objectVisitJson.sDe_vis_name ;
+objectVisitJson.sDe_vis_description;*/
+function _loadViewObject(select)
+{
+
+
+}

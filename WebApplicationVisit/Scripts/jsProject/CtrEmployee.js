@@ -8,7 +8,6 @@ Date :26/10/2016
 var sNameTitle = "";
 var oObjectUser;
 var dataJson = new Object();
-
 var typeTatble = 0;
 var typeSelectionUpdateCreate = "";
 var textInfoForm;
@@ -16,18 +15,15 @@ var fromUpdateInsert;
 var fromUpdateSearch;
 //Start DOM html jQuery
 $(document).ready(function () {
-
     textInfoForm = $('#textInfoForm');
     textInfoForm.css('color', 'red');
     $('.button-collapse').sideNav();
     selectionItem("item_0");
     $('.modal-trigger').leanModal();
-   
     //validateSession(document.URL);
     //Load list
     $('select').material_select();
     $('#listSearchEmployeeUpdate').material_select();
-    
     dataJson.bemp_state = true;
     dataJson.iBra_buis_id = 1;
     dataJson.bEmp_type_select = true;
@@ -35,107 +31,9 @@ $(document).ready(function () {
     _getList();
     _getListRol();
     _getListBraBusiness();
-    _loadViewObject(0);
-    
-    
+    _loadViewObject(0);  
 });
 
-//Function select Item 
-function selectionItem(item) {
-    let titleSelection = $('#' + item + '').attr("title");
-    sNameTitle = titleSelection;
-    let items = item.replace("item", "subItem") + "_0";
-    let dataForm = items.substring(items.indexOf('_', items.length)).replace("subItem_", "");
-    $('.collapsible - header').css('color', 'black');
-    $("#" + item + "").css('color', '#29b6f6');
-    selectionSubItems(items, dataForm, false, false);
-
-}
-//Function select sub Items
-function selectionSubItems(subItem, Form, cont_search) {
-    
-    let items = "#" + subItem + "";
-    fromUpdateSearch = "#form_search_" + Form;
-    $('.collection-item').css("background-color", "#fff");
-    $('.collection-item').css("color", "#26a69a");
-    $(items).css("background-color", "#26a69a");
-    $(items).css("color", "#eafaf9");
-    let text = sNameTitle+" "+$(items).text();
-    $('#titleForm ').text(text);
-
-
-    if (cont_search) {
-        $('#cont_search_' + Form).css("display", "block");
-        disableEnableInput(Form, 0);
-        disableEnableElementInput(fromUpdateSearch, 1);
-     
-    } else {
-        $('#cont_search_' + Form).css("display", "none");
-        disableEnableInput(Form, 1);
-        disableEnableElementInput(fromUpdateSearch, 0);
-    }
-    selectForm(Form);
-
-    typeSelectionUpdateCreate = subItem.substring(subItem.indexOf("_") + 1, subItem.length);
-
-}
-//Function select Item mobile
-function selectionMitem(item) {
-    let titleSelection = $('#' + item + '').attr("title");
-    sNameTitle = titleSelection;
-    let items = item.replace("mItem", "mSubItem") + "_0";
-    let dataForm = items.substring(items.indexOf('_', items.length)).replace("mSubItem_", "");
-    $('.collapsible - header').css('color', 'black');
-    $("#"+item+"").css('color', '#29b6f6');
-    selectionMsubItems(items, dataForm, false, false);
-
-}
-//Function select sub Items Mobile
-function selectionMsubItems(subItem, Form, cont_search, nav_mobile) {
-    
-    let items = "#" + subItem+"";
-    fromUpdateSearch = "#form_search_" + Form;
-    $('.collection-item').css("background-color", "#fff");
-    $('.collection-item').css("color", "#26a69a");
-
-    $(items).css("background-color", "#26a69a");
-    $(items).css("color", "#eafaf9");
-    let text = sNameTitle+" "+$(items).text();
-    $('#titleForm ').text(text);
-
-    if (nav_mobile) {
-        if ($('.button-collapse').is(":visible")) {
-            $('.button-collapse').sideNav('hide');
-        }
-    }
-    
-    if (cont_search) {
-        $('#cont_search_' + Form).css("display", "block");
-   
-        disableEnableInput(Form, 0);
-        disableEnableElementInput(fromUpdateSearch, 1);
-        
-    } else {
-        $('#cont_search_' + Form).css("display", "none");
-        disableEnableInput(Form, 1);
-        disableEnableElementInput(fromUpdateSearch, 0);
-    }
-    
-    selectForm(Form);
-    typeSelectionUpdateCreate = subItem.substring(subItem.indexOf("_") + 1, subItem.length);
- 
-
-}
-//Function select form  
-function selectForm(dataForm) {
-    $(".form_select").css("display", "none");
-    let form = '#form' + dataForm;
-    $(form).fadeIn("slow");
-    clearInput(form);
-    textInfoForm.text("");
-   // fromUpdateInsert = form;
-    
-}
 
 //Function validate create
 function createEmployee(data) {
@@ -424,11 +322,7 @@ function createObjectJson(form_id) {
         if (key == "bemp_state") {
             data = true;
         }
-  
             objectEmployectJson[key] = data;
-        
-        
-        //console.log("Is " + key + " - " + objectEmployectJson[key]);
     }
     
     formInput.each(function (index) {
@@ -462,11 +356,9 @@ function selectionStorages() {
     console.log(typeSelectionUpdateCreate);
     
 }
-
 //Function database 
 //Function get list user  
-function _getList() {
-    //debugger;   
+function _getList() {  
     $.ajax({
         url: "/Employee/ListEmployee",
         cache: false,
@@ -514,7 +406,6 @@ function _getEmployee() {
 }
 //Function get role
 function _getListRol() {
-    //debugger;
     $.ajax({
         url: "/Employee/ListRole",
         cache: false,
@@ -522,12 +413,7 @@ function _getListRol() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (result) {
-            let select = $('#iRol_id');
-            select.append('<option value="" disabled selected>Elija su opción</option>');
-            $.each(result, function (val, item) {
-                select.append('<option value="' + item.iRol_id + '">' + item.sRol_name + '</option>');
-            });
-            select.material_select();
+            createSelctHtml(result, 'iRol_id', 'sRol_name', null);
         },
         error: function (errorMessage) {
             alert(errorMessage.responseText);
@@ -644,7 +530,6 @@ function searchEmployeeDelete(e) {
         e.preventDefault();
     }
  
-
 //Function delete employeed 
 function deleteEmployeed(id,e) {
     let value = confirm("Esta seguro de realizar esta acción");
