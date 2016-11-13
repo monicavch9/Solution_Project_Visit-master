@@ -19,9 +19,17 @@
         .form_select {
             display: none;
         }
-
         .cont_search {
-            display: none;
+            display:none;
+        }
+        .id_list {
+              display:none;
+        }
+        input{
+          text-transform: uppercase;
+        }
+        #contIdBusiness {
+              display:none;
         }
     </style>
 </head>
@@ -49,15 +57,15 @@
                                 <!--Start items menu mobile-->
                                 <li class="z-depth-1">
                                     <!--Header Info List-->
-                                    <div class="collapsible-header activeItem" onclick="selectionMitem(0)" id="mItem_0"><h6 class="right-align">Empleado</h6></div>
+                                    <div class="collapsible-header activeItem" onclick="selectionMitem(this.id)" id="mItem_0"tittle="Visita"><h6 class="right-align">Visista</h6></div>
                                     <!--Start Body Info List Selection Items-->
                                     <div class="collapsible-body">
                                         <!--Start  Items-->
                                         <div class="collection">
-                                            <a href="#!" class="collection-item active per_user_3" onclick="selectionMsubItems('0_0')" id="mSubItem_0_0">Buscar</a>
-                                            <a href="#!" class="collection-item per_user_0" onclick="selectionMsubItems('0_1')" id="mSubItem_0_1">Crear</a>
-                                            <a href="#!" class="collection-item per_user_1" onclick="selectionMsubItems('0_2')" id="mSubItem_0_2">Modificar</a>
-                                            <a href="#!" class="collection-item per_user_2" onclick="selectionMsubItems('0_3')" id="mSubItem_0_3">Eliminar</a>
+                                            <a href="#!" class="collection-item active per_user_3" onclick="selectionMsubItems(this.id, '0_0', false, true)" id="mSubItem_0_0">Buscar</a>
+                                            <a href="#!" class="collection-item per_user_0" onclick="selectionMsubItems(this.id, '0_1', false, true)" id="mSubItem_0_1">Crear</a>
+                                            <a href="#!" class="collection-item per_user_1" onclick="selectionMsubItems(this.id, '0_1', true, true)" id="mSubItem_0_2">Modificar</a>
+                                            <a href="#!" class="collection-item per_user_2" onclick="selectionMsubItems(this.id, '0_3', false, true)" id="mSubItem_0_3">Eliminar</a>
                                         </div>
                                         <!--End  Items-->
                                     </div>
@@ -89,6 +97,9 @@
     <!-- End Modal Information -->
     <!--Start Container-->
     <div class="row">
+        <!--Start data -->
+        <div id="contIdBusiness"><input type="text" id="iEmp_id" value=1><input type="text" id="bemp_state" value="true"></div>
+        <!--End data-->
         <!--Start Menu Side-->
         <div class="col l2 hide-on-small-only hide-on-med-only">
             <ul>
@@ -99,15 +110,15 @@
                         <!--Start Block menu -->
                         <li>
                             <!--Header Info List-->
-                            <div class="collapsible-header active activeItem" onclick="selectionItem(0)" id="item_0"><i class="material-icons">settings_applications</i>Visitas</div>
+                            <div class="collapsible-header active activeItem" onclick="selectionItem(this.id)" id="item_0" title="Visita"><i class="material-icons">settings_applications</i>Visita</div>
                             <!--Start Body Info List Selection Items-->
                             <div class="collapsible-body">
                                 <!--Start  Items-->
                                 <div class="collection">
-                                    <a href="#!" class="collection-item active per_user_3" onclick="selectionSubItems('0_0',' ',0)" id="subItem_0_0">Buscar</a>
-                                    <a href="#!" class="collection-item per_user_0" onclick="selectionSubItems('0_1',' ', 0)" id="subItem_0_1">Crear </a>
-                                    <a href="#!" class="collection-item per_user_1" onclick="selectionSubItems('0_2','0_1',1)" id="subItem_0_2">Modificar</a>
-                                    <a href="#!" class="collection-item per_user_2" onclick="selectionSubItems('0_3',' ',0)" id="subItem_0_3">Eliminar </a>
+                                    <a href="#!" class="collection-item active per_user_3" onclick="selectionSubItems(this.id, '0_0', false)" id="subItem_0_0">Buscar</a>
+                                    <a href="#!" class="collection-item per_user_1" onclick="selectionSubItems(this.id, '0_1', false)" id="subItem_0_1">Crear </a>
+                                    <a href="#!" class="collection-item per_user_2" onclick="selectionSubItems(this.id, '0_1', true)" id="subItem_0_2">Modificar</a>
+                                    <a href="#!" class="collection-item per_user_3" onclick="selectionSubItems(this.id, '0_3', false)" id="subItem_0_3">Eliminar </a>
                                 </div>
                                 <!--End  Items-->
                             </div>
@@ -122,28 +133,33 @@
         <!--End Menu Side-->
         <!--Start Container Form -->
         <div class="col s12 m12 l10">
-            <h4 id="titleForm">Visitas</h4><!--Dinamic Title--> 
+            <h4 id="titleForm">Visitas</h4><!--Dinamic Title-->
+            <div class="row">
+                <p id="textInfoForm"></p>
+            </div>
             <!--Start Container Form 0-->
             <div id="form0_0" class="form_select">
                 <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
                 <!--Form search-->
-                <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
-                    <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
+                <form class="col s12  m12 l12" onsubmit="searchEmployee(event)">
+                    <!-- Start Elements input remember: Elements unique with id of Button and input-->
                     <div class="row">
                         <!--Start Elements -->
                         <div class="input-field col s12 m3 l3">
                             <select>
+                                id="listSearchVisit">
                                 <option value="" disabled selected>Seleccione una opción</option>
-                                <option value="1">Fecha de Visita</option>
-                                <option value="2">Cliente</option>
-                                <option value="3">Segmento</option>
-                            </select>              
+                                <option value="sVis_date">Fecha de Visita</option>
+                                <option value="iBra_off_id">Cliente</option>
+                                <option value="sVis_atte_name">Nombre Contacto del Cliente</option>
+                            </select>
+                            <label>Seleccione Búsqueda</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s10 m7 l7">
-                            <input id="vis_search" type="text" class="validate" required>
-                            <label for="vis_search">Digite el valor a buscar</label>
+                            <input id="vis_search" type="text" class="validate">
+                            <label for="vis_search">Digite el dato a buscar</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
@@ -161,33 +177,17 @@
                 <!--Start Table result search-->
                 <div class="row">
                     <!--Start Table-->
-                    <div class="col s12 m12 l12">
+                    <div class="col s12 m12 l12" id="listVisit">
                         <table class="responsive-table highlight">
                             <thead>
                                 <tr>
                                     <th data-field="id">Fecha</th>
                                     <th data-field="name_cliente">Nombre del cliente</th>
-                                    <th data-field="email">Email contacto</th> 
-                                    <th data-field="segmento">Segmento</th>       
+                                    <th data-field="email">Email contacto</th>
+                                    <th data-field="name_contac">Nombre Contacto</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Alvin</td>
-                                    <td>Eclair</td>
-                                    <td>$0.87</td>
-                                </tr>
-                                <tr>
-                                    <td>Alan</td>
-                                    <td>Jellybean</td>
-                                    <td>$3.76</td>
-                                </tr>
-                                <tr>
-                                    <td>Jonathan</td>
-                                    <td>Lollipop</td>
-                                    <td>$7.00</td>
-                                </tr>
-                            </tbody>
+                            <tbody></tbody>
                         </table>
                         <!--End Table-->
                     </div>
@@ -199,146 +199,152 @@
             <div id="form0_1" class="form_select">
                 <!--Start cont search-->
                 <div class="row cont_search" id="cont_search_0_1">
-                    <!--Start Elements -->
-                    <div class="input-field col s12 m3 l3">
-                        <select>
-                            <option value="" disabled selected>Seleccione una opción</option>
-                            <option value="1">Fecha de Visita</option>
-                            <option value="2">Cliente</option>
-                            <option value="3">Segmento</option>
-                        </select>                        
-                    </div>
-                    <!--End Elements -->
-                    <!--Start Elements -->
-                    <div class="input-field col s10 m7 l7">
-                        <input id="vis_search" type="text" class="validate" required>
-                        <label for="vis_search">Digite el valor a buscar</label>
-                    </div>
-                    <!--End Elements -->
-                    <!--Start Elements -->
-                    <div class="input-field col s2 m2 l2">
-                        <div class="card-action center">
-                            <button id="btn_vis_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
-                                <i class="material-icons right">search</i>
-                            </button>
+                    <!--Form search-->
+                    <form class="col s12  m12 l12" id="form_search_0_1" onsubmit="UpdateSearchEmployee(event, '0_1')">
+                        <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
+                        <div class="row">
+                            <!--Start Elements -->
+                            <div class="input-field col s12 m3 l3">
+                                <select id="listSearchVisitUpdate">
+                                    <option value="" disabled selected>Seleccione una opción</option>
+                                    <option value="sVis_date">Fecha de Visita</option>
+                                    <option value="iBra_off_id">Cliente</option>
+                                    <option value="sVis_atte_name">Nombre Contacto del Cliente</option>
+                                </select>
+                                <label>Seleccine Búsqueda</label>
+                            </div>
+                            <!--End Elements -->
+                            <!--Start Elements -->
+                            <div class="input-field col s10 m7 l7">
+                                <input id="vis_search_update" type="text" class="validate" required>
+                                <label for="vis_search_update">Digite el valor a buscar</label>
+                            </div>
+                            <!--End Elements -->
+                            <!--Start Elements -->
+                            <div class="input-field col s2 m2 l2">
+                                <div class="card-action center">
+                                    <button id="btn_vis_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
+                                        <i class="material-icons right">search</i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!--End Elements -->
                         </div>
-                    </div>
+                        <!--End Elements input-->
+                    </form>
                     <!--End Elements -->
                 </div>
                 <!--End cont search-->
                 <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
-                <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
-                    <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
+                <form class="col s12  m12 l12" id="formCreateUpdate" onsubmit="validateTextBox(event,this.id)">
+                    <!-- Start Elements input remember: Elements unique with id of Button and input-->
                     <div class="row">
                         <!--Start Elements -->
-                        <div class="input-field col s12 m6 l4">                                                                           
-                            <i class="material-icons prefix">today</i>                         
-                            <input id="vis_date"type="date" class="datepicker"required>                                                                                                             
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">today</i>
+                            <input id="sVis_date" type="date" class="datepicker" required>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
-                        <!--Desplegable de las empresas por vendedor-->
+                        <!--Desplegable de los clientes por vendedor-->
                         <div class="input-field col s12 m6 l4">
-                            <i class="material-icons prefix">business</i> 
-                            <select>                                
-                                <option value="" disabled selected>Seleccione una empresa</option>
-                                <option value="1">Empresa 1</option>
-                                <option value="2">Empresa 2</option>
-                                <option value="3">Empresa 3</option>                                
-                            </select>                           
+                            <select id="iClic_bus_document"></select>
+                            <label>Seleccionar ciente</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
-                        <!--Desplegable de sucursales de la empresa-->
+                        <!--Desplegable de sucursales del Cliente-->
                         <div class="input-field col s12 m6 l4">
-                            <i class="material-icons prefix">business</i>
-                            <select>
-                                <option value="" disabled selected>Seleccione una sucursal</option>
-                                <option value="1">Sucursal 1</option>
-                                <option value="2">Sucursal 2</option>
-                                <option value="3">Sucursal 3</option>
-                            </select>
+                            <select id="iBra_off_id"></select>
+                            <label>Seleccionar ciente</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s12 m6 l4">
                             <i class="material-icons prefix">room</i>
-                            <input id="vis_address" type="text" class="validate" required>
-                            <label for="vis_address">Dirección de la Visita</label>
+                            <input id="sBra_off_address" type="text" class="validate" required>
+                            <label for="sBra_off_address">Dirección de la Visita</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s12 m6 l4">
                             <i class="material-icons prefix">perm_identity</i>
-                            <input id="vis_atte_name" type="text" class="validate" required>
-                            <label for="vis_atte_name">Nombre del Contacto</label>
+                            <input id="sVis_atte_name" type="text" class="validate" required>
+                            <label for="sVis_atte_name">Nombre del Contacto</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s12 m6 l4">
                             <i class="material-icons prefix">email</i>
-                            <input id="vis_atte_email" type="tel" class="validate" required>
-                            <label for="vis_atte_email">E-mail Contacto</label>
+                            <input id="svis_atte_mail" type="tel" class="validate" required>
+                            <label for="svis_atte_mail">E-mail Contacto</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s12 m6 l4">
                             <i class="material-icons prefix">contact_phone</i>
-                            <input id="vis_atte_phonephone" type="tel" class="validate">
-                            <label for="vis_atte_phone">Telefono del Contacto</label>
+                            <input id="sVis_atte_phone" type="tel" class="validate">
+                            <label for="sVis_atte_phone">Telefono del Contacto</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s12 m6 l4">
                             <i class="material-icons prefix">perm_phone_msg</i>
-                            <input id="vis_atte_celphone" type="tel" class="validate" required>
-                            <label for="vis_atte_celphone">Celular del Contacto</label>
+                            <input id="sVis_atte_celphone" type="tel" class="validate" required>
+                            <label for="sVis_atte_celphone">Celular del Contacto</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s12 m6 l4">
                             <i class="material-icons prefix">grade</i>
-                            <input id="vis_atte_position" type="tel" class="validate">
-                            <label for="vis_atte_position">Cargo del Contacto</label>
+                            <input id="sVis_atte_position" type="tel" class="validate">
+                            <label for="sVis_atte_position">Cargo del Contacto</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s12 m6 l4">
                             <i class="material-icons prefix">work</i>
-                            <input id="vis_atte_competition" type="tel" class="validate">
-                            <label for="vis_atte_competition">Competencia en el cliente</label>
+                            <input id="sVis_atte_competition" type="tel" class="validate">
+                            <label for="sVis_atte_competition">Competencia en el cliente</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <!--Desplegable de Objetos de visita-->
+                        <div class="input-field col s12 m6 l4">
+                            <select id="sDe_vis_name"></select>
+                            <label>Seleccionar Objeto de la visita</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s12 m6 l4">
                             <i class="material-icons prefix">reorder</i>
-                            <input id="de_vis_description" type="tel" class="validate">
-                            <label for="de_vis_description">Descripción de la Visita</label>
+                            <input id="sVis_observation" type="tel" class="validate">
+                            <label for="sVis_observation">Observaciones de la Visita</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s12 m6 l4">
-                            <i class="material-icons prefix">list</i>
-                            <input id="vis_com_" type="tel" class="validate">
-                            <label for="vis_com_">Compromiso con el cliente</label>
+                            <i class="material-icons prefix">note_add</i>
+                            <input id="sVis_com_" type="tel" class="validate">
+                            <label for="sVis_com_">Compromiso con el cliente</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s12 m6 l4">
                             <i class="material-icons prefix">today</i>
-                            <input id="vis_come_date" type="date" class="datepicker" required>
+                            <input id="sVis_com_date" type="date" class="datepicker" required>
                         </div>
                         <!--End Elements -->
 
-
-                     
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text" placeholder="Seleccione una Foto">
-                                </div>
-                            </div>
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">assignment_late</i>
+                            <input id="sVis_proy_name" type="tel" class="validate">
+                            <label for="sVis_proy_name">Nombre del proyecto</label>
                         </div>
                         <!--End Elements -->
-                    </div>
+                   
+                    <!--End Elements -->
                     <!-- End Elements input-->
                     <!--Start Elements Button-->
                     <div class="row">
@@ -352,42 +358,44 @@
                         </div>
                     </div>
                     <!--End Elements Button-->
-                </form>
+
             </div>
-            <!--End Form 1-->
+            </form>
+        </div>
+               <!--End Form 1-->
             <!--Start Container Form 3-->
             <div id="form0_3" class="form_select">
                 <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
                 <!--Form search-->
-                <form class="col s12  m12 l12" onsubmit="validateCreate(event)">
+                <form class="col s12  m12 l12" onsubmit="searchEmployeeDelete(event)">
                     <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
                     <div class="row">
                         <!--Start Elements -->
                         <div class="input-field col s12 m3 l3">
-                            <select>
-                                <option value="" disabled selected>Choose your option</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
+                            <select id="listSearchVisitUpdate">
+                                <option value="" disabled selected>Seleccione una opción</option>
+                                <option value="nombre de js">Fecha de Visita</option>
+                                <option value="2">Cliente</option>
+                                <option value="3">Segmento</option>
                             </select>
-                            <label>Materialize Select</label>
+                            <label>Seleccine Búsqueda</label>                            
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
-                        <div class="input-field col s10 m7 l7">
-                            <input id="emp_search" type="text" class="validate" required>
-                            <label for="emp_search">Digite el valor a buscar</label>
-                        </div>
-                        <!--End Elements -->
-                        <!--Start Elements -->
-                        <div class="input-field col s2 m2 l2">
-                            <div class="card-action center">
-                                <button id="btn_emp_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
-                                    <i class="material-icons right">search</i>
-                                </button>
+                            <div class="input-field col s10 m7 l7">
+                                <input id="vis_search_delete" type="text" class="validate" required>
+                                <label for="vis_search_delete">Digite el valor a buscar</label>
                             </div>
-                        </div>
-                        <!--End Elements -->
+                            <!--End Elements -
+                        <!--Start Elements -->
+                            <div class="input-field col s2 m2 l2">
+                                <div class="card-action center">
+                                    <button id="btn_vis_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
+                                        <i class="material-icons right">search</i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!--End Elements -->
 
                     </div>
                     <!-- End Elements input-->
@@ -477,7 +485,7 @@
     <script src="~/Scripts/jquery-3.1.1.min.js"></script>
     <script src="~/Content/materialize-v0.97.5/js/materialize.js"></script>
     <script src="~/Scripts/jsProject/Functions.js"></script>
-    <script src="~/Scripts/jsProject/CtrEmployee.js"></script>
+    <script src="~/Scripts/jsProject/CtrVisit.js"></script>
 
 </body>
 </html>

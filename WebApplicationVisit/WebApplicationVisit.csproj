@@ -177,6 +177,7 @@
     <Content Include="Scripts\jsProject\CtrQuotes.js" />
     <Content Include="Scripts\jsProject\CtrReports.js" />
     <Content Include="Scripts\jsProject\CtrVisit.js" />
+    <Content Include="Scripts\jsProject\DtoGeneral.js" />
     <Content Include="Scripts\jsProject\Functions.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -198,7 +199,9 @@
     <Compile Include="Models\CtrlEmployee.cs" />
     <Compile Include="Models\CtrlNotification.cs" />
     <Compile Include="Models\DtoBusiness.cs" />
+    <Compile Include="Models\DtoClient.cs" />
     <Compile Include="Models\DtoEmployee.cs" />
+    <Compile Include="Models\DtoVisit.cs" />
     <Compile Include="Models\IntBusiness.cs" />
     <Compile Include="Models\IntEmployee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
