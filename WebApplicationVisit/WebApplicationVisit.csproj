@@ -171,7 +171,6 @@
     <Content Include="Scripts\jsProject\CtrClient.js" />
     <Content Include="Scripts\jsProject\CtrEmployee.js" />
     <Content Include="Scripts\jsProject\CtrHome.js" />
-    <Content Include="Scripts\jsProject\CtrlEmployee.js" />
     <Content Include="Scripts\jsProject\CtrlLogin.js" />
     <Content Include="Scripts\jsProject\CtrlRestartPassword.js" />
     <Content Include="Scripts\jsProject\CtrQuotes.js" />
