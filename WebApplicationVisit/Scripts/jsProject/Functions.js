@@ -265,42 +265,41 @@ function createTable(data) {
 
     }
     else if (typeTatble == 2) {
-        let listInput = new Array();
-        listInput[0] = $('#emp_name').prop('disabled', false);
-        listInput[1] = $('#emp_surname').prop('disabled', false);
-        listInput[2] = $('#emp_address').prop('disabled', false);
-        listInput[3] = $('#emp_document');
-        listInput[4] = $('#emp_phone').prop('disabled', false);
-        listInput[5] = $('#emp_phone2').prop('disabled', false);
-        listInput[6] = $('#emp_cel_phone').prop('disabled', false);
-        listInput[7] = $('#emp_cel_phone2').prop('disabled', false);
-        listInput[8] = $('#emp_mail');
-        listInput[9] = $('#emp_mail2').prop('disabled', false);
-        listInput[10] = $('#emp_password').prop('disabled', false);
-        listInput[11] = $('#emp_password_confirm').prop('disabled', false);
+      
         $(".select-wrapper :input[type=text]").prop('disabled', false);
         $("#btnUpdateInsert").prop('disabled', false);
         $(".input-field :input[type=text]").prop('disabled', false);
         $(".input-field :input[type=file]").prop('disabled', false);
-        
-        listInput[0].val(data[0].sEmp_name);
-        listInput[1].val(data[0].sEmp_surname);
-        listInput[2].val(data[0].sEmp_addres);
-        listInput[3].val(data[0].sEmp_document);
-        listInput[4].val(data[0].sEmp_phone);
-        listInput[5].val(data[0].sEmp_phone2);
-        listInput[6].val(data[0].sEmp_cell_phone);
-        listInput[7].val(data[0].sEmp_cell_phone2);
-        listInput[8].val(data[0].sEmp_mail);
-        listInput[9].val(data[0].sEmp_mail2);
-        listInput[10].val(data[0].sEmp_password);
-        listInput[11].val(data[0].sEmp_password);
         //Type label
-        let fromLabel = $("#form" + fromUpdateInsert + ' form label');
+        let fromLabel = $("label");
         fromLabel.addClass('active');
+        
         //Type i
-        let fromI = $(fromUpdateInsert + ' form i');
+        let fromI = $("i");
         fromI.addClass('active');
+
+
+        let id = data[0];
+        for (key in id) {
+            let data = id[key];
+            let inputs=$("#" + key);
+ 
+            if (key == "sEmp_document" || key == "sEmp_mail") {
+                $('.inputNotEditable').prop('disabled', true);
+
+            } else {
+                inputs.prop('disabled', false);
+                
+            }
+            if (key == 'sEmp_password') {
+                $("#emp_password_confirm").val(id[key]);
+                $("#emp_password_confirm").prop('disabled', false);
+            }
+            if (key != "iRol_id" || key != "sEmp_permission" || key != "iBra_buis_id") {
+                inputs.val(id[key]);
+            }
+        }
+        
         
        
     }

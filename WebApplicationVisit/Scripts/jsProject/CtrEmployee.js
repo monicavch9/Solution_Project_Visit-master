@@ -8,7 +8,7 @@ Date :26/10/2016
 var sNameTitle = "";
 var oObjectUser;
 var dataJson = new Object();
-var objectEmployectJson = new Object();
+
 var typeTatble = 0;
 var typeSelectionUpdateCreate = "";
 var textInfoForm;
@@ -32,47 +32,28 @@ $(document).ready(function () {
     dataJson.iBra_buis_id = 1;
     dataJson.bEmp_type_select = true;
     typeTatble = 0;
-    //_getList();
+    _getList();
     _getListRol();
     _getListBraBusiness();
-    _loadView();
+    _loadViewObject(0);
     
     
 });
-function _loadView() {
-   
-    objectEmployectJson.sEmp_permission="";
-    objectEmployectJson.iEmp_id=0;
-    objectEmployectJson.iRol_id=0;
-    objectEmployectJson.iBra_buis_id=0;
-    objectEmployectJson.sEmp_document="";
-    objectEmployectJson.sEmp_name="";
-    objectEmployectJson.sEmp_surname ="";
-    objectEmployectJson.sEmp_phone="";
-    objectEmployectJson.sEmp_phone2="";
-    objectEmployectJson.sEmp_cell_phone="";
-    objectEmployectJson.sEmp_cell_phone2="";
-    objectEmployectJson.sEmp_addres="";
-    objectEmployectJson.sEmp_mail="";
-    objectEmployectJson.sEmp_mail2="";
-    objectEmployectJson.sEmp_password ="";
-    objectEmployectJson.bemp_state =true;
-    objectEmployectJson.sEmp_photo ="";
-    
-}
+
 //Function select Item 
 function selectionItem(item) {
     let titleSelection = $('#' + item + '').attr("title");
     sNameTitle = titleSelection;
     let items = item.replace("item", "subItem") + "_0";
+    let dataForm = items.substring(items.indexOf('_', items.length)).replace("subItem_", "");
     $('.collapsible - header').css('color', 'black');
     $("#" + item + "").css('color', '#29b6f6');
-    selectionSubItems(items, "0_0", false, false);
-    
+    selectionSubItems(items, dataForm, false, false);
+
 }
 //Function select sub Items
 function selectionSubItems(subItem, Form, cont_search) {
-
+    
     let items = "#" + subItem + "";
     fromUpdateSearch = "#form_search_" + Form;
     $('.collection-item').css("background-color", "#fff");
@@ -102,17 +83,16 @@ function selectionSubItems(subItem, Form, cont_search) {
 function selectionMitem(item) {
     let titleSelection = $('#' + item + '').attr("title");
     sNameTitle = titleSelection;
-    let items = item.replace("mItem","mSubItem")+"_0";
+    let items = item.replace("mItem", "mSubItem") + "_0";
+    let dataForm = items.substring(items.indexOf('_', items.length)).replace("mSubItem_", "");
     $('.collapsible - header').css('color', 'black');
     $("#"+item+"").css('color', '#29b6f6');
-    selectionMsubItems(items, "0_0", false, false)
-
-    
+    selectionMsubItems(items, dataForm, false, false);
 
 }
 //Function select sub Items Mobile
 function selectionMsubItems(subItem, Form, cont_search, nav_mobile) {
-
+    
     let items = "#" + subItem+"";
     fromUpdateSearch = "#form_search_" + Form;
     $('.collection-item').css("background-color", "#fff");
@@ -140,7 +120,7 @@ function selectionMsubItems(subItem, Form, cont_search, nav_mobile) {
         disableEnableInput(Form, 1);
         disableEnableElementInput(fromUpdateSearch, 0);
     }
-
+    
     selectForm(Form);
     typeSelectionUpdateCreate = subItem.substring(subItem.indexOf("_") + 1, subItem.length);
  
@@ -153,7 +133,8 @@ function selectForm(dataForm) {
     $(form).fadeIn("slow");
     clearInput(form);
     textInfoForm.text("");
-    fromUpdateInsert = form;
+   // fromUpdateInsert = form;
+    
 }
 
 //Function validate create
@@ -219,6 +200,9 @@ function UpdateSearchEmployee(e,form) {
     let list = $("#listSearchEmployeeUpdate").val();
     let textSearch = $("#emp_search_update").val();
     let bValidate = true;
+
+    form=form.replace('form_search_', '');
+    console.log(form);
     fromUpdateInsert = form;
 
     typeTatble = 2;
@@ -377,12 +361,8 @@ function validateTextBox(e,id) {
     let formInputSelect = $(form + " select");*/
 
     let form = '#' + id;
-    //alert(formInputSelect.length);
     let validate = true;
-        //Validate password input
-        
-   
-//Validate text input
+
     if (!formInputText(form)) {
         validate = false;
     }

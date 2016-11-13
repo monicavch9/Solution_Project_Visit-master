@@ -32,10 +32,12 @@
         #contIdBusiness {
               display:none;
         }
-        
-
-
- 
+        input:-webkit-autofill{
+            background:blue;
+        }
+        .inputNotEditable{
+           
+        }
     </style>
 </head>
 <body onload="nobackbutton()">
@@ -78,7 +80,6 @@
                                     <!--End Body Info List Selection Items-->
                                 </li>
                                 <!--End items menu mobile-->
-
                                 <!--Start items menu mobile-->
                                 <li class="z-depth-1">
                                     <!--Header Info List-->
@@ -88,7 +89,7 @@
                                         <!--Start  Items-->
                                         <div class="collection">
 
-                                            <a href="#!" class="collection-item active per_user_3" onclick="selectionMsubItems(this.id, '1_0', false, true)" id="mSubItem_1_0">Buscar</a>
+                                            <a href="#!" class="collection-item active per_user_3" onclick="selectionMsubItems(this.id, '1_0', false, true)" id="mSubItem_1_0">Otro Buscar</a>
                                             <a href="#!" class="collection-item per_user_0" onclick="selectionMsubItems(this.id, '1_1', false, true)" id="mSubItem_1_1">Crear</a>
                                             <a href="#!" class="collection-item per_user_1" onclick="selectionMsubItems(this.id, '1_1', false, true)" id="mSubItem_1_2">Modificar</a>
                                             <a href="#!" class="collection-item per_user_2" onclick="selectionMsubItems(this.id, '1_3', false, true)" id="mSubItem_1_3">Eliminar</a>
@@ -128,7 +129,7 @@
         <div class="row">
             <!--Start data -->
                 <div id="contIdBusiness"><input type="text" id="iEmp_id" value=1><input type="text" id="bemp_state" value="true"></div>
-            <!---->
+            <!--End data-->
             <!--Start Menu Side-->
             <div class="col l2 hide-on-small-only hide-on-med-only">
                 <ul>
@@ -188,12 +189,13 @@
                     <p id="textInfoForm"></p>
                 </div>
                 <!--End text info  -->
+
                 <!--Start Container Form 0-->
                 <div id="form0_0" class="form_select">
                     <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
                     <!--Form search-->
                     <form class="col s12  m12 l12" onsubmit="searchEmployee(event)">
-                        <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
+                        <!-- Start Elements input remember: Elements unique with id of Button and input-->
                         <div class="row">
                             <!--Start Elements -->
                             <div class="input-field col s12 m3 l3">
@@ -205,7 +207,7 @@
                                     <option value="sEmp_mail">Email</option>
                                     <option value="sRol_name">Rol</option>
                                 </select>
-                                <label>Seleccine Búsqueda</label>
+                                <label>Seleccione Búsqueda</label>
                             </div>
                             <!--End Elements -->
                             <!--Start Elements -->
@@ -264,7 +266,7 @@
                     <!--Start cont search-->
                     <div class="row cont_search" id="cont_search_0_1">
                         <!--Form search-->
-                        <form class="col s12  m12 l12" id="form_search_0_1" onsubmit="UpdateSearchEmployee(event, '0_1')">
+                        <form class="col s12  m12 l12" id="form_search_0_1" onsubmit="UpdateSearchEmployee(event, this.id)">
                             <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
                             <div class="row">
                                 <!--Start Elements -->
@@ -286,7 +288,7 @@
                                 <!--Start Elements -->
                                 <div class="input-field col s2 m2 l2">
                                     <div class="card-action center">
-                                        <button id="btn_emp_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
+                                        <button id="btn_emp_search_update" class="btn-floating waves-effect waves-light" type="submit" name="action">
                                             <i class="material-icons right">search</i>
                                         </button>
                                     </div>
@@ -302,10 +304,8 @@
                     <!--End cont search-->
 
                     <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
-                    <form class="col s12  m12 l12" id="formCreateUpdate" onclick="validateTextBox(event,this.id)" >
-                        <!--Start text info  -->
-                         
-                            <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
+                    <form class="col s12  m12 l12" id="formCreateUpdate" onsubmit="validateTextBox(event,this.id)" >
+                            <!-- Start Elements input remember: Elements unique with id of Button and input-->
                             <div class="row">
                                 <!--Start Elements -->
                                 <div class="input-field col s12 m6 l4">
@@ -325,7 +325,7 @@
                                 <!--Start Elements -->
                                 <div class="input-field col s12 m6 l4">
                                     <i class="material-icons prefix">perm_identity</i>
-                                    <input id="sEmp_document" type="text" class="validate" required>
+                                    <input id="sEmp_document" type="text" class="validate inputNotEditable" required>
                                     <label for="sEmp_document">Documento</label>
                                 </div>
                                 <!--End Elements -->
@@ -367,7 +367,7 @@
                                 <!--Start Elements -->
                                 <div class="input-field col s12 m6 l4">
                                     <i class="material-icons prefix">email</i>
-                                    <input id="sEmp_mail" type="email" class="validate" required>
+                                    <input id="sEmp_mail" type="email" class="validate inputNotEditable" required>
                                     <label for="sEmp_mail">Email</label>
                                 </div>
                                 <!--End Elements -->
@@ -396,7 +396,7 @@
                                 <!--Start Elements -->
                                 <div class="input-field col s12 m6 l3">
                                     <select id="iRol_id">
-                                  
+                                    
                                     </select>
                                     <label>Seleccionar Rol</label>
                                 </div>
@@ -443,7 +443,7 @@
                             <div class="row">
                                 <div class="col s12 m12 l12">
                                     <div class="card-action center">
-                                        <button id="btnUpdateInsert" class="btn waves-effect waves-light" type="button" name="action">
+                                        <button id="btnUpdateInsert" class="btn waves-effect waves-light" type="submit" name="action">
                                             Enviar
                                             <i class="material-icons right">done</i>
                                         </button>
@@ -519,9 +519,9 @@
                 </div>
                 <!--End Form 3-->
  
-
         </div>
             <!--End  Container Form -->
+
         <!--Start Button floating-->
         <div class="fixed-action-btn hide-on-large-only" style="bottom: 45px; right: 24px;">
             <a class="btn-floating btn-large btn-default">
@@ -549,6 +549,7 @@
     <script src="~/Scripts/jquery-3.1.1.min.js"></script>
     <script src="~/Content/materialize-v0.97.5/js/materialize.js"></script>
     <script src="~/Scripts/jsProject/Functions.js"></script>
+    <script src="~/Scripts/jsProject/DtoGeneral.js"></script>
     <script src="~/Scripts/jsProject/CtrEmployee.js"></script>
 
 </body>
