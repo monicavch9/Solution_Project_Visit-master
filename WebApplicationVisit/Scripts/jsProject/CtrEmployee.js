@@ -35,7 +35,20 @@ $(document).ready(function () {
     _getListPermission();
 
 
-    
+    $('#mSubItem_0_0').click(function () {
+        
+        //enableButton(0);
+        cleanTable();
+      
+       
+    });
+    $('#subItem_0_0').click(function () {
+        
+        //enableButton(0);
+        cleanTable();
+
+
+    });
    
 });
 
@@ -143,20 +156,7 @@ function UpdateSearchEmployee(e,form) {
         
     e.preventDefault();
 }
-//Load data of form
-function validateDelete(e) {
 
-    //Get data input text 
-
-    e.preventDefault();//not reload page
-}
-//Load data of form
-function validateSearch(e) {
-
-    //Get data input text 
-
-    e.preventDefault();//not reload page
-}
 //Function  validate text box
 function validateTextBox(e,id) {
 
@@ -290,10 +290,13 @@ function _getList() {
         data: dataJson,
         dataType: "json",
         success: function (result) {
-            createTable(result);
-  
+            if (result.length > 0) {
+                createTable(result);
+            } else {
+                textInfoForm.text("No se encontraron datos");
+            }
             enableButton(1);
-            textInfoForm.text("");
+            
         },
         error: function (errorMessage) {
             alert(errorMessage.responseText);
@@ -411,47 +414,57 @@ function searchEmployee(e) {
         dataJson.bEmp_type_select = true;
         enableButton(0);
         _getList();
+        textInfoForm.text("");
  
     } else {
-        if ((expressionData.test(textSearch) || textSearch.length == 0) && (listSelection != null)) {
-            bValidate = false;   
-        }
-        if ((!expressionData.test(textSearch) || textSearch.length != 0) && (listSelection == null)) {
-            bValidate = false;
-        }
-        if (!bValidate) {
-            textInfoForm.text("Verifique la selección ");
-                    
-        }else{
-            dataJson.bEmp_type_select = false;
-            switch (listSelection) {
-                case 'sEmp_name':
-                    dataJson.sEmp_name = textSearch;
-      
-                    break;
-                case 'sEmp_surname':
-                    dataJson.sEmp_surname = textSearch;
-              
-                    break;
-                case 'sEmp_document':
-                    dataJson.sEmp_document = textSearch;
-                
-                    break;
-                case 'sEmp_mail':
-                    dataJson.sEmp_mail = textSearch;
-                  
-                    break;
-                case 'sRol_name':
-                    dataJson.sEmp_mail = textSearch;
-                    
-                    break;   
+        textInfoForm.text(listSelection);
+        if (listSelection != 'sGeneral') {
+            if ((expressionData.test(textSearch) || textSearch.length == 0) && (listSelection != null)) {
+                bValidate = false;
             }
-         
-            enableButton(0);
-            _getList();
+            if ((!expressionData.test(textSearch) || textSearch.length != 0) && (listSelection == null)) {
+                bValidate = false;
+            }
+            if (!bValidate) {
+                textInfoForm.text("Verifique la selección ");
+
+            } else {
+                dataJson.bEmp_type_select = false;
+                switch (listSelection) {
+                    case 'sEmp_name':
+                        dataJson.sEmp_name = textSearch;
+
+                        break;
+                    case 'sEmp_surname':
+                        dataJson.sEmp_surname = textSearch;
+
+                        break;
+                    case 'sEmp_document':
+                        dataJson.sEmp_document = textSearch;
+
+                        break;
+                    case 'sEmp_mail':
+                        dataJson.sEmp_mail = textSearch;
+
+                        break;
+                    case 'sRol_name':
+                        dataJson.sEmp_mail = textSearch;
+
+                        break;
+                }
+
+                enableButton(0);
+                _getList();
+            }
 
         }
+        else {
+            dataJson.bEmp_type_select = true;
+            enableButton(0);
+            _getList();
+        }
     }
+    textInfoForm.text("");
     e.preventDefault();
 }
 //Fuction search employeed delete 
@@ -510,6 +523,7 @@ function deleteEmployeed(id,e) {
       
                     textInfoForm.text("Empleado eliminado con exito");
                     cleanTable("listEmployeeDelete");
+                   
       
                 }
                 else {
