@@ -1,8 +1,6 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -137,19 +135,19 @@
                         <ul class="collapsible popout" data-collapsible="accordion">
                             <!--Start Block menu -->
                             <li>
-                                <!--Header Info List-->
-                                <div class="collapsible-header active activeItem" onclick="selectionItem(this.id)" id="item_0" title="Empleado"><i class="material-icons" >settings_applications</i>Empleado</div>
-                                <!--Start Body Info List Selection Items-->
-                                <div class="collapsible-body">
-                                    <!--Start  Items-->
-                                    <div class="collection">
-                                        <a href="#!" class="collection-item active per_user_3" onclick="selectionSubItems(this.id, '0_0', false)" id="subItem_0_0">Buscar</a>
-                                        <a href="#!" class="collection-item per_user_0" onclick="selectionSubItems(this.id, '0_1', false)" id="subItem_0_1">Crear </a>
-                                        <a href="#!" class="collection-item per_user_1" onclick="selectionSubItems(this.id, '0_1', true)" id="subItem_0_2">Modificar</a>
-                                        <a href="#!" class="collection-item per_user_2" onclick="selectionSubItems(this.id, '0_3', false)" id="subItem_0_3">Eliminar </a>
+                                    <!--Header Info List-->
+                                    <div class="collapsible-header active activeItem" onclick="selectionItem(this.id)" id="item_0" title="Empleado"><i class="material-icons" >settings_applications</i>Empleado</div>
+                                    <!--Start Body Info List Selection Items-->
+                                    <div class="collapsible-body">
+                                        <!--Start  Items-->
+                                        <div class="collection">
+                                            <a href="#!" class="collection-item active per_user_3" onclick="selectionSubItems(this.id, '0_0', false)" id="subItem_0_0">Buscar</a>
+                                            <a href="#!" class="collection-item per_user_0" onclick="selectionSubItems(this.id, '0_1', false)" id="subItem_0_1">Crear </a>
+                                            <a href="#!" class="collection-item per_user_1" onclick="selectionSubItems(this.id, '0_1', true)" id="subItem_0_2">Modificar</a>
+                                            <a href="#!" class="collection-item per_user_2" onclick="selectionSubItems(this.id, '0_3', false)" id="subItem_0_3">Eliminar </a>
 
-                                    </div>
-                                    <!--End  Items-->
+                                        </div>
+                                        <!--End  Items-->
                                 </div>
                                 <!--End Body Info List Selection Items-->
                             </li>
@@ -262,48 +260,47 @@
 
                 <!--Start Container Form 1-->
                 <div id="form0_1" class="form_select">
-                    <!--Start cont search-->
-                    <div class="row cont_search" id="cont_search_0_1">
-                        <!--Form search-->
-                        <form class="col s12  m12 l12" id="form_search_0_1" onsubmit="UpdateSearchEmployee(event, this.id)">
-                            <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
-                            <div class="row">
-                                <!--Start Elements -->
-                                <div class="input-field col s12 m3 l3">
-                                    <select id="listSearchEmployeeUpdate">
-                                        <option value="" disabled selected required>Elija su opción</option>                             
-                                        <option value="sEmp_document">Documento</option>
-                                        <option value="sEmp_mail">Email</option>
-                                    </select>
-                                    <label>Seleccine Búsqueda</label>
-                                </div>
-                                <!--End Elements -->
-                                <!--Start Elements -->
-                                <div class="input-field col s10 m7 l7">
-                                    <input id="emp_search_update" type="text" class="validate" required>
-                                    <label for="emp_search_update">Digite el dato a buscar</label>
-                                </div>
-                                <!--End Elements -->
-                                <!--Start Elements -->
-                                <div class="input-field col s2 m2 l2">
-                                    <div class="card-action center">
-                                        <button id="btn_emp_search_update" class="btn-floating waves-effect waves-light" type="submit" name="action">
-                                            <i class="material-icons right">search</i>
-                                        </button>
+                        <!--Start cont search-->
+                        <div class="row cont_search" id="cont_search_0_1">
+                            <!--Form search-->
+                            <form class="col s12  m12 l12" id="form_search_0_1" onsubmit="UpdateSearchEmployee(event, this.id)">
+                                <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
+                                <div class="row">
+                                    <!--Start Elements -->
+                                    <div class="input-field col s12 m3 l3">
+                                        <select id="listSearchEmployeeUpdate">
+                                            <option value="" disabled selected required>Elija su opción</option>                             
+                                            <option value="sEmp_document">Documento</option>
+                                            <option value="sEmp_mail">Email</option>
+                                        </select>
+                                        <label>Seleccine Búsqueda</label>
                                     </div>
+                                    <!--End Elements -->
+                                    <!--Start Elements -->
+                                    <div class="input-field col s10 m7 l7">
+                                        <input id="emp_search_update" type="text" class="validate" required>
+                                        <label for="emp_search_update">Digite el dato a buscar</label>
+                                    </div>
+                                    <!--End Elements -->
+                                    <!--Start Elements -->
+                                    <div class="input-field col s2 m2 l2">
+                                        <div class="card-action center">
+                                            <button id="btn_emp_search_update" class="btn-floating waves-effect waves-light" type="submit" name="action">
+                                                <i class="material-icons right">search</i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!--End Elements -->
+
                                 </div>
-                                <!--End Elements -->
-
-                            </div>
-                            <!-- End Elements input-->
-                        </form>
-                        <!--End Form search-->
+                                <!-- End Elements input-->
+                            </form>
+                            <!--End Form search-->
                      
-                    </div>
-                    <!--End cont search-->
-
+                        </div>
+                        <!--End cont search-->
                     <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
-                    <form class="col s12  m12 l12" id="formCreateUpdate" onsubmit="validateTextBox(event,this.id)" >
+                    <form class="col s12  m12 l12"   >
                             <!-- Start Elements input remember: Elements unique with id of Button and input-->
                             <div class="row">
                                 <!--Start Elements -->
@@ -504,8 +501,7 @@
                                         <th data-field="btn_deleteUser">Accion</th>
                                     </tr>
                                 </thead>
-
-                                <tbody></tbody>
+                                 <tbody></tbody>
                             </table>
                             <!--End Table-->
                         </div>

@@ -24,6 +24,7 @@ objectVisitJson.sVis_activity_description;
 objectVisitJson.sDe_vis_name ;
 objectVisitJson.sDe_vis_description;*/
 const objectEmployeeJson = new Object();
+const objectCliJson = new Object();
 function _loadViewObject(select)
 {
     
@@ -50,6 +51,31 @@ function _loadViewObject(select)
             objectEmployeeJson.bemp_state = true;
             objectEmployeeJson.sEmp_photo = "";
 
-        break;
+            break;
+        case 1:
+            objectCliJson.iCli_bus_id = 0;
+            objectCliJson.sCli_bus_name= "";
+            objectCliJson.sCli_bus_document = "";
+            objectCliJson.sCli_bus_type = "";
+            objectCliJson.iCli_state = "";
+
+           
+            objectCliJson.sCit_name  = "";
+            objectCliJson.iCont_id = 0;
+            objectCliJson.sCont_name = "";
+
+            objectCliJson.iBra_off_id = 0;
+            objectCliJson.iCit_id= 0;
+            objectCliJson.iEmp_id = 0;
+            objectCliJson.sBra_off_name = "";
+            objectCliJson.sBra_off_phone = "";
+            objectCliJson.sBra_off_address = "";
+            objectCliJson.sBra_com_name = "";
+            objectCliJson.sBra_com_phone = "";
+            objectCliJson.sBra_com_mail = "";
+            objectCliJson.sBra_com_mail2 = "";
+            objectCliJson.bBra_com_validate = false;
+            objectCliJson.bBra_off_state= true;
+            break;
     }
 }

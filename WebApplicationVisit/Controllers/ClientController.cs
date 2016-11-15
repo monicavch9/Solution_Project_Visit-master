@@ -39,5 +39,10 @@ namespace Aplication_Visit.Controllers
 
             return Json(ObjClient.ListClitSelect(clit),JsonRequestBehavior.AllowGet);
         }
+        /*public JsonResult ListClitSelect(DtoClient clit)
+        {
+
+            return Json(ObjClient.ListClitSelect(clit), JsonRequestBehavior.AllowGet);
+        }*/
     }
 }
