@@ -32,9 +32,6 @@
         #contIdBusiness {
               display:none;
         }
-        input:-webkit-autofill{
-            background:blue;
-        }
         .inputNotEditable{
            
         }
@@ -89,7 +86,7 @@
                                         <!--Start  Items-->
                                         <div class="collection">
 
-                                            <a href="#!" class="collection-item active per_user_3" onclick="selectionMsubItems(this.id, '1_0', false, true)" id="mSubItem_1_0">Otro Buscar</a>
+                                            <a href="#!" class="collection-item active per_user_3" onclick="selectionMsubItems(this.id, '1_0', false, true)" id="mSubItem_1_0">Buscar</a>
                                             <a href="#!" class="collection-item per_user_0" onclick="selectionMsubItems(this.id, '1_1', false, true)" id="mSubItem_1_1">Crear</a>
                                             <a href="#!" class="collection-item per_user_1" onclick="selectionMsubItems(this.id, '1_1', false, true)" id="mSubItem_1_2">Modificar</a>
                                             <a href="#!" class="collection-item per_user_2" onclick="selectionMsubItems(this.id, '1_3', false, true)" id="mSubItem_1_3">Eliminar</a>
@@ -159,15 +156,15 @@
                             <!--Start Block menu -->
                             <li>
                                 <!--Header Info List-->
-                                <div class="collapsible-header" onclick="selectionItem(this.id)" id="item_1" title="Item 1"><i class="material-icons">settings_applications</i>Item 1</div>
+                                <div class="collapsible-header" onclick="selectionItem(this.id)" id="item_1" title="Rol"><i class="material-icons">settings_applications</i>Rol</div>
                                 <!--Start Body Info List Selection Items-->
                                 <div class="collapsible-body">
                                     <!--Start  Items-->
                                     <div class="collection">
-                                        <a href="#!" class="collection-item active" onclick="selectionSubItems(this.id, '1_0', false)" id="subItem_1_0">Sub Item 0</a>
-                                        <a href="#!" class="collection-item" onclick="selectionSubItems(this.id, '1_1', false)" id="subItem_1_1">Sub Item 1</a>
-                                        <a href="#!" class="collection-item" onclick="selectionSubItems(this.id, '1_1', false)" id="subItem_1_2">Sub Item 2</a>
-                                        <a href="#!" class="collection-item" onclick="selectionSubItems(this.id, '1_3', false)" id="subItem_1_3">Sub Item 3</a>
+                                        <a href="#!" class="collection-item active" onclick="selectionSubItems(this.id, '1_0', false)" id="subItem_1_0">Buscar</a>
+                                        <a href="#!" class="collection-item" onclick="selectionSubItems(this.id, '1_1', false)" id="subItem_1_1">Crear</a>
+                                        <a href="#!" class="collection-item" onclick="selectionSubItems(this.id, '1_1', false)" id="subItem_1_2">Modificar</a>
+                                        <a href="#!" class="collection-item" onclick="selectionSubItems(this.id, '1_3', false)" id="subItem_1_3">Eliminar</a>
                                     </div>
                                     <!--End  Items-->
                                 </div>
@@ -212,7 +209,7 @@
                             <!--End Elements -->
                             <!--Start Elements -->
                             <div class="input-field col s10 m7 l7">
-                                <input id="emp_search" type="text" class="validate">
+                                <input id="emp_search" type="text" class="validate" required>
                                 <label for="emp_search">Digite el dato a buscar</label>
                             </div>
                             <!--End Elements -->
@@ -404,11 +401,7 @@
                                 <!--Start Elements -->
                                 <div class="input-field col s12 m6 l3">
                                     <select id="sEmp_permission" multiple>
-                                        <option value="" disabled selected>Elija su opción</option>
-                                        <option value="0">Crear</option>
-                                        <option value="1">Modificar</option>
-                                        <option value="2">Eliminar</option>
-                                        <option value="3">Buscar</option>
+                                  
                                     </select>
                                     <label>Seleccionar Permiso</label>
                                 </div>
@@ -551,6 +544,8 @@
     <script src="~/Scripts/jsProject/Functions.js"></script>
     <script src="~/Scripts/jsProject/DtoGeneral.js"></script>
     <script src="~/Scripts/jsProject/CtrEmployee.js"></script>
+    
+    
 
 </body>
 </html>

@@ -12,18 +12,13 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class VISITS
+    public partial class database_firewall_rules
     {
-        public VISITS()
-        {
-            this.IT_HAS_ACTIVITIES = new HashSet<IT_HAS_ACTIVITIES>();
-        }
-    
-        public int VIS_ID { get; set; }
-        public int BRA_OFF_ID { get; set; }
-        public string VIS_ADDRESS { get; set; }
-    
-        public virtual BRANCH_OFFICE BRANCH_OFFICE { get; set; }
-        public virtual ICollection<IT_HAS_ACTIVITIES> IT_HAS_ACTIVITIES { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string start_ip_address { get; set; }
+        public string end_ip_address { get; set; }
+        public System.DateTime create_date { get; set; }
+        public System.DateTime modify_date { get; set; }
     }
 }

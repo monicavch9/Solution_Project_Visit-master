@@ -34,7 +34,7 @@
           <Property Name="BRA_COM_PHONE" Type="varchar" MaxLength="255" />
           <Property Name="BRA_COM_MAIL" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="BRA_COM_MAIL2" Type="varchar" MaxLength="255" />
-          <Property Name="BRA_COM_ADDRESS" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="BRA_COM_VALIDATE" Type="bit" Nullable="false" />
           <Property Name="BRA_OFF_STATE" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="BUSINESS">
@@ -82,6 +82,7 @@
           <Property Name="CLI_BUS_NAME" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="CLI_BUS_DOCUMENT" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="CLI_BUS_TYPE" Type="varchar" MaxLength="255" />
+          <Property Name="CLI_STATE" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="COUNTRY">
           <Key>
@@ -131,16 +132,15 @@
           <Property Name="VIS_ID" Type="int" Nullable="false" />
           <Property Name="VIS_DATE" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="VIS_ATTE_MAIL" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="VIS_ATTE_PHONE" Type="varchar" MaxLength="255" />
+          <Property Name="VIS_ATTE_PHONE" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="VIS_ATTE_CELPHONE" Type="varchar" MaxLength="255" />
           <Property Name="VIS_ATTE_NAME" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="VIS_ATTE_COMPETITION" Type="varchar" MaxLength="255" />
           <Property Name="VIS_ATTE_POSITION" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="VIS_OBSERVATION" Type="varchar" MaxLength="255" />
+          <Property Name="VIS_OBSERVATION" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="VIS_COM_" Type="varchar" MaxLength="255" />
           <Property Name="VIS_COM_DATE" Type="varchar" MaxLength="255" />
           <Property Name="VIS_PROY_NAME" Type="varchar" MaxLength="255" />
-          <Property Name="VIS_ACTIVITY_DESCRIPTION" Type="xml" Nullable="false" />
         </EntityType>
         <EntityType Name="OPTIONS_LIST_RULES">
           <Key>
@@ -187,6 +187,24 @@
           <Property Name="VIS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="BRA_OFF_ID" Type="int" Nullable="false" />
           <Property Name="VIS_ADDRESS" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Project_Visit.sys.database_firewall_rules' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="database_firewall_rules">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="start_ip_address" />
+            <PropertyRef Name="end_ip_address" />
+            <PropertyRef Name="create_date" />
+            <PropertyRef Name="modify_date" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="start_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="end_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="create_date" Type="datetime" Nullable="false" />
+          <Property Name="modify_date" Type="datetime" Nullable="false" />
         </EntityType>
         <Association Name="FK_BRANCH_C_ARE_LOCAT_CITIES">
           <End Role="CITIES" Type="Self.CITIES" Multiplicity="1" />
@@ -436,6 +454,16 @@
           <EntitySet Name="QUOTATION_STATE" EntityType="Self.QUOTATION_STATE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ROLE" EntityType="Self.ROLE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VISITS" EntityType="Self.VISITS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" store:Type="Views" store:Schema="sys">
+            <DefiningQuery>SELECT 
+[database_firewall_rules].[id] AS [id], 
+[database_firewall_rules].[name] AS [name], 
+[database_firewall_rules].[start_ip_address] AS [start_ip_address], 
+[database_firewall_rules].[end_ip_address] AS [end_ip_address], 
+[database_firewall_rules].[create_date] AS [create_date], 
+[database_firewall_rules].[modify_date] AS [modify_date]
+FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_BRANCH_C_ARE_LOCAT_CITIES" Association="Self.FK_BRANCH_C_ARE_LOCAT_CITIES">
             <End Role="CITIES" EntitySet="CITIES" />
             <End Role="BRANCH_COMPANY" EntitySet="BRANCH_COMPANY" />
@@ -538,7 +566,7 @@
           <Property Name="BRA_COM_PHONE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="BRA_COM_MAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="BRA_COM_MAIL2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="BRA_COM_ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRA_COM_VALIDATE" Type="Boolean" Nullable="false" />
           <Property Name="BRA_OFF_STATE" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_BRANCH_O_HAS_EMPLOYEE" FromRole="BRANCH_OFFICE" ToRole="EMPLOYEE" />
           <NavigationProperty Name="CITIES" Relationship="Self.FK_BRANCH_O_IS_LOCATE_CITIES" FromRole="BRANCH_OFFICE" ToRole="CITIES" />
@@ -599,6 +627,7 @@
           <Property Name="CLI_BUS_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CLI_BUS_DOCUMENT" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CLI_BUS_TYPE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CLI_STATE" Type="Int32" Nullable="false" />
           <NavigationProperty Name="BRANCH_OFFICE" Relationship="Self.FK_BRANCH_O_IT_IS_PAR_CLIENT_B" FromRole="CLIENT_BUSINESS" ToRole="BRANCH_OFFICE" />
         </EntityType>
         <EntityType Name="COUNTRY">
@@ -654,16 +683,15 @@
           <Property Name="VIS_ID" Type="Int32" Nullable="false" />
           <Property Name="VIS_DATE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="VIS_ATTE_MAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="VIS_ATTE_PHONE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="VIS_ATTE_PHONE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="VIS_ATTE_CELPHONE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="VIS_ATTE_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="VIS_ATTE_COMPETITION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="VIS_ATTE_POSITION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="VIS_OBSERVATION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="VIS_OBSERVATION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="VIS_COM_" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="VIS_COM_DATE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="VIS_PROY_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="VIS_ACTIVITY_DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="DETAIL_VISITS" Relationship="Self.FK_IT_HAS_A_IT_HAS_AC_DETAIL_V" FromRole="IT_HAS_ACTIVITIES" ToRole="DETAIL_VISITS" />
           <NavigationProperty Name="VISITS" Relationship="Self.FK_IT_HAS_A_IT_HAS_AC_VISITS" FromRole="IT_HAS_ACTIVITIES" ToRole="VISITS" />
         </EntityType>
@@ -719,6 +747,22 @@
           <Property Name="VIS_ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="BRANCH_OFFICE" Relationship="Self.FK_VISITS_PROGRAM_BRANCH_O" FromRole="VISITS" ToRole="BRANCH_OFFICE" />
           <NavigationProperty Name="IT_HAS_ACTIVITIES" Relationship="Self.FK_IT_HAS_A_IT_HAS_AC_VISITS" FromRole="VISITS" ToRole="IT_HAS_ACTIVITIES" />
+        </EntityType>
+        <EntityType Name="database_firewall_rules">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="start_ip_address" />
+            <PropertyRef Name="end_ip_address" />
+            <PropertyRef Name="create_date" />
+            <PropertyRef Name="modify_date" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="start_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="end_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <Association Name="FK_BRANCH_C_ARE_LOCAT_CITIES">
           <End Role="CITIES" Type="Self.CITIES" Multiplicity="1" />
@@ -929,6 +973,7 @@
           <EntitySet Name="QUOTATION_STATE" EntityType="Self.QUOTATION_STATE" />
           <EntitySet Name="ROLE" EntityType="Self.ROLE" />
           <EntitySet Name="VISITS" EntityType="Self.VISITS" />
+          <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" />
           <AssociationSet Name="FK_BRANCH_C_ARE_LOCAT_CITIES" Association="Self.FK_BRANCH_C_ARE_LOCAT_CITIES">
             <End Role="CITIES" EntitySet="CITIES" />
             <End Role="BRANCH_COMPANY" EntitySet="BRANCH_COMPANY" />
@@ -1028,7 +1073,7 @@
             <Parameter Name="Email" Mode="In" Type="String" />
             <Parameter Name="Role" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="PR_UPADTE_STATE_EMPLOYEE" ReturnType="Collection(String)">
+          <FunctionImport Name="PR_UPADTE_STATE_EMPLOYEE" ReturnType="Collection(Int32)">
             <Parameter Name="iEmp_id" Mode="In" Type="Int32" />
             <Parameter Name="sEmp_document" Mode="In" Type="String" />
           </FunctionImport>
@@ -1052,6 +1097,7 @@
           <Property Type="String" Name="EMP_PER" Nullable="false" MaxLength="255" />
         </ComplexType>
         <ComplexType Name="PR_SEARCH_EMPLOYEE_SELECTION_Result">
+          <Property Type="Int32" Name="BRA_BUIS_ID" Nullable="false" />
           <Property Type="Int32" Name="EMP_ID" Nullable="false" />
           <Property Type="String" Name="EMP_NAME" Nullable="false" MaxLength="255" />
           <Property Type="String" Name="EMP_SURNAME" Nullable="false" MaxLength="255" />
@@ -1104,7 +1150,7 @@
                 <ScalarProperty Name="BRA_COM_PHONE" ColumnName="BRA_COM_PHONE" />
                 <ScalarProperty Name="BRA_COM_MAIL" ColumnName="BRA_COM_MAIL" />
                 <ScalarProperty Name="BRA_COM_MAIL2" ColumnName="BRA_COM_MAIL2" />
-                <ScalarProperty Name="BRA_COM_ADDRESS" ColumnName="BRA_COM_ADDRESS" />
+                <ScalarProperty Name="BRA_COM_VALIDATE" ColumnName="BRA_COM_VALIDATE" />
                 <ScalarProperty Name="BRA_OFF_STATE" ColumnName="BRA_OFF_STATE" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1157,6 +1203,7 @@
                 <ScalarProperty Name="CLI_BUS_NAME" ColumnName="CLI_BUS_NAME" />
                 <ScalarProperty Name="CLI_BUS_DOCUMENT" ColumnName="CLI_BUS_DOCUMENT" />
                 <ScalarProperty Name="CLI_BUS_TYPE" ColumnName="CLI_BUS_TYPE" />
+                <ScalarProperty Name="CLI_STATE" ColumnName="CLI_STATE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1217,7 +1264,6 @@
                 <ScalarProperty Name="VIS_COM_" ColumnName="VIS_COM_" />
                 <ScalarProperty Name="VIS_COM_DATE" ColumnName="VIS_COM_DATE" />
                 <ScalarProperty Name="VIS_PROY_NAME" ColumnName="VIS_PROY_NAME" />
-                <ScalarProperty Name="VIS_ACTIVITY_DESCRIPTION" ColumnName="VIS_ACTIVITY_DESCRIPTION" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1272,6 +1318,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="database_firewall_rules">
+            <EntityTypeMapping TypeName="Project_Visit_Model.database_firewall_rules">
+              <MappingFragment StoreEntitySet="database_firewall_rules">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="start_ip_address" ColumnName="start_ip_address" />
+                <ScalarProperty Name="end_ip_address" ColumnName="end_ip_address" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="PR_DELETE_EMPLOYEE" FunctionName="Project_Visit_Model.Store.PR_DELETE_EMPLOYEE" />
           <FunctionImportMapping FunctionImportName="PR_INSET_UPDATE_EMPLOYEE" FunctionName="Project_Visit_Model.Store.PR_INSET_UPDATE_EMPLOYEE" />
           <FunctionImportMapping FunctionImportName="PR_SEARCH_EMPLOYEE" FunctionName="Project_Visit_Model.Store.PR_SEARCH_EMPLOYEE">
@@ -1299,6 +1357,7 @@
           <FunctionImportMapping FunctionImportName="PR_SEARCH_EMPLOYEE_SELECTION" FunctionName="Project_Visit_Model.Store.PR_SEARCH_EMPLOYEE_SELECTION">
             <ResultMapping>
               <ComplexTypeMapping TypeName="Project_Visit_Model.PR_SEARCH_EMPLOYEE_SELECTION_Result">
+                <ScalarProperty Name="BRA_BUIS_ID" ColumnName="BRA_BUIS_ID" />
                 <ScalarProperty Name="EMP_ID" ColumnName="EMP_ID" />
                 <ScalarProperty Name="EMP_NAME" ColumnName="EMP_NAME" />
                 <ScalarProperty Name="EMP_SURNAME" ColumnName="EMP_SURNAME" />

@@ -10,7 +10,7 @@ const expressionData = /^\s+$/;
 const expressiomNumber = /^\d{7,10}/;
 const expressionEmail = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/;
 const expressionPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/;
-
+var objectEmployeeList = new Array();
 $(document).ready(function () {
 
 
@@ -323,7 +323,8 @@ function cleanTable(table) {
 }
 //Function create table list
 function createTable(data) {
-
+    // console.log(data);
+    cleanTable();
     var html = '';
     if (typeTatble == 0) {
         $.each(data, function (key, item) {
@@ -343,6 +344,7 @@ function createTable(data) {
         });
         $('#listEmployee  tbody').html(html);
 
+
     }
     else if (typeTatble == 1) {
         $.each(data, function (key, item) {
@@ -354,7 +356,7 @@ function createTable(data) {
             html += '<td>' + item.sEmp_phone + '</td>';
             html += '<td>' + item.sEmp_cell_phone + '</td>';
             html += '<td>' + item.sEmp_mail + '</td>';
-            html += '<td><button class="btn-floating waves-effect waves-light red" type="button" name="action" onclick="deleteEmployeed(' + item.iEmp_id + ',event)"><i class="material-icons right">verified_user</i></button></td>';
+            html += '<td><button class="btn-floating waves-effect waves-light red" type="button" name="action" onclick="deleteEmployeed(' + item.iEmp_id + ',event)"><i class="material-icons right">delete</i></button></td>';
             html += '</tr>';
         });
         $('#listEmployeeDelete  tbody').html(html);
@@ -390,15 +392,38 @@ function createTable(data) {
                 $("#emp_password_confirm").val(id[key]);
                 $("#emp_password_confirm").prop('disabled', false);
             }
+            if (key == "iRol_id") {
+                //console.log(id[key]);
+                createSelctHtml(objectEmployeeList[0], key, 'sRol_name', '' + id[key]);
+
+            }
+            if (key == "iBra_buis_id") {
+         
+                //console.log("bus" + id[key]);
+                createSelctHtml(objectEmployeeList[1], key, 'sBra_buis_name', '' + id[key]);
+
+            }
+            if (key == "sEmp_permission") {
+                //console.log("Per"+id[key]);
+                createSelctHtml(objectEmployeeList[2], key, 'sPer_name', '' + id[key]);
+
+            }
             if (key != "iRol_id" || key != "sEmp_permission" || key != "iBra_buis_id") {
 
                 inputs.val(id[key]);
             }
+           
+            
         }
          
     }
 }
+//Function  clean table 
+function cleanTable() {
+    var html = '';
+    $('table  tbody').html(html);
 
+}
 //Function Validate email 
 function validateBoxEmail(input) {
     let mail = input.val();
@@ -577,7 +602,7 @@ function formInputSelect(form) {
         // For debugging purposes...
         let getId = $("#" + $(this).attr('id'));
         let text = getId.val();
-        //console.log(text);
+        console.log(typeof text);
         if (text != null) {
             if (text.length == 0) {
                 validate = false;
@@ -591,20 +616,39 @@ function formInputSelect(form) {
 
     return validate;
 }
-function createSelctHtml(selectData,idSelect,nameSelect,value) { 
+function createSelctHtml(selectData,idSelect,nameSelect,data) { 
 
-    let select = $('#' + id);
+    let select = $('#' + idSelect);
+    $(select).material_select('destroy');
+    $(select).find("option").remove();
+    //console.log(idSelect);
     select.append('<option value="" disabled selected>Elija su opción</option>');
     for (let i = 0; i < selectData.length; i++) {
         let id = selectData[i];
-        for (key in id) {
-            let idOption;
-            if (idSelect == key) {
-              
-                idOption = id[key];
+        let idOption;
+        for (key in id) { 
+            if (idSelect == key) {               
+                idOption = id[key];    
             }
             if (nameSelect == key) {
-                select.append('<option value="' + id + '">' + id[key] + '</option>');
+                let option;
+            
+                if (typeof data != 'undefined') {
+              
+                    let res = data.split(",");
+                   // console.log(typeof res);
+         
+                    if (res.indexOf(""+idOption)!=-1) {
+                        option = '<option value="' + idOption + '" selected>' + id[key] + '</option>';
+                    } else {
+                        option = '<option value="' + idOption + '">' + id[key] + '</option>';
+                    }
+
+                   // console.log(option);
+                } else {
+                    option = '<option value="' + idOption + '">' + id[key] + '</option>';
+                }
+                select.append(option);
             }
             
         }

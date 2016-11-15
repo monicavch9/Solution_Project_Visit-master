@@ -195,6 +195,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CtrlBusiness.cs" />
+    <Compile Include="Models\CtrlClient.cs" />
     <Compile Include="Models\CtrlEmployee.cs" />
     <Compile Include="Models\CtrlNotification.cs" />
     <Compile Include="Models\DtoBusiness.cs" />
@@ -202,6 +203,7 @@
     <Compile Include="Models\DtoEmployee.cs" />
     <Compile Include="Models\DtoVisit.cs" />
     <Compile Include="Models\IntBusiness.cs" />
+    <Compile Include="Models\IntClient.cs" />
     <Compile Include="Models\IntEmployee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

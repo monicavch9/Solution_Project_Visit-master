@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="29151c66ff5c460e818dc7d22a1207df" Name="Diagram1">
+      <Diagram DiagramId="1beb3989b9dd4557bac6d1de804d24a0" Name="Diagram1">
         <EntityTypeShape EntityType="Project_Visit_Model.BRANCH_COMPANY" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Project_Visit_Model.BRANCH_OFFICE" Width="1.5" PointX="9.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Project_Visit_Model.BUSINESS" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Project_Visit_Model.BUSINESS_RULE_TYPE" Width="1.5" PointX="9.75" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="Project_Visit_Model.BUSINESS_RULES" Width="1.5" PointX="7.5" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Project_Visit_Model.CITIES" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Project_Visit_Model.CLIENT_BUSINESS" Width="1.5" PointX="7.5" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_Visit_Model.CLIENT_BUSINESS" Width="1.5" PointX="7.5" PointY="10.875" IsExpanded="true" />
         <EntityTypeShape EntityType="Project_Visit_Model.COUNTRY" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Project_Visit_Model.DETAIL_VISITS" Width="1.5" PointX="12" PointY="13.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Project_Visit_Model.EMPLOYEE" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
@@ -21,6 +21,7 @@
         <EntityTypeShape EntityType="Project_Visit_Model.QUOTATION_STATE" Width="1.5" PointX="9.75" PointY="10.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Project_Visit_Model.ROLE" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Project_Visit_Model.VISITS" Width="1.5" PointX="12" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_Visit_Model.database_firewall_rules" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
         <AssociationConnector Association="Project_Visit_Model.FK_BRANCH_C_ARE_LOCAT_CITIES" ManuallyRouted="false" />
         <AssociationConnector Association="Project_Visit_Model.FK_BRANCH_C_IT_S_IN_BUSINESS" ManuallyRouted="false" />
         <AssociationConnector Association="Project_Visit_Model.FK_BUSINESS_CREATE_BRANCH_C" ManuallyRouted="false" />

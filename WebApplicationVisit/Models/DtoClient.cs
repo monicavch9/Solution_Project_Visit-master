@@ -7,6 +7,6 @@ namespace WebApplicationVisit.Models
 {
     public class DtoClient
     {
-
+        public int iCli_bus_id  { get; set; }
     }
 }

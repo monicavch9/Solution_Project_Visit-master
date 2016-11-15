@@ -72,6 +72,9 @@
     <Compile Include="COUNTRY.cs">
       <DependentUpon>Model_Visit.tt</DependentUpon>
     </Compile>
+    <Compile Include="database_firewall_rules.cs">
+      <DependentUpon>Model_Visit.tt</DependentUpon>
+    </Compile>
     <Compile Include="DETAIL_VISITS.cs">
       <DependentUpon>Model_Visit.tt</DependentUpon>
     </Compile>

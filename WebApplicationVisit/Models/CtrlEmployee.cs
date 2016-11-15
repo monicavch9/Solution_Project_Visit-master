@@ -112,6 +112,7 @@ namespace Aplication_Visit.Models
                         objEmployee = new DtoEmployee();
                         objEmployee.iEmp_id = (int)employee.EMP_ID;
                         objEmployee.iRol_id = (int)employee.ROL_ID;
+                        objEmployee.iBra_buis_id = (int)employee.BRA_BUIS_ID;
                         objEmployee.sRol_name = employee.ROL_NAME;
                         objEmployee.sEmp_document = employee.EMP_DOCUMENT;
                         objEmployee.sEmp_name = employee.EMP_NAME;
@@ -124,6 +125,8 @@ namespace Aplication_Visit.Models
                         objEmployee.sEmp_mail = employee.EMP_MAIL;
                         objEmployee.sEmp_mail2 = employee.EMP_MAIL2;
                         objEmployee.sEmp_password = employee.EMP_PASSWORD;
+                        objEmployee.sEmp_password = employee.EMP_PASSWORD;
+                        objEmployee.sEmp_permission = employee.EMP_PER;
                         list.Add(objEmployee);
                     }
                     list.ToList();
@@ -144,11 +147,12 @@ namespace Aplication_Visit.Models
                 {
                    list = (from empl in ctx.EMPLOYEE
                                 join rol in ctx.ROLE on empl.ROL_ID equals rol.ROL_ID
-                                where empl.EMP_DOCUMENT == emp.sEmp_document || empl.EMP_MAIL == emp.sEmp_mail
+                                where empl.EMP_STATE==true &&  empl.EMP_DOCUMENT == emp.sEmp_document || empl.EMP_MAIL == emp.sEmp_mail
                                 select new DtoEmployee()
                                 {
                                 iEmp_id = empl.EMP_ID,
                                 iRol_id = empl.ROL_ID,
+                                iBra_buis_id = empl.BRA_BUIS_ID,
                                 sRol_name = rol.ROL_NAME,
                                 sEmp_document = empl.EMP_DOCUMENT,
                                 sEmp_name = empl.EMP_NAME,
@@ -160,8 +164,9 @@ namespace Aplication_Visit.Models
                                 sEmp_addres = empl.EMP_ADDRES,
                                 sEmp_mail = empl.EMP_MAIL,
                                 sEmp_mail2 = empl.EMP_MAIL2,
-                                sEmp_password = empl.EMP_PASSWORD
-                }).ToList();
+                                sEmp_password = empl.EMP_PASSWORD,
+                                sEmp_permission = empl.EMP_PER
+                                }).ToList();
                     return list;
                 }
                 catch (Exception e)
