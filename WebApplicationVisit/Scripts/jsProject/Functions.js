@@ -237,14 +237,15 @@ function clearInput(get_from) {
     fromI.removeClass('active'); 
 }
 //Function clear input 
+//Function clear input 
 function disableEnableInput(dataForm, type) {
-   
+
     let get_from = '#form' + dataForm;
     let selectValidate = true;
-    if(type!=0){
+    if (type != 0) {
         selectValidate = false;
     }
-    else{
+    else {
         selectValidate = true;
     }
     //Type input 
@@ -262,7 +263,7 @@ function disableEnableInput(dataForm, type) {
     //Type number
     let fromNumber = $(get_from + ' form :input[type=number]');
     fromNumber.prop('disabled', selectValidate);
-   
+
     //Type email
     let fromMail = $(get_from + ' form :input[type=email]');
     fromMail.prop('disabled', selectValidate);
@@ -270,8 +271,13 @@ function disableEnableInput(dataForm, type) {
     //Type password
     let fromPassword = $(get_from + ' form :input[type=password]');
     fromPassword.prop('disabled', selectValidate);
-    
-    
+
+    //Type Select
+    let fromSelect = $(get_from + ' form select');
+    fromPassword.prop('disabled', fromSelect);
+
+    $('.disabled').prop('disabled', fromSelect);
+
 
 }
 //Function clear elements input form  
@@ -310,10 +316,12 @@ function disableEnableElementInput(dataForm, type) {
     let fromPassword = $(get_from + '  :input[type=password]');
     fromPassword.prop('disabled', selectValidate);
 
-
+    //Type Select
+    let fromSelect = $(get_from + ' form select');
+    fromSelect.prop('disabled', selectValidate);
+ 
 
 }
-
 
 //Fuction clear table 
 function cleanTable(table) {
@@ -493,7 +501,6 @@ function validateSelectList(lists) {
 
     return validate;
 }
-
 
 
 //Function  validator

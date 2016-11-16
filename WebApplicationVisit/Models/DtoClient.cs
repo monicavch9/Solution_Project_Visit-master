@@ -12,7 +12,8 @@ namespace WebApplicationVisit.Models
         public string sCli_bus_document { get; set; }
         public string sCli_bus_type { get; set; }
         public int iCli_state { get; set; }
-
+        public string sEmp_document { get; set; }
+        public string sEmp_mail { get; set; }
 
         public int iBra_off_id { get; set; }
         public int iCit_id{ get; set; }

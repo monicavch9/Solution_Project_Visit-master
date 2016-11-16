@@ -63,6 +63,8 @@ function _loadViewObject(select)
             objectCliJson.sCit_name  = "";
             objectCliJson.iCont_id = 0;
             objectCliJson.sCont_name = "";
+            objectCliJson.sEmp_document = "";
+
 
             objectCliJson.iBra_off_id = 0;
             objectCliJson.iCit_id= 0;

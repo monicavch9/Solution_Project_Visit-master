@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 <!DOCTYPE html>
@@ -9,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
     <title>Client</title>
     <!--CSS-->
+    <link rel="icon" type="image/png" href="~/Img/logoM.png" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link href="~/Content/materialize-v0.97.5/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <style type="text/css">
@@ -31,6 +31,10 @@
         #contIdBusiness {
               display:none;
         }
+        #contSearchEmployee{
+            display:none;
+        }
+
         .inputNotEditable{
            
         }
@@ -103,7 +107,7 @@
     <!--Start Container-->
     <div class="row">
         <!--Start data -->
-        <div id="contIdBusiness"><input type="text" id="iEmp_id" value=1><input type="text" id="iCli_state" value="true"></div>
+        <div id="contIdBusiness"><input type="text" id="iCli_state" value="true"></div>
         <!--End data-->
         <!--Start Menu Side-->
         <div class="col l2 hide-on-small-only hide-on-med-only">
@@ -155,28 +159,24 @@
                     <div class="row">
                         <!--Start Elements -->
                         <div class="input-field col s12 m3 l3">
-                            <select id="listSearchEmployee">
+                            <select id="listSearchClient">
                                 <option value="" disabled selected>Elija su opción</option>
-                                <option value="sEmp_name">Nombre</option>
-                                <option value="sEmp_surname">Apellido</option>
-                                <option value="sEmp_document">Documento</option>
-                                <option value="sEmp_mail">Email</option>
-                                <option value="sRol_name">Rol</option>
-                                <option value="sGeneral">Todos</option>
+                                <option value="sCli_bus_name">Nombre</option>
+                                <option value="sCli_bus_document">Nit</option>
                             </select>
                             <label>Seleccione Búsqueda</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s10 m7 l7">
-                            <input id="emp_search" type="text" class="validate" required>
-                            <label for="emp_search">Digite el valor a buscar</label>
+                            <input id="cli_search" type="text" class="validate" required>
+                            <label for="cli_search">Digite el valor a buscar</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s2 m2 l2">
                             <div class="card-action center">
-                                <button id="btn_emp_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
+                                <button id="btn_cli_search" class="btn-floating waves-effect waves-light" type="submit" name="action">
                                     <i class="material-icons right">search</i>
                                 </button>
                             </div>
@@ -192,9 +192,12 @@
                         <table class="responsive-table highlight">
                             <thead>
                                 <tr>
-                                    <th data-field="id">Name</th>
-                                    <th data-field="name">Item Name</th>
-                                    <th data-field="price">Item Price</th>
+                                    <th data-field="sCli_bus_name">Nombre</th>
+                                    <th data-field="sCli_bus_document">Nit</th>
+                                    <th data-field="sCit_name">Ciudad</th>
+                                    <th data-field="sCont_name">País</th>
+                                    <th data-field="sBra_off_address">Dirección</th>
+                                    <th data-field="sBra_off_phone">Teléfono</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -207,8 +210,10 @@
                 <!--End Table result search-->
             </div>
             <!--End Form 0-->
+
             <!--Start Container Form 1-->
             <div id="form0_1" class="form_select">
+               
                 <!--Start cont search-->
                 <div class="row cont_search" id="cont_search_0_1">
                     <!--Form search-->
@@ -217,26 +222,26 @@
                         <div class="row">
                             <!--Start Elements -->
                             <div class="input-field col s12 m3 l3">
-                                <select id="listSearchEmployeeUpdate">
+                                <select id="listSearchCliUpdate">
                                     <option value="" disabled selected required>Elija su opción</option>
-                                    <option value="sEmp_document">Documento</option>
-                                    <option value="sEmp_mail">Email</option>
+                                    <option value="sCli_bus_document">Nit</option>
                                 </select>
                                 <label>Seleccine Búsqueda</label>
                             </div>
                             <!--End Elements -->
                             <!--Start Elements -->
                             <div class="input-field col s10 m7 l7">
-                                <input id="emp_search_update" type="text" class="validate" required>
-                                <label for="emp_search_update">Digite el dato a buscar</label>
+                                <input id="cli_search_update" type="text" class="validate" required>
+                                <label for="cli_search_update">Digite el dato a buscar</label>
                             </div>
                             <!--End Elements -->
                             <!--Start Elements -->
                             <div class="input-field col s2 m2 l2">
                                 <div class="card-action center">
-                                    <button id="btn_emp_search_update" class="btn-floating waves-effect waves-light" type="submit" name="action">
+                                    <button id="btn_cli_search_update" class="btn-floating waves-effect waves-light" type="submit" name="action">
                                         <i class="material-icons right">search</i>
                                     </button>
+
                                 </div>
                             </div>
                             <!--End Elements -->
@@ -254,128 +259,181 @@
                     <div class="row">
                         <!--Start Elements -->
                         <div class="input-field col s12 m6 l4">
-                            <select>
-                                <option value="" disabled selected>Elija su opción</option>
-                                <option value="1">Juridico</option>
-                                <option value="2">Natural</option>                                
-                            </select>
+                            <i class="material-icons prefix">perm_identity</i>
+                            <input id="sCli_bus_name" type="text" class="validate" required>
+                            <label for="sCli_bus_name">Nombre</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">perm_identity</i>
+                            <input id="sCli_bus_document" type="text" class="validate" required>
+                            <label for="sCli_bus_document">Nit</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">contact_phone</i>
+                            <input id="sBra_off_phone" type="tel" class="validate" required>
+                            <label for="sBra_off_phone">Teléfono</label>
+                        </div>
+                        <!--End Elements --> 
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">room</i>
+                            <input id="sBra_off_address" type="text" class="validate" required>
+                            <label for="sBra_off_address">Dirección</label>
+                        </div>
+                        <!--End Elements -->   
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">perm_identity</i>
+                            <input id="sBra_com_name" type="text" class="validate" required>
+                            <label for="sBra_com_name">Nombre del Contacto</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">perm_phone_msg</i>
+                            <input id="sBra_com_phone" type="tel" class="validate" required>
+                            <label for="sBra_com_phone">Teléfono del Contacto</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">email</i>
+                            <input id="sBra_com_mail" type="email" class="validate" required>
+                            <label for="sBra_com_mail">Email del Contacto</label>
+                        </div>
+                        <!--End Elements -->
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                            <i class="material-icons prefix">email</i>
+                            <input id="sBra_com_mail2" type="email" class="validate">
+                            <label for="sBra_com_mail">Email 2 del Contacto</label>
+                        </div>
+                        <!--End Elements -->  
+                        <!--Start Elements -->
+                        <div class="input-field col s12 m6 l4">
+                              <select id="sCli_bus_type">
+                                    <option value="" disabled selected>Elija su opción</option>
+                                    <option value="juridico">Juridico</option>
+                                    <option value="natural">Natural</option>
+                                </select>
                             <label>Tipo de Cliente</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s12 m6 l4">
-                            <i class="material-icons prefix">perm_identity</i>
-                            <input id="cli_id" type="text" class="validate" required>
-                            <label for="cli_id">Documento</label>
-                        </div>
-                        <!--End Elements -->
-                        <!--Start Elements -->
-                        <div class="input-field col s12 m6 l4">
-                            <i class="material-icons prefix">perm_identity</i>
-                            <input id="cli_name" type="text" class="validate" required>
-                            <label for="cli_name">Nombre</label>
-                        </div>
-                        <!--End Elements -->
-                        <!--Start Elements -->
-                        <div class="input-field col s12 m6 l4">
-                            <select>
-                                <option value="" disabled selected>Elija su opción</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
+                            <select id="iCont_id" >
                             </select>
                             <label>Pais</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s12 m6 l4">
-                            <select>
-                                <option value="" disabled selected>Elija su opción</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
+                            <select id="iCit_id">
                             </select>
                             <label>Ciudad</label>
                         </div>
-                        <!--End Elements -->                    
+                        <!--End Elements -->
                         <!--Start Elements -->
-                        <div class="input-field col s12 m6 l4">
-                            <i class="material-icons prefix">contact_phone</i>
-                            <input id="cli_phone" type="tel" class="validate" required>
-                            <label for="cli_phone">Teléfono</label>
-                        </div>
-                        <!--End Elements --> 
-                        <!--Start Elements -->
-                        <div class="input-field col s12 m6 l4">
-                            <i class="material-icons prefix">room</i>
-                            <input id="cli_direccion" type="text" class="validate" required>
-                            <label for="cli_direccion">Dirección</label>
-                        </div>
-                        <!--End Elements -->        
-                        <!--Start Elements -->
-                        <div class="input-field col s12 m6 l4">
-                            <i class="material-icons prefix">perm_identity</i>
-                            <input id="name_cont" type="text" class="validate" required>
-                            <label for="name_cont">Nombre del Contacto</label>
-                        </div>
-                        <!--End Elements -->               
-                        <!--Start Elements -->
-                        <div class="input-field col s12 m6 l4">
-                            <i class="material-icons prefix">perm_phone_msg</i>
-                            <input id="phone_cont" type="tel" class="validate" required>
-                            <label for="phone_cont">Teléfono del Contacto</label>
+                        <div class="input-field col s12 m4 l2">
+                           
+                            <input  id="sEmp_document" type="text" class="validate disabled">
+                            <label for="sEmp_document">Documento empleado</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
-                        <div class="input-field col s12 m6 l4">
-                            <i class="material-icons prefix">room</i>
-                            <input id="direccion_cont" type="text" class="validate" required>
-                            <label for="direccion_cont">Dirección del Contacto</label>
-                        </div>
-                        <!--End Elements -->                          
-                        <!--Start Elements -->
-                        <div class="input-field col s12 m6 l4">
-                            <i class="material-icons prefix">email</i>
-                            <input id="cli_mail" type="email" class="validate" required>
-                            <label for="cli_mail">Email</label>
-                        </div>
-                        <!--End Elements -->
-                        <!--Start Elements -->
-                        <div class="input-field col s12 m6 l4">
-                            <i class="material-icons prefix">email</i>
-                            <input id="cli_mail2" type="email" class="validate">
-                            <label for="cli_mail2">Email 2</label>
-                        </div>
-                        <!--End Elements -->
-                  
-                        <!--Start Elements -->
-                        <div class="input-field col s12 m6 l4">
-                            <select>
-                                <option value="" disabled selected>Elija su opción</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
-                            </select>
-                            <label>Vendedor Asignado</label>
-                        </div>
-                        <!--End Elements -->                      
-                    </div>
-                    <!-- End Elements input-->
-                    <!--Start Elements Button-->
-                    <div class="row">
-                        <div class="col s12 m12 l12">
+                        <div class="input-field col s12 m2 l2">
                             <div class="card-action center">
-                                <button id="login" class="btn waves-effect waves-light" type="submit" name="action">
-                                    Enviar
-                                    <i class="material-icons right">done</i>
-                                </button>
+                                <button id="btn_search_employee" class="btn-floating waves-effect waves-light" type="button" onclick="viewContSearch('formSearchEmployee')" name="action">
+                                    <i class="material-icons right" href="#contSearchEmployee">search</i>
+                                </button>    
+                            </div>
+                            </div>
+                        <!--End Elements -->
+                        
+                    </div>
+                    
+                    <!-- End Elements input-->
+                   
+                        <!--Start Elements Button-->
+                        <div class="row">
+                            <div class="col s12 m12 l12">
+                                <div class="card-action center">
+                                    <button id="btnSearchEmployee" class="btn waves-effect waves-light" type="submit" name="action">
+                                        Enviar
+                                        <i class="material-icons right">done</i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!--End Elements Button-->
+                        <!--End Elements Button-->
                 </form>
+                <a name="contSearchEmployee"></a>
+                <div id="contSearchEmployee">
+                    <form class="col s12  m12 l12" id="formSearchEmployee" onsubmit="searchEmployee(event)">
+                        <!--Start search employee -->
+                        <div class="row">
+
+                            <!--Start Elements -->
+                            <div class="input-field col s12 m3 l2">
+                                <select id="selectSearchEmployee">  
+                                    <option value="" disabled selected>Elija su opción</option>
+                                    <option value='sEmp_document'>Documento</option>
+                                    <option value='sEmp_mail'>Email</option>
+                                </select>
+                                <label>Busqueda empleado</label>
+                            </div>
+                            <!--End Elements -->
+                            <!--Start Elements -->
+                            <div class="input-field col s12 m6 l7">
+                                <i class="material-icons prefix">perm_identity</i>
+                                <input id="sBra_search_employee" type="text" class="validate" required>
+                                <label for="sBra_search_employee">Digite dato a buscar</label>
+                            </div>
+                            <!--End Elements -->
+                            <div class="col s12 m3 l3">
+                                <div class="card-action center">
+                                    <div class="card-action center">
+                                        <button id="btn_search_employee" class="btn-floating waves-effect waves-light" type="submit" name="action">
+                                            <i class="material-icons right">search</i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                        <!--Emd search employee-->
+                        <!--Start Table result search-->
+                        <div class="row">
+                            <!--Start Table-->
+                            <div class="col s12 m12 l12" id="listEmployeeSearch">
+                                <table class="responsive-table highlight">
+                                    <thead>
+                                        <tr>
+                                            <th data-field="role">Cargo</th>
+                                            <th data-field="name">Nombre</th>
+                                            <th data-field="surname">Apellido</th>
+                                            <th data-field="document">Documento</th>
+                                            <th data-field="phone">Telefono</th>
+                                            <th data-field="btn_deleteUser">Accion</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                                <!--End Table-->
+                            </div>
+                        </div>
+                        <!--End Table result search-->
+                        
+                </div>
+
             </div>
             <!--End Form 1-->
+
             <!--Start Container Form 3-->
             <div id="form0_3" class="form_select">
                 <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->

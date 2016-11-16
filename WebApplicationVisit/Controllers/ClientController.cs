@@ -39,10 +39,13 @@ namespace Aplication_Visit.Controllers
 
             return Json(ObjClient.ListClitSelect(clit),JsonRequestBehavior.AllowGet);
         }
-        /*public JsonResult ListClitSelect(DtoClient clit)
+        public JsonResult ListCountry()
         {
-
-            return Json(ObjClient.ListClitSelect(clit), JsonRequestBehavior.AllowGet);
-        }*/
+            return Json(ObjClient.ListCountry(), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult ListCitys(int idCountry)
+        {
+            return Json(ObjClient.ListCitys(idCountry), JsonRequestBehavior.AllowGet);
+        }
     }
 }

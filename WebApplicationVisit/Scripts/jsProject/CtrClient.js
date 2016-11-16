@@ -29,24 +29,25 @@ $(document).ready(function () {
     dataJson.bEmp_type_select = true;
     typeTatble = 0;
     _loadViewObject(1);
-    _getList();
-    _getListRol();
-    _getListBraBusiness();
-    _getListPermission();
-
+    //_getList();
+    _getListCountry();
+    _getListEmployee();
+    $('.per_user_1').click(function () {
+        
+        $('#contSearchEmployee').slideUp("slow", function () {
+            $('#contSearchEmployee').css('display', 'none');
+        });
+    });
     $('#mSubItem_0_0').click(function () {
-
         //enableButton(0);
         cleanTable();
-
-
     });
     $('#subItem_0_0').click(function () {
-
         //enableButton(0);
         cleanTable();
-
-
+    });
+    $('#iCont_id').change(function () {
+        _getListCity(parseInt($(this).val()));
     });
 
 });
@@ -66,13 +67,9 @@ function createEmployee(data) {
             if (result == true) {
                 textInfoForm.text("Accion realizada con exito");
                 clearInput("#form" + fromUpdateInsert);
-
-
             }
             else {
                 textInfoForm.text("Se presento un inconveniente en el  proceso");
-
-
             }
 
             enableButton(1);
@@ -161,7 +158,6 @@ function validateTextBox(e, id) {
 
     let form = '#' + id;
     let validate = true;
-
 
     if (!formInputText(form)) {
         validate = false;
@@ -302,7 +298,7 @@ function _getList() {
     });
 }
 //Function get list user  
-function _getEmployee() {
+function _getListEmployee() {
 
     $.ajax({
         url: "/Employee/ListEmployeeUpdate",
@@ -334,70 +330,41 @@ function _getEmployee() {
         }
     });
 }
-//Function get role
-function _getListRol() {
+//Function get country
+function _getListCountry() {
     $.ajax({
-        url: "/Employee/ListRole",
+        url: "/Client/ListCountry",
         cache: false,
         type: "GET",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (result) {
             objectEmployeeList[0] = result;
-            createSelctHtml(result, 'iRol_id', 'sRol_name');
+            createSelctHtml(result, 'iCont_id', 'sCont_name');
         },
         error: function (errorMessage) {
             alert(errorMessage.responseText);
         }
     });
 }
-//Function get role
-function _getListBraBusiness() {
-
-    let obj = new Object();
-    obj.iBus_id = 1;
+//Function get country
+function _getListCity(idCountry) {
     $.ajax({
-        url: "/Business/ListBraBusiness",
+        url: "/Client/ListCitys",
         cache: false,
         type: "GET",
+        data:{'idCountry':idCountry},
         contentType: "application/json; charset=utf-8",
-        data: obj,
         dataType: "json",
         success: function (result) {
-            objectEmployeeList[1] = result;
-            createSelctHtml(result, 'iBra_buis_id', 'sBra_buis_name');
-
+            objectEmployeeList[0] = result;
+            createSelctHtml(result, 'iCit_id', 'sCit_name');
         },
         error: function (errorMessage) {
             alert(errorMessage.responseText);
         }
     });
-
 }
-function _getListPermission() {
-    let permissionArrya = new Array();
-    var objectPermission = new Object();
-    objectPermission.sEmp_permission = 0;
-    objectPermission.sPer_name = "Crear";
-    permissionArrya[0] = objectPermission;
-    objectPermission = new Object();
-    objectPermission.sEmp_permission = 1;
-    objectPermission.sPer_name = "Modificar";
-    permissionArrya[1] = objectPermission;
-    objectPermission = new Object();
-    objectPermission.sEmp_permission = 2;
-    objectPermission.sPer_name = "Eliminar";
-    permissionArrya[2] = objectPermission;
-    objectPermission = new Object();
-    objectPermission.sEmp_permission = 3;
-    objectPermission.sPer_name = "Buscar";
-    permissionArrya[3] = objectPermission;
-    createSelctHtml(permissionArrya, 'sEmp_permission', 'sPer_name');
-    objectEmployeeList[2] = permissionArrya;
-
-}
-
-
 
 //Function  search employee
 function searchEmployee(e) {
@@ -554,5 +521,20 @@ function enableButton(data) {
         $('button').prop('disabled', false);
         $('.collapsible').css('display', 'block');
         $('.collapsible-header').css('display', 'block');
+    }
+}
+function viewContSearch(form) {
+
+    let cont = $('#contSearchEmployee');
+    disableEnableElementInput(form, 1);
+    if (cont.is(':visible')) {
+        cont.slideUp("slow", function () {
+            cont.css('display','none');
+        });
+    } else {
+        cont.fadeIn("slow", function () {
+            cont.slideDown("slow");
+        });
+       
     }
 }
