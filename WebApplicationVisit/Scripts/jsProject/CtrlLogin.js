@@ -18,37 +18,32 @@ $(document).ready(function () {
 });
 //Send Login ajax C#
 function sendLogin(model) {
-    
+
     $.ajax({
-        url: '/Login/LoginEmployee',
+        url: "/Login/LoginEmployee",
         cache: false,
-        type: 'POST',
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
         data: model,
         dataType: "json",
-        contentType: "application/json",
         success: function (result) {
-            debugger;
             if (result.length > 0) {
- 
                 StorageLogin(result[0]);
                 enableButton(1);
-            }
-            else {
-                alert("Error usuario o contraseña son  incorrectos");
+            } else {
+                textInfoForm.text("No se encontraron datos");
                 clearTextBox();
                 enableButton(1);
             }
+      
 
         },
-        error: function (response) {
-            alert(response.responseText);
-            clearTextBox();
-
+        error: function (errorMessage) {
+            alert(errorMessage.responseText);
+            enableButton(1);
         }
-
     });
 
-    return false;
 }
 //Send Reset password Login ajax C#
 function sendResetPassword(model) {
