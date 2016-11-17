@@ -30,7 +30,6 @@ function sendLogin(model) {
             debugger;
             if (result.length > 0) {
  
-               console.log(result);
                 StorageLogin(result[0]);
                 enableButton(1);
             }

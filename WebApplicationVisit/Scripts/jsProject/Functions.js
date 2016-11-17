@@ -206,8 +206,8 @@ function StorageLogin(data) {
         sessionStorage.setItem("dataUser", JSON.stringify(data));
         sessionStorage.setItem("session", "TRUE");
         clearTextBox();
-        window.location.assign("/Home/Home");
-
+       // window.location.assign("/Home/Home");
+        console.log(data);
 
     } else {
         // Sorry! No Web Storage support..
