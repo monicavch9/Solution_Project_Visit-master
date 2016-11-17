@@ -206,8 +206,8 @@ function StorageLogin(data) {
         sessionStorage.setItem("dataUser", JSON.stringify(data));
         sessionStorage.setItem("session", "TRUE");
         clearTextBox();
-       // window.location.assign("/Home/Home");
-        console.log(data);
+       window.location.assign("/Home/Home");
+   
 
     } else {
         // Sorry! No Web Storage support..
@@ -556,7 +556,7 @@ function formInputTel(form) {
                 validate = false;
                 getId.addClass('invalid');
             } else {
-                getId.removeClass('invalid');
+                
             }
         } else {
             if (text.length > 3 || text != "") {

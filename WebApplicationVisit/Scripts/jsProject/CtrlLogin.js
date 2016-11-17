@@ -9,10 +9,11 @@ Date :20/10/2016
 
 var user;
 var password;
-
+var textInfoForm;
 //Start page
 $(document).ready(function () {
- 
+    textInfoForm = $('#textInfoForm');
+    textInfoForm.css('color', 'red');
     $('.modal-trigger').leanModal();
     _loadViewObject(0);
 });
@@ -30,6 +31,7 @@ function sendLogin(model) {
             if (result.length > 0) {
                 StorageLogin(result[0]);
                 enableButton(1);
+                textInfoForm.text("");
             } else {
                 textInfoForm.text("No se encontraron datos");
                 clearTextBox();
@@ -130,8 +132,17 @@ function validateResetLogin(e) {
 }
 function clearTextBox() {
     $('#user').val("");
+
     $('#password').val("");
+
     $('#ResetPassword').val("");
+
+
+    $('#user').removeClass('active');
+    $('#password').removeClass('active');
+    $('#ResetPassword').removeClass('active');
+    $('form label').removeClass('active');
+    $('form i').removeClass('active');
   
 }
 
