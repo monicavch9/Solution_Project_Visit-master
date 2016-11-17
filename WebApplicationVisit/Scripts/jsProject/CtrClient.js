@@ -27,16 +27,14 @@ $(document).ready(function () {
     dataJson.bemp_state = true;
     dataJson.iBra_buis_id = 1;
     dataJson.bEmp_type_select = true;
+    dataJson.sCli_bus_document = "";
+    dataJson.sCli_bus_name = "";
+    
     typeTatble = 0;
     _loadViewObject(1);
-    //_getList();
     _getListCountry();
-    _getListEmployee();
     $('.per_user_1').click(function () {
-        
-        $('#contSearchEmployee').slideUp("slow", function () {
-            $('#contSearchEmployee').css('display', 'none');
-        });
+        closeContent();
     });
     $('#mSubItem_0_0').click(function () {
         //enableButton(0);
@@ -51,13 +49,18 @@ $(document).ready(function () {
     });
 
 });
-
+function closeContent() {
+    $('#contSearchEmployee').slideUp("slow", function () {
+        $('#contSearchEmployee').css('display', 'none');
+    });
+    cleanTable();
+}
 
 //Function validate create
-function createEmployee(data) {
-    debugger;
+function createClient(data) {
+   
     $.ajax({
-        url: "Employee/EmployeeInsertUpdate",
+        url: "Client/InsertUpdateClit",
         cache: false,
         type: "GET",
         contentType: "application/json; charset=utf-8",
@@ -67,9 +70,11 @@ function createEmployee(data) {
             if (result == true) {
                 textInfoForm.text("Accion realizada con exito");
                 clearInput("#form" + fromUpdateInsert);
+                closeContent();
             }
             else {
                 textInfoForm.text("Se presento un inconveniente en el  proceso");
+
             }
 
             enableButton(1);
@@ -79,6 +84,7 @@ function createEmployee(data) {
             enableButton(1);
         }
     });
+    
 }
 //Function validate Update
 function UpdateEmployee(data) {
@@ -149,7 +155,6 @@ function UpdateSearchEmployee(e, form) {
         _getEmployee();
     }
 
-
     e.preventDefault();
 }
 
@@ -158,6 +163,8 @@ function validateTextBox(e, id) {
 
     let form = '#' + id;
     let validate = true;
+ 
+    fromUpdateInsert = id.replace('form_create_update_', '');;
 
     if (!formInputText(form)) {
         validate = false;
@@ -171,25 +178,15 @@ function validateTextBox(e, id) {
         validate = false;
         textInfoForm.text("Verifique los datos de su cuenta de correo mail");
     }
-    if (validate && ($('#sEmp_mail2').val() != "" || $('#sEmp_mail2').val() != null)) {
-        if ($('#sEmp_mail2').val() == $('#sEmp_mail').val()) {
+    if (validate && ($('#sBra_com_mail2').val() != "" || $('#sBra_com_mail2').val() != null)) {
+        if ($('#sBra_com_mail').val() == $('#sBra_com_mail2').val()) {
             validate = false;
             textInfoForm.text("Los emailes deben ser diferentes ");
-            $('#sEmp_mail2').addClass('invalid');
-            $('#sEmp_mail').addClass('invalid');
+            $('#sBra_com_mail2').addClass('invalid');
+            $('#sBra_com_mail').addClass('invalid');
         }
     }
-    if (validate && (!formInputPassword(form))) {
-        validate = false;
-        textInfoForm.text('Tenga en cuenta: Mínimo 8 caracteres, máximo 15, al menos una letra mayúscula, al menos una letra minúscula, al menos un carácter, no espacios en blanco.');
-    }
-    if (validate && ($('#sEmp_password').val() != $('#emp_password_confirm').val())) {
-        validate = false;
-        textInfoForm.text("Las constraseñas no coinciden ");
 
-        $('#sEmp_password').addClass('invalid');
-        $('#emp_password_confirm').addClass('invalid');
-    }
     if (validate && (!formInputSelect(form))) {
         validate = false;
         textInfoForm.text("Seleccione una opción de las listas");
@@ -207,26 +204,31 @@ function validateTextBox(e, id) {
 
 //Function  create  object
 function createObjectJson(form_id) {
-    console.log(form_id);
+   
     let form = '#' + form_id;
     let formInput = $(form + " :input");
     let id;
     for (key in objectCliJson) {
         let data = $("#" + key).val();
 
-        if (key == "sEmp_permission") {
-            data = $("#" + key).val().toString();
-        }
-        if (key == "iEmp_id") {
+        if (key == "iCont_id") {
+        
             data = parseInt($("#" + key).val());
         }
-        if (key == "iRol_id") {
+        if (key == "iCit_id") {
+
+            data = parseInt($("#" + key).val());
+        }
+        if (key == "iEmp_id") {
             data = parseInt($("#" + key).val());
         }
         if (key == "iBra_buis_id") {
             data = parseInt($("#" + key).val());
         }
-        if (key == "bemp_state") {
+        if (key == "iCli_state") {
+            data = true;
+        }
+        if (key == "bBra_off_state") {
             data = true;
         }
         objectCliJson[key] = data;
@@ -243,7 +245,6 @@ function createObjectJson(form_id) {
         let text = getId.val();
        
     });*/
-    // console.log(objectCliJson);
     selectionStorages();
 }
 //function  menu selection 
@@ -255,26 +256,57 @@ function selectionStorages() {
 
             break;
         case '0_1':
+            
             enableButton(0);
-            createEmployee(objectCliJson);
-            loadSelect();
+            objectCliJson.bBra_off_state = true;
+            createClient(objectCliJson);
             break;
         case '0_2':
-
+            
             enableButton(0);
-            UpdateEmployee(objectCliJson);
-            loadSelect();
+            console.log(objectCliJson);
+            //UpdateEmployee(objectCliJson);
+            //loadSelect();
             break;
         case '0_3':
 
             break;
     }
-    //console.log(typeSelectionUpdateCreate);
+
 
 }
+
+
 //Function database 
-//Function get list user  
-function _getList() {
+//Function get list  Client
+function _getListClientSelect() {
+    console.log(dataJson);
+    $.ajax({
+        url: "/Client/ListClitSelect",
+        cache: false,
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        data: dataJson,
+        dataType: "json",
+        success: function (result) {
+            if (result.length > 0) {
+                createTable(result);
+                textInfoForm.text("");
+            } else {
+                textInfoForm.text("No se encontraron datos");
+                cleanTable();
+            }
+            enableButton(1);
+
+        },
+        error: function (errorMessage) {
+            alert(errorMessage.responseText);
+            enableButton(1);
+        }
+    });
+}
+//Function get list employee  
+function _getListEmployee() {
     $.ajax({
         url: "/Employee/ListEmployee",
         cache: false,
@@ -294,39 +326,6 @@ function _getList() {
         error: function (errorMessage) {
             alert(errorMessage.responseText);
             enableButton(1);
-        }
-    });
-}
-//Function get list user  
-function _getListEmployee() {
-
-    $.ajax({
-        url: "/Employee/ListEmployeeUpdate",
-        cache: false,
-        type: "GET",
-        contentType: "application/json; charset=utf-8",
-        data: dataJson,
-        dataType: "json",
-        success: function (result) {
-            // console.log(result);
-            if (result.length > 0) {
-                createTable(result);
-                textInfoForm.text("");
-            } else {
-
-                clearInput("#form" + fromUpdateInsert);
-                disableEnableInput(fromUpdateInsert, 0);
-                disableEnableElementInput(fromUpdateSearch, 1);
-                textInfoForm.text("No se encontraron datos");
-
-            }
-            enableButton(1);
-        },
-        error: function (errorMessage) {
-            textInfoForm.text("Se presento un inconveniente en  la comunicación");
-
-            enableButton(1);
-
         }
     });
 }
@@ -365,79 +364,93 @@ function _getListCity(idCountry) {
         }
     });
 }
+//Fuction search client delete 
+function searchClient(e) {
+    let listSelection = $('#listSearchClient').val();
+    let textSearch = $("#cli_search").val();
+    typeTatble = 3;
+    dataJson.sCli_bus_document = "";
+    dataJson.sCli_bus_name = "";
+    let bValidate = true;
+    textInfoForm.text("");
+    if (listSelection == null) {
+    
+        textInfoForm.text("Verifique la lista de busqueda");
+        bValidate = false;
+    }
+    else if (expressionData.test(textSearch) || textSearch.length == 0) {
+        if (listSelection != 'all') {
+            textInfoForm.text("Verifique la caja de busqueda");
+            bValidate = false;
+        } else {
+            enableButton(0)
+            _getListClientSelect();
+            bValidate = false;
+        }
+    }
+
+
+    if (bValidate) {
+        dataJson.bEmp_type_select = false;
+        switch (listSelection) {
+
+            case 'sCli_bus_name':
+                dataJson.sCli_bus_name = textSearch;
+
+                break;
+            case 'sCli_bus_document':
+                dataJson.sCli_bus_document = textSearch;
+
+                break;
+        }
+        enableButton(0)
+        _getListClientSelect();
+    } 
+    e.preventDefault();
+}
+
+
+//Function select document
+function selectDocument(document,id) {
+ 
+    $('#sEmp_document').val(document);
+    $('#sEmp_document').addClass('valid');
+    $('label[for="sEmp_document"]').addClass('active');
+    $('#iEmp_id').val(parseInt(id));
+   
+}
+
+function loadSelect() {
+    createSelctHtml(objectEmployeeList[0], 'iRol_id', 'sRol_name');
+    createSelctHtml(objectEmployeeList[1], 'iBra_buis_id', 'sBra_buis_name');
+    createSelctHtml(objectEmployeeList[2], 'sEmp_permission', 'sPer_name');
+}
+
+function viewContSearch(form) {
+
+    let cont = $('#contSearchEmployee');
+    disableEnableElementInput(form, 1);
+    if (cont.is(':visible')) {
+        cont.slideUp("slow", function () {
+            cont.css('display','none');
+        });
+    } else {
+        cont.fadeIn("slow", function () {
+            cont.slideDown("slow");
+        });
+       
+    }
+}
+
 
 //Function  search employee
 function searchEmployee(e) {
 
-
-    let listSelection = $('#listSearchEmployee').val();
-    let textSearch = $("#emp_search").val();
-    typeTatble = 0;
+    let list = $("#ListSearchEmployee").val();
+    let textSearch = $("#search_employee").val();
     let bValidate = true;
-    if ((expressionData.test(textSearch) || textSearch.length == 0) && (listSelection == null)) {
-        dataJson.bEmp_type_select = true;
-        enableButton(0);
-        _getList();
-        textInfoForm.text("");
-
-    } else {
-        textInfoForm.text(listSelection);
-        if (listSelection != 'sGeneral') {
-            if ((expressionData.test(textSearch) || textSearch.length == 0) && (listSelection != null)) {
-                bValidate = false;
-            }
-            if ((!expressionData.test(textSearch) || textSearch.length != 0) && (listSelection == null)) {
-                bValidate = false;
-            }
-            if (!bValidate) {
-                textInfoForm.text("Verifique la selección ");
-
-            } else {
-                dataJson.bEmp_type_select = false;
-                switch (listSelection) {
-                    case 'sEmp_name':
-                        dataJson.sEmp_name = textSearch;
-
-                        break;
-                    case 'sEmp_surname':
-                        dataJson.sEmp_surname = textSearch;
-
-                        break;
-                    case 'sEmp_document':
-                        dataJson.sEmp_document = textSearch;
-
-                        break;
-                    case 'sEmp_mail':
-                        dataJson.sEmp_mail = textSearch;
-
-                        break;
-                    case 'sRol_name':
-                        dataJson.sEmp_mail = textSearch;
-
-                        break;
-                }
-
-                enableButton(0);
-                _getList();
-            }
-
-        }
-        else {
-            dataJson.bEmp_type_select = true;
-            enableButton(0);
-            _getList();
-        }
-    }
-    textInfoForm.text("");
-    e.preventDefault();
-}
-//Fuction search employeed delete 
-function searchEmployeeDelete(e) {
-    let listSelection = $('#listSearchEmployeeDelete').val();
-    let textSearch = $("#emp_search_delete").val();
-    typeTatble = 1;
-    let bValidate = true;
-    if (listSelection == null) {
+    typeTatble = 4;
+    if (list == null) {
         textInfoForm.text("Verifique la lista de busqueda");
         bValidate = false;
     }
@@ -449,7 +462,7 @@ function searchEmployeeDelete(e) {
 
     if (bValidate) {
         dataJson.bEmp_type_select = false;
-        switch (listSelection) {
+        switch (list) {
 
             case 'sEmp_document':
                 dataJson.sEmp_document = textSearch;
@@ -459,10 +472,16 @@ function searchEmployeeDelete(e) {
                 dataJson.sEmp_mail = textSearch;
 
                 break;
+
         }
-        enableButton(0)
-        _getList();
+
+        enableButton(0);
+        //console.log(dataJson);
+        textInfoForm.text("");
+        _getListEmployee();
+
     }
+
     e.preventDefault();
 }
 
@@ -506,35 +525,3 @@ function deleteEmployeed(id, e) {
 
 }
 
-
-function loadSelect() {
-    createSelctHtml(objectEmployeeList[0], 'iRol_id', 'sRol_name');
-    createSelctHtml(objectEmployeeList[1], 'iBra_buis_id', 'sBra_buis_name');
-    createSelctHtml(objectEmployeeList[2], 'sEmp_permission', 'sPer_name');
-}
-function enableButton(data) {
-    if (data == 0) {
-        $('.collapsible-header').css('display', 'none');
-        $('.collapsible').css('display', 'none');
-        $('button').prop('disabled', true);
-    } else {
-        $('button').prop('disabled', false);
-        $('.collapsible').css('display', 'block');
-        $('.collapsible-header').css('display', 'block');
-    }
-}
-function viewContSearch(form) {
-
-    let cont = $('#contSearchEmployee');
-    disableEnableElementInput(form, 1);
-    if (cont.is(':visible')) {
-        cont.slideUp("slow", function () {
-            cont.css('display','none');
-        });
-    } else {
-        cont.fadeIn("slow", function () {
-            cont.slideDown("slow");
-        });
-       
-    }
-}

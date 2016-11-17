@@ -32,10 +32,7 @@ $(document).ready(function () {
     dataJson.iBra_buis_id = 1;
     dataJson.bEmp_type_select = true;
     typeTatble = 0;
-    //_getList();
-    //_getListRol();
-    //_getListBraBusiness();
-    //_loadView();
+
 
 
 });
@@ -529,53 +526,6 @@ function _getEmployee() {
             // alert(errorMessage.responseText);
 
             alert("Se presento un inconveniente en  la comunicación ");
-        }
-    });
-}
-//Function get role
-function _getListRol() {
-    //debugger;
-    $.ajax({
-        url: "/Employee/ListRole",
-        cache: false,
-        type: "GET",
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function (result) {
-            let select = $('#iRol_id');
-            select.append('<option value="" disabled selected>Elija su opción</option>');
-            $.each(result, function (val, item) {
-                select.append('<option value="' + item.iRol_id + '">' + item.sRol_name + '</option>');
-            });
-            select.material_select();
-        },
-        error: function (errorMessage) {
-            alert(errorMessage.responseText);
-        }
-    });
-}
-//Function get role
-function _getListBraBusiness() {
-
-    let obj = new Object();
-    obj.iBus_id = 1;
-    $.ajax({
-        url: "/Business/ListBraBusiness",
-        cache: false,
-        type: "GET",
-        contentType: "application/json; charset=utf-8",
-        data: obj,
-        dataType: "json",
-        success: function (result) {
-            let select = $('#iBra_buis_id');
-            select.append('<option value="" disabled selected>Elija su opción</option>');
-            $.each(result, function (val, item) {
-                select.append('<option value="' + item.iBra_buis_id + '">' + item.sBra_buis_name + '</option>');
-            });
-            select.material_select();
-        },
-        error: function (errorMessage) {
-            alert(errorMessage.responseText);
         }
     });
 }

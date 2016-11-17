@@ -402,6 +402,19 @@ warning 6002: The table/view 'Project_Visit.sys.database_firewall_rules' does no
           <Parameter Name="iEmp_id" Type="int" Mode="In" />
           <Parameter Name="sEmp_document" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="PR_INSERT_UPDATE_CLIENT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="sCli_bus_name" Type="varchar" Mode="In" />
+          <Parameter Name="sCli_bus_document" Type="varchar" Mode="In" />
+          <Parameter Name="sCli_bus_type" Type="varchar" Mode="In" />
+          <Parameter Name="iCit_id" Type="int" Mode="In" />
+          <Parameter Name="iEmp_id" Type="int" Mode="In" />
+          <Parameter Name="sBra_off_phone" Type="varchar" Mode="In" />
+          <Parameter Name="sBra_off_address" Type="varchar" Mode="In" />
+          <Parameter Name="sBra_com_name" Type="varchar" Mode="In" />
+          <Parameter Name="sBra_com_phone" Type="varchar" Mode="In" />
+          <Parameter Name="sBra_com_mail" Type="varchar" Mode="In" />
+          <Parameter Name="sBra_com_mail2" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="PR_INSET_UPDATE_EMPLOYEE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="iRol_id" Type="int" Mode="In" />
           <Parameter Name="iBra_buis_id" Type="int" Mode="In" />
@@ -420,6 +433,13 @@ warning 6002: The table/view 'Project_Visit.sys.database_firewall_rules' does no
           <Parameter Name="sEmp_per" Type="varchar" Mode="In" />
           <Parameter Name="sEmp_photo" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="PR_SEARCH_CLIENT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdBusiness" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PR_SEARCH_CLIENT_SELECTION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdBusiness" Type="varchar" Mode="In" />
+          <Parameter Name="NomBusiness" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="PR_SEARCH_EMPLOYEE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="State" Type="bit" Mode="In" />
           <Parameter Name="IdBusiness" Type="int" Mode="In" />
@@ -436,6 +456,9 @@ warning 6002: The table/view 'Project_Visit.sys.database_firewall_rules' does no
         <Function Name="PR_UPADTE_STATE_EMPLOYEE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="iEmp_id" Type="int" Mode="In" />
           <Parameter Name="sEmp_document" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PR_UPDATE_STATE_CLIENT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="iCli_bus_document" Type="varchar" Mode="In" />
         </Function>
         <EntityContainer Name="Project_Visit_ModelStoreContainer">
           <EntitySet Name="BRANCH_COMPANY" EntityType="Self.BRANCH_COMPANY" Schema="dbo" store:Type="Tables" />
@@ -1077,6 +1100,29 @@ FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery
             <Parameter Name="iEmp_id" Mode="In" Type="Int32" />
             <Parameter Name="sEmp_document" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="PR_INSERT_UPDATE_CLIENT" ReturnType="Collection(String)">
+            <Parameter Name="sCli_bus_name" Mode="In" Type="String" />
+            <Parameter Name="sCli_bus_document" Mode="In" Type="String" />
+            <Parameter Name="sCli_bus_type" Mode="In" Type="String" />
+            <Parameter Name="iCit_id" Mode="In" Type="Int32" />
+            <Parameter Name="iEmp_id" Mode="In" Type="Int32" />
+            <Parameter Name="sBra_off_phone" Mode="In" Type="String" />
+            <Parameter Name="sBra_off_address" Mode="In" Type="String" />
+            <Parameter Name="sBra_com_name" Mode="In" Type="String" />
+            <Parameter Name="sBra_com_phone" Mode="In" Type="String" />
+            <Parameter Name="sBra_com_mail" Mode="In" Type="String" />
+            <Parameter Name="sBra_com_mail2" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PR_SEARCH_CLIENT" ReturnType="Collection(Project_Visit_Model.PR_SEARCH_CLIENT_Result)">
+            <Parameter Name="IdBusiness" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PR_SEARCH_CLIENT_SELECTION" ReturnType="Collection(Project_Visit_Model.PR_SEARCH_CLIENT_SELECTION_Result)">
+            <Parameter Name="IdBusiness" Mode="In" Type="String" />
+            <Parameter Name="NomBusiness" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PR_UPDATE_STATE_CLIENT" ReturnType="Collection(Int32)">
+            <Parameter Name="iCli_bus_document" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="PR_SEARCH_EMPLOYEE_Result">
           <Property Type="Int32" Name="EMP_ID" Nullable="false" />
@@ -1114,6 +1160,22 @@ FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery
           <Property Type="Int32" Name="ROL_ID" Nullable="false" />
           <Property Type="String" Name="ROL_NAME" Nullable="false" MaxLength="255" />
           <Property Type="String" Name="EMP_PER" Nullable="false" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="PR_SEARCH_CLIENT_Result">
+          <Property Type="String" Name="CLI_BUS_NAME" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="CLI_BUS_DOCUMENT" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="CIT_NAME" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="CONT_NAME" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="BRA_OFF_ADDRESS" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="BRA_OFF_PHONE" Nullable="false" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="PR_SEARCH_CLIENT_SELECTION_Result">
+          <Property Type="String" Name="CLI_BUS_NAME" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="CLI_BUS_DOCUMENT" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="CIT_NAME" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="CONT_NAME" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="BRA_OFF_ADDRESS" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="BRA_OFF_PHONE" Nullable="false" MaxLength="255" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1378,6 +1440,32 @@ FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="PR_UPADTE_STATE_EMPLOYEE" FunctionName="Project_Visit_Model.Store.PR_UPADTE_STATE_EMPLOYEE" />
+          <FunctionImportMapping FunctionImportName="PR_INSERT_UPDATE_CLIENT" FunctionName="Project_Visit_Model.Store.PR_INSERT_UPDATE_CLIENT" />
+          <FunctionImportMapping FunctionImportName="PR_SEARCH_CLIENT" FunctionName="Project_Visit_Model.Store.PR_SEARCH_CLIENT">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Project_Visit_Model.PR_SEARCH_CLIENT_Result">
+                <ScalarProperty Name="CLI_BUS_NAME" ColumnName="CLI_BUS_NAME" />
+                <ScalarProperty Name="CLI_BUS_DOCUMENT" ColumnName="CLI_BUS_DOCUMENT" />
+                <ScalarProperty Name="CIT_NAME" ColumnName="CIT_NAME" />
+                <ScalarProperty Name="CONT_NAME" ColumnName="CONT_NAME" />
+                <ScalarProperty Name="BRA_OFF_ADDRESS" ColumnName="BRA_OFF_ADDRESS" />
+                <ScalarProperty Name="BRA_OFF_PHONE" ColumnName="BRA_OFF_PHONE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PR_SEARCH_CLIENT_SELECTION" FunctionName="Project_Visit_Model.Store.PR_SEARCH_CLIENT_SELECTION">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Project_Visit_Model.PR_SEARCH_CLIENT_SELECTION_Result">
+                <ScalarProperty Name="CLI_BUS_NAME" ColumnName="CLI_BUS_NAME" />
+                <ScalarProperty Name="CLI_BUS_DOCUMENT" ColumnName="CLI_BUS_DOCUMENT" />
+                <ScalarProperty Name="CIT_NAME" ColumnName="CIT_NAME" />
+                <ScalarProperty Name="CONT_NAME" ColumnName="CONT_NAME" />
+                <ScalarProperty Name="BRA_OFF_ADDRESS" ColumnName="BRA_OFF_ADDRESS" />
+                <ScalarProperty Name="BRA_OFF_PHONE" ColumnName="BRA_OFF_PHONE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PR_UPDATE_STATE_CLIENT" FunctionName="Project_Visit_Model.Store.PR_UPDATE_STATE_CLIENT" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

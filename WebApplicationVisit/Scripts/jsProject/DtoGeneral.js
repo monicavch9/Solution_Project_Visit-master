@@ -57,7 +57,7 @@ function _loadViewObject(select)
             objectCliJson.sCli_bus_name= "";
             objectCliJson.sCli_bus_document = "";
             objectCliJson.sCli_bus_type = "";
-            objectCliJson.iCli_state = "";
+            objectCliJson.iCli_state =0;
 
            
             objectCliJson.sCit_name  = "";

@@ -107,7 +107,7 @@
     <!--Start Container-->
     <div class="row">
         <!--Start data -->
-        <div id="contIdBusiness"><input type="text" id="iCli_state" value="true"></div>
+        <div id="contIdBusiness"><input type="text" id="iCli_state" value="true"><input type="text" id="iEmp_id" value=1><input type="text" id="bBra_off_state" value="true"></div>
         <!--End data-->
         <!--Start Menu Side-->
         <div class="col l2 hide-on-small-only hide-on-med-only">
@@ -154,7 +154,7 @@
             <div id="form0_0" class="form_select">
                 <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
                 <!--Form search-->
-                <form class="col s12  m12 l12" onsubmit="searchEmployee(event)">
+                <form class="col s12  m12 l12" onsubmit="searchClient(event)">
                     <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
                     <div class="row">
                         <!--Start Elements -->
@@ -163,13 +163,14 @@
                                 <option value="" disabled selected>Elija su opción</option>
                                 <option value="sCli_bus_name">Nombre</option>
                                 <option value="sCli_bus_document">Nit</option>
+                                <option value="all">Todos</option>
                             </select>
                             <label>Seleccione Búsqueda</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s10 m7 l7">
-                            <input id="cli_search" type="text" class="validate" required>
+                            <input id="cli_search" type="text" class="validate">
                             <label for="cli_search">Digite el valor a buscar</label>
                         </div>
                         <!--End Elements -->
@@ -188,7 +189,7 @@
                 <!--Start Table result search-->
                 <div class="row">
                     <!--Start Table-->
-                    <div class="col s12 m12 l12" id="listEmployee">
+                    <div class="col s12 m12 l12" id="listClient">
                         <table class="responsive-table highlight">
                             <thead>
                                 <tr>
@@ -254,7 +255,7 @@
                 </div>
                 <!--End cont search-->
                 <!--The onSubmit is responsible for executing the function to validate the text boxes correctly before sending data-->
-                <form class="col s12  m12 l12" id="formCreateUpdate" onsubmit="validateTextBox(event,this.id)">
+                <form class="col s12  m12 l12" id="form_create_update_0_1" onsubmit="validateTextBox(event,this.id)">
                     <!-- Start Elements inputto remember: Elements unique with id of Button and input-->
                     <div class="row">
                         <!--Start Elements -->
@@ -274,7 +275,7 @@
                         <!--Start Elements -->
                         <div class="input-field col s12 m6 l4">
                             <i class="material-icons prefix">contact_phone</i>
-                            <input id="sBra_off_phone" type="tel" class="validate" required>
+                            <input id="sBra_off_phone" type="tel"  pattern="^\d{7,10}" class="validate" required>
                             <label for="sBra_off_phone">Teléfono</label>
                         </div>
                         <!--End Elements --> 
@@ -310,7 +311,7 @@
                         <div class="input-field col s12 m6 l4">
                             <i class="material-icons prefix">email</i>
                             <input id="sBra_com_mail2" type="email" class="validate">
-                            <label for="sBra_com_mail">Email 2 del Contacto</label>
+                            <label for="sBra_com_mail2">Email 2 del Contacto</label>
                         </div>
                         <!--End Elements -->  
                         <!--Start Elements -->
@@ -340,14 +341,14 @@
                         <!--Start Elements -->
                         <div class="input-field col s12 m4 l2">
                            
-                            <input  id="sEmp_document" type="text" class="validate disabled">
+                            <input  id="sEmp_document" type="text" class="validate disabled" required>
                             <label for="sEmp_document">Documento empleado</label>
                         </div>
                         <!--End Elements -->
                         <!--Start Elements -->
                         <div class="input-field col s12 m2 l2">
                             <div class="card-action center">
-                                <button id="btn_search_employee" class="btn-floating waves-effect waves-light" type="button" onclick="viewContSearch('formSearchEmployee')" name="action">
+                                <button id="btn_search_view" class="btn-floating waves-effect waves-light" type="button" onclick="viewContSearch('formSearchEmployee')" name="action">
                                     <i class="material-icons right" href="#contSearchEmployee">search</i>
                                 </button>    
                             </div>
@@ -376,10 +377,9 @@
                     <form class="col s12  m12 l12" id="formSearchEmployee" onsubmit="searchEmployee(event)">
                         <!--Start search employee -->
                         <div class="row">
-
                             <!--Start Elements -->
                             <div class="input-field col s12 m3 l2">
-                                <select id="selectSearchEmployee">  
+                                <select id="ListSearchEmployee">  
                                     <option value="" disabled selected>Elija su opción</option>
                                     <option value='sEmp_document'>Documento</option>
                                     <option value='sEmp_mail'>Email</option>
@@ -388,10 +388,9 @@
                             </div>
                             <!--End Elements -->
                             <!--Start Elements -->
-                            <div class="input-field col s12 m6 l7">
-                                <i class="material-icons prefix">perm_identity</i>
-                                <input id="sBra_search_employee" type="text" class="validate" required>
-                                <label for="sBra_search_employee">Digite dato a buscar</label>
+                            <div class="input-field col s10 m7 l7">
+                                <input id="search_employee" type="text" class="validate" required>
+                                <label for="search_employee">Digite el dato a buscar</label>
                             </div>
                             <!--End Elements -->
                             <div class="col s12 m3 l3">
@@ -406,7 +405,9 @@
 
                         </div>
                     </form>
-                        <!--Emd search employee-->
+
+    
+                        <!--End search employee-->
                         <!--Start Table result search-->
                         <div class="row">
                             <!--Start Table-->

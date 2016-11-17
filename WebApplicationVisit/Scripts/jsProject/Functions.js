@@ -15,6 +15,17 @@ $(document).ready(function () {
 
 
 })
+function enableButton(data) {
+    if (data == 0) {
+        $('.collapsible-header').css('display', 'none');
+        $('.collapsible').css('display', 'none');
+        $('button').prop('disabled', true);
+    } else {
+        $('button').prop('disabled', false);
+        $('.collapsible').css('display', 'block');
+        $('.collapsible-header').css('display', 'block');
+    }
+}
 
 //Function select Item 
 function selectionItem(item) {
@@ -236,7 +247,8 @@ function clearInput(get_from) {
     let fromI = $(get_from + ' form i');
     fromI.removeClass('active'); 
 }
-//Function clear input 
+
+
 //Function clear input 
 function disableEnableInput(dataForm, type) {
 
@@ -277,7 +289,7 @@ function disableEnableInput(dataForm, type) {
     fromPassword.prop('disabled', fromSelect);
 
     $('.disabled').prop('disabled', fromSelect);
-
+    cleanTable();
 
 }
 //Function clear elements input form  
@@ -320,7 +332,7 @@ function disableEnableElementInput(dataForm, type) {
     let fromSelect = $(get_from + ' form select');
     fromSelect.prop('disabled', selectValidate);
  
-
+    cleanTable();
 }
 
 //Fuction clear table 
@@ -424,6 +436,34 @@ function createTable(data) {
             
         }
          
+    }
+    else if (typeTatble == 3) {
+        $.each(data, function (key, item) {
+            html += '<tr>';
+            html += '<td>' + item.sCli_bus_name + '</td>';
+            html += '<td>' + item.sCli_bus_document + '</td>';
+            html += '<td>' + item.sCit_name + '</td>';
+            html += '<td>' + item.sCont_name + '</td>';
+            html += '<td>' + item.sBra_off_address + '</td>';
+            html += '<td>' + item.sBra_off_phone + '</td>';
+            html += '</tr>';
+        });
+        $('#listClient  tbody').html(html);
+
+    }
+    else if (typeTatble == 4) {
+        $.each(data, function (key, item) {
+            html += '<tr>';
+            html += '<td>' + item.sRol_name + '</td>';
+            html += '<td>' + item.sEmp_name + '</td>';
+            html += '<td>' + item.sEmp_surname + '</td>';
+            html += '<td>' + item.sEmp_document + '</td>';
+            html += '<td>' + item.sEmp_phone + '</td>';
+            html += '<td><button class="btn-floating waves-effect waves-light default" type="button" name="action" onclick=" selectDocument(' + item.sEmp_document + ',' + item.iEmp_id + ')"><i class="material-icons right">verified_user</i></button></td>';
+            html += '</tr>';
+        });
+        $('#listEmployeeSearch  tbody').html(html);
+
     }
 }
 //Function  clean table 
@@ -609,7 +649,7 @@ function formInputSelect(form) {
         // For debugging purposes...
         let getId = $("#" + $(this).attr('id'));
         let text = getId.val();
-        console.log(typeof text);
+       
         if (text != null) {
             if (text.length == 0) {
                 validate = false;

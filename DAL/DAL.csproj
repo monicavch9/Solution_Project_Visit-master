@@ -103,6 +103,12 @@
       <DependentUpon>Model_Visit.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PR_SEARCH_CLIENT_Result.cs">
+      <DependentUpon>Model_Visit.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PR_SEARCH_CLIENT_SELECTION_Result.cs">
+      <DependentUpon>Model_Visit.tt</DependentUpon>
+    </Compile>
     <Compile Include="PR_SEARCH_EMPLOYEE_Result.cs">
       <DependentUpon>Model_Visit.tt</DependentUpon>
     </Compile>

@@ -186,5 +186,85 @@ namespace DAL
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("PR_UPADTE_STATE_EMPLOYEE", iEmp_idParameter, sEmp_documentParameter);
         }
+    
+        public virtual ObjectResult<string> PR_INSERT_UPDATE_CLIENT(string sCli_bus_name, string sCli_bus_document, string sCli_bus_type, Nullable<int> iCit_id, Nullable<int> iEmp_id, string sBra_off_phone, string sBra_off_address, string sBra_com_name, string sBra_com_phone, string sBra_com_mail, string sBra_com_mail2)
+        {
+            var sCli_bus_nameParameter = sCli_bus_name != null ?
+                new ObjectParameter("sCli_bus_name", sCli_bus_name) :
+                new ObjectParameter("sCli_bus_name", typeof(string));
+    
+            var sCli_bus_documentParameter = sCli_bus_document != null ?
+                new ObjectParameter("sCli_bus_document", sCli_bus_document) :
+                new ObjectParameter("sCli_bus_document", typeof(string));
+    
+            var sCli_bus_typeParameter = sCli_bus_type != null ?
+                new ObjectParameter("sCli_bus_type", sCli_bus_type) :
+                new ObjectParameter("sCli_bus_type", typeof(string));
+    
+            var iCit_idParameter = iCit_id.HasValue ?
+                new ObjectParameter("iCit_id", iCit_id) :
+                new ObjectParameter("iCit_id", typeof(int));
+    
+            var iEmp_idParameter = iEmp_id.HasValue ?
+                new ObjectParameter("iEmp_id", iEmp_id) :
+                new ObjectParameter("iEmp_id", typeof(int));
+    
+            var sBra_off_phoneParameter = sBra_off_phone != null ?
+                new ObjectParameter("sBra_off_phone", sBra_off_phone) :
+                new ObjectParameter("sBra_off_phone", typeof(string));
+    
+            var sBra_off_addressParameter = sBra_off_address != null ?
+                new ObjectParameter("sBra_off_address", sBra_off_address) :
+                new ObjectParameter("sBra_off_address", typeof(string));
+    
+            var sBra_com_nameParameter = sBra_com_name != null ?
+                new ObjectParameter("sBra_com_name", sBra_com_name) :
+                new ObjectParameter("sBra_com_name", typeof(string));
+    
+            var sBra_com_phoneParameter = sBra_com_phone != null ?
+                new ObjectParameter("sBra_com_phone", sBra_com_phone) :
+                new ObjectParameter("sBra_com_phone", typeof(string));
+    
+            var sBra_com_mailParameter = sBra_com_mail != null ?
+                new ObjectParameter("sBra_com_mail", sBra_com_mail) :
+                new ObjectParameter("sBra_com_mail", typeof(string));
+    
+            var sBra_com_mail2Parameter = sBra_com_mail2 != null ?
+                new ObjectParameter("sBra_com_mail2", sBra_com_mail2) :
+                new ObjectParameter("sBra_com_mail2", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("PR_INSERT_UPDATE_CLIENT", sCli_bus_nameParameter, sCli_bus_documentParameter, sCli_bus_typeParameter, iCit_idParameter, iEmp_idParameter, sBra_off_phoneParameter, sBra_off_addressParameter, sBra_com_nameParameter, sBra_com_phoneParameter, sBra_com_mailParameter, sBra_com_mail2Parameter);
+        }
+    
+        public virtual ObjectResult<PR_SEARCH_CLIENT_Result> PR_SEARCH_CLIENT(string idBusiness)
+        {
+            var idBusinessParameter = idBusiness != null ?
+                new ObjectParameter("IdBusiness", idBusiness) :
+                new ObjectParameter("IdBusiness", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PR_SEARCH_CLIENT_Result>("PR_SEARCH_CLIENT", idBusinessParameter);
+        }
+    
+        public virtual ObjectResult<PR_SEARCH_CLIENT_SELECTION_Result> PR_SEARCH_CLIENT_SELECTION(string idBusiness, string nomBusiness)
+        {
+            var idBusinessParameter = idBusiness != null ?
+                new ObjectParameter("IdBusiness", idBusiness) :
+                new ObjectParameter("IdBusiness", typeof(string));
+    
+            var nomBusinessParameter = nomBusiness != null ?
+                new ObjectParameter("NomBusiness", nomBusiness) :
+                new ObjectParameter("NomBusiness", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PR_SEARCH_CLIENT_SELECTION_Result>("PR_SEARCH_CLIENT_SELECTION", idBusinessParameter, nomBusinessParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> PR_UPDATE_STATE_CLIENT(string iCli_bus_document)
+        {
+            var iCli_bus_documentParameter = iCli_bus_document != null ?
+                new ObjectParameter("iCli_bus_document", iCli_bus_document) :
+                new ObjectParameter("iCli_bus_document", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("PR_UPDATE_STATE_CLIENT", iCli_bus_documentParameter);
+        }
     }
 }

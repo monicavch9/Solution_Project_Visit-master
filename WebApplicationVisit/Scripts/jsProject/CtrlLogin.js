@@ -14,6 +14,7 @@ var password;
 $(document).ready(function () {
  
     $('.modal-trigger').leanModal();
+    _loadViewObject(0);
 });
 //Send Login ajax C#
 function sendLogin(model) {
@@ -31,16 +32,12 @@ function sendLogin(model) {
  
                console.log(result);
                 StorageLogin(result[0]);
-                /*$.each(result[0], function (i, item) {
-                    console.log("-" + i);
-                    console.log("/t-" + item);
-
-                });
-                */
+                enableButton(1);
             }
             else {
                 alert("Error usuario o contraseña son  incorrectos");
                 clearTextBox();
+                enableButton(1);
             }
 
         },
@@ -100,12 +97,11 @@ function validateLogin(e) {
     }
     
     if (bValidate) {
-        let dataJson = {
-            sEmp_mail: user,
-            sEmp_password: password,
-        }
-      
-        sendLogin(JSON.stringify(dataJson));
+        objectEmployeeJson.sEmp_mail = user;
+        objectEmployeeJson.sEmp_password = password;
+        enableButton(0);
+     
+        sendLogin(objectEmployeeJson);
     }
     else {
         alert("Verifique los datos ingresados ");
@@ -125,18 +121,10 @@ function validateResetLogin(e) {
         bValidate = false;
     }
   
- 
-
     if (bValidate) {
 
-        let dataJson = {
-            sEmp_mail: userReset,
-
-        }
-        console.log(dataJson);
-
-
-        sendResetPassword(JSON.stringify(dataJson));
+        objectEmployeeJson.sEmp_mail = user;
+        sendResetPassword(objectEmployeeJson);
     }
 
     else {
