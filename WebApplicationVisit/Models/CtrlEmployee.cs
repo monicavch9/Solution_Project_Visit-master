@@ -246,14 +246,11 @@ namespace Aplication_Visit.Models
                                     where empl.EMP_MAIL == emp.sEmp_mail && empl.EMP_STATE == true
                                     select new DtoEmployee()
                                     {
-
-
                                         iEmp_id = empl.EMP_ID,
                                         bemp_state = empl.EMP_STATE,
                                         sEmp_name = empl.EMP_NAME,
                                         sEmp_surname = empl.EMP_SURNAME,
                                         sEmp_mail = empl.EMP_MAIL
-
                                     }
                                     ).ToList();
 

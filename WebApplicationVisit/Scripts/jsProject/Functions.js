@@ -157,7 +157,6 @@ function redirection() {
     window.location.assign("/Login/Index");
     sessionStorage.removeItem("dataUser");
     sessionStorage.removeItem("session");
- 
 }
 //Function no back button 
 function nobackbutton() {
@@ -205,9 +204,8 @@ function StorageLogin(data) {
         // Store
         sessionStorage.setItem("dataUser", JSON.stringify(data));
         sessionStorage.setItem("session", "TRUE");
-        clearTextBox();
        window.location.assign("/Home/Home");
-   
+    
 
     } else {
         // Sorry! No Web Storage support..

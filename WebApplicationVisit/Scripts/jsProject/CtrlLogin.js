@@ -30,7 +30,6 @@ function sendLogin(model) {
         success: function (result) {
             if (result.length > 0) {
                 StorageLogin(result[0]);
-                enableButton(1);
                 textInfoForm.text("");
             } else {
                 textInfoForm.text("No se encontraron datos");
@@ -53,22 +52,23 @@ function sendResetPassword(model) {
     $.ajax({
         url: '/Login/ResetPasswordEmployee',
         cache: false,
-        type: 'POST',
+        type: 'GET',
         data: model,
         dataType: "json",
-        contentType: "application/json",
+        contentType: "application/json; charset=utf-8",
         success: function (result) {
-   
-           // console.log(result);
-            $('#textAnswerResetPassword').text(result);
-            setTimeout(function () { redirection(); }, 5000);
-            clearTextBox();
-
+                
+                textInfoForm.text(result);
+                clearTextBox();
+                setTimeout(function () {
+                    redirection();
+                    enableButton(1);
+                }, 3000);
                 
 
         },
         error: function (response) {
-            debugger;
+          
             alert(response.responseText);
             
 
@@ -107,7 +107,7 @@ function validateLogin(e) {
 }
 //Validate Text Login
 function validateResetLogin(e) {
-
+    //debugger;
     let bValidate = true;
     var userReset = $('#ResetPassword').val();
     var textAnswer = $('#textAnswerResetPassword').val();
@@ -119,15 +119,16 @@ function validateResetLogin(e) {
   
     if (bValidate) {
 
-        objectEmployeeJson.sEmp_mail = user;
+        objectEmployeeJson.sEmp_mail = userReset;
+        enableButton(0);
         sendResetPassword(objectEmployeeJson);
+   
     }
-
     else {
-        alert("Verifique los datos ingresados ");
+        textAnswer.text("Verifique los datos ingresados ");
     }
 
-    debugger;
+    //debugger;
     e.preventDefault();
 }
 function clearTextBox() {
